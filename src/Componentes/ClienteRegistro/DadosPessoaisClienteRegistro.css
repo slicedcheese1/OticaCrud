@@ -54,7 +54,7 @@
 
 .gp2{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .gp2-1{
@@ -69,7 +69,7 @@
 
 .gp3{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
 }
 
@@ -79,4 +79,14 @@
 
 .gp3-2{
     width: 80%;
+}
+
+.gp3-3{
+    width: 80%;
+}
+
+.gp4{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
 }
