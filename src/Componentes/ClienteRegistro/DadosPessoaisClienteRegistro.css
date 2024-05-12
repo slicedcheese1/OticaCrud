@@ -2,11 +2,13 @@
     border: 2px solid #15171c;
     width: 100%;
     padding: 1rem;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 .formBox{
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     gap: 1rem;
+ 
 }
 
 

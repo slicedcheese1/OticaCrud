@@ -1,11 +1,11 @@
-import './ClienteRegistro.css'
+import './DadosPessoaisClienteRegistro.css'
 
 function DadosPessoaisClienteRegistro() {
     return (
       <>
       
       <div className="card">
-        <h3>Novo cliente - Dados Pessoais</h3>
+        <h3>Dados Pessoais</h3>
         <hr />
 
         <form action="" className='formBox'>
@@ -30,9 +30,12 @@ function DadosPessoaisClienteRegistro() {
             </div>
             
           </div>
+          
         </form>
+    
       </div>
-      
+      <br/>
+      <br/>
       </>
     )
   }
