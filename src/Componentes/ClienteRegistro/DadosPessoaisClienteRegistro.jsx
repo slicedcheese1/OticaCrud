@@ -142,7 +142,7 @@ function DadosPessoaisClienteRegistro() {
               <div className="gp3"> 
                 <div className='gp3-1 column-flex-box gap1'>
                   <label for='CNPJ'>CNPJ</label>
-                  <input type="text" name='CNPJ' />
+                  <ReactInputMask mask ="99.999.999/9999-99" type="text" name='CNPJ' />
                 </div>
               </div>
             )}
