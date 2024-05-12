@@ -1,20 +1,13 @@
-import DadosEndereçoClienteRegistro from "../Componentes/ClienteRegistro/DadosEndreçoClienteRegistro"
-import DadosObservacoesClienteRegistro from "../Componentes/ClienteRegistro/DadosObservacoesClienteRegistro"
-import DadosPessoaisClienteRegistro from "../Componentes/ClienteRegistro/DadosPessoaisClienteRegistro"
+import React from 'react'
+import ClienteBotoes from '../Componentes/ClienteDashboard/ClienteBotoes'
 
 
-function Clientes() {
-  
-    return (
-      <>
-       <div className="container">
-        <DadosPessoaisClienteRegistro/>
-        <DadosEndereçoClienteRegistro/>
-        <DadosObservacoesClienteRegistro/>
-       </div>
-      </>
-    )
-  }
-  
-  export default Clientes
-  
+const Clientes = () => {
+  return (
+    <div>
+        <ClienteBotoes/>
+    </div>
+  )
+}
+
+export default Clientes

@@ -10,7 +10,6 @@ function DadosEndereçoClienteRegistro() {
 
         <form action="" className='formBox'>
            <label>CEP</label>
-           
              <input
               type = "text"
               placeholder="Insira o CEP do cliente"

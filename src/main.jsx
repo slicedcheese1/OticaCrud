@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
-import Clientes from './Pages/Cliente.jsx'
+import Clientes from './Pages/ClienteCadastro.jsx'
 import ClienteBusca from './Pages/ClienteBusca.jsx'
+import ClienteCadastro from './Pages/ClienteCadastro.jsx'
+import ClienteDashboard from './Pages/Cliente.jsx'
+
 
 
 const router = createBrowserRouter([
@@ -15,12 +18,17 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/Clientes",
-        element: <Clientes/>
+        element: <ClienteDashboard/>
       },
       {
-        path: "/Sexo",
+        path: "/ClienteCadastro",
+        element: <ClienteCadastro/>
+      },
+      {
+        path: "/ClienteBusca",
         element: <ClienteBusca/>
       },
+      
     ]
   },
 

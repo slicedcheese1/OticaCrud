@@ -1,11 +1,13 @@
-import React from 'react'
 
-const ClienteBusca = () => {
+function ClienteBusca() {
+  
+
   return (
-    <div>
-      <h1> Sexo </h1>
-    </div>
+    <>
+     <h1>Busca de clientes</h1>
+    </>
   )
 }
 
 export default ClienteBusca
+
