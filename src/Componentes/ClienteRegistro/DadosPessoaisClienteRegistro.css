@@ -21,9 +21,15 @@
     border: 2px solid #15171c;
     width: 100%;
     padding: 1rem;
+    transition: 300ms ease-in-out;
+    animation: opacity 800ms;
 }
 
-
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+}
 
 .formBox{
     padding: 1rem;
