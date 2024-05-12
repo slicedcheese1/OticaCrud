@@ -1,13 +1,15 @@
 import { Outlet } from 'react-router-dom'
 import Sidebar from './Menu/Sidebar'
+import './App.css'
 
 function App() {
-  
 
   return (
     <>
      <Sidebar/>
-     <div> <Outlet/> </div>
+     <div className='Container'>
+       <Outlet/> 
+      </div>
     </>
   )
 }

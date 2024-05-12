@@ -1,10 +1,12 @@
+import DadosPessoaisClienteRegistro from "../Componentes/ClienteRegistro/DadosPessoaisClienteRegistro"
 
 function Clientes() {
   
-
     return (
       <>
-       <h1>Clientes</h1>
+       <div className="container">
+        <DadosPessoaisClienteRegistro/>
+       </div>
       </>
     )
   }
