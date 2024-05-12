@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ClienteDashboard = () => {
+const ClienteBotoes = () => {
   return (
     <div>
          <a href='http://localhost:5173/clienteCadastro/'><button>Cadastro de Clientes</button></a>
@@ -9,4 +9,4 @@ const ClienteDashboard = () => {
   )
 }
 
-export default ClienteDashboard
+export default ClienteBotoes
