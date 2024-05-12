@@ -6,10 +6,13 @@ function App() {
 
   return (
     <>
-     <Sidebar/>
-     <div className='Container'>
-       <Outlet/> 
-      </div>
+    
+    <Sidebar/>
+    <div className='Container'>
+      <Outlet/> 
+    </div>
+    
+     
     </>
   )
 }
