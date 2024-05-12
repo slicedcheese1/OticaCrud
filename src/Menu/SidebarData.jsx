@@ -6,7 +6,7 @@ import * as RiIcons from 'react-icons/ri';
  export const SidebarData = [
   {
     title: 'Clientes',
-    path: '/Overview',
+    path: '/clientes',
     icon: <IoIcons.IoMdHelpCircle  />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -14,7 +14,7 @@ import * as RiIcons from 'react-icons/ri';
   },
   {
     title: 'Produtos',
-    path: '/reports',
+    path: '/produtos',
     icon: <IoIcons.IoMdHelpCircle  />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,

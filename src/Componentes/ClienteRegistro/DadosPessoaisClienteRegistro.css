@@ -75,7 +75,7 @@
 
 .gp2{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .gp2-1{
@@ -90,7 +90,7 @@
 
 .gp3{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
 }
 
@@ -100,5 +100,18 @@
 
 .gp3-2{
     width: 80%;
+<<<<<<< HEAD
 >>>>>>> 8397bef24f8c72e4f109a4c44c0640aa90b02c81
+=======
+}
+
+.gp3-3{
+    width: 80%;
+}
+
+.gp4{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+>>>>>>> eded4ec63d77d6596c8c12cff89e62bcd3ca1218
 }
