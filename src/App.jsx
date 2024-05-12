@@ -8,7 +8,7 @@ function App() {
     <>
     
     <Sidebar/>
-    <div className='Container'>
+    <div className='container'>
       <Outlet/> 
     </div>
     

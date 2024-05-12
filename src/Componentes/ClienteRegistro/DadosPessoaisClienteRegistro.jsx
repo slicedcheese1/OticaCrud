@@ -7,9 +7,19 @@ import { useState } from 'react';
 
 function DadosPessoaisClienteRegistro() {
   const [tipoCliente, setTipoCliente] = useState('pessoa-fisica'); // Initial state
+  const [cardVisible, setCardVisible] = useState(tipoCliente === 'pessoa-fisica')
 
   const handleTipoClienteChange = (event) => {
     setTipoCliente(event.target.value);
+
+    if (tipoCliente === 'pessoa-juridica') {
+      setCardVisible(true)
+
+    } else {
+      setCardVisible(false)
+    }
+    console.log(cardVisible)
+
   };
 
   return (
@@ -141,6 +151,34 @@ function DadosPessoaisClienteRegistro() {
       </form>
     </div>
     
+    {tipoCliente === 'pessoa-juridica' && (
+    <div className="card">
+      <h3>Informações Fiscais</h3>
+      <hr />
+
+      <form action="" className='formBox'>
+        <div className="gp1-box" >
+          <div className="gp3"> 
+              <div className='gp3-1 column-flex-box gap1'>
+                <label>Inscrição Estadual</label>
+                <input type="text" />
+              </div>
+
+              <div className='gp3-2 column-flex-box gap1'>
+                <label for="cpf" >Inscrição Municipal</label>
+                <input type="text" name='cpf' />
+              </div>
+
+              <div className='gp3-3 column-flex-box gap1'>
+                <label>Suframa</label>
+                <input type="text" />
+              </div>
+            </div>
+        </div>
+
+      </form>
+    </div>
+    )}
     </>
   )
   }
