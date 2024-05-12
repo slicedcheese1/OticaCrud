@@ -35,7 +35,7 @@ function DadosPessoaisClienteRegistro() {
     
       </div>
       <br/>
-      <br/>
+      
       </>
     )
   }
