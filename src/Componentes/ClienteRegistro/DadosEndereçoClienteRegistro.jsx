@@ -46,8 +46,6 @@ function DadosEndereçoClienteRegistro() {
               />
         </form>
       </div>
-      <br/>
-      <br/>
       </>
     )
   }
