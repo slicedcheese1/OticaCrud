@@ -8,17 +8,8 @@ const DadosContatoClienteRegistro = () => {
 
   const [cardTel, setCardTel] = useState([])
 
-  const handleTipoClienteChange = (event) => {
-    setTipoCliente(event.target.value);
-
-    if (tipoCliente === 'pessoa-juridica') {
-      setCardVisible(true)
-
-    } else {
-      setCardVisible(false)
-    }
-    console.log(cardVisible)
-
+  const handleCardContatoAdd = (event) => {
+    setCardTel([...cardTel, <CardContatoClienteRegistro/>]);
   };
 
   return (
@@ -29,13 +20,13 @@ const DadosContatoClienteRegistro = () => {
           <div className="card-all-infos">
             <div className="card-name-button">
               <h4 className='card-name'>Telefones</h4>
-              <div className="add-button-back">
+              <button onClick={handleCardContatoAdd} className="add-button-back">
                 <h5 className='add-button'>Adicionar</h5>
-              </div>
+              </button>
             </div>
             <hr />
             <div className="card-infos">
-              <CardContatoClienteRegistro/>
+              <h1>jdaw</h1>
             </div>
           </div>
 
