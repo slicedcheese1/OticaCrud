@@ -15,8 +15,6 @@ const DadosObservacoesClienteRegistro = () => {
         </form>
       
       </div>
-    
-    
       </>
     
   )

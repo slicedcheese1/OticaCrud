@@ -1,0 +1,35 @@
+.cardTel {
+  border: 1px solid #15171c;
+  border-radius: 20px;
+  width: 100%;
+  padding: 1rem;
+  transition: 300ms ease-in-out;
+  animation: opacity 800ms;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.num-box{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.preferences{
+  width: 50%;
+}
+
+.preferences-1{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 10px;
+}
+
+.preferences-2{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
