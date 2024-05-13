@@ -1,6 +1,7 @@
 import React from 'react'
 
 import './CardContatoClienteRegistro.css'
+import ReactInputMask from 'react-input-mask'
 
 
 const CardContatoClienteRegistro = () => {
@@ -9,7 +10,7 @@ const CardContatoClienteRegistro = () => {
     <form className="cardTel">
       <div className="num-box">
         <label htmlFor="">Número</label>
-        <input  type="tel" name="telefone" id="telefone" />
+        <ReactInputMask mask={"(99) 99999-9999"} type="tel" name="telefone" id="telefone" />
       </div>
       <div className="preferences">
         <div className="preferences-1">
