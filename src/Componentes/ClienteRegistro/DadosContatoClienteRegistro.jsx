@@ -26,7 +26,11 @@ const DadosContatoClienteRegistro = () => {
             </div>
             <hr />
             <div className="card-infos">
-              <h1>jdaw</h1>
+              <ul className='card-list'>
+                {cardTel.map( card => (
+                  <li key={card} >{card}</li>
+                ))}
+              </ul>
             </div>
           </div>
 

@@ -14,7 +14,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
-    // 3 - Pagina de Erro
     children: [
       {
         path: "/Clientes",

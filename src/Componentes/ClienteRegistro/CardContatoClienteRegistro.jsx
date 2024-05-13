@@ -3,7 +3,7 @@ import React from 'react'
 import './CardContatoClienteRegistro.css'
 
 
-const cardTelCardContatoClienteRegistro = () => {
+const CardContatoClienteRegistro = () => {
   return (
         <>
     <form className="cardTel">

@@ -5,6 +5,7 @@
     height: 200px;
     display: flex;
     flex-direction: column;
+    height: fit-content;
 }
 
 .card-name-button{
@@ -54,4 +55,11 @@
 
 .card-infos{
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.card-list{
+    list-style: none;
 }
