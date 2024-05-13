@@ -9,7 +9,7 @@ function App() {
     
     <Sidebar/>
     <div className='container'>
-      <Outlet/> 
+      <Outlet />
     </div>
     
      
