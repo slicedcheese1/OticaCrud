@@ -1,7 +1,7 @@
 import './DadosPessoaisClienteRegistro.css'
 import { MdPeopleAlt } from "react-icons/md";
 import { FaBuilding } from "react-icons/fa";
-
+import ReactInputMask from 'react-input-mask';
 import { useState } from 'react';
 
 
@@ -113,8 +113,8 @@ function DadosPessoaisClienteRegistro() {
                 </div>
 
                 <div className='gp3-2 column-flex-box gap1'>
-                  <label for="cpf" >Cpf</label>
-                  <input type="text" name='cpf' />
+                  <label for="cpf" >CPF</label>
+                  <ReactInputMask mask={'999.999.999-99'} type="text" name='cpf' />
                 </div>
 
                 <div className='gp3-3 column-flex-box gap1'>
@@ -142,7 +142,7 @@ function DadosPessoaisClienteRegistro() {
               <div className="gp3"> 
                 <div className='gp3-1 column-flex-box gap1'>
                   <label for='CNPJ'>CNPJ</label>
-                  <input type="text" name='CNPJ' />
+                  <ReactInputMask mask ="99.999.999/9999-99" type="text" name='CNPJ' />
                 </div>
               </div>
             )}
