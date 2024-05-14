@@ -43,11 +43,7 @@ const SidebarWrap = styled.div`
   width: 100%;
 `;
 
-const Sidebar = () => {
-  const [sidebar, setSidebar] = useState(false);
-
-  const showSidebar = () => setSidebar(!sidebar);
-
+const Sidebar = ({ sidebar, showSidebar}) => {
   return (
     <>
       <IconContext.Provider value={{ color: '#ffff' }}>
