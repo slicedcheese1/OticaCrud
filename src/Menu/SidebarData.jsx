@@ -5,6 +5,14 @@ import * as RiIcons from 'react-icons/ri';
 
  export const SidebarData = [
   {
+    title: 'Painel',
+    path: '/Painel',
+    icon: <IoIcons.IoMdHelpCircle  />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+  
+  },
+  {
     title: 'Clientes',
     path: '/Clientes',
     icon: <IoIcons.IoMdHelpCircle  />,
@@ -60,6 +68,14 @@ import * as RiIcons from 'react-icons/ri';
     title: 'Financeiro',
     path: '/support',
     icon: <IoIcons.IoMdHelpCircle  />
+  },
+  {
+    title: 'Cadastros',
+    path: '/Cadastros',
+    icon: <IoIcons.IoMdHelpCircle  />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+  
   },
   { 
     title: 'Relatórios',

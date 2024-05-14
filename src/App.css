@@ -7,6 +7,12 @@ body {
 }
 
 .container{
+    margin-top: 80px;
     padding: 4rem;
     padding-top: 2rem;
+    transition: margin-left 500ms;
+}
+
+.sidebar-open {
+    margin-left: 250px;
 }
