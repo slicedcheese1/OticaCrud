@@ -4,9 +4,11 @@ import './App.css'
 import { useState } from 'react'
 
 function App() {
+  // define estado da sidebar
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => {setSidebar(!sidebar);};
 
+  // ln 15 - apenas 'container' se 'sidebar' estiver fechado, caso contrario, classe tambem chamada de 'sidebar-open'(para o css)
   return (
     <>
       <Sidebar sidebar={sidebar} showSidebar={showSidebar} />
