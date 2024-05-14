@@ -38,7 +38,7 @@ function DadosPessoaisClienteRegistro() {
 
         <div className="gp1-box" >
             <div className="gp1" > 
-              <div className="column-flex-box gap1">
+              <div className="column-flex-box gap1 gp1-1">
                 <label>Tipo de Cliente</label>
                 <div className="gp1-1 row-flex-box gap2">
                   <div className='gap1 row-flex-box'>

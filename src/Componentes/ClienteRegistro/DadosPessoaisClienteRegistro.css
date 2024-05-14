@@ -50,14 +50,19 @@
 }
 
 .gp1{
-    width: 100%;
+    width: 95%;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
 }
 
 .gp1-2{
-    width: 80%;
+    width: 90%;
+    margin-left: 3.5rem;
+}
+
+.gp1-1{
+    width: 90%;
 }
 
 .gp2{
