@@ -1,0 +1,12 @@
+.coluna{
+   display:flex;
+   flex-wrap: wrap;
+   background-color: firebrick;
+}
+
+.container1{
+    padding: 2em 2em;
+}
+.container2{
+    padding: 2em 2em;
+}
