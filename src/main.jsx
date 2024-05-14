@@ -27,6 +27,10 @@ const router = createBrowserRouter([
         path: "/ClienteBusca",
         element: <ClienteBusca/>
       },
+      {
+        path: "/Cadastros",
+  
+      },
       
     ]
   },
