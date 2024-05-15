@@ -6,7 +6,7 @@ import * as RiIcons from 'react-icons/ri';
  export const SidebarData = [
   {
     title: 'Painel',
-    path: '/Painel',
+    path: '/Sistema/Painel',
     icon: <IoIcons.IoMdHelpCircle  />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -14,7 +14,7 @@ import * as RiIcons from 'react-icons/ri';
   },
   {
     title: 'Clientes',
-    path: '/Clientes',
+    path: '/Sistema/Clientes',
     icon: <IoIcons.IoMdHelpCircle  />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -22,7 +22,7 @@ import * as RiIcons from 'react-icons/ri';
   },
   {
     title: 'Produtos',
-    path: '/produtos',
+    path: '/Sistema/produtos',
     icon: <IoIcons.IoMdHelpCircle  />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -30,17 +30,17 @@ import * as RiIcons from 'react-icons/ri';
   },
   {
     title: 'Promoções',
-    path: '/products',
+    path: '/Sistema/products',
     icon: <IoIcons.IoMdHelpCircle  />
   },
   {
     title: 'Ordens de Serviço',
-    path: '/team',
+    path: '/Sistema/team',
     icon: <IoIcons.IoMdPeople />
   },
   {
     title: 'Vendas',
-    path: '/messages',
+    path: '/Sistema/messages',
     icon: <FaIcons.FaEnvelopeOpenText />,
 
     iconClosed: <RiIcons.RiArrowDownSFill />,

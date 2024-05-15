@@ -8,7 +8,6 @@ import ClienteBusca from './Pages/ClienteBusca.jsx'
 import ClienteCadastro from './Pages/ClienteCadastro.jsx'
 import ClienteDashboard from './Pages/Cliente.jsx'
 import Login from './Componentes/UsuárioCadastro/Login.jsx'
-import Cadastros from './Pages/Cadastros.jsx'
 import Sistema from './Sistema.jsx'
 
 
@@ -25,21 +24,18 @@ const router = createBrowserRouter([
        element: <Sistema/>,
        children:[
         {
-          path: "/Clientes",
+          path: "/Sistema/Clientes",
           element: <ClienteDashboard/>
         },
         {
-          path: "/ClienteCadastro",
+          path: "/Sistema/ClienteCadastro",
           element: <ClienteCadastro/>
         },
         {
-          path: "/ClienteBusca",
+          path: "/Sistema/ClienteBusca",
           element: <ClienteBusca/>
         },
-        {
-          path: "/Cadastros",
-          element: <Cadastros/>
-        },
+        
         
        ]
       },
