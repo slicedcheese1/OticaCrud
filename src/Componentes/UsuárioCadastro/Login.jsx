@@ -8,7 +8,8 @@ const Login = () => {
     <div className="container1">
         <form>
     <h1> Acessar sua conta </h1>
-    <div><input 
+    <div>
+        <input 
        type = "email" 
        placeholder ="E-mail"/>
     </div>
