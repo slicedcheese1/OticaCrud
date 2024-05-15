@@ -13,7 +13,7 @@ function ClienteCadastro() {
         <DadosEndereçoClienteRegistro/>
         <DadosContatoClienteRegistro/>
         <DadosObservacoesClienteRegistro/>
-
+        <button type="submit">Salvar</button>
        </div>
       </>
     )

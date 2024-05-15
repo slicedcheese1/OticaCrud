@@ -30,22 +30,21 @@ function DadosPessoaisClienteRegistro() {
       <h3>Dados Pessoais</h3>
       <hr />
 
-      <form action="" className='formBox'>
+      <form id="form-dados-pessoais" className='formBox' method="post">
         <div className="photoBox">
-          <label for="myfile">Clique sobre a imagem para alterar</label>
-          <input type="file" name="myfile" id="myfile" />
+          <label for="photo">Clique sobre a imagem para alterar</label>
+          <input type="file" name="photo"/>
         </div>
 
         <div className="gp1-box" >
             <div className="gp1" > 
               <div className="column-flex-box gap1 gp1-1">
-                <label>Tipo de Cliente</label>
+                <label for="tipo_de_pessoa">Tipo de Cliente</label>
                 <div className="gp1-1 row-flex-box gap2">
                   <div className='gap1 row-flex-box'>
                     <input 
                     type="radio" 
                     name="tipo_de_pessoa" 
-                    id="pessoa-fisica" 
                     value="pessoa-fisica"
                     checked={tipoCliente === 'pessoa-fisica'} // Set checked state
                     onChange={handleTipoClienteChange} />
@@ -66,7 +65,7 @@ function DadosPessoaisClienteRegistro() {
 
               <div className="column-flex-box gap1 gp1-2">
                 <label for="lojas">Cadastro Em</label> 
-                <select name="loja" id="lojas">
+                <select name="loja" >
                   <option value="Loja 01">Loja 01</option>  
                   <option value="Loja 02">Loja 02</option>  
                   <option value="Loja 03">Loja 03</option>  
@@ -94,8 +93,8 @@ function DadosPessoaisClienteRegistro() {
                 </div>
 
                 <div className='gp2-2 column-flex-box'>
-                  <label for="cpf">Sexo</label>
-                  <select name="sexo" id="sexo">
+                  <label for="sexo">Sexo</label>
+                  <select name="sexo">
                     <option value="Masculino">Masculino</option>  
                     <option value="Feminino">Femino</option>  
                     <option value="Outros">Outros</option>  
@@ -108,8 +107,8 @@ function DadosPessoaisClienteRegistro() {
             {tipoCliente === 'pessoa-fisica' && (
               <div className="gp3"> 
                 <div className='gp3-1 column-flex-box gap1'>
-                  <label>RG</label>
-                  <input type="text" />
+                  <label for="rg">RG</label>
+                  <input type="text" name="rg" />
                 </div>
 
                 <div className='gp3-2 column-flex-box gap1'>
@@ -118,8 +117,8 @@ function DadosPessoaisClienteRegistro() {
                 </div>
 
                 <div className='gp3-3 column-flex-box gap1'>
-                  <label>Data de nascimento</label>
-                  <input type="text" />
+                  <label for="data-de-nascimento">Data de nascimento</label>
+                  <input type="text" name="data-de-nascimento" />
                 </div>
               </div>
             )}
@@ -127,13 +126,13 @@ function DadosPessoaisClienteRegistro() {
             {tipoCliente === 'pessoa-juridica' && (
               <div className="gp4"> 
                 <div className='gp3-1 column-flex-box gap1'>
-                  <label>Razão Social</label>
-                  <input type="text" name='RazãoSocial' />
+                  <label for="razao-social">Razão Social</label>
+                  <input type="text" name='razao-social' />
                 </div>
 
                 <div className='gp3-2 column-flex-box gap1'>
-                  <label for="NomeFantasia" >Nome Fantasia</label>
-                  <input type="text" name='NomeFantasia' />
+                  <label for="nome-fantasia" >Nome Fantasia</label>
+                  <input type="text" name="nome-fantasia" />
                 </div>
               </div>
             )}
@@ -156,25 +155,26 @@ function DadosPessoaisClienteRegistro() {
       <h3>Informações Fiscais</h3>
       <hr />
 
-      <form action="" className='formBox'>
+      <form id="form-dados-fiscais" className='formBox' method="post">
         <div className="gp1-box" >
           <div className="gp3"> 
               <div className='gp3-1 column-flex-box gap1'>
-                <label>Inscrição Estadual</label>
-                <input type="text" />
+                <label for="inscricao-estadual" >Inscrição Estadual</label>
+                <input type="text" name="inscricao-estadual"/>
               </div>
 
               <div className='gp3-2 column-flex-box gap1'>
-                <label for="cpf" >Inscrição Municipal</label>
-                <input type="text" name='cpf' />
+                <label for="inscricao-municipal" >Inscrição Municipal</label>
+                <input type="text" name='inscricao-municipal' />
               </div>
 
               <div className='gp3-3 column-flex-box gap1'>
-                <label>Suframa</label>
-                <input type="text" />
+                <label  for="suframa">Suframa</label>
+                <input type="text" name="suframa" />
               </div>
             </div>
         </div>
+
 
       </form>
     </div>

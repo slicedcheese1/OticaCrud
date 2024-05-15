@@ -7,23 +7,23 @@ import ReactInputMask from 'react-input-mask'
 const CardContatoClienteRegistro = () => {
   return (
         <>
-    <form className="cardTel">
+    <form className="cardTel" id="form-contato" method="post">
       <div className="num-box">
-        <label htmlFor="">Número</label>
+        <label for="telefone">Número</label>
         <ReactInputMask mask={"(99) 99999-9999"} type="tel" name="telefone" id="telefone" />
       </div>
       <div className="preferences">
         <div className="preferences-1">
-          <input type="checkbox" name="numero-principal" id="numero-principal" />
-          <label htmlFor="">Principal</label>
+          <input type="checkbox" name="numero-principal" />
+          <label for="numero-principal">Principal</label>
         </div>
         <div className="preferences-1">
-          <input type="checkbox" name="numero-principal" id="numero-principal" />
-          <label htmlFor="">Habilitar envio de sms</label>
+          <input type="checkbox" name="numero-principal" />
+          <label for="envio-sms">Habilitar envio de sms</label>
         </div>
         <div className="preferences-2">
-          <input type="checkbox" name="numero-principal" id="numero-principal" />
-          <label htmlFor="">Habilitar envio de WhatsApp</label>
+          <input type="checkbox" name="envio-wpp"  />
+          <label htmlFor="envio-wpp">Habilitar envio de WhatsApp</label>
         </div>
       </div>
     </form>

@@ -4,12 +4,12 @@ import { useForm } from 'react-hook-form';
 
 
 function DadosEndereçoClienteRegistro() {
-   const {register, setValue, setFocus} = useForm();
+  const { register, setValue, setFocus } = useForm();
 
-    const checkCEP = (e) => {
-      const cep = e.target.value.replace(/\D/g, '' );
-      console.log(cep);
-      fetch(`https://viacep.com.br/ws/${cep}/json`)
+  const checkCEP = (e) => {
+    const cep = e.target.value.replace(/\D/g, '');
+    console.log(cep);
+    fetch(`https://viacep.com.br/ws/${cep}/json`)
       .then(res => res.json()).then(data => {
         console.log(data);
 
@@ -20,51 +20,55 @@ function DadosEndereçoClienteRegistro() {
         setFocus('numero');
 
       })
-    }
+  }
 
-    return (
-      <>
-      
+  return (
+    <>
+
       <div className="card">
         <h3> Dados de Endereço</h3>
         <hr />
 
-        <form action="" className='formBox'>
+        <form id="form-endereco" className='formBox' method="post">
           <div className="gp1">
             <div className="gp1-1">
-              <label>CEP</label>
-              <ReactInputMask mask ="99999-999"
-              type = "text"
-              placeholder="Insira o CEP do cliente"
-              onBlur={checkCEP}
+              <label for="cep">CEP</label>
+              <ReactInputMask mask="99999-999"
+                type="text"
+                placeholder="Insira o CEP do cliente"
+                onBlur={checkCEP}
+                name="cep"
               />
             </div>
 
             <div className="gp1-1">
-            
-              <label>Estado</label>
-              <input
-              type = "text"
-              placeholder=""
-              {...register("estado")}
-              /> 
-            </div>
 
-            <div className="gp1-1">
-            <label>Endereço</label>
-             <input
-              type = "text"
-              placeholder=""
-              {...register("endereco")}
+              <label for="estado">Estado</label>
+              <input
+                type="text"
+                placeholder=""
+                {...register("estado")}
+                name="estado"
               />
             </div>
 
             <div className="gp1-1">
-              <label>Cidade</label>
+              <label for="endereco">Endereço</label>
               <input
-              type = "text"
-              placeholder="Insira a cidade do cliente"
-              {...register("cidade")}
+                type="text"
+                placeholder=""
+                {...register("endereco")}
+                name="endereco"
+              />
+            </div>
+
+            <div className="gp1-1">
+              <label for="cidade">Cidade</label>
+              <input
+                type="text"
+                placeholder="Insira a cidade do cliente"
+                {...register("cidade")}
+                name="cidade"
               />
             </div>
 
@@ -72,37 +76,40 @@ function DadosEndereçoClienteRegistro() {
 
           <div className="gp1">
             <div className='gp2-1'>
-              <label>Bairro</label>
+              <label for="bairro">Bairro</label>
               <input
-              type = "text"
-              placeholder=""
-              {...register("bairro")}
-              />  
+                type="text"
+                placeholder=""
+                {...register("bairro")}
+                name="endereco"
+              />
             </div>
 
             <div className='gp2-1'>
-              <label>Número</label>
+              <label for="numero">Número</label>
               <input
-              type = "text"
-              placeholder=""
-              {...register("numero")}
+                type="text"
+                placeholder=""
+                {...register("numero")}
+                name="numero"
               />
             </div>
-              
+
             <div className='gp2-1'>
-              <label>Complemento</label>
-             <input
-              type = "text"
-              placeholder=""
-              {...register("complemento")}
+              <label for="complemento">Complemento</label>
+              <input
+                type="text"
+                placeholder=""
+                {...register("complemento")}
+                name="complemento"
               />
             </div>
           </div>
-          
+
         </form>
       </div>
-      </>
-    )
-  }
-  
-  export default DadosEndereçoClienteRegistro
+    </>
+  )
+}
+
+export default DadosEndereçoClienteRegistro
