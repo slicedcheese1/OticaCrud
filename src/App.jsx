@@ -7,7 +7,6 @@ function App() {
   return (
     <>
       <div>
-        <h1>adada</h1>
         <Outlet />
       </div>
     </>

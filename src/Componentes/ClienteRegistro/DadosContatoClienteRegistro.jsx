@@ -7,9 +7,14 @@ import CardContatoClienteRegistro from './CardContatoClienteRegistro'
 const DadosContatoClienteRegistro = () => {
 
   const [cardTel, setCardTel] = useState([])
+  const [cardEmail, setCardEmail] = useState([])
 
-  const handleCardContatoAdd = (event) => {
-    setCardTel([...cardTel, <CardContatoClienteRegistro/>]);
+  const addTel = (event) => {
+    setCardTel([...cardTel, <CardContatoClienteRegistro isTelCard= {true} />]);
+  };
+
+  const addEmail = (event) => {
+    setCardEmail([...cardEmail, <CardContatoClienteRegistro isTelCard = {false} />]);
   };
 
   return (
@@ -17,22 +22,40 @@ const DadosContatoClienteRegistro = () => {
       <div className="card">
         <h3> Dados de Contato</h3>
         <hr/>
-          <div className="card-all-infos">
-            <div className="card-name-button">
-              <h4 className='card-name'>Telefones</h4>
-              <button onClick={handleCardContatoAdd} className="add-button-back">
-                <h5 className='add-button'>Adicionar</h5>
-              </button>
-            </div>
-            <hr />
-            <div className="card-infos">
-              <ul className='card-list'>
-                {cardTel.map( card => (
-                  <li key={card} >{card}</li>
-                ))}
-              </ul>
-            </div>
+        <div className="card-all-infos">
+          <div className="card-name-button">
+            <h4 className='card-name'>Telefone</h4>
+            <button onClick={addTel} className="add-button-back">
+              <h5 className='add-button'>Adicionar</h5>
+            </button>
           </div>
+          <hr />
+          <div className="card-infos">
+            <ul className='card-list'>
+              {cardTel.map( card => (
+                <li key={card} >{card}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="card-all-infos">
+          <div className="card-name-button">
+            <h4 className='card-name'>Email</h4>
+            <button onClick={addEmail} className="add-button-back">
+              <h5 className='add-button'>Adicionar</h5>
+            </button>
+          </div>
+          <hr />
+          <div className="card-infos">
+            <ul className='card-list'>
+              {cardEmail.map( card => (
+                <li key={card} >{card}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
 
       </div>
       </>
