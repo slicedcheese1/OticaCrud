@@ -9,6 +9,8 @@ import ClienteCadastro from './Pages/ClienteCadastro.jsx'
 import ClienteDashboard from './Pages/Cliente.jsx'
 import Login from './Componentes/UsuárioCadastro/Login.jsx'
 import Sistema from './Sistema.jsx'
+import CadastroBotoes from './Componentes/TiposDeCadastros/CadastroBotoes.jsx'
+import CadastroUsuario from './Pages/CadastroUsuários.jsx'
 
 
 
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
         {
           path: "/Sistema/ClienteBusca",
           element: <ClienteBusca/>
+        },
+        {
+          path: "/Sistema/Cadastros",
+          element: <CadastroBotoes/>
+        },
+        {
+          path: "/Sistema/usuario-cadastro",
+          element: <CadastroUsuario/>
         },
         
         

@@ -6,7 +6,7 @@ import { FaSearch } from "react-icons/fa";
 const CadastroBotoes = () => {
   return (
     <div className='container-dashboard'>
-        <a href='/clienteCadastro/' className="card-opt">
+        <a href='sistema/usuario-cadastro/' className="card-opt">
           <h4>Usuário</h4>
           <MdPeopleAlt className='icon-people'/>
         </a>
