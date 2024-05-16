@@ -1,7 +1,6 @@
 import React from 'react'
-import '/src/Componentes/ClienteRegistro/DadosPessoaisClienteRegistro.css'
 
-const FormCadastroUsuario = () => {
+const CadastroUsuarioRegistro= () => {
   return (
     <div>
       <form> 
@@ -16,4 +15,4 @@ const FormCadastroUsuario = () => {
   )
 }
 
-export default FormCadastroUsuario
+export default CadastroUsuarioRegistro

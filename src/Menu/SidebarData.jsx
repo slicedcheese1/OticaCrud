@@ -71,7 +71,7 @@ import * as RiIcons from 'react-icons/ri';
   },
   {
     title: 'Cadastros',
-    path: 'Sistema/Cadastros',
+    path: '/Sistema/Cadastros',
     icon: <IoIcons.IoMdHelpCircle  />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,

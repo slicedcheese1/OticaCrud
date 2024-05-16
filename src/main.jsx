@@ -3,14 +3,13 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
-import Clientes from './Pages/ClienteCadastro.jsx'
-import ClienteBusca from './Pages/ClienteBusca.jsx'
-import ClienteCadastro from './Pages/ClienteCadastro.jsx'
-import ClienteDashboard from './Pages/Cliente.jsx'
-import Login from './Componentes/UsuárioCadastro/Login.jsx'
+import ClienteBusca from './Pages/Clientes/ClienteBusca.jsx'
+import ClienteCadastro from './Pages/Clientes/ClienteCadastro.jsx'
+import ClienteDashboard from './Pages/Clientes/ClienteDashboard.jsx'
+import Login from './Pages/Login/Login.jsx'
 import Sistema from './Sistema.jsx'
-import CadastroBotoes from './Componentes/TiposDeCadastros/CadastroBotoes.jsx'
-import CadastroUsuario from './Pages/CadastroUsuários.jsx'
+import CadastroDashboard from './Pages/Cadastro/CadastroDashboard.jsx'
+import CadastroUsuario from './Pages/Cadastro/CadastroUsuario.jsx'
 
 
 
@@ -39,10 +38,10 @@ const router = createBrowserRouter([
         },
         {
           path: "/Sistema/Cadastros",
-          element: <CadastroBotoes/>
+          element: <CadastroDashboard/>
         },
         {
-          path: "/Sistema/usuario-cadastro",
+          path: "/Sistema/CadastroUsuario",
           element: <CadastroUsuario/>
         },
         
@@ -61,8 +60,6 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router = {router} />
-  </React.StrictMode>,
+  <RouterProvider router = {router} />
 )
 
