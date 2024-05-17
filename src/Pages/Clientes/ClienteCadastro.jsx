@@ -5,16 +5,16 @@ import DadosPessoaisClienteRegistro from "../../Componentes/Clientes/ClienteRegi
 import './ClienteCadastro.css'
 
 function ClienteCadastro() {
-  
+
     return (
       <>
-       <div className="container2">
-        <DadosPessoaisClienteRegistro/>
-        <DadosEndereçoClienteRegistro/>
-        <DadosContatoClienteRegistro/>
-        <DadosObservacoesClienteRegistro/>
-        <button type="submit">Salvar</button>
-       </div>
+       <form action="http://localhost:8080/clientes/pf" method="POST" className="container2">
+          <DadosPessoaisClienteRegistro/>
+          <DadosEndereçoClienteRegistro/>
+          <DadosContatoClienteRegistro/>
+          <DadosObservacoesClienteRegistro/>
+          <button type="submit">Salvar</button>
+       </form>
       </>
     )
   }
