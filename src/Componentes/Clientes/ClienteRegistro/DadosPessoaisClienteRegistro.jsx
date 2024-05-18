@@ -9,6 +9,7 @@ function DadosPessoaisClienteRegistro() {
   const [tipoCliente, setTipoCliente] = useState('pessoa-fisica'); // Initial state
   const [cardVisible, setCardVisible] = useState(tipoCliente === 'pessoa-fisica')
 
+
   const handleTipoClienteChange = (event) => {
     setTipoCliente(event.target.value);
 
@@ -30,7 +31,7 @@ function DadosPessoaisClienteRegistro() {
       <h3>Dados Pessoais</h3>
       <hr />
 
-      <form id="form-dados-pessoais" className='formBox' method="post">
+      <div id="form-dados-pessoais" className='formBox' method="post">
         <div className="photoBox">
           <label for="photo">Clique sobre a imagem para alterar</label>
           <input type="file" name="photo"/>
@@ -147,7 +148,7 @@ function DadosPessoaisClienteRegistro() {
             )}
         </div>
 
-      </form>
+      </div>
     </div>
     
     {tipoCliente === 'pessoa-juridica' && (

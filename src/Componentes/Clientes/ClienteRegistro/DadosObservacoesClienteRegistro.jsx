@@ -8,9 +8,9 @@ const DadosObservacoesClienteRegistro = () => {
       <div className="card">
       <h3>Observações</h3>
         <hr />
-        <form  id="form-observacao" className='formBox' method="post">
+        <div  id="form-observacao" className='formBox' method="post">
             <textarea className = "textao"></textarea>
-        </form>
+        </div>
       
       </div>
       </>

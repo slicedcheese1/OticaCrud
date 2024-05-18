@@ -1,5 +1,5 @@
 import React from 'react'
-import ClienteBotoes from '../Componentes/ClienteDashboard/ClienteBotoes'
+import ClienteBotoes from '../../Componentes/Clientes/ClienteDashboard/ClienteBotoes'
 
 
 const Clientes = () => {

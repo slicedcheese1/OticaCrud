@@ -29,7 +29,7 @@ function DadosEndereçoClienteRegistro() {
         <h3> Dados de Endereço</h3>
         <hr />
 
-        <form id="form-endereco" className='formBox' method="post">
+        <div id="form-endereco" className='formBox' method="post">
           <div className="gp1">
             <div className="gp1-1">
               <label for="cep">CEP</label>
@@ -106,7 +106,7 @@ function DadosEndereçoClienteRegistro() {
             </div>
           </div>
 
-        </form>
+        </div>
       </div>
     </>
   )

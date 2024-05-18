@@ -6,11 +6,15 @@ import { FaSearch } from "react-icons/fa";
 const CadastroBotoes = () => {
   return (
     <div className='container-dashboard'>
-        <a href='/clienteCadastro/' className="card-opt">
+<<<<<<< Updated upstream:src/Componentes/Cadastro/CadastroDashboard/CadastroBotoes.jsx
+        <a href='/Sistema/CadastroUsuario/' className="card-opt">
+=======
+        <a href='/sistema/usuario-cadastro/' className="card-opt">
+>>>>>>> Stashed changes:src/Componentes/TiposDeCadastros/CadastroBotoes.jsx
           <h4>Usuário</h4>
           <MdPeopleAlt className='icon-people'/>
         </a>
-        <a href='/clienteBusca/' className="card-opt">
+        <a href='/Sistema/CadastroUsuario/' className="card-opt">
           <h4>Funcionário</h4>
           <FaSearch className='icon-lupa'/>
         </a>
