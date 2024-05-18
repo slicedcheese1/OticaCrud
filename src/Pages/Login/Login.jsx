@@ -1,41 +1,45 @@
-import React from 'react'
-import { useState } from 'react'
-import './Login.css'
+
+
+import './Login.css';
 
 const Login = () => {
   return (
-    <section className="coluna"> 
-    <div className="container1">
+    <section className="coluna">
+      <div className="container2"></div> {/* Contêiner da imagem agora vem primeiro */}
+      <div className="container1">
         <form>
-    <h1> Acessar sua conta </h1>
-    <div>
-        <input 
-       type = "email" 
-       placeholder ="E-mail"/>
-    </div>
-      <div>
-      <input
-        type = "password" 
-        placeholder ="senha"/> 
-      </div>
-
-      <div className="recall-forget">
-        <label>
-            <input type="checkbox"/>
+          <div className="header">
+            <h1>Acesse sua Conta</h1>
+          </div>
+          <div className="input-group">
+            <div>
+              <input
+                type="email"
+                placeholder="E-mail"
+                className="input-field"
+              />
+            </div>
+            <div>
+              <input
+                type="password"
+                placeholder="Senha"
+                className="input-field"
+              />
+            </div>
+            <div className="recall-forget">
+              <label>
+                <input type="checkbox" />
                 Lembre de mim
-         
-        </label>
-      </div>
-
-      <button>Entrar</button>
+              </label>
+            </div>
+            <div className="button-container">
+              <button>Entrar</button>
+            </div>
+          </div>
         </form>
-       </div> 
-       <div className ="container2">
-        <h1>teste</h1>
-       </div>
-       </section>
-       
-  )
+      </div>
+    </section>
+  );
 }
 
-export default Login
+export default Login;
