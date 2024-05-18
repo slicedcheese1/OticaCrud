@@ -1,11 +1,10 @@
 
-
 import './Login.css';
 
 const Login = () => {
   return (
     <section className="coluna">
-      <div className="container2"></div> {/* Contêiner da imagem agora vem primeiro */}
+      <div className="container2-img"></div> {/* Contêiner da imagem agora vem primeiro */}
       <div className="container1">
         <form>
           <div className="header">

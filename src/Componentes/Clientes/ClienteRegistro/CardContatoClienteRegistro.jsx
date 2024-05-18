@@ -5,6 +5,9 @@ import ReactInputMask from 'react-input-mask'
 
 
 const CardContatoClienteRegistro = (isTelCard) => {
+  const [numerosTelefone, setNumerosTelefone] = useState([])
+  const [email, setEmails] = useState([])
+
   return (
         <>
     <div className="cardTel" id="form-contato" method="post">

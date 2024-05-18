@@ -33,7 +33,10 @@ function DadosPessoaisClienteRegistro() {
   const [cardVisible, setCardVisible] = useState(tipoCliente === 'pf')
   
   const [lojaCadastro, setLojaCadastro] = useState("")
+  const [nome, setNome] = useState("")
   const [cep, setCep] = useState("")
+  const [cpf, setCpf] = useState("")
+  const [rg, setRg] = useState("")
   const [cidade, setCidade] = useState("")
   const [estado, setEstado] = useState("")
   const [rua, setRua] = useState("")
@@ -41,6 +44,8 @@ function DadosPessoaisClienteRegistro() {
   const [bairro, setBairro] = useState("")
   const [numerosTelefone, setNumerosTelefone] = useState([])
   const [email, setEmails] = useState([])
+  const [sexo, setSexo] = useState("")
+  const [nascimento, setNascimento] = useState("")
 
 
 
@@ -100,7 +105,7 @@ function DadosPessoaisClienteRegistro() {
 
               <div className="column-flex-box gap1 gp1-2">
                 <label htmlFor="lojas">Cadastro Em</label> 
-                <select name="loja" >
+                <select name="loja" value={lojaCadastro} onChange={(e) => {setLojaCadastro(e.target.value)}}>
                   <option value="Loja 01">Loja 01</option>  
                   <option value="Loja 02">Loja 02</option>  
                   <option value="Loja 03">Loja 03</option>  
@@ -119,7 +124,7 @@ function DadosPessoaisClienteRegistro() {
               <div className="gp2"> 
                 <div className='gp2-1 column-flex-box'>
                   <label htmlFor="nome">Nome</label>
-                  <input type="text" name='nome' />
+                  <input type="text" name='nome' value={nome} onChange={(e) => {setNome(e.target.value)}} />
                 </div>
 
                 <div className='gp2-2 column-flex-box'>
@@ -129,7 +134,7 @@ function DadosPessoaisClienteRegistro() {
 
                 <div className='gp2-2 column-flex-box'>
                   <label htmlFor="sexo">Sexo</label>
-                  <select name="sexo">
+                  <select name="sexo" value={sexo} onChange={(e) => {setSexo(e.target.value)}}>
                     <option value="Masculino">Masculino</option>  
                     <option value="Feminino">Femino</option>  
                     <option value="Outros">Outros</option>  
@@ -143,17 +148,17 @@ function DadosPessoaisClienteRegistro() {
               <div className="gp3"> 
                 <div className='gp3-1 column-flex-box gap1'>
                   <label htmlFor="rg">RG</label>
-                  <input type="text" name="rg" />
+                  <input type="text" name="rg" value={rg} onChange={(e) => {setRg(e.target.value)}} />
                 </div>
 
                 <div className='gp3-2 column-flex-box gap1'>
                   <label htmlFor="cpf" >CPF</label>
-                  <ReactInputMask mask={'999.999.999-99'} type="text" name='cpf' />
+                  <ReactInputMask mask={'999.999.999-99'} type="text" name='cpf' value={cpf} onChange={(e) => {setCpf(e.target.value)}} />
                 </div>
 
                 <div className='gp3-3 column-flex-box gap1'>
                   <label htmlFor="data-de-nascimento">Data de nascimento</label>
-                  <input type="text" name="data-de-nascimento" />
+                  <ReactInputMask mask={'99-99-9999'} type="text" name="data-de-nascimento" value={nascimento} onChange={(e) => {setNascimento(e.target.value)}} />
                 </div>
               </div>
             )}

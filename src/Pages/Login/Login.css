@@ -17,7 +17,7 @@
   align-items: center;
 }
 /* Estilo para os contêineres */
-.container1, .container2 {
+.container1, .container2-img {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +36,7 @@
 }
 
 /* Estilo específico para o container2 */
-.container2 {
+.container2-img {
   background: linear-gradient(to left, rgba(5, 5, 5, 0.5), transparent), url('/src/images/backgrounde.jpg'); /* Gradiente sobre a imagem de fundo */
   background-size: cover; /* Cobrir toda a área do contêiner */
   background-repeat: no-repeat; /* Não repetir a imagem */
