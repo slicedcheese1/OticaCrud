@@ -1,5 +1,3 @@
-/* src/styles/Login.css */
-
 /* Estilo para a coluna principal */
 .coluna {
   width: 100vw;
@@ -11,11 +9,13 @@
   margin: 0;
   padding: 0;
 }
-.form{
+
+.form {
   background-position: center;
   justify-content: center;
   align-items: center;
 }
+
 /* Estilo para os contêineres */
 .container1, .container2-img {
   display: flex;
@@ -38,19 +38,19 @@
 /* Estilo específico para o container2 */
 .container2-img {
   background: linear-gradient(to left, rgba(5, 5, 5, 0.5), transparent), url('/src/images/backgrounde.jpg'); /* Gradiente sobre a imagem de fundo */
-  background-size: cover; /* Cobrir toda a área do contêiner */
+  background-size: contain; /* Cobrir toda a área do contêiner */
   background-repeat: no-repeat; /* Não repetir a imagem */
   background-position: -100% 50%; /* Posição inicial da imagem fora da tela */
   overflow: hidden; /* Ocultar o conteúdo que transborda */
   height: 100%; /* Definir altura */
   width: 100%; /* Definir largura */
-  animation: slideFromLeft 2s both; /* Aplica a animação */
+  animation: slideFromLeft 1s both; /* Aplica a animação */
 }
 
 /* Definição da animação */
 @keyframes slideFromLeft {
   from {
-    background-position: -2000% 50%; /* Inicia fora da tela à esquerda */
+    background-position: 5000% 50%; /* Inicia fora da tela à esquerda */
   }
   to {
     background-position: 0% 50%; /* Termina no centro */
@@ -62,7 +62,7 @@ button {
   padding: 10px 20px;
   margin-top: 10px;
   background-position: center;
-  background-color: #4CAF50; /* Cor de fundo verde */
+  background-color: #0624ea; /* Cor de fundo verde */
   color: white; /* Cor do texto branco */
   border: none; /* Remove a borda */
   border-radius: 5px; /* Adiciona bordas arredondadas */

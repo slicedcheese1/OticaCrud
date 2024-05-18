@@ -1,3 +1,5 @@
+import React from 'react';
+import styles from './Login.module.css';
 
 import './Login.css';
 
@@ -10,28 +12,28 @@ const Login = () => {
           <div className="header">
             <h1>Acesse sua Conta</h1>
           </div>
-          <div className="input-group">
+          <div className={styles.inputGroup}>
             <div>
               <input
                 type="email"
                 placeholder="E-mail"
-                className="input-field"
+                className={styles.inputField}
               />
             </div>
             <div>
               <input
                 type="password"
                 placeholder="Senha"
-                className="input-field"
+                className={styles.inputField}
               />
             </div>
-            <div className="recall-forget">
+            <div className={styles.recallForget}>
               <label>
                 <input type="checkbox" />
                 Lembre de mim
               </label>
             </div>
-            <div className="button-container">
+            <div className={styles.buttonContainer}>
               <button>Entrar</button>
             </div>
           </div>
