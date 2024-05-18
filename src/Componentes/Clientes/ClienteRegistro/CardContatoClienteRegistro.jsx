@@ -7,7 +7,7 @@ import ReactInputMask from 'react-input-mask'
 const CardContatoClienteRegistro = (isTelCard) => {
   return (
         <>
-    <form className="cardTel" id="form-contato" method="post">
+    <div className="cardTel" id="form-contato" method="post">
       <div className="num-box">
         {isTelCard && (
           <>
@@ -41,7 +41,7 @@ const CardContatoClienteRegistro = (isTelCard) => {
         </div>
         }
       </div>
-    </form>
+    </div>
       </>
   )
 }

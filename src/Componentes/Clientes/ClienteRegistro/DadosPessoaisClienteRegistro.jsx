@@ -4,16 +4,50 @@ import { FaBuilding } from "react-icons/fa";
 import ReactInputMask from 'react-input-mask';
 import { useState } from 'react';
 
+/*
+{
+  "tipoCliente": "pf",
+  "lojaCadastro": "aleixo",
+  "cep": "68022-314",
+  "cidade": "Manaus",
+  "estado": "Amazonas",
+  "rua": "edmundo",
+  "numeroCasa": 18,
+  "bairro": "flores",
+  "numerosTelefone": [
+		"+55597984857689"
+  ],
+	"emails":["email@uea.edu.br"],
+  "habilitarSms":false,
+  "habilitarWhatsapp": false,
+  "cpf": "00853133271",
+  "nome": "fsefsefsefesfsfsef",
+  "rg": "36316527",
+  "dataNascimento": "25-12-2024",
+  "sexo": "OUTRO"
+}
+*/
 
 function DadosPessoaisClienteRegistro() {
-  const [tipoCliente, setTipoCliente] = useState('pessoa-fisica'); // Initial state
-  const [cardVisible, setCardVisible] = useState(tipoCliente === 'pessoa-fisica')
+  const [tipoCliente, setTipoCliente] = useState('pf'); // Initial state
+  const [cardVisible, setCardVisible] = useState(tipoCliente === 'pf')
+  
+  const [lojaCadastro, setLojaCadastro] = useState("")
+  const [cep, setCep] = useState("")
+  const [cidade, setCidade] = useState("")
+  const [estado, setEstado] = useState("")
+  const [rua, setRua] = useState("")
+  const [numeroCasa, setCasa] = useState("")
+  const [bairro, setBairro] = useState("")
+  const [numerosTelefone, setNumerosTelefone] = useState([])
+  const [email, setEmails] = useState([])
+
 
 
   const handleTipoClienteChange = (event) => {
     setTipoCliente(event.target.value);
 
-    if (tipoCliente === 'pessoa-juridica') {
+    if (tipoCliente === 'pj') {
       setCardVisible(true)
 
     } else {
@@ -33,39 +67,39 @@ function DadosPessoaisClienteRegistro() {
 
       <div id="form-dados-pessoais" className='formBox' method="post">
         <div className="photoBox">
-          <label for="photo">Clique sobre a imagem para alterar</label>
+          <label htmlFor="photo">Clique sobre a imagem para alterar</label>
           <input type="file" name="photo"/>
         </div>
 
         <div className="gp1-box" >
             <div className="gp1" > 
               <div className="column-flex-box gap1 gp1-1">
-                <label for="tipo_de_pessoa">Tipo de Cliente</label>
+                <label htmlFor="tipo_de_pessoa">Tipo de Cliente</label>
                 <div className="gp1-1 row-flex-box gap2">
                   <div className='gap1 row-flex-box'>
                     <input 
                     type="radio" 
-                    name="tipo_de_pessoa" 
-                    value="pessoa-fisica"
-                    checked={tipoCliente === 'pessoa-fisica'} // Set checked state
+                    name="pf" 
+                    value="pf"
+                    checked={tipoCliente === 'pf'} // Set checked state
                     onChange={handleTipoClienteChange} />
-                    <label for="pessoa-fisica"><MdPeopleAlt/> Pessoa Fisica</label>
+                    <label htmlFor="pf"><MdPeopleAlt/> Pessoa Fisica</label>
                   </div>
 
                   <div className='gap1 row-flex-box'>
                     <input type="radio" 
-                    name="tipo_de_pessoa" 
-                    id="pessoa-juridica"
-                    value="pessoa-juridica"
-                    checked={tipoCliente === 'pessoa-juridica'} // Set checked state
+                    name="pj" 
+                    id="pj"
+                    value="pj"
+                    checked={tipoCliente === 'pj'} // Set checked state
                     onChange={handleTipoClienteChange}  />
-                    <label for="pessoa-juridica"><FaBuilding/> Pessoa Jurídica</label>
+                    <label htmlFor="pj"><FaBuilding/> Pessoa Jurídica</label>
                   </div>
                 </div>
               </div>
 
               <div className="column-flex-box gap1 gp1-2">
-                <label for="lojas">Cadastro Em</label> 
+                <label htmlFor="lojas">Cadastro Em</label> 
                 <select name="loja" >
                   <option value="Loja 01">Loja 01</option>  
                   <option value="Loja 02">Loja 02</option>  
@@ -81,20 +115,20 @@ function DadosPessoaisClienteRegistro() {
               </div>
             </div>
 
-            {tipoCliente === 'pessoa-fisica' && (
+            {tipoCliente === 'pf' && (
               <div className="gp2"> 
                 <div className='gp2-1 column-flex-box'>
-                  <label for="nome">Nome</label>
+                  <label htmlFor="nome">Nome</label>
                   <input type="text" name='nome' />
                 </div>
 
                 <div className='gp2-2 column-flex-box'>
-                  <label for="apelido" >Apelido</label>
+                  <label htmlFor="apelido" >Apelido</label>
                   <input type="text" name='apelido' />
                 </div>
 
                 <div className='gp2-2 column-flex-box'>
-                  <label for="sexo">Sexo</label>
+                  <label htmlFor="sexo">Sexo</label>
                   <select name="sexo">
                     <option value="Masculino">Masculino</option>  
                     <option value="Feminino">Femino</option>  
@@ -105,43 +139,43 @@ function DadosPessoaisClienteRegistro() {
               </div>
             )}
 
-            {tipoCliente === 'pessoa-fisica' && (
+            {tipoCliente === 'pf' && (
               <div className="gp3"> 
                 <div className='gp3-1 column-flex-box gap1'>
-                  <label for="rg">RG</label>
+                  <label htmlFor="rg">RG</label>
                   <input type="text" name="rg" />
                 </div>
 
                 <div className='gp3-2 column-flex-box gap1'>
-                  <label for="cpf" >CPF</label>
+                  <label htmlFor="cpf" >CPF</label>
                   <ReactInputMask mask={'999.999.999-99'} type="text" name='cpf' />
                 </div>
 
                 <div className='gp3-3 column-flex-box gap1'>
-                  <label for="data-de-nascimento">Data de nascimento</label>
+                  <label htmlFor="data-de-nascimento">Data de nascimento</label>
                   <input type="text" name="data-de-nascimento" />
                 </div>
               </div>
             )}
 
-            {tipoCliente === 'pessoa-juridica' && (
+            {tipoCliente === 'pj' && (
               <div className="gp4"> 
                 <div className='gp3-1 column-flex-box gap1'>
-                  <label for="razao-social">Razão Social</label>
+                  <label htmlFor="razao-social">Razão Social</label>
                   <input type="text" name='razao-social' />
                 </div>
 
                 <div className='gp3-2 column-flex-box gap1'>
-                  <label for="nome-fantasia" >Nome Fantasia</label>
+                  <label htmlFor="nome-fantasia" >Nome Fantasia</label>
                   <input type="text" name="nome-fantasia" />
                 </div>
               </div>
             )}
 
-            {tipoCliente === 'pessoa-juridica' && (
+            {tipoCliente === 'pj' && (
               <div className="gp3"> 
                 <div className='gp3-1 column-flex-box gap1'>
-                  <label for='CNPJ'>CNPJ</label>
+                  <label htmlFor='CNPJ'>CNPJ</label>
                   <ReactInputMask mask ="99.999.999/9999-99" type="text" name='CNPJ' />
                 </div>
               </div>
@@ -151,7 +185,7 @@ function DadosPessoaisClienteRegistro() {
       </div>
     </div>
     
-    {tipoCliente === 'pessoa-juridica' && (
+    {tipoCliente === 'pj' && (
     <div className="card">
       <h3>Informações Fiscais</h3>
       <hr />

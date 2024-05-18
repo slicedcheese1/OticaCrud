@@ -8,7 +8,7 @@ function ClienteCadastro() {
 
     return (
       <>
-       <form action="http://localhost:8080/clientes/pf" method="POST" className="container2">
+       <form className="container2" id='ClienteCadastroForm'>
           <DadosPessoaisClienteRegistro/>
           <DadosEndereçoClienteRegistro/>
           <DadosContatoClienteRegistro/>
