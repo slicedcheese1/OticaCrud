@@ -1,14 +1,123 @@
-.coluna{
-    width: 100%;
-    background-color: aqua;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 100vh;
+/* src/styles/Login.css */
 
-
+/* Estilo para a coluna principal */
+.coluna {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: linear-gradient(to bottom, #000000, #1a1a1a); /* Gradiente de fundo */
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
-.container1{
-  width: 100%; 
-  background-color: brown;
+.form{
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+}
+/* Estilo para os contêineres */
+.container1, .container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue; /* Cor do texto */
+  transition: all 0.5s ease; /* Transição suave para todas as propriedades com duração de 0.5 segundos */
+  border: 10px solid transparent; /* Definindo a borda com cor transparente */
+}
 
+/* Estilo específico para o container1 */
+.container1 {
+  background: transparent; /* Define o background como transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Alinha o conteúdo verticalmente */
+}
+
+/* Estilo específico para o container2 */
+.container2 {
+  background: linear-gradient(to left, rgba(5, 5, 5, 0.5), transparent), url('/src/images/backgrounde.jpg'); /* Gradiente sobre a imagem de fundo */
+  background-size: cover; /* Cobrir toda a área do contêiner */
+  background-repeat: no-repeat; /* Não repetir a imagem */
+  background-position: -100% 50%; /* Posição inicial da imagem fora da tela */
+  overflow: hidden; /* Ocultar o conteúdo que transborda */
+  height: 100%; /* Definir altura */
+  width: 100%; /* Definir largura */
+  animation: slideFromLeft 2s both; /* Aplica a animação */
+}
+
+/* Definição da animação */
+@keyframes slideFromLeft {
+  from {
+    background-position: -2000% 50%; /* Inicia fora da tela à esquerda */
+  }
+  to {
+    background-position: 0% 50%; /* Termina no centro */
+  }
+}
+
+/* Estilo para os botões */
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-position: center;
+  background-color: #4CAF50; /* Cor de fundo verde */
+  color: white; /* Cor do texto branco */
+  border: none; /* Remove a borda */
+  border-radius: 5px; /* Adiciona bordas arredondadas */
+  cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+  transition: all 0.3s ease; /* Transição suave para todas as propriedades com duração de 0.3 segundos */
+}
+
+/* Estilo de hover para os botões */
+button:hover {
+  background-color: #45a049; /* Cor de fundo verde mais escura ao passar o mouse */
+}
+
+/* Estilo para os campos de entrada */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc; /* Adiciona uma borda cinza */
+  border-radius: 5px; /* Adiciona bordas arredondadas */
+  box-sizing: border-box; /* Mantém a largura consistente */
+  transition: border-color 0.3s ease; /* Transição suave para a cor da borda */
+}
+
+/* Estilo de foco para os campos de entrada */
+.input-field:focus {
+  border-color: #4CAF50; /* Cor da borda alterada ao focar */
+}
+
+.header {
+  display: flex;
+  justify-content: center; /* Centraliza os textos */
+  margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centraliza o botão */
+  width: 100%;
+}
+
+.recall-forget {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
