@@ -1,38 +1,37 @@
-
-
-import './Login.css';
+import React from 'react';
+import styles from './Login.module.css';
 
 const Login = () => {
   return (
-    <section className="coluna">
-      <div className="container2"></div> {/* Contêiner da imagem agora vem primeiro */}
-      <div className="container1">
-        <form>
-          <div className="header">
+    <section className={styles.coluna}>
+      <div className={styles.container2}></div> {/* Contêiner da imagem agora vem primeiro */}
+      <div className={styles.container1}>
+        <form className={styles.form}>
+          <div className={styles.header}>
             <h1>Acesse sua Conta</h1>
           </div>
-          <div className="input-group">
+          <div className={styles.inputGroup}>
             <div>
               <input
                 type="email"
                 placeholder="E-mail"
-                className="input-field"
+                className={styles.inputField}
               />
             </div>
             <div>
               <input
                 type="password"
                 placeholder="Senha"
-                className="input-field"
+                className={styles.inputField}
               />
             </div>
-            <div className="recall-forget">
+            <div className={styles.recallForget}>
               <label>
                 <input type="checkbox" />
                 Lembre de mim
               </label>
             </div>
-            <div className="button-container">
+            <div className={styles.buttonContainer}>
               <button>Entrar</button>
             </div>
           </div>

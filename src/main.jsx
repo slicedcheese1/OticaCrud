@@ -30,11 +30,12 @@ const router = createBrowserRouter([
           {
             path: '/Sistema/ClienteBusca',
             element: <ClienteBusca />
-          }
+          },
+          
         ]
       },
       {
-        path: '/Login',
+        path: '/Sistema/Login',
         element: <Login />
       },
       
