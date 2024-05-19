@@ -1,5 +1,6 @@
 import React from 'react'
 import './DadosPessoaisClienteRegistro.css'
+import ClienteContext from '../../../Pages/Clientes/ClinteContext';
 
 const DadosObservacoesClienteRegistro = () => {
   return (

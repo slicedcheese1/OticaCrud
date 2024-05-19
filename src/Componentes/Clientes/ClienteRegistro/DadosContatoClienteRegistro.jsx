@@ -9,6 +9,7 @@ const DadosContatoClienteRegistro = () => {
   const [cardTel, setCardTel] = useState([])
   const [cardEmail, setCardEmail] = useState([])
 
+  
   const addTel = (event) => {
     setCardTel([...cardTel, <CardContatoClienteRegistro isTelCard= {true} />]);
   };
@@ -16,7 +17,7 @@ const DadosContatoClienteRegistro = () => {
   const addEmail = (event) => {
     setCardEmail([...cardEmail, <CardContatoClienteRegistro isTelCard = {false} />]);
   };
-
+   
   return (
        <>
       <div className="card">

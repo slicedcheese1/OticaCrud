@@ -1,53 +1,24 @@
-import './DadosPessoaisClienteRegistro.css'
+import React from 'react';
+
 import { MdPeopleAlt } from "react-icons/md";
 import { FaBuilding } from "react-icons/fa";
 import ReactInputMask from 'react-input-mask';
-import { useState } from 'react';
 
-/*
-{
-  "tipoCliente": "pf",
-  "lojaCadastro": "aleixo",
-  "cep": "68022-314",
-  "cidade": "Manaus",
-  "estado": "Amazonas",
-  "rua": "edmundo",
-  "numeroCasa": 18,
-  "bairro": "flores",
-  "numerosTelefone": [
-		"+55597984857689"
-  ],
-	"emails":["email@uea.edu.br"],
-  "habilitarSms":false,
-  "habilitarWhatsapp": false,
-  "cpf": "00853133271",
-  "nome": "fsefsefsefesfsfsef",
-  "rg": "36316527",
-  "dataNascimento": "25-12-2024",
-  "sexo": "OUTRO"
-}
-*/
+import './DadosPessoaisClienteRegistro.css'
+
+import ClienteContext from '../../../Pages/Clientes/ClinteContext';
 
 function DadosPessoaisClienteRegistro() {
-  const [tipoCliente, setTipoCliente] = useState('pf'); // Initial state
-  const [cardVisible, setCardVisible] = useState(tipoCliente === 'pf')
-  
-  const [lojaCadastro, setLojaCadastro] = useState("")
-  const [nome, setNome] = useState("")
-  const [cep, setCep] = useState("")
-  const [cpf, setCpf] = useState("")
-  const [rg, setRg] = useState("")
-  const [cidade, setCidade] = useState("")
-  const [estado, setEstado] = useState("")
-  const [rua, setRua] = useState("")
-  const [numeroCasa, setCasa] = useState("")
-  const [bairro, setBairro] = useState("")
-  const [numerosTelefone, setNumerosTelefone] = useState([])
-  const [email, setEmails] = useState([])
-  const [sexo, setSexo] = useState("")
-  const [nascimento, setNascimento] = useState("")
 
-
+  const {
+    tipoCliente, setTipoCliente,
+    lojaCadastro,  setLojaCadastro,
+    cpf, setCpf,
+    nome, setNome,
+    rg, setRg, 
+    nascimento, setNascimento, 
+    sexo, setSexo
+   } = React.useContext(ClienteContext);
 
   const handleTipoClienteChange = (event) => {
     setTipoCliente(event.target.value);
