@@ -1,0 +1,12 @@
+.div-cadastro-usuario{
+   border: 1px solid #15171c;
+   border-radius: 20px;
+   width: 100%;
+   padding: 1rem;
+   transition: 300ms ease-in-out;
+   animation: opacity 800ms;
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   margin-bottom: 1rem;
+}

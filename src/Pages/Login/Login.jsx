@@ -10,28 +10,28 @@ const Login = () => {
           <div className="header">
             <h1>Acesse sua Conta</h1>
           </div>
-          <div className={styles.inputGroup}>
+          <div className={inputGroup}>
             <div>
               <input
                 type="email"
                 placeholder="E-mail"
-                className={styles.inputField}
+                className={inputField}
               />
             </div>
             <div>
               <input
                 type="password"
                 placeholder="Senha"
-                className={styles.inputField}
+                className={inputField}
               />
             </div>
-            <div className={styles.recallForget}>
+            <div className={recallForget}>
               <label>
                 <input type="checkbox" />
                 Lembre de mim
               </label>
             </div>
-            <div className={styles.buttonContainer}>
+            <div className={buttonContainer}>
               <button>Entrar</button>
             </div>
           </div>

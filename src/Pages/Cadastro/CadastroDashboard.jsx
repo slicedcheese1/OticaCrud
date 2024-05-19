@@ -1,10 +1,10 @@
 import React from 'react'
-import CadastroBotoes from '../../Componentes/Cadastro/CadastroDashboard/CadastroBotoes'
+import CadastroBotoes2 from '../../Componentes/Cadastro/CadastroDashboard/CadastroBotoes2'
 
-const CadastroDashboard= () => {
+const CadastroDashboard = () => {
   return (
       <>
-        <CadastroBotoes/>
+        <CadastroBotoes2/>
       </>
   )
 }
