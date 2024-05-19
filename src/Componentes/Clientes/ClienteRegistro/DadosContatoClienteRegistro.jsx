@@ -2,20 +2,22 @@ import React from 'react'
 import {useState} from 'react'
 
 import './DadosContatoClienteRegistro.css'
-import CardContatoClienteRegistro from './CardContatoClienteRegistro'
+import CardContatoTelefoneClienteRegistro from './CardContatoTelefoneClienteRegistro'
+import CardContatoEmailClienteRegistro from './CardContatoEmailClienteRegistro'
 
 const DadosContatoClienteRegistro = () => {
 
   const [cardTel, setCardTel] = useState([])
   const [cardEmail, setCardEmail] = useState([])
-
   
   const addTel = (event) => {
-    setCardTel([...cardTel, <CardContatoClienteRegistro isTelCard= {true} />]);
+    event.preventDefault()
+    setCardTel([...cardTel, <CardContatoTelefoneClienteRegistro/>]);
   };
 
   const addEmail = (event) => {
-    setCardEmail([...cardEmail, <CardContatoClienteRegistro isTelCard = {false} />]);
+    event.preventDefault()
+    setCardEmail([...cardEmail, <CardContatoEmailClienteRegistro />]);
   };
    
   return (

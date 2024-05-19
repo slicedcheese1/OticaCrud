@@ -11,8 +11,6 @@ const ClienteContext = React.createContext({
     bairro: "",
     numerosTelefone: [],
     emails:[],
-    adicionarTelefone: (tel) => {},
-    adicionarEmail: (tel) => {},
     habilitarSms:false,
     habilitarWhatsapp: false,
     cpf:  "",

@@ -43,13 +43,14 @@ function DadosEndereçoClienteRegistro() {
         <div id="form-endereco" className='formBox' method="post">
           <div className="gp1">
             <div className="gp1-1">
-              <label for="cep">CEP</label>
+              <label htmlFor="cep">CEP</label>
               <ReactInputMask mask="99999-999"
                 type="text"
                 placeholder="Insira o CEP do cliente"
                 onBlur={checkCEP}
                 name="cep"
                 value={cep}
+                onChange={(e) => {setCep(e.target.value)}}
               />
             </div>
 
@@ -62,7 +63,7 @@ function DadosEndereçoClienteRegistro() {
                 {...register("estado")}
                 name="estado"
                 value={estado}
-
+                onChange={(e) => {setEstado(e.target.value)}}
               />
             </div>
 
@@ -74,7 +75,7 @@ function DadosEndereçoClienteRegistro() {
                 {...register("rua")}
                 name="rua"
                 value={rua}
-
+                onChange={(e) => {setRua(e.target.value)}}
               />
             </div> 
 
@@ -86,7 +87,7 @@ function DadosEndereçoClienteRegistro() {
                 {...register("cidade")}
                 name="cidade"
                 value={cidade}
-
+                onChange={(e) => {setCidade(e.target.value)}}
               />
             </div>
 
@@ -101,7 +102,7 @@ function DadosEndereçoClienteRegistro() {
                 {...register("bairro")}
                 name="bairro"
                 value={bairro}
-
+                onChange={(e) => {setBairro(e.target.value)}}
               />
             </div>
 
@@ -113,6 +114,7 @@ function DadosEndereçoClienteRegistro() {
                 {...register("numero")}
                 name="numero"
                 value = {numeroCasa}
+                onChange={(e) => {setCasa(e.target.value)}}
               />
             </div>
 
