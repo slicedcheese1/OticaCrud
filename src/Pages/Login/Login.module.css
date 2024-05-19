@@ -36,7 +36,7 @@
 }
 
 /* Estilo específico para o container2 */
-.container2-img {
+.container2 {
   background: linear-gradient(to left, rgba(5, 5, 5, 0.5), transparent), url('/src/images/backgrounde.jpg'); /* Gradiente sobre a imagem de fundo */
   background-size: contain; /* Cobrir toda a área do contêiner */
   background-repeat: no-repeat; /* Não repetir a imagem */
