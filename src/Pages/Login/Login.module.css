@@ -17,7 +17,7 @@
 }
 
 /* Estilo para os contêineres */
-.container1, .container2-img {
+.container1, .container2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,7 +76,7 @@ button:hover {
 }
 
 /* Estilo para os campos de entrada */
-.input-field {
+.inputField {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -87,7 +87,7 @@ button:hover {
 }
 
 /* Estilo de foco para os campos de entrada */
-.input-field:focus {
+.inputField:focus {
   border-color: #4CAF50; /* Cor da borda alterada ao focar */
 }
 
@@ -97,20 +97,20 @@ button:hover {
   margin-bottom: 20px; /* Adiciona espaço abaixo do título */
 }
 
-.input-group {
+.inputGroup {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 
-.button-container {
+.buttonContainer {
   display: flex;
   justify-content: center; /* Centraliza o botão */
   width: 100%;
 }
 
-.recall-forget {
+.recallForget {
   display: flex;
   justify-content: center;
   margin: 10px 0;
