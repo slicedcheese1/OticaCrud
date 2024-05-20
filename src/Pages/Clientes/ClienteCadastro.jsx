@@ -1,5 +1,6 @@
 import React from "react"
 import { useState } from "react"
+import axios from "axios"
 
 import ClienteContext from "./ClinteContext"
 
@@ -9,27 +10,27 @@ import DadosObservacoesClienteRegistro from "../../Componentes/Clientes/ClienteR
 import DadosPessoaisClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosPessoaisClienteRegistro"
 import './ClienteCadastro.css'
 
-function gerarJsonDoFormulario(dadosFormulario) {
-  return {
-    tipoCliente: dadosFormulario.tipoCliente,
-    lojaCadastro: dadosFormulario.lojaCadastro,
-    cep: dadosFormulario.cep,
-    cidade: dadosFormulario.cidade,
-    estado: dadosFormulario.estado,
-    rua: dadosFormulario.rua,
-    numeroCasa: dadosFormulario.numeroCasa,
-    bairro: dadosFormulario.bairro,
-    numerosTelefone: dadosFormulario.telefones,
-    emails: dadosFormulario.emails,
-    habilitarSms: dadosFormulario.habilitarSms,
-    habilitarWhatsapp: dadosFormulario.habilitarWhatsapp,
-    cpf: dadosFormulario.cpf,
-    nome: dadosFormulario.nome,
-    rg: dadosFormulario.rg,
-    dataNascimento: dadosFormulario.nascimento, // Formate a data de nascimento
-    sexo: dadosFormulario.sexo,
-  };
-}
+// function gerarJsonDoFormulario(dadosFormulario) {
+//   return {
+//     tipoCliente: dadosFormulario.tipoCliente,
+//     lojaCadastro: dadosFormulario.lojaCadastro,
+//     cep: dadosFormulario.cep,
+//     cidade: dadosFormulario.cidade,
+//     estado: dadosFormulario.estado,
+//     rua: dadosFormulario.rua,
+//     numeroCasa: dadosFormulario.numeroCasa,
+//     bairro: dadosFormulario.bairro,
+//     numerosTelefone: dadosFormulario.telefones,
+//     emails: dadosFormulario.emails,
+//     habilitarSms: dadosFormulario.habilitarSms,
+//     habilitarWhatsapp: dadosFormulario.habilitarWhatsapp,
+//     cpf: dadosFormulario.cpf,
+//     nome: dadosFormulario.nome,
+//     rg: dadosFormulario.rg,
+//     dataNascimento: dadosFormulario.nascimento, // Formate a data de nascimento
+//     sexo: dadosFormulario.sexo,
+//   };
+// }
 
 
 function ClienteCadastro() {
@@ -52,38 +53,63 @@ function ClienteCadastro() {
   const [nascimento, setNascimento] = useState("")
   const [sexo, setSexo] = useState("")
 
-  const adicionarTelefone = (tel) => {
-    setTelefone([...telefones, tel]);
-  };
-
-  const adicionarEmail = (email) => {
-    setEmail([...emails, email]);
-  };
-
   const handleSalvar = (e) => {
     e.preventDefault()
     const dadosFormulario = {
-      tipoCliente: tipoCliente,
-      lojaCadastro: lojaCadastro,
-      cep: cep,
-      cidade: cidade,
-      estado: estado,
-      rua: rua,
-      numeroCasa: numeroCasa,
-      bairro: bairro,
-      telefones: telefones,
-      emails: emails,
-      habilitarSms: habilitarSms,
-      habilitarWhatsapp: habilitarWhatsapp,
-      cpf: cpf,
-      nome: nome,
-      rg: rg,
-      nascimento: nascimento,
-      sexo: sexo,
+      // tipoCliente: "pf",
+      // lojaCadastro: "aleixo",
+      // cep: "68022-314",
+      // cidade: "Manaus",
+      // estado: "Amazonas",
+      // rua: "edmundo",
+      // numeroCasa: 18,
+      // bairro: "flores",
+      // numerosTelefone: [
+      //   "+55597984857689"
+      // ],
+      // emails:["email@uea.edu.br"],
+      // habilitarSms:false,
+      // habilitarWhatsapp: false,
+      // cpf: "00853133271",
+      // nome: "fsefsefsefesfsfsef",
+      // rg: "36316527",
+      // dataNascimento: "25-12-2024",
+      // sexo: "OUTRO"
+      
+        "tipoCliente": "pf",
+        "lojaCadastro": "aleixo",
+        "cep": "68022-314",
+        "cidade": "Manaus",
+        "estado": "Amazonas",
+        "rua": "edmundo",
+        "numeroCasa": 18,
+        "bairro": "flores",
+        "numerosTelefone": [
+          "+55597984857689"
+        ],
+        "emails":["email@uea.edu.br"],
+        "habilitarSms":false,
+        "habilitarWhatsapp": false,
+        "cpf": "00853133271",
+        "nome": "fsefsefsefesfsfsef",
+        "rg": "36316527",
+        "dataNascimento": "25-12-2024",
+        "sexo": "OUTRO"
+      
     };
   
-    const jsonDoFormulario = gerarJsonDoFormulario(dadosFormulario);
-    console.log(jsonDoFormulario); // Exiba o JSON no console
+    // const jsonDoFormulario = gerarJsonDoFormulario(dadosFormulario);
+    console.log(dadosFormulario); // Exiba o JSON no console
+
+    axios.post("http://localhost:8080/clientes/pf", dadosFormulario)
+    .then((response) => {
+      // Tratar o sucesso da requisição
+      console.log("Dados do cliente salvos com sucesso!");
+    })
+    .catch((error) => {
+      // Tratar o erro da requisição
+      console.error("Falha ao salvar os dados do cliente:", error);
+    });
   };
 
   return (
