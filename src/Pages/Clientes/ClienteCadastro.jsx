@@ -41,10 +41,10 @@ function ClienteCadastro() {
   const [cidade, setCidade] = useState("")
   const [estado, setEstado] = useState("")
   const [rua, setRua] = useState("")
-  const [numeroCasa, setCasa] = useState("")
+  const [numeroCasa, setCasa] = useState(10)
   const [bairro, setBairro] = useState("")
-  const [telefones, setTelefones] = useState([])
-  const [emails, setEmails] = useState([])
+  const [telefones, setTelefones] = useState(["", ""])
+  const [emails, setEmails] = useState(["", ""])
   const [habilitarSms, setHabilitarSms] = useState(false)
   const [habilitarWhatsapp, setHabilitarWhatsapp] = useState(false)
   const [cpf, setCpf] = useState("")
@@ -56,60 +56,44 @@ function ClienteCadastro() {
   const handleSalvar = (e) => {
     e.preventDefault()
     const dadosFormulario = {
-      // tipoCliente: "pf",
-      // lojaCadastro: "aleixo",
-      // cep: "68022-314",
-      // cidade: "Manaus",
-      // estado: "Amazonas",
-      // rua: "edmundo",
-      // numeroCasa: 18,
-      // bairro: "flores",
-      // numerosTelefone: [
-      //   "+55597984857689"
-      // ],
-      // emails:["email@uea.edu.br"],
-      // habilitarSms:false,
-      // habilitarWhatsapp: false,
-      // cpf: "00853133271",
-      // nome: "fsefsefsefesfsfsef",
-      // rg: "36316527",
-      // dataNascimento: "25-12-2024",
-      // sexo: "OUTRO"
-      
-        "tipoCliente": "pf",
-        "lojaCadastro": "aleixo",
-        "cep": "68022-314",
-        "cidade": "Manaus",
-        "estado": "Amazonas",
-        "rua": "edmundo",
-        "numeroCasa": 18,
-        "bairro": "flores",
-        "numerosTelefone": [
-          "+55597984857689"
-        ],
-        "emails":["email@uea.edu.br"],
-        "habilitarSms":false,
-        "habilitarWhatsapp": false,
-        "cpf": "00853133271",
-        "nome": "fsefsefsefesfsfsef",
-        "rg": "36316527",
-        "dataNascimento": "25-12-2024",
-        "sexo": "OUTRO"
-      
+      "tipoCliente": "pf",
+      "lojaCadastro": "aleixo",
+      "cep": "68022-314",
+      "cidade": "Manaus",
+      "estado": "Amazonas",
+      "rua": "edmundo",
+      "numeroCasa": 18,
+      "bairro": "flores",
+      "numerosTelefone": [
+        "+55597984857689"
+      ],
+      "emails":["email@uea.edu.br"],
+      "habilitarSms":false,
+      "habilitarWhatsapp": false,
+      "cpf": "00853133271",
+      "nome": "fsefsefsefesfsfsef",
+      "rg": "36316527",
+      "dataNascimento": "25-12-2024",
+      "sexo": "OUTRO"
     };
-  
-    // const jsonDoFormulario = gerarJsonDoFormulario(dadosFormulario);
-    console.log(dadosFormulario); // Exiba o JSON no console
 
-    axios.post("http://localhost:8080/clientes/pf", dadosFormulario)
-    .then((response) => {
-      // Tratar o sucesso da requisição
-      console.log("Dados do cliente salvos com sucesso!");
+    fetch('http://localhost:8080/clientes/pf', {
+      mode: 'no-cors',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dadosFormulario)
+      // body: JSON.stringify({ tipoCliente, lojaCadastro, cep, cidade, estado, rua, numeroCasa, bairro, telefones, emails, habilitarSms, habilitarWhatsapp, cpf, rg, nascimento, sexo}),
     })
-    .catch((error) => {
-      // Tratar o erro da requisição
-      console.error("Falha ao salvar os dados do cliente:", error);
-    });
+      .then((data) => {
+        console.log('Post criado com sucesso:', data);
+      })
+      .catch((error) => {
+        console.error('Erro ao criar post:', error);
+      });
+    
+  
   };
 
   return (
