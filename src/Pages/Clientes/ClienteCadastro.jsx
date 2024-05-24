@@ -43,15 +43,15 @@ function ClienteCadastro() {
   const [rua, setRua] = useState("edmunfo")
   const [numeroCasa, setCasa] = useState(10)
   const [bairro, setBairro] = useState("cachoeirinha")
-  const [telefones, setTelefones] = useState(["+55597984857689", "+55597984857689"])
-  const [emails, setEmails] = useState(["eamail@uea.edu.br", "eemail@uea.edu.br"])
+  const [numerosTelefone, setTelefones] = useState(["+55597984857000", "+55597984857689"])
+  const [emails, setEmails] = useState(["eamail@uea.edu.br", "teste@uea.edu.br"])
   const [habilitarSms, setHabilitarSms] = useState(false)
   const [habilitarWhatsapp, setHabilitarWhatsapp] = useState(false)
   const [cpf, setCpf] = useState("00853133271")
   const [nome, setNome] = useState("itl")
   const [rg, setRg] = useState("36316527")
-  const [nascimento, setNascimento] = useState("25-12-2024")
-  const [sexo, setSexo] = useState("OUTRO")
+  const [dataNascimento, setNascimento] = useState("25-12-2024")
+  const [sexo, setSexo] = useState("Outro")
   const handleSalvar = (e) => {
     e.preventDefault();
     // console.log(JSON.stringify({
@@ -94,7 +94,7 @@ function ClienteCadastro() {
     // };
 
     fetch('http://localhost:8080/clientes/pf', {
-      mode: 'no-cors',
+      //mode: 'no-cors',
       method: 'POST',
       body: JSON.stringify({
         tipoCliente,
@@ -105,13 +105,14 @@ function ClienteCadastro() {
         rua,
         numeroCasa,
         bairro,
-        telefones,
+        numerosTelefone,
         emails,
         habilitarSms,
         habilitarWhatsapp,
         cpf,
+        nome,
         rg,
-        nascimento,
+        dataNascimento,
         sexo
       }),
       headers: {
@@ -142,13 +143,13 @@ function ClienteCadastro() {
         numeroCasa, setCasa, //
         bairro , setBairro,//
         emails ,setEmails, //
-        telefones, setTelefones, //
+        numerosTelefone, setTelefones, //
         habilitarSms, setHabilitarSms, //
         habilitarWhatsapp, setHabilitarWhatsapp,//
         cpf, setCpf, //
         nome, setNome, //
         rg, setRg, //
-        nascimento, setNascimento, //
+        dataNascimento, setNascimento, //
         sexo, setSexo//
       }}>
         <form className="container2" id='ClienteCadastroForm'>
