@@ -1,13 +1,17 @@
+import { useState, useEffect } from "react"
+import TabelaClientes from "../../Componentes/Clientes/TabelaClientes/TabelaClientes"
 
-function ClienteBusca() {
-  
+import React from "react"
 
+
+
+
+
+const ClienteBusca = () => {
   return (
-    <>
-     <h1> Busca de clientes</h1>
-      <label>Buscar um cliente</label>
-     <input type = "search"></input>
-    </>
+    <div>
+      <TabelaClientes/>
+    </div>
   )
 }
 

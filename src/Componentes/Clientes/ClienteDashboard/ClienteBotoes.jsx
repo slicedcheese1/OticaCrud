@@ -7,7 +7,7 @@ import './ClienteBotoes.css'
 const ClienteBotoes = () => {
   return (
     <div className='container-dashboard'>
-        <a href='/Sistema/ClienteCadastro/' className="card-opt">
+        <a href='/Sistema/CadastroUsuario/' className="card-opt">
           <h4>Cadastro de clientes</h4>
           <MdPeopleAlt className='icon-people'/>
         </a>
