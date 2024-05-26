@@ -1,100 +1,90 @@
-/* Estilo para a coluna principal */
 .coluna {
   width: 100vw;
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: linear-gradient(to bottom, #000000, #1a1a1a); /* Gradiente de fundo */
+  background: linear-gradient(to bottom, #000000, #0b0b0b);
   overflow: hidden;
   margin: 0;
   padding: 0;
 }
 
 .form {
+  display: flex;
+  flex-direction: column;
   background-position: center;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
 }
 
-/* Estilo para os contêineres */
 .container1, .container2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: aliceblue; /* Cor do texto */
-  transition: all 0.5s ease; /* Transição suave para todas as propriedades com duração de 0.5 segundos */
-  border: 10px solid transparent; /* Definindo a borda com cor transparente */
+  color: aliceblue;
+  transition: all 0.5s ease;
+  border: 10px solid transparent;
 }
 
-/* Estilo específico para o container1 */
 .container1 {
-  background: transparent; /* Define o background como transparente */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; /* Alinha o conteúdo verticalmente */
+  background: transparent;
+  flex-direction: column;
 }
 
-/* Estilo específico para o container2 */
 .container2 {
-  background: linear-gradient(to left, rgba(5, 5, 5, 0.5), transparent), url('/src/images/backgrounde.jpg'); /* Gradiente sobre a imagem de fundo */
-  background-size: contain; /* Cobrir toda a área do contêiner */
-  background-repeat: no-repeat; /* Não repetir a imagem */
-  background-position: -100% 50%; /* Posição inicial da imagem fora da tela */
-  overflow: hidden; /* Ocultar o conteúdo que transborda */
-  height: 100%; /* Definir altura */
-  width: 100%; /* Definir largura */
-  animation: slideFromLeft 1s both; /* Aplica a animação */
+  background: linear-gradient(to left, rgba(5, 5, 5, 0.5), transparent), url('/src/images/backgrounde.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: -100% 50%;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  animation: slideFromLeft 1s both;
 }
 
-/* Definição da animação */
 @keyframes slideFromLeft {
   from {
-    background-position: 5000% 50%; /* Inicia fora da tela à esquerda */
+    background-position: 5000% 50%;
   }
   to {
-    background-position: 0% 50%; /* Termina no centro */
+    background-position: 0% 50%;
   }
 }
 
-/* Estilo para os botões */
-button {
+.button {
   padding: 10px 20px;
   margin-top: 10px;
-  background-position: center;
-  background-color: #0624ea; /* Cor de fundo verde */
-  color: white; /* Cor do texto branco */
-  border: none; /* Remove a borda */
-  border-radius: 5px; /* Adiciona bordas arredondadas */
-  cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
-  transition: all 0.3s ease; /* Transição suave para todas as propriedades com duração de 0.3 segundos */
+  background-color: #0624ea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Estilo de hover para os botões */
-button:hover {
-  background-color: #45a049; /* Cor de fundo verde mais escura ao passar o mouse */
+.button:hover {
+  background-color: #45a049;
 }
 
-/* Estilo para os campos de entrada */
 .inputField {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #ccc; /* Adiciona uma borda cinza */
-  border-radius: 5px; /* Adiciona bordas arredondadas */
-  box-sizing: border-box; /* Mantém a largura consistente */
-  transition: border-color 0.3s ease; /* Transição suave para a cor da borda */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
 }
 
-/* Estilo de foco para os campos de entrada */
 .inputField:focus {
-  border-color: #4CAF50; /* Cor da borda alterada ao focar */
+  border-color: #4CAF50;
 }
 
 .header {
   display: flex;
-  justify-content: center; /* Centraliza os textos */
-  margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .inputGroup {
@@ -104,16 +94,25 @@ button:hover {
   width: 100%;
 }
 
-.buttonContainer {
-  display: flex;
-  justify-content: center; /* Centraliza o botão */
-  width: 100%;
-}
-
 .recallForget {
+  
   display: flex;
+  align-items: center;
+  width: 100px;
   justify-content: center;
   margin: 10px 0;
+  flex-direction: row; /* Alinha os itens em linha */
+}
+
+.recallForget label {
+  display: flex;
+  align-items: center; /* Alinha os itens no centro verticalmente */
+  white-space:nowrap;
+  font-size: 14px;
+}
+
+.checkbox {
+  margin-right: 5px;
 }
 
 .link {

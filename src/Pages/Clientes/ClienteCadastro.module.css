@@ -1,0 +1,106 @@
+/* Estilo de fundo para a página específica */
+.clientecadastrocontainer {
+  min-height: 100vh; /* Garante que o fundo cubra toda a altura da página */
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5; /* Cor de fundo desejada */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Estilos para o formulário */
+.container2 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 600px; /* Ajustando a largura máxima */
+  width: 100%;
+  background-color: white;
+  border-radius: 12px; /* Bordas mais arredondadas para um visual moderno */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais suave e pronunciada */
+  animation: fadeIn 0.5s ease-in-out; /* Animação de entrada suave */
+}
+
+/* Estilos para inputs e selects */
+input, select {
+  padding: 0.75rem; /* Aumentando o padding para uma área de clique maior */
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Bordas mais arredondadas */
+  width: 100%;
+  margin-top: 0.5rem;
+  transition: border-color 0.3s ease; /* Transição suave para a borda */
+}
+
+input:focus, select:focus {
+  border-color: #007bff; /* Cor da borda ao focar */
+  outline: none; /* Removendo outline padrão */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra suave ao focar */
+}
+
+/* Estilos para labels */
+label {
+  font-weight: bold;
+  margin-top: 1rem;
+  font-size: 0.9rem; /* Tamanho de fonte ajustado */
+}
+
+/* Media Queries para Design Responsivo */
+@media (max-width: 768px) {
+  .container2 {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  button {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+
+  input, select {
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  label {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cliente-cadastro-container {
+    padding: 1rem; /* Ajuste do padding para dispositivos móveis */
+  }
+
+  .container2 {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  button {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  input, select {
+    padding: 0.4rem;
+  }
+
+  label {
+    margin-top: 0.25rem;
+  }
+}
+
+/* Animação de entrada suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

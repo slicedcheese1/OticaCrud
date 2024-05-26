@@ -8,8 +8,9 @@ import DadosContatoClienteRegistro from "../../Componentes/Clientes/ClienteRegis
 import DadosEndereçoClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosEndereçoClienteRegistro"
 import DadosObservacoesClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosObservacoesClienteRegistro"
 import DadosPessoaisClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosPessoaisClienteRegistro"
-import './ClienteCadastro.css'
 
+import styles from './ClienteCadastro.module.css'
+import ButtonC from './ButtonC'; // Importando o componente ButtonC
 // function gerarJsonDoFormulario(dadosFormulario) {
 //   return {
 //     tipoCliente: dadosFormulario.tipoCliente,
@@ -152,13 +153,16 @@ function ClienteCadastro() {
         dataNascimento, setNascimento, //
         sexo, setSexo//
       }}>
-        <form className="container2" id='ClienteCadastroForm'>
-            <DadosPessoaisClienteRegistro/>
-            <DadosEndereçoClienteRegistro/>
-            <DadosContatoClienteRegistro/>
-            <DadosObservacoesClienteRegistro/>
-            <button type="submit" onClick={handleSalvar} >Salvar</button>
-        </form>
+
+      <div   className={styles.clientecadastrocontainer}>
+          <form className={styles.container2} id='ClienteCadastroForm'>
+              <DadosPessoaisClienteRegistro/>
+              <DadosEndereçoClienteRegistro/>
+              <DadosContatoClienteRegistro/>
+              <DadosObservacoesClienteRegistro/>
+              <ButtonC onClick={handleSalvar}>Salvar</ButtonC>
+          </form>
+        </div>
       </ClienteContext.Provider>
     </>
   )

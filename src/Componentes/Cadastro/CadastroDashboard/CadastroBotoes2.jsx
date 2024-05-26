@@ -2,7 +2,7 @@ import React from 'react'
 import { MdPeopleAlt } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 
-
+import "./CadastroBotoes2.css";
 
 const CadastroBotoes2 = () => {
   return (

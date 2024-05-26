@@ -4,7 +4,7 @@ import styles from './Login.module.css';
 const Login = () => {
   return (
     <section className={styles.coluna}>
-      <div className={styles.container2}></div> {/* Contêiner da imagem agora vem primeiro */}
+      <div className={styles.container2}></div>
       <div className={styles.container1}>
         <form className={styles.form}>
           <div className={styles.header}>
@@ -27,12 +27,12 @@ const Login = () => {
             </div>
             <div className={styles.recallForget}>
               <label>
-                <input type="checkbox" />
+                <input className={styles.checkbox} type="checkbox" />
                 Lembre de mim
               </label>
             </div>
-            <div className={styles.buttonContainer}>
-              <button>Entrar</button>
+            <div>
+              <button className={styles.button}>Entrar</button>
             </div>
           </div>
         </form>
