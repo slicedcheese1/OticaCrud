@@ -15,7 +15,7 @@ function DadosEndereçoClienteRegistro() {
     bairro, setBairro
   } = React.useContext(ClienteContext);
 
-  const { register, setValue, setFocus } = useForm();
+  const { register, setValue } = useForm();
 
   const checkCEP = (e) => {
     const cep = e.target.value.replace(/\D/g, '');
@@ -24,11 +24,9 @@ function DadosEndereçoClienteRegistro() {
       .then(res => res.json()).then(data => {
         console.log(data);
 
-        setValue('cidade', data.localidade);
+        setValue('cidade', data.cidade);
         setValue('bairro', data.bairro);
-        setValue('estado', data.uf);
         setValue('rua', data.logradouro);
-        setFocus('numero');
 
       })
   }
@@ -57,14 +55,36 @@ function DadosEndereçoClienteRegistro() {
             <div className="gp1-1">
 
               <label htmlFor="estado">Estado</label>
-              <input
-                type="text"
-                placeholder=""
-                {...register("estado")}
-                name="estado"
-                value={estado}
-                onChange={(e) => {setEstado(e.target.value)}}
-              />
+              <select name="estado" id="estados" onChange={(e) => {setEstado(e.target.value)}} value={estado}>
+                <option value="" disabled selected>Selecione um estado</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+              </select>
             </div>
 
             <div className="gp1-1">
@@ -110,25 +130,12 @@ function DadosEndereçoClienteRegistro() {
               <label htmlFor="numero">Número</label>
               <input
                 type="text"
-                placeholder=""
-                {...register("numero")}
                 name="numero"
                 value = {numeroCasa}
                 onChange={(e) => {setCasa(e.target.value)}}
               />
             </div>
 
-            {/* <div className='gp2-1'>
-              <label for="complemento">Complemento</label>
-              <input
-                type="text"
-                placeholder=""
-                {...register("complemento")}
-                name="complemento"
-                value = {numeroCasa}
-
-              />
-            </div> */}
           </div>
 
         </div>

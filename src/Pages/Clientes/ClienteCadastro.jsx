@@ -53,47 +53,9 @@ function ClienteCadastro() {
   const [rg, setRg] = useState("")
   const [dataNascimento, setNascimento] = useState("")
   const [sexo, setSexo] = useState("")
+  const [isSubmited, setIsSubmited] = useState(false);
   const handleSalvar = (e) => {
-    e.preventDefault();
-    // console.log(JSON.stringify({
-    //   tipoCliente,
-    //   lojaCadastro,
-    //   cep,
-    //   cidade,
-    //   estado,
-    //   rua,
-    //   numeroCasa,
-    //   bairro,
-    //   telefones,
-    //   emails,
-    //   habilitarSms,
-    //   habilitarWhatsapp,
-    //   cpf,
-    //   rg,
-    //   nascimento,
-    //   sexo
-    // }));
-
-    // const dadosFormulario = {
-    //   tipoCliente: "pf",
-    //   lojaCadastro: "aleixo",
-    //   cep: "68022-314",
-    //   cidade: "Manaus",
-    //   estado: "Amazonas",
-    //   rua: "edmundo",
-    //   numeroCasa: 18,
-    //   bairro: "flores",
-    //   numerosTelefone: ["+55597984857689"],
-    //   emails: ["email@uea.edu.br"],
-    //   habilitarSms: false,
-    //   habilitarWhatsapp: false,
-    //   cpf: "00853133271",
-    //   nome: "fsefsefsefesfsfsef",
-    //   rg: "36316527",
-    //   dataNascimento: "25-12-2024",
-    //   sexo: "OUTRO"
-    // };
-
+    setIsSubmited = true
     fetch('http://localhost:8080/clientes/pf', {
       //mode: 'no-cors',
       method: 'POST',
@@ -151,7 +113,8 @@ function ClienteCadastro() {
         nome, setNome, //
         rg, setRg, //
         dataNascimento, setNascimento, //
-        sexo, setSexo//
+        sexo, setSexo,//
+        isSubmited
       }}>
 
       <div   className={styles.clientecadastrocontainer}>

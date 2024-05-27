@@ -8,7 +8,12 @@ import './DadosPessoaisClienteRegistro.css'
 
 import ClienteContext from '../../../Pages/Clientes/ClinteContext';
 
+import { useState } from 'react';
+
 function DadosPessoaisClienteRegistro() {
+
+  const [erroData, setErroData] = useState('');
+  const [erroCpf, setErroCpf] = useState('');
 
   const {
     tipoCliente, setTipoCliente,
@@ -17,8 +22,75 @@ function DadosPessoaisClienteRegistro() {
     nome, setNome,
     rg, setRg, 
     nascimento, setNascimento, 
-    sexo, setSexo
+    sexo, setSexo,
+    isSubmited
    } = React.useContext(ClienteContext);
+
+   const validarCampoCPF = (e) => {
+    const cpfValue = e;
+    if (!validarCPF(cpfValue)) {
+      setErroCpf('CPF inválido');
+    } else {
+      setErroCpf('');
+    }
+  };
+
+   const validarCPF = (cpf) => {
+    // Remove caracteres não numéricos
+    cpf = cpf.replace(/[^\d]+/g, '');
+    console.log(cpf)
+
+    if (cpf.length !== 11) return false;
+
+    // Elimina CPFs inválidos conhecidos
+    if (
+      cpf === '00000000000' ||
+      cpf === '11111111111' ||
+      cpf === '22222222222' ||
+      cpf === '33333333333' ||
+      cpf === '44444444444' ||
+      cpf === '55555555555' ||
+      cpf === '66666666666' ||
+      cpf === '77777777777' ||
+      cpf === '88888888888' ||
+      cpf === '99999999999'
+    ) {
+      return false;
+    }
+
+    // Valida dígitos verificadores
+    let add = 0;
+    for (let i = 0; i < 9; i++) add += parseInt(cpf.charAt(i)) * (10 - i);
+    let rev = 11 - (add % 11);
+    if (rev === 10 || rev === 11) rev = 0;
+    if (rev !== parseInt(cpf.charAt(9))) return false;
+
+    add = 0;
+    for (let i = 0; i < 10; i++) add += parseInt(cpf.charAt(i)) * (11 - i);
+    rev = 11 - (add % 11);
+    if (rev === 10 || rev === 11) rev = 0;
+    if (rev !== parseInt(cpf.charAt(10))) return false;
+
+    return true;
+  };
+
+   const validarData = (data) => {
+    const [dia, mes, ano] = data.split('-').map(Number);
+    const dataValida = new Date(ano, mes - 1, dia);
+    const anoAtual = new Date().getFullYear();
+
+    const ehDataValida = 
+      dataValida.getFullYear() === ano &&
+      dataValida.getMonth() === mes - 1 &&
+      dataValida.getDate() === dia;
+      ano <= anoAtual
+
+    if (!ehDataValida) {
+      setErroData('Data de nascimento inválida');
+    } else {
+      setErroData('');
+    }
+  };
 
   const handleTipoClienteChange = (event) => {
     setTipoCliente(event.target.value);
@@ -76,7 +148,8 @@ function DadosPessoaisClienteRegistro() {
 
               <div className="column-flex-box gap1 gp1-2">
                 <label htmlFor="lojas">Cadastro Em</label> 
-                <select name="loja" value={lojaCadastro} onChange={(e) => {setLojaCadastro(e.target.value)}}>
+                <select name="loja" value={lojaCadastro} onChange={(e) => {setLojaCadastro(e.target.value)}} required>
+                  <option value="" disabled selected >Selecione uma opção</option>
                   <option value="Loja 01">Loja 01</option>  
                   <option value="Loja 02">Loja 02</option>  
                   <option value="Loja 03">Loja 03</option>  
@@ -95,12 +168,14 @@ function DadosPessoaisClienteRegistro() {
               <div className="gp2"> 
                 <div className='gp2-1 column-flex-box'>
                   <label htmlFor="nome">Nome</label>
-                  <input type="text" maxLength={70} name='nome' value={nome} onChange={(e) => {setNome(e.target.value)}} />
+                  <input type="text" maxLength={70} name='nome' value={nome} onChange={(e) => {setNome(e.target.value)}} required />
+                  {isSubmited && !nome && <span style={{ color: 'red' }}>Campo obrigatório</span>}
                 </div>
 
                 <div className='gp2-2 column-flex-box'>
                   <label htmlFor="sexo">Sexo</label>
                   <select name="sexo" value={sexo} onChange={(e) => {setSexo(e.target.value)}}>
+                    <option value="" disabled selected >Selecione uma opção</option>
                     <option value="Masculino">Masculino</option>  
                     <option value="Feminino">Femino</option>  
                     <option value="Outros">Outros</option>  
@@ -119,12 +194,23 @@ function DadosPessoaisClienteRegistro() {
 
                 <div className='gp3-2 column-flex-box gap1'>
                   <label htmlFor="cpf" >CPF</label>
-                  <ReactInputMask mask={'999.999.999-99'} type="text" name='cpf' value={cpf} onChange={(e) => {setCpf(e.target.value)}} />
+                  <ReactInputMask mask={'999.999.999-99'} type="text" name='cpf' 
+                  value={cpf} 
+                  onChange={(e) => {setCpf(e.target.value)}} 
+                  onBlur={(e) => {validarCampoCPF(e.target.value)}}
+                  />
+                  {erroCpf && <span style={{ color: 'red' }}>{erroCpf}</span>}
                 </div>
 
                 <div className='gp3-3 column-flex-box gap1'>
                   <label htmlFor="data-de-nascimento">Data de nascimento</label>
-                  <ReactInputMask mask={'99-99-9999'} type="text" name="data-de-nascimento" value={nascimento} onChange={(e) => {setNascimento(e.target.value)}} />
+                  <ReactInputMask mask={'99-99-9999'} type="text" name="data-de-nascimento"
+                  value={nascimento} 
+                  onChange={(e) => {setNascimento(e.target.value)}}
+                  onBlur={(e) => validarData(e.target.value)} 
+                  required
+                  />
+                  {erroData && <span style={{ color: 'red' }}>{erroData}</span>}
                 </div>
               </div>
             )}
