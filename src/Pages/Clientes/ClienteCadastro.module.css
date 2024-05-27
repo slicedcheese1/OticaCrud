@@ -16,7 +16,7 @@
   flex-direction: column;
   gap: 1.5rem;
   padding: 2rem;
-  max-width: 600px; /* Ajustando a largura máxima */
+  max-width: 5000px; /* Ajustando a largura máxima */
   width: 100%;
   background-color: white;
   border-radius: 12px; /* Bordas mais arredondadas para um visual moderno */
@@ -93,6 +93,7 @@ label {
   }
 }
 
+
 /* Animação de entrada suave */
 @keyframes fadeIn {
   from {
@@ -104,3 +105,4 @@ label {
     transform: translateY(0);
   }
 }
+
