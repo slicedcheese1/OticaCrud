@@ -6,48 +6,64 @@
     overflow: hidden;
     padding: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .card:hover {
+}
+
+.card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card-all-infos {
+}
+
+.card-list {
+    align-items: center;
+    display: flex;
+    
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.card-all-infos {
+    align-items: center;
+    
     border: 2px solid #15171c;
     border-radius: 8px;
     margin-top: 1rem;
     overflow: hidden;
     padding: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .card-all-infos:hover {
+}
+.czUqgZ{
+    z-index: 2;
+}
+.card-all-infos:hover {
+    z-index: 1;
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card-name-button {
+}
+
+.card-name-button {
     align-items: center;
     background-color: #17151c;
     display: flex;
     height: 40px;
     justify-content: space-between;
     padding: 0 1rem;
-  }
-  
-  .card-name {
+}
+
+.card-name {
     color: #fff;
     font-size: 1.1rem;
     font-weight: bold;
-  }
-  
-  .add-button {
+}
+
+.add-button {
     color: black;
     margin-right: 1rem;
-  }
-  
-  .add-button-back {
+}
+
+.add-button-back {
     align-items: center;
     background-color: #fff;
     border: 2px solid transparent;
@@ -57,32 +73,33 @@
     justify-content: center;
     padding: 0.5rem 1rem;
     transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
-  
-  .add-button-back:hover {
+}
+
+.add-button-back:hover {
     background-color: #f0f0f0;
     border-color: #15171c;
-  }
-  
-  .card-infos {
+}
+
+.card-infos {
     display: flex;
     flex-direction: column;
     font-size: 0.9rem;
     gap: 1rem;
     padding: 1rem 0;
-  }
-  
-  .card-list {
+}
+
+.card-list-item {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .card-list-item {
+    align-items: center; /* Centraliza verticalmente os itens */
+    justify-content: flex-start; /* Alinha os itens no início da linha */
+    gap: 1rem; /* Espaçamento entre os itens */
+    width: 100%; /* Garante que o item ocupe toda a largura disponível */
+}
+.preferences{
+  width:100vh;
+  padding:1vh;
+  justify-content:flex-start;
+}
+#form-contato {
     align-items: center;
-    display: flex;
-  }
-  
+}
