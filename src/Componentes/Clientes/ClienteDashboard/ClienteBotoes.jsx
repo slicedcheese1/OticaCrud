@@ -6,7 +6,7 @@ import styles from './ClienteBotoes.module.css'; // Importando estilos do módul
 const ClienteBotoes = () => {
   return (
     <div className={styles['container-dashboard']}>
-      <a href='/Sistema/CadastroUsuario/' className={styles['card-opt']}>
+      <a href='/Sistema/ClienteCadastro/' className={styles['card-opt']}>
         <h4>Cadastro de clientes</h4>
         <MdPeopleAlt className={styles['icon-people']}/>
       </a>

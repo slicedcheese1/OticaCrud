@@ -11,7 +11,7 @@ const Nav = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  background: #000;
+  background: #fff;
   height: 80px;
   display: flex;
   justify-content: flex-start;
@@ -25,6 +25,7 @@ const NavIcon = styled(Link)`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  color: #f5f5f5;
 `;
 
 const SidebarNav = styled.nav`

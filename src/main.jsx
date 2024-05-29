@@ -12,6 +12,7 @@ import './index.css';
 import CadastroDashboard from './Pages/Cadastro/CadastroDashboard.jsx';
 import CadastroBotoes2 from './Componentes/Cadastro/CadastroDashboard/CadastroBotoes2.jsx';
 import CadastroUsuario from './Pages/Cadastro/CadastroUsuario.jsx';
+import ClienteUpdate from './Pages/Clientes/ClienteUpdate.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
           {
             path: '/Sistema/CadastroUsuario',
             element: <CadastroUsuario /> //(())
+          },
+          {
+            path: '/Sistema/ClienteBusca/:id',
+            element: <ClienteUpdate /> //(())
           },
         ]
       },
