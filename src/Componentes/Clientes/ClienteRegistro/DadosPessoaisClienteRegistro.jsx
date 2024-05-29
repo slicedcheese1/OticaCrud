@@ -39,7 +39,8 @@ function DadosPessoaisClienteRegistro() {
    const validarCPF = (cpf) => {
     // Remove caracteres não numéricos
     cpf = cpf.replace(/[^\d]+/g, '');
-    console.log(cpf)
+    console.log("cpf: ", cpf)
+
     setCpf(cpf)
 
     if (cpf.length !== 11) return false;
