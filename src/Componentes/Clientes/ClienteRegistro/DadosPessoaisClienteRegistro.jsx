@@ -28,6 +28,7 @@ function DadosPessoaisClienteRegistro() {
 
    const validarCampoCPF = (e) => {
     const cpfValue = e;
+    console.log("cpf: ", cpfValue)
     if (!validarCPF(cpfValue)) {
       setErroCpf('CPF inválido');
     } else {
@@ -39,6 +40,7 @@ function DadosPessoaisClienteRegistro() {
     // Remove caracteres não numéricos
     cpf = cpf.replace(/[^\d]+/g, '');
     console.log(cpf)
+    setCpf(cpf)
 
     if (cpf.length !== 11) return false;
 
@@ -176,9 +178,9 @@ function DadosPessoaisClienteRegistro() {
                   <label htmlFor="sexo">Sexo</label>
                   <select name="sexo" value={sexo} onChange={(e) => {setSexo(e.target.value)}}>
                     <option value="" disabled selected >Selecione uma opção</option>
-                    <option value="Masculino">Masculino</option>  
-                    <option value="Feminino">Femino</option>  
-                    <option value="Outros">Outros</option>  
+                    <option value="M">Masculino</option>  
+                    <option value="F">Femino</option>  
+                    <option value="O">Outros</option>  
                   </select>  
                   
                 </div>

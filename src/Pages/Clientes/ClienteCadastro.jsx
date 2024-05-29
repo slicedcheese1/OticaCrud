@@ -11,28 +11,6 @@ import DadosPessoaisClienteRegistro from "../../Componentes/Clientes/ClienteRegi
 
 import styles from './ClienteCadastro.module.css'
 import ButtonC from './ButtonC'; // Importando o componente ButtonC
-// function gerarJsonDoFormulario(dadosFormulario) {
-//   return {
-//     tipoCliente: dadosFormulario.tipoCliente,
-//     lojaCadastro: dadosFormulario.lojaCadastro,
-//     cep: dadosFormulario.cep,
-//     cidade: dadosFormulario.cidade,
-//     estado: dadosFormulario.estado,
-//     rua: dadosFormulario.rua,
-//     numeroCasa: dadosFormulario.numeroCasa,
-//     bairro: dadosFormulario.bairro,
-//     numerosTelefone: dadosFormulario.telefones,
-//     emails: dadosFormulario.emails,
-//     habilitarSms: dadosFormulario.habilitarSms,
-//     habilitarWhatsapp: dadosFormulario.habilitarWhatsapp,
-//     cpf: dadosFormulario.cpf,
-//     nome: dadosFormulario.nome,
-//     rg: dadosFormulario.rg,
-//     dataNascimento: dadosFormulario.nascimento, // Formate a data de nascimento
-//     sexo: dadosFormulario.sexo,
-//   };
-// }
-
 
 function ClienteCadastro() {
 
@@ -42,7 +20,7 @@ function ClienteCadastro() {
   const [cidade, setCidade] = useState("")
   const [estado, setEstado] = useState("")
   const [rua, setRua] = useState("")
-  const [numeroCasa, setCasa] = useState()
+  const [numeroCasa, setCasa] = useState(10)
   const [bairro, setBairro] = useState("")
   const [numerosTelefone, setTelefones] = useState([])
   const [emails, setEmails] = useState([])
@@ -53,9 +31,31 @@ function ClienteCadastro() {
   const [rg, setRg] = useState("")
   const [dataNascimento, setNascimento] = useState("")
   const [sexo, setSexo] = useState("")
-  const [isSubmited, setIsSubmited] = useState(false);
+  const [isSubmited, setIsSubmited] =  useState(false);
+  
   const handleSalvar = (e) => {
-    setIsSubmited = true
+    e.preventDefault();
+
+    console.log(JSON.stringify({
+      tipoCliente,
+      lojaCadastro,
+      cep,
+      cidade,
+      estado,
+      rua,
+      numeroCasa,
+      bairro,
+      numerosTelefone,
+      emails,
+      habilitarSms,
+      habilitarWhatsapp,
+      cpf,
+      nome,
+      rg,
+      dataNascimento,
+      sexo
+    }))
+
     fetch('http://localhost:8080/clientes/pf', {
       //mode: 'no-cors',
       method: 'POST',

@@ -10,7 +10,7 @@ const CardContatoTelefoneClienteRegistro = () => {
   const [telefone, setTelefone] = useState("")
 
   const {
-    telefones, setTelefones, 
+    numerosTelefone, setTelefones, 
     habilitarSms, setHabilitarSms, 
     habilitarWhatsapp, setHabilitarWhatsapp,
    } = React.useContext(ClienteContext);
@@ -20,12 +20,12 @@ const CardContatoTelefoneClienteRegistro = () => {
     <div className="cardTel" id="form-contato" method="post">
       <div className="num-box">
         <label for="telefone">Número</label>
-        <input mask={"(99) 99999-9999"} type="tel" name="telefone" id="telefone" value={telefone} onChange={(e) => {
+        <input mask={"(99) 99999-9999"} type="tel" name="telefone" value={telefone} onChange={(e) => {
           setTelefone(e.target.value)
         }} />
         <button onClick={ (e) => {
           e.preventDefault()
-          setTelefones([...telefones, telefone])}
+          setTelefones([...numerosTelefone, telefone])}
           }>Salvar</button>
 
       </div>
