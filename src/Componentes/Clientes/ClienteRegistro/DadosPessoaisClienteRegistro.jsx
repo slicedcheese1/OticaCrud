@@ -85,7 +85,7 @@ function DadosPessoaisClienteRegistro() {
     const ehDataValida = 
       dataValida.getFullYear() === ano &&
       dataValida.getMonth() === mes - 1 &&
-      dataValida.getDate() === dia;
+      dataValida.getDate() === dia &&
       ano <= anoAtual
 
     if (!ehDataValida) {
