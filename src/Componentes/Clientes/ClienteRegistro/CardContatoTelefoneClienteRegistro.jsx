@@ -14,17 +14,22 @@ const CardContatoTelefoneClienteRegistro = () => {
     habilitarWhatsapp, setHabilitarWhatsapp,
    } = React.useContext(ClienteContext);
   
+   function salvarTelefones(telefone){
+
+    const novoTelefone = telefone.replace(/[()\s-]/g, '');
+    console.log(novoTelefone); // Resultado: +9999999999999
+
+    setTelefones([...numerosTelefone, novoTelefone])
+   } 
+
   return (
     <div className="cardTel" id="form-contato" method="post">
       <div className="num-box">
         <label htmlFor="telefone">Número</label>
-        <ReactInputMask mask={"+99 (99) 99999-9999"} type="tel" name="telefone" id="telefone" value={telefone} onChange={(e) => {
-          setTelefone(e.target.value)
-        }} />
-        <button onClick={ (e) => {
-          e.preventDefault()
-          setTelefones([...numerosTelefone, telefone])}
-          }>Salvar</button>
+        <ReactInputMask mask={"+99 (99) 99999-9999"} type="tel" name="telefone" 
+        id="telefone" 
+        value={telefone} onChange={(e) => { setTelefone(e.target.value)}}
+        onBlur={(e) => {salvarTelefones(telefone)}}/>
 
       </div>
       <div className="preferences">
