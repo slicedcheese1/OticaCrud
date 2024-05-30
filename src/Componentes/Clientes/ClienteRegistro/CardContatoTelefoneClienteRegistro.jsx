@@ -2,6 +2,7 @@ import React from 'react'
 import './CardContatoClienteRegistro.css'
 import { useState, useContext } from 'react'
 import ClienteContext from '../../../Pages/Clientes/ClinteContext'
+import ReactInputMask from 'react-input-mask'
 
 const CardContatoTelefoneClienteRegistro = () => {
 
@@ -17,7 +18,7 @@ const CardContatoTelefoneClienteRegistro = () => {
     <div className="cardTel" id="form-contato" method="post">
       <div className="num-box">
         <label htmlFor="telefone">Número</label>
-        <input mask={"(99) 99999-9999"} type="tel" name="telefone" id="telefone" value={telefone} onChange={(e) => {
+        <ReactInputMask mask={"+99 (99) 99999-9999"} type="tel" name="telefone" id="telefone" value={telefone} onChange={(e) => {
           setTelefone(e.target.value)
         }} />
         <button onClick={ (e) => {
