@@ -5,7 +5,7 @@ import axios from "axios"
 import ClienteContext from "./ClinteContext"
 
 import DadosContatoClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosContatoClienteRegistro"
-import DadosEndereçoClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosEndereçoClienteRegistro"
+import DadosEnderecoClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosEnderecoClienteRegistro"
 import DadosObservacoesClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosObservacoesClienteRegistro"
 import DadosPessoaisClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosPessoaisClienteRegistro"
 
@@ -35,7 +35,7 @@ function ClienteCadastro() {
   
   const handleSalvar = (e) => {
     e.preventDefault();
-
+    setIsSubmited(true)
     console.log(JSON.stringify({
       tipoCliente,
       lojaCadastro,
@@ -120,7 +120,7 @@ function ClienteCadastro() {
       <div   className={styles.clientecadastrocontainer}>
           <form className={styles.container2} id='ClienteCadastroForm'>
               <DadosPessoaisClienteRegistro/>
-              <DadosEndereçoClienteRegistro/>
+              <DadosEnderecoClienteRegistro/>
               <DadosContatoClienteRegistro/>
               <DadosObservacoesClienteRegistro/>
               <ButtonC onClick={handleSalvar}>Salvar</ButtonC>
