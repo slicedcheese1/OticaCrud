@@ -21,17 +21,20 @@ function DadosPessoaisClienteRegistro() {
     cpf, setCpf,
     nome, setNome,
     rg, setRg, 
-    nascimento, setNascimento, 
+    dataNascimento, setNascimento, 
     sexo, setSexo,
-    isSubmited
+    isSubmited,
+    setErroForm
    } = React.useContext(ClienteContext);
 
    const validarCampoCPF = (e) => {
     const cpfValue = e;
     console.log("cpf: ", cpfValue)
     if (!validarCPF(cpfValue)) {
+      setErroForm(true)
       setErroCpf('CPF inválido');
     } else {
+      setErroForm(false)
       setErroCpf('');
     }
   };
@@ -89,8 +92,10 @@ function DadosPessoaisClienteRegistro() {
       ano <= anoAtual
 
     if (!ehDataValida) {
+      setErroForm(true)
       setErroData('Data de nascimento inválida');
     } else {
+      setErroForm(false)
       setErroData('');
     }
   };
@@ -171,7 +176,10 @@ function DadosPessoaisClienteRegistro() {
               <div className="gp2"> 
                 <div className='gp2-1 column-flex-box'>
                   <label htmlFor="nome">Nome</label>
-                  <input type="text" maxLength={70} name='nome' value={nome} onChange={(e) => {setNome(e.target.value)}} required />
+                  <input type="text" maxLength={70} name='nome' 
+                  id='nome'
+                  value={nome} 
+                  onChange={(e) => {setNome(e.target.value)}} required />
                   {isSubmited && !nome && <span style={{ color: 'red' }}>Campo obrigatório</span>}
                 </div>
 
@@ -183,7 +191,19 @@ function DadosPessoaisClienteRegistro() {
                     <option value="F">Femino</option>  
                     <option value="O">Outros</option>  
                   </select>  
-                  
+                </div>
+
+                <div className='gp3-3 column-flex-box gap1'>
+                  <label htmlFor="data-de-nascimento">Data de nascimento</label>
+                  <ReactInputMask mask={'99-99-9999'} type="text" name="data-de-nascimento"
+                  value={dataNascimento} 
+                  id='nascimento'
+                  onChange={(e) => {setNascimento(e.target.value)}}
+                  onBlur={(e) => validarData(e.target.value)} 
+                  required
+                  />
+                  {erroData && <span style={{ color: 'red' }}>{erroData}</span>}
+                  {isSubmited && !dataNascimento && <span style={{ color: 'red' }}>Campo obrigatório</span>}
                 </div>
               </div>
             )}
@@ -192,29 +212,25 @@ function DadosPessoaisClienteRegistro() {
               <div className="gp3"> 
                 <div className='gp3-1 column-flex-box gap1'>
                   <label htmlFor="rg">RG</label>
-                  <input type="text" name="rg" value={rg} onChange={(e) => {setRg(e.target.value)}} />
+                  <input type="text" name="rg" 
+                  value={rg} 
+                  onChange={(e) => {setRg(e.target.value)}} />
                 </div>
 
                 <div className='gp3-2 column-flex-box gap1'>
                   <label htmlFor="cpf" >CPF</label>
                   <ReactInputMask mask={'999.999.999-99'} type="text" name='cpf' 
+                  id='cpf'
                   value={cpf} 
                   onChange={(e) => {setCpf(e.target.value)}} 
                   onBlur={(e) => {validarCampoCPF(e.target.value)}}
                   />
                   {erroCpf && <span style={{ color: 'red' }}>{erroCpf}</span>}
+                  {isSubmited && !cpf && <span style={{ color: 'red' }}>Campo obrigatório</span>}
+
                 </div>
 
-                <div className='gp3-3 column-flex-box gap1'>
-                  <label htmlFor="data-de-nascimento">Data de nascimento</label>
-                  <ReactInputMask mask={'99-99-9999'} type="text" name="data-de-nascimento"
-                  value={nascimento} 
-                  onChange={(e) => {setNascimento(e.target.value)}}
-                  onBlur={(e) => validarData(e.target.value)} 
-                  required
-                  />
-                  {erroData && <span style={{ color: 'red' }}>{erroData}</span>}
-                </div>
+                
               </div>
             )}
 
@@ -226,7 +242,7 @@ function DadosPessoaisClienteRegistro() {
                 </div>
 
                 <div className='gp3-2 column-flex-box gap1'>
-                  <label htmlFor="nome-fantasia" >Nome Fantasia</label>
+                  <label htmlFor="nome-fantasia">Nome Fantasia</label>
                   <input type="text" name="nome-fantasia" />
                 </div>
               </div>

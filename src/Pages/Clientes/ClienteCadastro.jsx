@@ -32,10 +32,19 @@ function ClienteCadastro() {
   const [dataNascimento, setNascimento] = useState("")
   const [sexo, setSexo] = useState("")
   const [isSubmited, setIsSubmited] =  useState(false);
+  const [erroForm, setErroForm] =  useState(false);
   
   const handleSalvar = (e) => {
     e.preventDefault();
     setIsSubmited(true)
+
+    if (erroForm || !dataNascimento || !nome || !cpf) {
+      console.log(dataNascimento, nome, cpf)
+      console.log(erroForm)
+      return
+    }
+    
+
     console.log(JSON.stringify({
       tipoCliente,
       lojaCadastro,
@@ -114,7 +123,8 @@ function ClienteCadastro() {
         rg, setRg, //
         dataNascimento, setNascimento, //
         sexo, setSexo,//
-        isSubmited
+        isSubmited,
+        erroForm, setErroForm
       }}>
 
       <div   className={styles.clientecadastrocontainer}>
