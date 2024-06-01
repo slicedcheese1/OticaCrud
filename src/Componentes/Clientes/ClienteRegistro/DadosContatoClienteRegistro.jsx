@@ -2,19 +2,27 @@ import React, { useState } from 'react';
 import './DadosContatoClienteRegistro.css';
 import CardContatoTelefoneClienteRegistro from './CardContatoTelefoneClienteRegistro';
 import CardContatoEmailClienteRegistro from './CardContatoEmailClienteRegistro';
+import ClienteContext from '../../../Pages/Clientes/ClinteContext'
 
 const DadosContatoClienteRegistro = () => {
-  const [cardTel, setCardTel] = useState([]);
-  const [cardEmail, setCardEmail] = useState([]);
+
+  const {
+    cardTel, setCardTel,
+    cardEmail, setCardEmail
+   } = React.useContext(ClienteContext);
   
   const addTel = (event) => {
     event.preventDefault();
-    setCardTel([...cardTel, { id: cardTel.length, component: <CardContatoTelefoneClienteRegistro key={cardTel.length} /> }]);
+    const newId = cardTel.length ? cardTel[cardTel.length - 1].id + 1 : 0;
+    setCardTel([...cardTel, { id: newId, component: <CardContatoTelefoneClienteRegistro id={newId} key={newId} /> }]);
+    console.log(cardTel)
+
   };
 
   const addEmail = (event) => {
     event.preventDefault();
-    setCardEmail([...cardEmail, { id: cardEmail.length, component: <CardContatoEmailClienteRegistro key={cardEmail.length} /> }]);
+    const newId = cardEmail.length ? cardEmail[cardEmail.length - 1].id + 1 : 0;
+    setCardEmail([...cardEmail, { id: newId, component: <CardContatoEmailClienteRegistro id={newId} key={newId} /> }]);
   };
    
   return (

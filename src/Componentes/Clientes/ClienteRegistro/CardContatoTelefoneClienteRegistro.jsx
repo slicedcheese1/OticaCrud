@@ -3,19 +3,25 @@ import './CardContatoClienteRegistro.css'
 import { useState, useContext } from 'react'
 import ClienteContext from '../../../Pages/Clientes/ClinteContext'
 import ReactInputMask from 'react-input-mask'
+import { FaTrash } from "react-icons/fa";
 
-const CardContatoTelefoneClienteRegistro = () => {
+const CardContatoTelefoneClienteRegistro = ({id}) => {
 
+  
   const [telefone, setTelefone] = useState("")
 
   const {
+    cardTel, setCardTel,
     numerosTelefone, setTelefones, 
     habilitarSms, setHabilitarSms, 
     habilitarWhatsapp, setHabilitarWhatsapp,
    } = React.useContext(ClienteContext);
   
-   function salvarTelefones(telefone){
+   function deletarCard(id){
+    setCardTel(cardTel.filter(card => card.id !== id));
+   }
 
+   function salvarTelefones(telefone){
     const novoTelefone = telefone.replace(/[()\s-]/g, '');
     console.log(novoTelefone); // Resultado: +9999999999999
 
@@ -25,7 +31,12 @@ const CardContatoTelefoneClienteRegistro = () => {
   return (
     <div className="cardTel" id="form-contato" method="post">
       <div className="num-box">
-        <label htmlFor="telefone">Número</label>
+        <div className="label-trash">
+          <label htmlFor="telefone">Número</label>
+          <FaTrash className='trash-icon'
+          onClick={() => deletarCard(id)}
+          />
+        </div>
         <ReactInputMask mask={"+99 (99) 99999-9999"} type="tel" name="telefone" 
         id="telefone" 
         value={telefone} onChange={(e) => { setTelefone(e.target.value)}}

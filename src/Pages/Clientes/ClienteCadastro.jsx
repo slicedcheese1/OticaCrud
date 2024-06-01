@@ -31,9 +31,12 @@ function ClienteCadastro() {
   const [rg, setRg] = useState("")
   const [dataNascimento, setNascimento] = useState("")
   const [sexo, setSexo] = useState("")
+
   const [isSubmited, setIsSubmited] =  useState(false);
   const [erroForm, setErroForm] =  useState(false);
-  
+  const [cardTel, setCardTel] = useState([]);
+  const [cardEmail, setCardEmail] = useState([]);
+
   const handleSalvar = (e) => {
     e.preventDefault();
     setIsSubmited(true)
@@ -124,11 +127,13 @@ function ClienteCadastro() {
         dataNascimento, setNascimento, //
         sexo, setSexo,//
         isSubmited,
-        erroForm, setErroForm
+        erroForm, setErroForm,
+        cardTel, setCardTel,
+        cardEmail, setCardEmail
       }}>
 
       <div   className={styles.clientecadastrocontainer}>
-          <form className={styles.container2} id='ClienteCadastroForm'>
+          <form className={styles.container2} id='ClienteCadastroForm'  autocomplete="off">
               <DadosPessoaisClienteRegistro/>
               <DadosEnderecoClienteRegistro/>
               <DadosContatoClienteRegistro/>

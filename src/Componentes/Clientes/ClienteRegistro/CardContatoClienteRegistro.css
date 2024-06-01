@@ -11,10 +11,29 @@
   margin-bottom: 1rem;
 }
 
+.trash-icon{
+  cursor: pointer;
+  
+}
+
+.trash-icon:hover{
+  scale: 1.3;
+}
+
+
 .num-box {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.label-trash {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 0.5rem;
 }
 
 .preferences {

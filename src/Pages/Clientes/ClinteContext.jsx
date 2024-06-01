@@ -17,7 +17,11 @@ const ClienteContext = React.createContext({
     nome:  "",
     rg:  "",
     dataNascimento:  "",
-    sexo:  ""
+    sexo:  "",
+    isSubmited:  false ,
+    erroForm:false, 
+    cardTel: [],
+    cardEmail: [] 
       
   });
   
