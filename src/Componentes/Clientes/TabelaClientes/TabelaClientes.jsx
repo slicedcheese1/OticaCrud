@@ -37,7 +37,7 @@ const ClienteBusca = () => {
   return (
    
     <>
-    
+      <div className ="container-busca">
       <div className="buscas">
         <h1>Busca de clientes</h1>
         <hr />
@@ -47,6 +47,9 @@ const ClienteBusca = () => {
         <br />
         <br />
       </div>
+      </div>
+      <br/>
+      <br/>
       <div>
         <table className="customers">
           <thead>
@@ -67,15 +70,16 @@ const ClienteBusca = () => {
                 <td>{cliente.cpf}</td>
                 <td>
                 <Link to={`/Sistema/ClienteBusca/${cliente.idcliente}`}>
-      <button>Editar</button>
-    </Link>
-                  <button onClick={() => deletarCliente(cliente.idCliente)}>Excluir</button>
+                <button>Editar</button>
+               </Link>
+                <button onClick={() => deletarCliente(cliente.idCliente)}>Excluir</button> 
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+     
     </>
   );
 };

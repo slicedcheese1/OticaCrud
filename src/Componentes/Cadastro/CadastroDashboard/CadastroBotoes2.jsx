@@ -12,10 +12,10 @@ const CadastroBotoes2 = () => {
           <MdPeopleAlt className='icon-people'/>
           <p>Clique aqui se deseja cadastrar um novo usuário do seu sistema</p>
         </a>
-        <a href='/Sistema/ClienteBusca/' className="card-opt">
-          <h4>Cadastro fornecedores</h4>
+        <a href='/Sistema/funcionário/' className="card-opt">
+          <h4>Cadastro funcionários</h4>
           <FaSearch className='icon-people'/>
-          <p>Clique aqui se deseja cadastrar um novo fornecedor para seu sistema</p>
+          <p>Clique aqui se deseja cadastrar um novo funcionário para sua empresa</p>
         </a>
     </div>
   )

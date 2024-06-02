@@ -6,7 +6,7 @@
   }
   
 .customers td, #customers th {
-    border: 1px solid #ddd;
+    border: 1px solid #2e3848;
     padding: 8px;
   }
   
@@ -18,6 +18,12 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #000000;
+    background-color: #2e3848;
     color: white;
   }
+
+ .container-busca{
+  border: 2px solid #000000;
+  box-shadow: #000000;
+  border-radius: 20px;
+ }
