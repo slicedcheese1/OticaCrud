@@ -23,6 +23,7 @@ const SidebarLink = styled(Link)`
 const SidebarLabel = styled.span`
   margin-left: 16px;
   
+  
 `;
 
 const DropdownLink = styled(Link)`
@@ -32,7 +33,7 @@ const DropdownLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #000;
+  color: #f5f5f5;
   font-size: 18px;
 
   &:hover {

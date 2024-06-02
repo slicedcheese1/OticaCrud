@@ -6,6 +6,7 @@ const ClienteUpdate = () => {
   const { id } = useParams();
   
   const [cliente, setCliente] = useState(null);
+  const [showProjectForm, setShowProjectForm] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:8080/clientes/pf/${id}`, {
@@ -21,8 +22,61 @@ const ClienteUpdate = () => {
       .catch((err) => console.log(err));
   }, [id]);
 
+  function toggleProjectForm(){
+    setShowProjectForm(!showProjectForm)
+  }
+
   return (
-    <p>{cliente ? cliente.nome : 'Carregando...'}</p>
+    <>
+
+    <button onClick={toggleProjectForm}>
+      {!showProjectForm ? 'Fechar ': 'Editar Cliente'}
+    </button> 
+    {!showProjectForm ? (
+      <div>
+        <p>Formulario ja preenchido</p>
+      </div>
+    ) : (
+      <div>
+        <h3>Detalhes do Cliente</h3>
+        <hr/>
+        <br/>
+        <p>
+          <span>Cliente: {cliente.nome}</span>
+        </p>
+        <p>
+        <span>CPF: {cliente.cpf}</span>
+        </p>
+        <p>
+        <span>RG: {cliente.rg}</span>
+        </p>
+        <p>
+        <span>Sexo: {cliente.sexo}</span>
+        </p>
+        <p>
+        <span>Cadastrado em: {cliente.lojaCadastro}</span>
+        </p>
+        <p>
+        <span>Data de nascimento: {cliente.dataNascimento}</span>
+        </p>
+          <p>
+        <span>CEP: {cliente.cep}</span>
+        </p>
+        <p>
+        <span>Cidade: {cliente.cidade}</span>
+        </p>
+        <p>
+        <span>Estado: {cliente.estado}</span>
+        </p>
+        <p>
+        <span>Rua: {cliente.rua}</span>
+        </p>
+
+        
+      </div>
+    )}
+    
+    </>
   );
 }
 

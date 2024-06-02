@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './TabelaClientes.css';
+import { Link } from 'react-router-dom';
 
 
 
@@ -42,7 +43,7 @@ const ClienteBusca = () => {
         <hr />
         <br />
         <label>Buscar um cliente</label>
-        <input placeholder="Procure por Nome, CPF, CNPJ"type="text" onChange={(ev)=>setSearch(ev.target.value)} value={search}/>
+        <input placeholder="Procure por Nome, CPF, CNPJ"type= "text" onChange={(ev)=>setSearch(ev.target.value)} value={search}/>
         <br />
         <br />
       </div>
@@ -65,7 +66,9 @@ const ClienteBusca = () => {
                 <td>{cliente.nome}</td>
                 <td>{cliente.cpf}</td>
                 <td>
-                  <button>Editar</button>
+                <Link to={`/Sistema/ClienteBusca/${cliente.idcliente}`}>
+      <button>Editar</button>
+    </Link>
                   <button onClick={() => deletarCliente(cliente.idCliente)}>Excluir</button>
                 </td>
               </tr>
