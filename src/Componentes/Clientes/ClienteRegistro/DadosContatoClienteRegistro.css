@@ -1,7 +1,7 @@
 .card {
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px #2e3848(0, 0, 0, 0.1);
     margin: 1rem 0;
     overflow: hidden;
     padding: 1rem;
@@ -45,7 +45,7 @@
 
 .card-name-button {
     align-items: center;
-    background-color: #17151c;
+    background-color: #2e3848;
     display: flex;
     height: 40px;
     justify-content: space-between;
