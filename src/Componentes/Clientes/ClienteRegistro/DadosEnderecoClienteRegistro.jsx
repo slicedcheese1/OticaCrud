@@ -3,6 +3,8 @@ import './DadosEnderecoClienteRegistro.css'
 import { useForm } from 'react-hook-form';
 import ClienteContext from '../../../Pages/Clientes/ClinteContext';
 import React from 'react';
+import { CiSearch } from "react-icons/ci";
+
 
 function DadosEndereçoClienteRegistro() {
 
@@ -18,12 +20,10 @@ function DadosEndereçoClienteRegistro() {
   const { register, setValue } = useForm();
 
   const checkCEP = (e) => {
-    const cep = e.target.value.replace(/\D/g, '');
-    console.log(cep);
-    fetch(`https://viacep.com.br/ws/${cep}/json`)
+    e.preventDefault();
+    const ceplimpo = cep.replace(/\D/g, '');
+    fetch(`https://viacep.com.br/ws/${ceplimpo}/json`)
       .then(res => res.json()).then(data => {
-        console.log(data);
-
         setValue('estado', data.uf);
         setValue('cidade', data.localidade);
         setValue('bairro', data.bairro);
@@ -43,14 +43,18 @@ function DadosEndereçoClienteRegistro() {
           <div className="gp3">
             <div className="gp3-1">
               <label htmlFor="cep">CEP</label>
-              <ReactInputMask mask="99999-999"
-                type="text"
-                placeholder="Insira o CEP do cliente"
-                onBlur={checkCEP}
-                name="cep"
-                value={cep}
-                onChange={(e) => {setCep(e.target.value)}}
-              />
+              <div className="busca-cep">
+                <ReactInputMask mask="99999-999"
+                  type="text"
+                  placeholder="Insira o CEP do cliente"
+                  name="cep"
+                  value={cep}
+                  // onBlur={checkCEP}
+                  onChange={(e) => {setCep(e.target.value)}}
+                />
+               <button  type="button" onClick={checkCEP}><CiSearch></CiSearch></button>
+              </div>
+              
             </div>
 
             <div className="gp3-1">

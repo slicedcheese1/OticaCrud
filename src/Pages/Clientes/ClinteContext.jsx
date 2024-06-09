@@ -21,7 +21,9 @@ const ClienteContext = React.createContext({
     isSubmited:  false ,
     erroForm:false, 
     cardTel: [],
-    cardEmail: [] 
+    cardEmail: [] ,
+    nomeResponsavel: "",
+    numeroResponsavel:  -1
       
   });
   

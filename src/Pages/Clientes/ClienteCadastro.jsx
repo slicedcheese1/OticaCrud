@@ -20,7 +20,7 @@ function ClienteCadastro() {
   const [cidade, setCidade] = useState("")
   const [estado, setEstado] = useState("")
   const [rua, setRua] = useState("")
-  const [numeroCasa, setCasa] = useState(10)
+  const [numeroCasa, setCasa] = useState()
   const [bairro, setBairro] = useState("")
   const [numerosTelefone, setTelefones] = useState([])
   const [emails, setEmails] = useState([])
