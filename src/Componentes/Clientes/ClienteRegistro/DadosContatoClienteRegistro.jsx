@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './DadosContatoClienteRegistro.css';
 import CardContatoTelefoneClienteRegistro from './CardContatoTelefoneClienteRegistro';
 import CardContatoEmailClienteRegistro from './CardContatoEmailClienteRegistro';
+import CardContatoResponsavel from './CardContatoResponsavel';
 import ClienteContext from '../../../Pages/Clientes/ClinteContext'
 
 const DadosContatoClienteRegistro = () => {
@@ -19,6 +20,13 @@ const DadosContatoClienteRegistro = () => {
 
   };
 
+  const addResposanvel = (event) => {
+    event.preventDefault();
+    const newId = cardTel.length ? cardTel[cardTel.length - 1].id + 1 : 0;
+    setCardTel([...cardTel, { id: newId, component: <CardContatoResponsavel id={newId} key={newId} /> }]);
+    console.log(cardTel)
+  };
+
   const addEmail = (event) => {
     event.preventDefault();
     const newId = cardEmail.length ? cardEmail[cardEmail.length - 1].id + 1 : 0;
@@ -32,9 +40,15 @@ const DadosContatoClienteRegistro = () => {
       <div className="card-all-infos">
         <div className="card-name-button">
           <h4 className='card-name'>Telefone</h4>
-          <button onClick={addTel} className="add-button-back">
-            <h5 className='add-button'>Adicionar</h5>
-          </button>
+          <div  className="gap1 row-flex-box">
+            <button onClick={addResposanvel} className="add-button-back">
+              <h5 className='add-button'>Responsável</h5>
+            </button>
+            <button onClick={addTel} className="add-button-back">
+              <h5 className='add-button'>Adicionar</h5>
+            </button>
+          </div>
+          
         </div>
         <hr />
         <div className="card-infos">
