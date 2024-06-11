@@ -16,6 +16,7 @@ const Nav = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  z-index: 1000; /* Valor alto para garantir que o cabeçalho fique no topo */
 `;
 
 const NavIcon = styled(Link)`

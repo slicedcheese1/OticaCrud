@@ -7,6 +7,7 @@
 }
 
 .column-flex-box{
+   
     display: flex;
     flex-direction: column;
 
@@ -18,6 +19,7 @@
 }
 
 .card{
+    
     border: 2px solid #15171c;
     width: 100%;
     padding: 1rem;
@@ -32,6 +34,7 @@
 }
 
 .formBox{
+    
     padding: 1rem;
     display: flex;
     gap: 1rem;
@@ -43,6 +46,7 @@
 
 
 .gp1-box{
+    
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -50,6 +54,7 @@
 }
 
 .gp1{
+    
     width: 95%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -100,12 +105,14 @@
 }
 
 .gp4{
+    
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
 }
 
 .textao{
+    
     width: 100%;
     height: 300px;
     padding: 1rem;
