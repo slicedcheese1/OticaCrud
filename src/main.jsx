@@ -15,6 +15,8 @@ import CadastroUsuario from './Pages/Cadastro/CadastroUsuario.jsx';
 import ClienteUpdate from './Pages/Clientes/ClienteUpdate.jsx';
 import Funcionário from './Componentes/Cadastro/Funcionários/Funcionário.jsx';
 import CadastroFuncionários from './Componentes/Cadastro/Funcionários/CadastroFuncionários.jsx';
+import CadastroSetor from './Pages/Cadastro/CadastroSetor.jsx';
+import Setor from './Pages/Setor/Setor.jsx';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +50,14 @@ const router = createBrowserRouter([
           {
             path: '/Sistema/ClienteBusca/:id',
             element: <ClienteUpdate /> //(())
+          },
+          {
+            path: '/Sistema/cadastro-setor',
+            element: <CadastroSetor /> //(())
+          },
+          {
+            path: '/Sistema/setor',
+            element: <Setor /> //(())
           },
           //========================================================== Funcionários ==========================================================================
           {

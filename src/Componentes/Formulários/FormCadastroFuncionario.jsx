@@ -65,6 +65,10 @@ const FormCadastroFuncionario = () => {
 
          </div>
          <button>Cadastrar</button>
+
+         <div className='container-dados-usuario'>
+          
+         </div>
        </Form>
     </div>
     <br/>
