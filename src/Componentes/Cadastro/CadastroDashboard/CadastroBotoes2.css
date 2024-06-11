@@ -1,27 +1,30 @@
 
 .container-dashboard {
-  padding: 4rem;
-  padding-top: 2rem;
+  padding: 20px;
+  flex-wrap:wrap;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  overflow:unset;
+  gap: 20px;
+  height:100vh;
 
 }
 
 .card-opt{
-  padding: 2rem;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: top;
+  justify-content: center;
   align-items: center;
   background-color: white;
-  width: 200px;
+  width: 300px;
   height:  250px;
   color: black;
   border-radius: 20px;
   border: 2px solid black;
   transition: 300ms all ease-in-out;
+  margin: bottom 20px;
 }
 
 
@@ -35,7 +38,7 @@ a{
 
 .icon-people{
   width: auto;
-  height: 150px;
+  height: 100px;
   margin-top: 4rem;
 }
 

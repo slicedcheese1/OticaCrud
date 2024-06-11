@@ -1,93 +1,92 @@
-import React from 'react'
-import { MdPeopleAlt } from "react-icons/md";
+import React from 'react';
+import { MdPeopleAlt} from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
-
-import "./CadastroBotoes2.css";
+import Botao from './Botao';
+import './CadastroBotoes2.css';
 
 const CadastroBotoes2 = () => {
   return (
     <div className='container-dashboard'>
-        <a href='/Sistema/CadastroUsuario/' className="card-opt">
-          <h4>Empresa/Loja</h4>
-          <MdPeopleAlt className='icon-people'/>
-          <p>Clique aqui se deseja cadastrar um novo usuário do seu sistema</p>
-        </a>
-        <a href='/Sistema/funcionário/' className="card-opt">
-          <h4>Funcionários</h4>
-          <FaSearch className='icon-people'/>
-          <p>Clique aqui se deseja cadastrar um novo funcionário para sua empresa</p>
-        </a>
-        <a href='/Sistema/médicos/' className="card-opt">
-          <h4>Médicos/Optometristas</h4>
-          <FaSearch className='icon-people'/>
-          <p>Clique aqui se deseja cadastrar um novo funcionário para sua empresa</p>
-        </a>
-
-        <a href='/Sistema/médicos/' className="card-opt">
-          <h4>Grifes</h4>
-          <FaSearch className='icon-people'/>
-          <p>Clique aqui se deseja cadastrar um novo funcionário para sua empresa</p>
-        </a>
-
-        <a href='/Sistema/médicos/' className="card-opt">
-          <h4>Grupos</h4>
-          <FaSearch className='icon-people'/>
-          <p>Clique aqui se deseja cadastrar um novo funcionário para sua empresa</p>
-        </a>
-
-        <a href='/Sistema/médicos/' className="card-opt">
-          <h4>Fornecedores</h4>
-          <FaSearch className='icon-people'/>
-          <p>Clique aqui se deseja cadastrar um novo funcionário para sua empresa</p>
-        </a>
-        <p>
-        <a href='/Sistema/médicos/' className="card-opt">
-          <h4>Formas de pagamento</h4>
-          <FaSearch className='icon-people'/>
-          <p>Clique aqui se deseja cadastrar um novo funcionário para sua empresa</p>
-        </a>
-      </p>
-
-        <a href='/Sistema/médicos/' className="card-opt">
-          <h4>Técnicos</h4>
-          <FaSearch className='icon-people'/>
-          <p>Clique aqui se deseja cadastrar um novo funcionário para sua empresa</p>
-        </a>
-
-        <a href='/Sistema/médicos/' className="card-opt">
-          <h4>Material</h4>
-          <FaSearch className='icon-people'/>
-          <p>Clique aqui se deseja cadastrar um novo funcionário para sua empresa</p>
-        </a>
-
-        <a href='/Sistema/médicos/' className="card-opt">
-          <h4>Tratamento</h4>
-          <FaSearch className='icon-people'/>
-          <p>Clique aqui se deseja cadastrar um novo funcionário para sua empresa</p>
-        </a>
-         
-        <a href='/Sistema/médicos/' className="card-opt">
-          <h4>Unidades</h4>
-          <FaSearch className='icon-people'/>
-          <p>Clique aqui se deseja cadastrar um novo funcionário para sua empresa</p>
-        </a>
-
-        <a href='/Sistema/médicos/' className="card-opt">
-          <h4>Origens do cliente</h4>
-          <FaSearch className='icon-people'/>
-          <p>Clique aqui se deseja cadastrar um novo funcionário para sua empresa</p>
-        </a>
-
-        <a href='/Sistema/médicos/' className="card-opt">
-          <h4>Etapas de Ordens de Serviço</h4>
-          <FaSearch className='icon-people'/>
-          <p>Clique aqui se deseja cadastrar um novo funcionário para sua empresa</p>
-        </a>
-        
-
-        
+      <Botao
+        titulo="Empresa/Loja"
+        text="Clique aqui se deseja cadastrar um novo usuário do seu sistema"
+        Icon={MdPeopleAlt}
+        link="/Sistema/CadastroUsuario/"
+      />
+      <Botao
+        titulo="Funcionários"
+        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
+        Icon={FaSearch}
+        link="/Sistema/funcionário/"
+      />
+      <Botao
+        titulo="Médicos/Optometristas"
+        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
+        Icon={FaSearch}
+        link="/Sistema/médicos/"
+      />
+      <Botao
+        titulo="Grifes"
+        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
+        Icon={FaSearch}
+        link="/Sistema/médicos/"
+      />
+      <Botao
+        titulo="Grupos"
+        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
+        Icon={FaSearch}
+        link="/Sistema/médicos/"
+      />
+      <Botao
+        titulo="Fornecedores"
+        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
+        Icon={FaSearch}
+        link="/Sistema/médicos/"
+      />
+      <Botao
+        titulo="Formas de pagamento"
+        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
+        Icon={FaSearch}
+        link="/Sistema/médicos/"
+      />
+      <Botao
+        titulo="Técnicos"
+        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
+        Icon={FaSearch}
+        link="/Sistema/médicos/"
+      />
+      <Botao
+        titulo="Material"
+        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
+        Icon={FaSearch}
+        link="/Sistema/médicos/"
+      />
+      <Botao
+        titulo="Tratamento"
+        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
+        Icon={FaSearch}
+        link="/Sistema/médicos/"
+      />
+      <Botao
+        titulo="Unidades"
+        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
+        Icon={FaSearch}
+        link="/Sistema/médicos/"
+      />
+      <Botao
+        titulo="Origens do cliente"
+        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
+        Icon={FaSearch}
+        link="/Sistema/médicos/"
+      />
+      <Botao
+        titulo="Etapas de Ordens de Serviço"
+        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
+        Icon={FaSearch}
+        link="/Sistema/médicos/"
+      />
     </div>
-  )
+  );
 }
 
-export default CadastroBotoes2
+export default CadastroBotoes2;
