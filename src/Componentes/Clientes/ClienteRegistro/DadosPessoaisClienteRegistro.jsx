@@ -3,7 +3,7 @@ import React from 'react';
 import { MdPeopleAlt } from "react-icons/md";
 import { FaBuilding } from "react-icons/fa";
 import ReactInputMask from 'react-input-mask';
-import Text from './Text.jsx';
+
 import './DadosPessoaisClienteRegistro.css'
 
 import ClienteContext from '../../../Pages/Clientes/ClinteContext';
@@ -123,14 +123,14 @@ function DadosPessoaisClienteRegistro() {
 
       <div id="form-dados-pessoais" className='formBox' method="post">
         <div className="photoBox">
-          <label htmlFor="photo"><Text fontsize="100px">Clique sobre a imagem para alterar</Text></label>
+          <label htmlFor="photo">Clique sobre a imagem para alterar</label>
           <input type="file" name="photo"/>
         </div>
 
         <div className="gp1-box" >
             <div className="gp1" > 
               <div className="column-flex-box gap1 gp1-1">
-                <label htmlFor="tipo_de_pessoa"><Text fontsize="18px">Tipo de Cliente</Text></label>
+                <label htmlFor="tipo_de_pessoa">Tipo de Cliente</label>
                 <div className="gp1-1 row-flex-box gap2">
                   <div className='gap1 row-flex-box'>
                     <input 
