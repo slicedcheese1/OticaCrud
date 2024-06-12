@@ -1,10 +1,9 @@
-import ReactInputMask from 'react-input-mask'
-import './DadosEnderecoClienteRegistro.css'
-import { useForm } from 'react-hook-form';
-import ClienteContext from '../../../Pages/Clientes/ClinteContext';
 import React from 'react';
+import ReactInputMask from 'react-input-mask';
+import { useForm } from 'react-hook-form';
 import { CiSearch } from "react-icons/ci";
-
+import ClienteContext from '../../../Pages/Clientes/ClinteContext';
+import './DadosEnderecoClienteRegistro.css';
 
 function DadosEndereçoClienteRegistro() {
 
@@ -28,13 +27,11 @@ function DadosEndereçoClienteRegistro() {
         setValue('cidade', data.localidade);
         setValue('bairro', data.bairro);
         setValue('rua', data.logradouro);
-
       })
   }
 
   return (
     <>
-
       <div className="card">
         <h3> Dados de Endereço</h3>
         <hr />
@@ -42,24 +39,21 @@ function DadosEndereçoClienteRegistro() {
         <div id="form-endereco" className='formBoxEndereco' method="post">
           <div className="gp3">
             <div className="gp3-1">
-              <label htmlFor="cep">CEP</label>
+              <label id="label-cep" htmlFor="cep">CEP</label>
               <div className="busca-cep">
                 <ReactInputMask mask="99999-999"
                   type="text"
                   placeholder="Insira o CEP do cliente"
                   name="cep"
                   value={cep}
-                  // onBlur={checkCEP}
                   onChange={(e) => {setCep(e.target.value)}}
                 />
-               <button  type="button" onClick={checkCEP}><CiSearch></CiSearch></button>
+                <button type="button" onClick={checkCEP}><CiSearch /></button>
               </div>
-              
             </div>
 
             <div className="gp3-1">
-
-              <label htmlFor="estado">Estado</label>
+              <label id="label-estado" htmlFor="estado">Estado</label>
               <select {...register("estado")} name="estado" id="estados" onChange={(e) => {setEstado(e.target.value)}} value={estado}>
                 <option value="" disabled selected>Selecione um estado</option>
                 <option value="AC">Acre</option>
@@ -90,11 +84,10 @@ function DadosEndereçoClienteRegistro() {
                 <option value="SE">Sergipe</option>
                 <option value="TO">Tocantins</option>
               </select>
-              
             </div>
 
             <div className="gp3-1">
-              <label htmlFor="cidade">Cidade</label>
+              <label id="label-cidade" htmlFor="cidade">Cidade</label>
               <input
                 type="text"
                 placeholder=""
@@ -108,7 +101,7 @@ function DadosEndereçoClienteRegistro() {
 
           <div className="gp3">
             <div className='gp3-1'>
-              <label htmlFor="bairro">Bairro</label>
+              <label id="label-bairro" htmlFor="bairro">Bairro</label>
               <input
                 type="text"
                 placeholder=""
@@ -120,7 +113,7 @@ function DadosEndereçoClienteRegistro() {
             </div>
    
             <div className="gp3-1">
-              <label htmlFor="rua">Rua</label>
+              <label id="label-rua" htmlFor="rua">Rua</label>
               <input
                 type="text"
                 placeholder=""
@@ -132,21 +125,20 @@ function DadosEndereçoClienteRegistro() {
             </div> 
 
             <div className='gp3-1'>
-              <label htmlFor="numero">Número</label>
+              <label id="label-numero" htmlFor="numero">Número</label>
               <input
                 type="text"
                 name="numero"
-                value = {numeroCasa}
+                value={numeroCasa}
                 onChange={(e) => {setCasa(e.target.value)}}
               />
             </div>
           
           </div>
-
         </div>
       </div>
     </>
   )
 }
 
-export default DadosEndereçoClienteRegistro
+export default DadosEndereçoClienteRegistro;

@@ -123,14 +123,14 @@ function DadosPessoaisClienteRegistro() {
 
       <div id="form-dados-pessoais" className='formBox' method="post">
         <div className="photoBox">
-          <label htmlFor="photo">Clique sobre a imagem para alterar</label>
+          <label id="label-photo" htmlFor="photo">Clique sobre a imagem para alterar</label>
           <input type="file" name="photo"/>
         </div>
 
         <div className="gp1-box" >
             <div className="gp1" > 
               <div className="column-flex-box gap1 gp1-1">
-                <label htmlFor="tipo_de_pessoa">Tipo de Cliente</label>
+                <label id="label-tipo_de_pessoa" htmlFor="tipo_de_pessoa">Tipo de Cliente</label>
                 <div className="gp1-1 row-flex-box gap2">
                   <div className='gap1 row-flex-box'>
                     <input 
@@ -139,7 +139,7 @@ function DadosPessoaisClienteRegistro() {
                     value="pf"
                     checked={tipoCliente === 'pf'} // Set checked state
                     onChange={handleTipoClienteChange} />
-                    <label htmlFor="pf"><MdPeopleAlt/> Pessoa Fisica</label>
+                    <label id="label-pf" htmlFor="pf"><MdPeopleAlt id="iconePf"/> Pessoa Fisica</label>
                   </div>
 
                   <div className='gap1 row-flex-box'>
@@ -149,13 +149,13 @@ function DadosPessoaisClienteRegistro() {
                     value="pj"
                     checked={tipoCliente === 'pj'} // Set checked state
                     onChange={handleTipoClienteChange}  />
-                    <label htmlFor="pj"><FaBuilding/> Pessoa Jurídica</label>
+                    <label id="label-pj" htmlFor="pj"><FaBuilding id="iconePf"/> Pessoa Jurídica</label>
                   </div>
                 </div>
               </div>
 
               <div className="column-flex-box gap1 gp1-2">
-                <label htmlFor="lojas">Cadastro Em</label> 
+                <label id="label-lojas" htmlFor="lojas">Cadastro Em</label> 
                 <select name="loja" value={lojaCadastro} onChange={(e) => {setLojaCadastro(e.target.value)}} required>
                   <option value="" disabled selected >Selecione uma opção</option>
                   <option value="Loja 01">Loja 01</option>  
@@ -175,7 +175,7 @@ function DadosPessoaisClienteRegistro() {
             {tipoCliente === 'pf' && (
               <div className="gp2"> 
                 <div className='gp2-1 column-flex-box'>
-                  <label htmlFor="nome">Nome</label>
+                  <label id="label-nome" htmlFor="nome">Nome</label>
                   <input type="text" maxLength={70} name='nome' 
                   id='nome'
                   value={nome} 
@@ -184,7 +184,7 @@ function DadosPessoaisClienteRegistro() {
                 </div>
 
                 <div className='gp2-2 column-flex-box'>
-                  <label htmlFor="sexo">Sexo</label>
+                  <label id="label-sexo" htmlFor="sexo">Sexo</label>
                   <select name="sexo" value={sexo} onChange={(e) => {setSexo(e.target.value)}}>
                     <option value="" disabled selected >Selecione uma opção</option>
                     <option value="M">Masculino</option>  
@@ -194,7 +194,7 @@ function DadosPessoaisClienteRegistro() {
                 </div>
 
                 <div className='gp3-3 column-flex-box gap1'>
-                  <label htmlFor="data-de-nascimento">Data de nascimento</label>
+                  <label id="label-data-de-nascimento" htmlFor="data-de-nascimento">Data de nascimento</label>
                   <ReactInputMask mask={'99-99-9999'} type="text" name="data-de-nascimento"
                   value={dataNascimento} 
                   id='nascimento'
@@ -211,14 +211,14 @@ function DadosPessoaisClienteRegistro() {
             {tipoCliente === 'pf' && (
               <div className="gp3"> 
                 <div className='gp3-1 column-flex-box gap1'>
-                  <label htmlFor="rg">RG</label>
+                  <label id="label-rg" htmlFor="rg">RG</label>
                   <input type="text" name="rg" 
                   value={rg} 
                   onChange={(e) => {setRg(e.target.value)}} />
                 </div>
 
                 <div className='gp3-2 column-flex-box gap1'>
-                  <label htmlFor="cpf" >CPF</label>
+                  <label id="label-cpf" htmlFor="cpf" >CPF</label>
                   <ReactInputMask mask={'999.999.999-99'} type="text" name='cpf' 
                   id='cpf'
                   value={cpf} 
@@ -237,12 +237,12 @@ function DadosPessoaisClienteRegistro() {
             {tipoCliente === 'pj' && (
               <div className="gp4"> 
                 <div className='gp3-1 column-flex-box gap1'>
-                  <label htmlFor="razao-social">Razão Social</label>
+                  <label id="label-razao-social" htmlFor="razao-social">Razão Social</label>
                   <input type="text" name='razao-social' />
                 </div>
 
                 <div className='gp3-2 column-flex-box gap1'>
-                  <label htmlFor="nome-fantasia">Nome Fantasia</label>
+                  <label id="label-nome-fantasia" htmlFor="nome-fantasia">Nome Fantasia</label>
                   <input type="text" name="nome-fantasia" />
                 </div>
               </div>
@@ -251,7 +251,7 @@ function DadosPessoaisClienteRegistro() {
             {tipoCliente === 'pj' && (
               <div className="gp3"> 
                 <div className='gp3-1 column-flex-box gap1'>
-                  <label htmlFor='CNPJ'>CNPJ</label>
+                  <label id="label-CNPJ" htmlFor='CNPJ'>CNPJ</label>
                   <ReactInputMask mask ="99.999.999/9999-99" type="text" name='CNPJ' />
                 </div>
               </div>
@@ -270,17 +270,17 @@ function DadosPessoaisClienteRegistro() {
         <div className="gp1-box" >
           <div className="gp3"> 
               <div className='gp3-1 column-flex-box gap1'>
-                <label for="inscricao-estadual" >Inscrição Estadual</label>
+                <label id="label-inscricao-estadual" htmlFor="inscricao-estadual" >Inscrição Estadual</label>
                 <input type="text" name="inscricao-estadual"/>
               </div>
 
               <div className='gp3-2 column-flex-box gap1'>
-                <label for="inscricao-municipal" >Inscrição Municipal</label>
+                <label id="label-inscricao-municipal" htmlFor="inscricao-municipal" >Inscrição Municipal</label>
                 <input type="text" name='inscricao-municipal' />
               </div>
 
               <div className='gp3-3 column-flex-box gap1'>
-                <label  for="suframa">Suframa</label>
+                <label id="label-suframa" htmlFor="suframa">Suframa</label>
                 <input type="text" name="suframa" />
               </div>
             </div>
@@ -294,4 +294,4 @@ function DadosPessoaisClienteRegistro() {
   )
   }
   
-  export default DadosPessoaisClienteRegistro
+  export default DadosPessoaisClienteRegistro;

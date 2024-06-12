@@ -43,7 +43,7 @@ const CardContatoTelefoneClienteRegistro = ({id}) => {
         onBlur={(e) => {salvarTelefones(telefone)}}/>
 
       </div>
-      <div className="preferences">
+      <div id="Preferencias" className="preferences">
         <div className="preferences-1">
           <input type="checkbox" name="numero-principal" />
           <label htmlFor="numero-principal">Principal</label>

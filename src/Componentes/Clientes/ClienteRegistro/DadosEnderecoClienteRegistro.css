@@ -29,4 +29,33 @@
 .busca-cep{
     display: flex;
 }
-
+#label-cep {
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+  }
+  
+  #label-estado {
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+  }
+  
+  #label-cidade {
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+  }
+  
+  #label-bairro {
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+  }
+  
+  #label-rua {
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+  }
+  
+  #label-numero {
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+  }
+  

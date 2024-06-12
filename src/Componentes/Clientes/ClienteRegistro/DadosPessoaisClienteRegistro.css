@@ -117,3 +117,87 @@
     height: 300px;
     padding: 1rem;
 }
+#iconePf{
+    font-size:30px;
+
+}
+
+#label-photo {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#label-tipo_de_pessoa {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#label-pf {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#label-pj {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#label-lojas {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#label-nome {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#label-sexo {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#label-data-de-nascimento {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#label-rg {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#label-cpf {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#label-razao-social {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#label-nome-fantasia {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#label-CNPJ {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#label-inscricao-estadual {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#label-inscricao-municipal {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#label-suframa {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
