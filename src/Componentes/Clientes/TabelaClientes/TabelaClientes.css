@@ -1,29 +1,95 @@
+/* CSS Geral para a Tabela */
 .customers {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    
-  }
+  background-color: #2e3848;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#search{
+  font-size: 15px;
+}
+#Busca{
+  font-size: 25px;
   
-.customers td, #customers th {
-    border: 1px solid #2e3848;
-    padding: 8px;
-  }
+}
+.container-busca {
+  background-color: #2e3848;
+  color:#ddd; 
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: center;
+  align-items: center;
   
-.customers tr:nth-child(even){background-color: #f2f2f2;}
-  
-  .customers tr:hover {background-color: #ddd;}
-  
-  .customers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #2e3848;
-    color: white;
-  }
+  border-collapse: collapse;
+  width: 100%;
+}
+.customers td, .customers th {
+  border: 1px solid #2e3848;
+  padding: 8px;
+}
 
- .container-busca{
+.customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.customers tr:hover {
+  background-color: #ddd;
+}
+
+.customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #2e3848;
+  color: white;
+}
+
+/* Estilos para o Container de Busca */
+.container-busca {
   border: 2px solid #000000;
   box-shadow: #000000;
   border-radius: 20px;
- }
+  padding: 20px; /* Adicionado padding para espaçamento interno */
+  margin: 20px;
+}
+
+.busca-row {
+  display: flex;
+  flex-direction: column; /* Alinhar os itens verticalmente */
+  margin-bottom: 10px; /* Espaço abaixo da linha de busca */
+}
+
+.busca-row label {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+  margin-bottom: 5px; /* Espaço abaixo do label */
+}
+
+.input-button-group {
+  display: flex; /* Alinhar o input e o botão horizontalmente */
+  gap: 10px; /* Espaço entre o input e o botão */
+}
+
+.input-button-group input {
+  flex: 1; /* Fazer o input ocupar o máximo de espaço possível */
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-button-group button {
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-button-group button:hover {
+  background-color: #0056b3;
+}
