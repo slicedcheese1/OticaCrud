@@ -12,7 +12,7 @@ const Nav = styled.div`
   top: 0;
   width: 100%;
   background: #2e3848;
-  height: 80px;
+  height: 70px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -29,7 +29,7 @@ const NavIcon = styled(Link)`
   color: #f5f5f5;
 `;
 
-const SidebarNav = styled.nav`
+const SidebarNav = styled.nav` 
   background: #2e3848;
   width: 250px;
   height: 100vh;

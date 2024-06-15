@@ -15,6 +15,9 @@ const Funcionário = () => {
 
     return (
         <div className="container">
+            <h1>Funcionários</h1>
+            <hr/>
+            
             <SelectInput label="Cadastro Em" name="lojas" options={lojaOptions} />
             <SelectInput label="Atividade" name="atividade" options={atividadeOptions} />
             <br />
