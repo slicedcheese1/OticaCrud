@@ -23,8 +23,8 @@ const ClienteContext = React.createContext({
     cardTel: [],
     cardEmail: [] ,
     nomeResponsavel: "",
-    numeroResponsavel:  -1
-      
+    numeroResponsavel:  -1,
+    showingCardResponsavel: false
   });
   
   export default ClienteContext;

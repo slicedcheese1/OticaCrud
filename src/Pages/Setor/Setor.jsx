@@ -18,53 +18,66 @@ const Setor = () => {
       .then(resposta => resposta.json())
       .then(dados => {
         setSetores(dados);
+        console.log(dados)
       });
   };
-  
 
-    return (
-      
-        <>
-        
-            <div className ='container-setor'>
-                     <h1>Setores</h1> 
-                     <Link to={`/Sistema/cadastro-setor/`}>
-                <button>Novo setor</button>
-               </Link>
-                     <hr/>
-                     <br/>
+  const deletarSetores = (id) => {
+    fetch(`http://localhost:8080/cargo/all/${id}`, {
+      method: 'DELETE'
+    })
+      .then(resposta => {
+        if (resposta.ok) {
+          buscarSetores();
+        }
+      });
+  };
 
 
-                     <table className="customers">
+  return (
+
+
+    <>
+
+      <div className='container-setor'>
+        <h1>Setores</h1>
+        <Link to={`/Sistema/cadastro-setor/`}>
+          <button>Novo setor</button>
+        </Link>
+        <hr />
+        <br />
+
+
+        <table className="customers">
           <thead>
             <tr>
               <th>Cargo</th>
-              <th>Atividade</th>
+           
               <th>Ações</th>
             </tr>
           </thead>
           <tbody>
-            
-              <tr>
-                <td>Vendedor</td>
-                <td>ATIVO</td>
+
+            <tr>
+              <td>Vendedor</td>
               
-                <td>
+
+              <td>
                 <Link to={`/Sistema/ClienteBusca/`}>
-                <button>Editar</button>
-               </Link>
-                <button>Excluir</button> 
-                </td>
-              </tr>
-            
+                  <button>Editar</button>
+                </Link>
+                <button onClick={() => deletarCliente(cliente.idCliente)} >Excluir</button>
+              </td>
+            </tr>
+
           </tbody>
         </table>
         <Link to={`/Sistema/Cadastros/`}>
-                <button>Voltar</button>
-               </Link>
-            </div>
-        </>
-    )
+          <button >Voltar</button>
+        </Link>
+      </div>
+    </>
+  )
 }
 
 export default Setor
