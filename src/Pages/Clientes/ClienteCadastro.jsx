@@ -36,6 +36,7 @@ function ClienteCadastro() {
   const [erroForm, setErroForm] =  useState(false);
   const [cardTel, setCardTel] = useState([]);
   const [cardEmail, setCardEmail] = useState([]);
+  const [showingCardResponsavel, setShowingCardResponsavel] = useState(false);
 
   const handleSalvar = (e) => {
     e.preventDefault();
@@ -129,7 +130,8 @@ function ClienteCadastro() {
         isSubmited,
         erroForm, setErroForm,
         cardTel, setCardTel,
-        cardEmail, setCardEmail
+        cardEmail, setCardEmail,
+        showingCardResponsavel, setShowingCardResponsavel
       }}>
 
       <div   className={styles.clientecadastrocontainer}>

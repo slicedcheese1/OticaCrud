@@ -9,7 +9,8 @@ const DadosContatoClienteRegistro = () => {
 
   const {
     cardTel, setCardTel,
-    cardEmail, setCardEmail
+    cardEmail, setCardEmail,
+    showingCardResponsavel, setShowingCardResponsavel
    } = React.useContext(ClienteContext);
   
   const addTel = (event) => {
@@ -20,12 +21,10 @@ const DadosContatoClienteRegistro = () => {
 
   };
 
-  const addResposanvel = (event) => {
-    event.preventDefault();
-    const newId = cardTel.length ? cardTel[cardTel.length - 1].id + 1 : 0;
-    setCardTel([...cardTel, { id: newId, component: <CardContatoResponsavel id={newId} key={newId} /> }]);
-    console.log(cardTel)
-  };
+  function invertCardResponsavel(e) {
+    e.preventDefault()
+    setShowingCardResponsavel(!showingCardResponsavel)
+  }
 
   const addEmail = (event) => {
     event.preventDefault();
@@ -41,7 +40,7 @@ const DadosContatoClienteRegistro = () => {
         <div className="card-name-button">
           <h4 className='card-name'>Telefone</h4>
           <div  className="gap1 row-flex-box">
-            <button onClick={addResposanvel} className="add-button-back">
+            <button onClick={(e) => invertCardResponsavel(e)} className="add-button-back">
               <h5 className='add-button'>Responsável</h5>
             </button>
             <button onClick={addTel} className="add-button-back">
@@ -51,7 +50,13 @@ const DadosContatoClienteRegistro = () => {
           
         </div>
         <hr />
+
+        
+
         <div className="card-infos">
+        {showingCardResponsavel  && (
+          <CardContatoResponsavel/>
+        )}
           <ul className='card-list'>
             {cardTel.map(card => (
               <li key={card.id} className='card-list-item'>{card.component}</li>

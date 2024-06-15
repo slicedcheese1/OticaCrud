@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import SelectInput from './SelectInput.jsx';
 import Button from './Button.jsx';
 import Table from './Table.jsx';
-import './Funcionário.css';
+import './Funcionario.css';
 
-const Funcionário = () => {
+const Funcionario = () => {
     const lojaOptions = ["Loja 01", "Loja 02", "Loja 03", "Loja 04", "Loja 05", "Loja 06", "Loja 07", "Loja 08", "Loja 09", "Loja 10"];
     const atividadeOptions = lojaOptions; 
     const tableHeaders = ["Nome", "Cargo", "Empresa", "Ações"];
@@ -27,4 +27,4 @@ const Funcionário = () => {
     );
 };
 
-export default Funcionário;
+export default Funcionario;
