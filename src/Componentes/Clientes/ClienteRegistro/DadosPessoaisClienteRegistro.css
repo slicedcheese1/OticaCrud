@@ -119,9 +119,18 @@
 }
 #iconePf{
     font-size:30px;
-
+    
 }
-
+#Redondo{
+  width: 20px; /* Largura desejada */
+  height: 20px; /* Altura desejada */
+  margin-right: 5px; /* Espaçamento à direita para separar os radio buttons */
+}
+#pj{
+  width: 20px; /* Largura desejada */
+  height: 20px; /* Altura desejada */
+  margin-right: 5px; /* Espaçamento à direita para separar os radio buttons */
+}
 #label-photo {
   font-size: 15px;
   font-family: Arial, sans-serif;

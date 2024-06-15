@@ -133,7 +133,7 @@ function DadosPessoaisClienteRegistro() {
                 <label id="label-tipo_de_pessoa" htmlFor="tipo_de_pessoa">Tipo de Cliente</label>
                 <div className="gp1-1 row-flex-box gap2">
                   <div className='gap1 row-flex-box'>
-                    <input 
+                    <input id="Redondo"
                     type="radio" 
                     name="pf" 
                     value="pf"
@@ -143,9 +143,10 @@ function DadosPessoaisClienteRegistro() {
                   </div>
 
                   <div className='gap1 row-flex-box'>
-                    <input type="radio" 
+                    <input   
+                    type="radio" 
                     name="pj" 
-                    id="pj"
+                    id= "pj"
                     value="pj"
                     checked={tipoCliente === 'pj'} // Set checked state
                     onChange={handleTipoClienteChange}  />
