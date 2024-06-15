@@ -1,77 +1,30 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import SelectInput from './SelectInput.jsx';
+import Button from './Button.jsx';
+import Table from './Table.jsx';
+import './Funcionário.css';
 
 const Funcionário = () => {
+    const lojaOptions = ["Loja 01", "Loja 02", "Loja 03", "Loja 04", "Loja 05", "Loja 06", "Loja 07", "Loja 08", "Loja 09", "Loja 10"];
+    const atividadeOptions = lojaOptions; 
+    const tableHeaders = ["Nome", "Cargo", "Empresa", "Ações"];
+    const tableRows = [
+        ["Andrey Funcionário 0", "DEV", "Loja 1"]
+    ];
+
     return (
-        <>
-            <div className="container">
+        <div className="container">
+            <SelectInput label="Cadastro Em" name="lojas" options={lojaOptions} />
+            <SelectInput label="Atividade" name="atividade" options={atividadeOptions} />
+            <br />
+            <Link to='/Sistema/CadastroFuncionário/'>
+                <Button>Novo funcionário</Button>
+            </Link>
+            <br /><br />
+            <Table headers={tableHeaders} rows={tableRows} />
+        </div>
+    );
+};
 
-                <label htmlFor="lojas">Cadastro Em</label>
-                <select name="Funcionário cadastrado em:" >
-                    <option value="" disabled selected >Selecione uma opção</option>
-                    <option value="Loja 01">Loja 01</option>
-                    <option value="Loja 02">Loja 02</option>
-                    <option value="Loja 03">Loja 03</option>
-                    <option value="Loja 04">Loja 04</option>
-                    <option value="Loja 05">Loja 05</option>
-                    <option value="Loja 06">Loja 06</option>
-                    <option value="Loja 07">Loja 07</option>
-                    <option value="Loja 08">Loja 08</option>
-                    <option value="Loja 09">Loja 09</option>
-                    <option value="Loja 10">Loja 10</option>
-                </select>
-
-                <label htmlFor="lojas">Atividade</label>
-                <select name="Funcionário cadastrado em:" >
-                    <option value="" disabled selected >Selecione uma opção</option>
-                    <option value="Loja 01">Loja 01</option>
-                    <option value="Loja 02">Loja 02</option>
-                    <option value="Loja 03">Loja 03</option>
-                    <option value="Loja 04">Loja 04</option>
-                    <option value="Loja 05">Loja 05</option>
-                    <option value="Loja 06">Loja 06</option>
-                    <option value="Loja 07">Loja 07</option>
-                    <option value="Loja 08">Loja 08</option>
-                    <option value="Loja 09">Loja 09</option>
-                    <option value="Loja 10">Loja 10</option>
-                </select>
-                <br/>
-                <br/>
-                <Link to = {'/Sistema/CadastroFuncionário/'} ><button>Novo funcionário</button></Link>
-
-                <br/>
-                <br/>
-
-                <table className="customers">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Cargo</th>
-              <th>Empresa</th> 
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td>Andrey Funcionário 0</td>
-                <td>DEV</td>
-                <td>Loja 1</td>
-              
-                <td>
-                <Link to={`/Sistema/ClienteBusca/`}>
-                <button>Editar</button>
-               </Link>
-                <button>Excluir</button> 
-                </td>
-              </tr>
-            
-          </tbody>
-        </table>
-
-            </div>
-        </>
-    )
-}
-
-export default Funcionário
+export default Funcionário;

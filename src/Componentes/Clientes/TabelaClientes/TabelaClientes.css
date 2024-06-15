@@ -1,6 +1,6 @@
 /* CSS Geral para a Tabela */
 .customers {
-  background-color: #2e3848;
+  
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -16,11 +16,10 @@
   background-color: #2e3848;
   color:#ddd; 
   font-family: Arial, Helvetica, sans-serif;
-  justify-content: center;
+  justify-content:flex-start;
   align-items: center;
-  
   border-collapse: collapse;
-  width: 100%;
+  
 }
 .customers td, .customers th {
   border: 1px solid #2e3848;
