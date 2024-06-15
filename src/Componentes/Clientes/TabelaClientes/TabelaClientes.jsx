@@ -36,13 +36,7 @@ const ClienteBusca = () => {
     <>
       <h1>Clientes</h1>
       <hr></hr>
-      <CardTabela
-        
-        placeholder="Buscar cliente"
-        Icon={() => <></>} // Você pode adicionar um ícone aqui se quiser
-        link="/Sistema/ClienteBusca" // Verifique se o link está correto
-        iconColor="#000" // Cor do ícone (se aplicável)
-      />
+      <CardTabela/>
       <br />
 
       <div>
