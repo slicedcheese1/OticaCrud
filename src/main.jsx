@@ -15,6 +15,7 @@ import CadastroUsuario from './Pages/Cadastro/CadastroUsuario.jsx';
 import ClienteUpdate from './Pages/Clientes/ClienteUpdate.jsx';
 import Funcionário from './Componentes/Cadastro/Funcionarios/Funcionario.jsx';
 import CadastroFuncionários from './Componentes/Cadastro/Funcionarios/CadastroFuncionarios.jsx';
+
 import Setor from './Pages/Setor/Setor.jsx';
 import CadastroDeSetor from './Pages/Setor/CadastroDeSetor.jsx';
 

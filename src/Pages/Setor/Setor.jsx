@@ -1,13 +1,8 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'
-
-
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Setor = () => {
-
   const [setores, setSetores] = useState([]);
-  const [search, setSearch] = useState('');
 
   useEffect(() => {
     buscarSetores();
@@ -18,66 +13,55 @@ const Setor = () => {
       .then(resposta => resposta.json())
       .then(dados => {
         setSetores(dados);
-        console.log(dados)
+      
       });
   };
 
   const deletarSetores = (id) => {
-    fetch(`http://localhost:8080/cargo/all/${id}`, {
+    fetch(`http://localhost:8080/cargo/${id}`, {
       method: 'DELETE'
     })
       .then(resposta => {
         if (resposta.ok) {
           buscarSetores();
+          console.log(dados)
         }
       });
   };
-
-
-  return (
-
-
-    <>
-
-      <div className='container-setor'>
-        <h1>Setores</h1>
-        <Link to={`/Sistema/cadastro-setor/`}>
-          <button>Novo setor</button>
-        </Link>
-        <hr />
-        <br />
-
-
-        <table className="customers">
-          <thead>
-            <tr>
-              <th>Cargo</th>
-           
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            <tr>
-              <td>Vendedor</td>
-              
-
+ return (
+    <div className='container-setor'>
+      <h1>Setores</h1>
+      <Link to={`/Sistema/cadastro-setor/`}>
+        <button>Novo setor</button>
+      </Link>
+      <hr />
+      <br />
+      <table className="customers">
+        <thead>
+          <tr>
+            <th>Cargo</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {setores.map((setor) => (
+            <tr key={setor.idCargo}>
+              <td>{setor.nomeCargo}</td>
               <td>
-                <Link to={`/Sistema/ClienteBusca/`}>
+                <Link to={`/Sistema/ClienteBusca/${setor.id}`}>
                   <button>Editar</button>
                 </Link>
-                <button onClick={() => deletarCliente(cliente.idCliente)} >Excluir</button>
+                <button onClick={() => deletarSetores(setor.idCargo)}>Excluir</button>
               </td>
             </tr>
-
-          </tbody>
-        </table>
-        <Link to={`/Sistema/Cadastros/`}>
-          <button >Voltar</button>
-        </Link>
-      </div>
-    </>
-  )
+          ))}
+        </tbody>
+      </table>
+      <Link to={`/Sistema/Cadastros/`}>
+        <button>Voltar</button>
+      </Link>
+    </div>
+  );
 }
 
-export default Setor
+export default Setor;
