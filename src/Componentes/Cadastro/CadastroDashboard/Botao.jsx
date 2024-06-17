@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 function Botao({ titulo, text, Icon, link, iconColor }) {
   return (
     <a href={link} className="card-opt">
-      <h4>{titulo}</h4>
+      
       <Icon className='icon-people' style={{ color: iconColor }} />
-      <p>{text}</p>
+      <p>{titulo}</p>
     </a>
   );
 }
