@@ -39,7 +39,6 @@ function ClienteCadastro() {
   const [showingCardResponsavel, setShowingCardResponsavel] = useState(false);
 
   const handleSalvar = (e) => {
-    e.preventDefault();
     setIsSubmited(true)
 
     if (erroForm || !dataNascimento || !nome || !cpf) {
@@ -48,27 +47,6 @@ function ClienteCadastro() {
       return
     }
     
-
-    console.log(JSON.stringify({
-      tipoCliente,
-      lojaCadastro,
-      cep,
-      cidade,
-      estado,
-      rua,
-      numeroCasa,
-      bairro,
-      numerosTelefone,
-      emails,
-      habilitarSms,
-      habilitarWhatsapp,
-      cpf,
-      nome,
-      rg,
-      dataNascimento,
-      sexo
-    }))
-
     fetch('http://localhost:8080/clientes/pf', {
       //mode: 'no-cors',
       method: 'POST',
