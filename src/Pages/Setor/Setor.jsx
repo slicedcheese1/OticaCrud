@@ -14,7 +14,6 @@ const Setor = () => {
       .then(resposta => resposta.json())
       .then(dados => {
         setSetores(dados);
-      
       });
   };
 
@@ -66,8 +65,8 @@ const Setor = () => {
             <tr key={setor.idCargo}>
               <td>{setor.nomeCargo}</td>
               <td>
-                <Link to={`/Sistema/cadastro-setor/${setor.idCargo}`}>
-                  <button onClick={()=>atualizarSetores(setor.idCargo)}>Editar</button>
+                <Link to={`/Sistema/editar-setor/${setor.nomeCargo}`}>
+                  <button>Editar</button>
                 </Link>
                 <button onClick={() => deletarSetores(setor.idCargo)}>Excluir</button>
               </td>

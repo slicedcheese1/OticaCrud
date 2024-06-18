@@ -22,11 +22,6 @@
   color:red
 }
 
-
-
-
-
-
 .num-box {
   display: flex;
   flex-direction: column;
@@ -56,4 +51,12 @@
   gap: 0.5rem;
   margin-left: 10px;
   width: 35px;
+}
+
+
+.column-flex-box{
+   
+  display: flex;
+  flex-direction: column;
+
 }
