@@ -1,3 +1,7 @@
-.msg-body {
-    padding: 0;
+.msg-body-green {
+    padding: 2rem;
+    width: 100%;
+    background-color: greenyellow;
+    font-size: 3rem;
+    color: white;
 }

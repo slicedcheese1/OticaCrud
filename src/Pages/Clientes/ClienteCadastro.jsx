@@ -1,8 +1,9 @@
 import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import axios from "axios"
 
 import ClienteContext from "./ClinteContext"
+import msg from "../../Componentes/Mensagem/msg"
 
 import DadosContatoClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosContatoClienteRegistro"
 import DadosEnderecoClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosEnderecoClienteRegistro"
@@ -37,6 +38,21 @@ function ClienteCadastro() {
   const [cardTel, setCardTel] = useState([]);
   const [cardEmail, setCardEmail] = useState([]);
   const [showingCardResponsavel, setShowingCardResponsavel] = useState(false);
+
+  const [msgCards, setMsgCards] = useState = ([])
+  const [showMsgCards, setShowMsgCards] = useState = (false)
+
+  const addMsgCard = (event, nameClass, mensage) => {
+    event.preventDefault();
+    const newId = msgCards.length ? msgCards[msgCards.length - 1].id + 1 : 0;
+    setMsgCards([...msgCards, { id: newId, component: <msg nameClass={nameClass} mensage={mensage} id={newId} key={newId} /> }]);
+    console.log(msgCards)
+
+  };
+
+  useEffect(() => {
+    setShowMsgCards(msgCards.length === 0)
+  }, [])
 
   const handleSalvar = (e) => {
     setIsSubmited(true)
@@ -77,6 +93,7 @@ function ClienteCadastro() {
       .then(response => response.json())
       .then((data) => {
         console.log('Post criado com sucesso:', data);
+        addMsgCard(e, "msg-body-green", "Cliente criado com sucesso.")
       })
       .catch((error) => {
         console.error('Erro ao criar post:', error);
@@ -112,7 +129,17 @@ function ClienteCadastro() {
         showingCardResponsavel, setShowingCardResponsavel
       }}>
 
-      <div   className={styles.clientecadastrocontainer}>
+        <div   className={styles.clientecadastrocontainer}>
+          {showMsgCards && (
+            <div style={{ zIndex: 3 }}>
+              <ul className='card-list'>
+                {msgCards.map(card => (
+                  <li key={card.id}>{card.component}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          
           <form className={styles.container2} id='ClienteCadastroForm'  autocomplete="off">
               <DadosPessoaisClienteRegistro/>
               <DadosEnderecoClienteRegistro/>
