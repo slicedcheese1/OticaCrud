@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Setor = () => {
   const [setores, setSetores] = useState([]);
+ 
 
   useEffect(() => {
     buscarSetores();
@@ -17,6 +18,8 @@ const Setor = () => {
       });
   };
 
+  
+
   const deletarSetores = (id) => {
     fetch(`http://localhost:8080/cargo/${id}`, {
       method: 'DELETE'
@@ -28,6 +31,21 @@ const Setor = () => {
         }
       });
   };
+
+  const atualizarSetores = (id) => {
+    fetch(`http://localhost:8080/cargo/${id}`, {
+      method: 'GET'
+    })
+    .then(resposta => resposta.json())
+    .then(dados => {
+      this.setState({ 
+        id: dados.idCargo,
+        nomeCargo: dados.nomeCargo
+      }); 
+    });
+  };
+  
+
  return (
     <div className='container-setor'>
       <h1>Setores</h1>
@@ -48,8 +66,8 @@ const Setor = () => {
             <tr key={setor.idCargo}>
               <td>{setor.nomeCargo}</td>
               <td>
-                <Link to={`/Sistema/ClienteBusca/${setor.id}`}>
-                  <button>Editar</button>
+                <Link to={`/Sistema/cadastro-setor/${setor.idCargo}`}>
+                  <button onClick={()=>atualizarSetores(setor.idCargo)}>Editar</button>
                 </Link>
                 <button onClick={() => deletarSetores(setor.idCargo)}>Excluir</button>
               </td>

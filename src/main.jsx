@@ -52,6 +52,11 @@ const router = createBrowserRouter([
             path: '/Sistema/ClienteBusca/:id',
             element: <ClienteUpdate /> //(())
           },
+          //========================================================== Cargos ==========================================================================
+          {
+            path: '/Sistema/cadastro-setor/:id',
+            element: <CadastroDeSetor /> //(())
+          },
           {
             path: '/Sistema/cadastro-setor',
             element: <CadastroDeSetor /> //(())
