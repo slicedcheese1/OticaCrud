@@ -13,12 +13,23 @@ import './index.css';
 import CadastroDashboard from './Pages/Cadastro/CadastroDashboard.jsx';
 import CadastroUsuario from './Pages/Cadastro/CadastroUsuario.jsx';
 import ClienteUpdate from './Pages/Clientes/ClienteUpdate.jsx';
-import Funcionário from './Componentes/Cadastro/Funcionarios/Funcionario.jsx';
-import CadastroFuncionários from './Componentes/Cadastro/Funcionarios/CadastroFuncionarios.jsx';
+
 
 import Setor from './Pages/Setor/Setor.jsx';
 import CadastroDeSetor from './Pages/Setor/CadastroDeSetor.jsx';
 import EditarSetor from './Pages/Setor/EditarSetor.jsx';
+import Dashboardadmin from './Pages/PaineldeInformações/Dashboardadmin.jsx';
+import EditarGrife from './Pages/Grifes/EditarGrife.jsx';
+import CadastroGrifes from './Pages/Grifes/CadastroGrifes.jsx';
+import Grifes from './Pages/Grifes/Grifes.jsx';
+import CadastroMedicos from './Pages/Médicos/CadastroMedicos.jsx';
+import Medicos from './Pages/Médicos/Medicos.jsx';
+import EditarMedico from './Pages/Médicos/EditarMedico.jsx';
+import Material from './Pages/Tipos de material/Material.jsx';
+import CadastroMaterial from './Pages/Tipos de material/CadastroMaterial.jsx';
+import EditarMaterial from './Pages/Tipos de material/EditarMaterial.jsx';
+import Funcionario from './Pages/Funcionarios/Funcionario.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -34,7 +45,46 @@ const router = createBrowserRouter([
             path: '/Sistema/',
             element: <Dashboardadmin />
           },
-
+          //========================================================== Grifes =======================================================================
+          {
+            path: '/Sistema/grifes',
+            element: <Grifes />
+          },
+          {
+            path: '/Sistema/cadastro-grifes',
+            element: <CadastroGrifes />
+          },
+          {
+            path: '/Sistema/editar-grifes',
+            element: <EditarGrife />
+          },
+          //========================================================== Material ======================================================================
+          {
+            path: '/Sistema/material',
+            element: <Material />
+          },
+          {
+            path: '/Sistema/cadastrar-material',
+            element: <CadastroMaterial />
+          },
+          {
+            path: '/Sistema/editar-material',
+            element: <EditarMaterial />
+          },
+          //========================================================== Medicos =======================================================================
+          {
+            path: '/Sistema/medicos',
+            element: <Medicos/>
+          },
+          {
+            path: '/Sistema/medico-cadastro',
+            element: <CadastroMedicos />
+          },
+          {
+            path: '/Sistema/editar-medico',
+            element: <EditarMedico />
+          },
+          //========================================================== Painel de Informação =======================================================================
           {
             path: '/Sistema/Clientes',
             element: <ClienteDashboard />
@@ -80,11 +130,11 @@ const router = createBrowserRouter([
           //========================================================== Funcionários ==========================================================================
           {
             path: '/Sistema/funcionário',
-            element: <Funcionário/>
+            element: <Funcionario/>
           },
           {
             path: '/Sistema/CadastroFuncionário',
-            element: <CadastroFuncionários/>
+            
           },
           //========================================================== Relatórios ==========================================================================
         ]

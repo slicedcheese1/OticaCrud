@@ -25,14 +25,14 @@ const CadastroBotoes2 = () => {
         titulo="Médicos/Optometristas"
         text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
         Icon={FaSearch}
-        link="/Sistema/médicos/"
+        link="/Sistema/medicos/"
         iconColor="" // Definindo a cor do ícone
       />
       <Botao
         titulo="Grifes"
         text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
         Icon={FaSearch}
-        link="/Sistema/médicos/"
+        link="/Sistema/grifes/"
         iconColor="" // Definindo a cor do ícone
       />
       <Botao
@@ -58,10 +58,10 @@ const CadastroBotoes2 = () => {
       />
       
       <Botao
-        titulo="Material"
+        titulo="Tipos de material"
         text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
         Icon={FaSearch}
-        link="/Sistema/médicos/"
+        link="/Sistema/material/"
         iconColor="" // Definindo a cor do ícone
       />
       <Botao
