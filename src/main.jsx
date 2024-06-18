@@ -18,6 +18,8 @@ import CadastroFuncionários from './Componentes/Cadastro/Funcionarios/CadastroF
 
 import Setor from './Pages/Setor/Setor.jsx';
 import CadastroDeSetor from './Pages/Setor/CadastroDeSetor.jsx';
+import Dashboardadmin from './Pages/PaineldeInformações/Dashboardadmin.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,17 @@ const router = createBrowserRouter([
         path: '/Sistema',
         element: <Sistema />,
         children: [
+          //========================================================== Painel de Informação ========================================================================
+          {
+            path: '/Sistema/',
+            element: <Dashboardadmin />
+          },
+
+          {
+            path: '/Sistema/Clientes',
+            element: <ClienteDashboard />
+          },
+
           {
             path: '/Sistema/Clientes',
             element: <ClienteDashboard />

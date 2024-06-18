@@ -6,7 +6,7 @@ import * as RiIcons from 'react-icons/ri';
  export const SidebarData = [
   {
     title: 'Painel',
-    path: '/Sistema/Painel',
+    path: '/Sistema',
     icon: <IoIcons.IoMdHelpCircle  />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
