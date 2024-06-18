@@ -1,9 +1,8 @@
 import React from "react"
 import { useState, useEffect } from "react"
-import axios from "axios"
 
 import ClienteContext from "./ClinteContext"
-import msg from "../../Componentes/Mensagem/msg"
+import Message from "../../Componentes/Mensagem/Message.jsx"
 
 import DadosContatoClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosContatoClienteRegistro"
 import DadosEnderecoClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosEnderecoClienteRegistro"
@@ -39,22 +38,25 @@ function ClienteCadastro() {
   const [cardEmail, setCardEmail] = useState([]);
   const [showingCardResponsavel, setShowingCardResponsavel] = useState(false);
 
-  const [msgCards, setMsgCards] = useState = ([])
-  const [showMsgCards, setShowMsgCards] = useState = (false)
+  const [msgCards, setMsgCards] = useState([])
+  const [showMsgCards, setShowMsgCards] = useState(false)
 
   const addMsgCard = (event, nameClass, mensage) => {
     event.preventDefault();
     const newId = msgCards.length ? msgCards[msgCards.length - 1].id + 1 : 0;
-    setMsgCards([...msgCards, { id: newId, component: <msg nameClass={nameClass} mensage={mensage} id={newId} key={newId} /> }]);
+    setMsgCards([...msgCards, { id: newId, component: <Message nameClass={nameClass} mensage={mensage} id={newId} key={newId} /> }]);
     console.log(msgCards)
+    console.log("msgCards")
 
   };
 
   useEffect(() => {
-    setShowMsgCards(msgCards.length === 0)
-  }, [])
+    setShowMsgCards(msgCards.length != 0)
+    console.log("showMsgCards: ", showMsgCards)
+  }, [msgCards])
 
   const handleSalvar = (e) => {
+    e.preventDefault()
     setIsSubmited(true)
 
     if (erroForm || !dataNascimento || !nome || !cpf) {
@@ -97,6 +99,7 @@ function ClienteCadastro() {
       })
       .catch((error) => {
         console.error('Erro ao criar post:', error);
+        addMsgCard(e, "msg-body-red", "Falha ao registrar o cliente.")
       });
   };
 
@@ -129,10 +132,10 @@ function ClienteCadastro() {
         showingCardResponsavel, setShowingCardResponsavel
       }}>
 
-        <div   className={styles.clientecadastrocontainer}>
+        <div  className={styles.clientecadastrocontainer}>
           {showMsgCards && (
-            <div style={{ zIndex: 3 }}>
-              <ul className='card-list'>
+            <div className={styles.boxmensages}>
+              <ul className={styles.cardlist}>
                 {msgCards.map(card => (
                   <li key={card.id}>{card.component}</li>
                 ))}

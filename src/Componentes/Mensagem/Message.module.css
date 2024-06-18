@@ -5,3 +5,11 @@
     font-size: 3rem;
     color: white;
 }
+
+.msg-body-red {
+    padding: 2rem;
+    width: 100%;
+    background-color: red;
+    font-size: 3rem;
+    color: white;
+}
