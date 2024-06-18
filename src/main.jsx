@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
+
 //import Clientes from './Pages/ClienteCadastro.jsx';
 import ClienteBusca from './Pages/Clientes/ClienteBusca.jsx';
 import ClienteCadastro from './Pages/Clientes/ClienteCadastro.jsx';
@@ -10,7 +11,6 @@ import Login from './Pages/Login/Login.jsx';
 import Sistema from './Sistema.jsx';
 import './index.css';
 import CadastroDashboard from './Pages/Cadastro/CadastroDashboard.jsx';
-import CadastroBotoes2 from './Componentes/Cadastro/CadastroDashboard/CadastroBotoes2.jsx';
 import CadastroUsuario from './Pages/Cadastro/CadastroUsuario.jsx';
 import ClienteUpdate from './Pages/Clientes/ClienteUpdate.jsx';
 import Funcionário from './Componentes/Cadastro/Funcionarios/Funcionario.jsx';
@@ -18,8 +18,7 @@ import CadastroFuncionários from './Componentes/Cadastro/Funcionarios/CadastroF
 
 import Setor from './Pages/Setor/Setor.jsx';
 import CadastroDeSetor from './Pages/Setor/CadastroDeSetor.jsx';
-import Dashboardadmin from './Pages/PaineldeInformações/Dashboardadmin.jsx';
-
+import EditarSetor from './Pages/Setor/EditarSetor.jsx';
 
 const router = createBrowserRouter([
   {
@@ -67,8 +66,8 @@ const router = createBrowserRouter([
           },
           //========================================================== Cargos ==========================================================================
           {
-            path: '/Sistema/cadastro-setor/:id',
-            element: <CadastroDeSetor /> //(())
+            path: '/Sistema/editar-setor/:nome',
+            element: <EditarSetor/> //(())
           },
           {
             path: '/Sistema/cadastro-setor',
