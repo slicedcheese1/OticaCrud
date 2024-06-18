@@ -65,7 +65,7 @@ const Setor = () => {
             <tr key={setor.idCargo}>
               <td>{setor.nomeCargo}</td>
               <td>
-                <Link to={`/Sistema/editar-setor/${setor.nomeCargo}`}>
+                <Link to={`/Sistema/editar-setor/${setor.idCargo}`}>
                   <button>Editar</button>
                 </Link>
                 <button onClick={() => deletarSetores(setor.idCargo)}>Excluir</button>

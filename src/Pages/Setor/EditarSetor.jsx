@@ -4,9 +4,22 @@ import { useParams } from 'react-router-dom';
 
 const EditarSetor = () => {
 
-  const { nome } = useParams();
+  const { id } = useParams();
   const [nomeCargo, setNomeCargo] = useState(nome)
   const [erroNome, setErroNome] = useState(false)
+
+  useEffect(() => {
+    fetch(`http://localhost:8080/cargo/${id}`, {
+      method: 'GET'
+    })
+    .then(resposta => resposta.json())
+    .then(dados => {
+      this.setState({ 
+        id: dados.idCargo,
+        nomeCargo: dados.nomeCargo
+      }); 
+    });
+  })
 
   const validarCampoNome = (nome) => {
       const nomeValue = nome;
@@ -25,7 +38,7 @@ const EditarSetor = () => {
         return
       }   
       
-      fetch('http://localhost:8080/cargo', {
+      fetch(`http://localhost:8080/cargo/${id}`, {
         //mode: 'no-cors',
         method: 'POST',
         body: JSON.stringify({
