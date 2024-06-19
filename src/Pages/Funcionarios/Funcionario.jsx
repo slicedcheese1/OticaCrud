@@ -48,7 +48,7 @@ const Funcionario = () => {
  return (
     <div className='container-setor'>
       <h1>Funcionários</h1>
-      <Link to={`/Sistema/cadastro-setor/`}>
+      <Link to={`/Sistema/cadastro-funcionario/`}>
         <button>+ Novo funcionário</button>
       </Link>
       <hr />
@@ -66,13 +66,13 @@ const Funcionario = () => {
           {funcionarios.map((funcionario) => (
             <tr key={funcionario.id}>
               <td>{funcionario.nome}</td>
-              <td>{funcionario.nomeCargo}</td>
+              <td>{funcionario.cargos.nomeCargo}</td>
               <td>{funcionario.lojaCadastro}</td>
               <td>
                 <Link to={`/Sistema/editar-setor/${funcionario.nomeCargo}`}>
                   <button>Editar</button>
                 </Link>
-                <button onClick={() => deletarSetores(funcionario.idCargo)}>Excluir</button>
+                <button onClick={() => deletarSetores(funcionario.id)}>Excluir</button>
               </td>
             </tr>
           ))}

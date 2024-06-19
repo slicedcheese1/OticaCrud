@@ -29,6 +29,7 @@ import Material from './Pages/Tipos de material/Material.jsx';
 import CadastroMaterial from './Pages/Tipos de material/CadastroMaterial.jsx';
 import EditarMaterial from './Pages/Tipos de material/EditarMaterial.jsx';
 import Funcionario from './Pages/Funcionarios/Funcionario.jsx';
+import CadastroFuncionario from './Pages/Funcionarios/CadastroFuncionario.jsx';
 
 
 const router = createBrowserRouter([
@@ -133,8 +134,8 @@ const router = createBrowserRouter([
             element: <Funcionario/>
           },
           {
-            path: '/Sistema/CadastroFuncionário',
-            
+            path: '/Sistema/cadastro-funcionario',
+            element: <CadastroFuncionario/>
           },
           //========================================================== Relatórios ==========================================================================
         ]
