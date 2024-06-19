@@ -5,45 +5,36 @@ import { useParams } from 'react-router-dom';
 const EditarSetor = () => {
 
   const { id } = useParams();
-  const [nomeCargo, setNomeCargo] = useState(nome)
+  const [nomeCargo, setNomeCargo] = useState("")
   const [erroNome, setErroNome] = useState(false)
 
-  useEffect(() => {
+  // Carregar dados do cargo
+  useState(() => {
     fetch(`http://localhost:8080/cargo/${id}`, {
       method: 'GET'
     })
     .then(resposta => resposta.json())
     .then(dados => {
-      this.setState({ 
-        id: dados.idCargo,
-        nomeCargo: dados.nomeCargo
-      }); 
+      setNomeCargo(dados.nomeCargo)
+    })
+    .catch((error) => {
+      console.error('Erro ao buscar cargo:', error);
     });
-  })
+  }, []
+  )
 
-  const validarCampoNome = (nome) => {
-      const nomeValue = nome;
-      console.log("nome: ", nomeValue)
-      if (!nomeCargo) {
-        setErroNome(true)
-      } else {
-        setErroNome(false)
-      }
-    };
-
-  const handleSalvar = (e) => {
+  const editCargo = (e) => {
       e.preventDefault();
   
       if (erroNome) {
         return
       }   
+
+      console.log(JSON.stringify({nomeCargo}), id)
       
       fetch(`http://localhost:8080/cargo/${id}`, {
-        //mode: 'no-cors',
-        method: 'POST',
-        body: JSON.stringify({
-          nomeCargo
-        }),
+        method: 'PUT',
+        body: JSON.stringify({nomeCargo}),
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -51,11 +42,16 @@ const EditarSetor = () => {
       })
         .then(response => response.json())
         .then((data) => {
-          console.log('Post criado com sucesso:', data);
+          console.log('Cargo editado com sucesso:', data);
         })
         .catch((error) => {
-          console.error('Erro ao criar post:', error);
+          console.error('Erro ao editar cargo:', error);
         });
+    };
+
+    const validarCampoNome = (nome) => {
+      console.log("nome: ", nome)
+      setErroNome(nome === "")
     };
 
   return (
@@ -76,7 +72,7 @@ const EditarSetor = () => {
           </Link>
 
           <button
-          onClick={handleSalvar}
+          onClick={(e) => editCargo(e)}
           >Salvar</button>
 
 

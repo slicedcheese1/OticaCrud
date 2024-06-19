@@ -26,24 +26,9 @@ const Setor = () => {
       .then(resposta => {
         if (resposta.ok) {
           buscarSetores();
-          console.log(dados)
         }
       });
   };
-
-  const atualizarSetores = (id) => {
-    fetch(`http://localhost:8080/cargo/${id}`, {
-      method: 'GET'
-    })
-    .then(resposta => resposta.json())
-    .then(dados => {
-      this.setState({ 
-        id: dados.idCargo,
-        nomeCargo: dados.nomeCargo
-      }); 
-    });
-  };
-  
 
  return (
     <div className='container-setor'>
