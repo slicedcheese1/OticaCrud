@@ -48,8 +48,9 @@ function CadastroFuncionario() {
         setCargos([...cargos, { idCargo: 0, nomeCargo: event.target.value}]);
     }
 
-    function saveFuncionario(){
-        fetch('http://localhost:8080/cargos/cadastro', {
+    function saveFuncionario(e){
+        e.preventDefault()
+        fetch('http://localhost:8080/usuarios', {
             //mode: 'no-cors',
             method: 'POST',
             body: JSON.stringify({
@@ -95,7 +96,7 @@ function CadastroFuncionario() {
                     type='text' 
                     placeholder='Nome'
                     value={nome}
-                    onChange={() => {setNome(nome)}}
+                    onChange={(e) => {setNome(e.target.value)}}
                     />
                     
                     <label htmlFor="loja">Loja</label>
@@ -104,7 +105,7 @@ function CadastroFuncionario() {
                     type='text' 
                     placeholder='loja'
                     value={loja}
-                    onChange={() => {setLoja(loja)}}
+                    onChange={(e) => {setLoja(e.target.value)}}
                     />
                     
                     <label htmlFor="email">Email</label>
@@ -113,7 +114,7 @@ function CadastroFuncionario() {
                     type='text' 
                     placeholder='Email'
                     value={email}
-                    onChange={() => {setEmail(email)}}
+                    onChange={(e) => {setEmail(e.target.value)}}
                     />
 
                     <label htmlFor="telefoneprimario">Telefone Princial</label>
@@ -122,7 +123,7 @@ function CadastroFuncionario() {
                     type='text' 
                     placeholder='Telefone Princial'
                     value={telefonePrimario}
-                    onChange={() => {setTelefonePrimario(telefonePrimario)}}
+                    onChange={(e) => {setTelefonePrimario(e.target.value)}}
                     />
 
                     <label htmlFor="telefonesecundario">Telefone Secundário</label>
@@ -131,7 +132,7 @@ function CadastroFuncionario() {
                     type='text' 
                     placeholder='Telefone Secundário'
                     value={telefoneSecundario}
-                    onChange={() => {setTelefoneSecundario(telefoneSecundario)}}
+                    onChange={(e) => {setTelefoneSecundario(e.target.value)}}
                     />  
 
                     <label htmlFor="senha">Senha</label>
@@ -140,7 +141,7 @@ function CadastroFuncionario() {
                     type='password' 
                     placeholder='Senha '
                     value={senha}
-                    onChange={() => {setSenha(senha)}}
+                    onChange={(e) => {setSenha(e.target.value)}}
                     />  
 
                     <label htmlFor="lojas">Loja</label>
@@ -202,7 +203,7 @@ function CadastroFuncionario() {
                     type='text' 
                     placeholder='RG'
                     value={rg}
-                    onChange={() => setRg(rg)}
+                    onChange={(e) => setRg(e.target.value)}
                     /> 
 
                     <label htmlFor="cpf">RG</label>
@@ -211,7 +212,7 @@ function CadastroFuncionario() {
                     type='text' 
                     placeholder='CPF'
                     value={cpf}
-                    onChange={() => setCpf(cpf)}
+                    onChange={(e) => setCpf(e.target.value)}
                     /> 
                     <br/>
                     <br/> 
@@ -226,7 +227,7 @@ function CadastroFuncionario() {
                     type='text' 
                     placeholder='CEP'
                     value={cep}
-                    onChange={()=>setCep(cep)}
+                    onChange={(e)=>setCep(e.target.value)}
                     /> 
 
                     <label htmlFor="endereco">Endereço</label>
@@ -235,7 +236,7 @@ function CadastroFuncionario() {
                     type='text' 
                     placeholder='Endereço'
                     value={endereco}
-                    onChange={()=>setEndereco(endereco)}
+                    onChange={(e)=>setEndereco(e.target.value)}
                     /> 
 
                     <label htmlFor="bairro">Bairro</label>
@@ -244,13 +245,13 @@ function CadastroFuncionario() {
                     type='text' 
                     placeholder='Bairro'
                     value={bairro}
-                    onChange={()=>setBairro(bairro)}
+                    onChange={(e)=>setBairro(e.target.value)}
                     /> 
 
 
                 </div>
                 <button
-                onClick={saveFuncionario}
+                onClick={(e) => saveFuncionario(e)}
                 >Cadastrar</button>
 
                 <div className='container-dados-usuario'>
