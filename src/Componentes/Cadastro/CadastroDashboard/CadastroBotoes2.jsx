@@ -93,7 +93,7 @@ const CadastroBotoes2 = () => {
         iconColor="" // Definindo a cor do ícone
       />
        <Botao
-        titulo="Cargos"
+        titulo="Cargos (OK) "
         text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
         Icon={FaSearch}
         link="/Sistema/setor/"
