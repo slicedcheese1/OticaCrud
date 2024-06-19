@@ -116,7 +116,7 @@ const router = createBrowserRouter([
           },
           //========================================================== Cargos ==========================================================================
           {
-            path: '/Sistema/editar-setor/:nome',
+            path: '/Sistema/editar-setor/:id',
             element: <EditarSetor/> //(())
           },
           {
