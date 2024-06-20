@@ -1,19 +1,12 @@
-.gap1{
-    gap: 1rem;
-}
 
-.gap2{
-    gap: 2rem;
-}
-
-.column-flex-box{
+.columnFlexbox{
    
     display: flex;
     flex-direction: column;
 
 }
 
-.row-flex-box{
+.rowFlexBox{
     display: flex;
     flex-direction: row;
 }
@@ -44,13 +37,14 @@
     width: 30%;
 }
 
-
-.gp1-box{
+.gp1Box{
     
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+  margin-left: 4rem;
+
 }
 
 .gp1{
@@ -61,13 +55,13 @@
 
 }
 
-.gp1-2{
+.gp1_2{
     width: 90%;
     margin-left: 2rem;
     margin-right: 5rem;
 }
 
-.gp1-1{
+.gp1_1{
     width: 90%;
 }
 
@@ -76,12 +70,12 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.gp2-1{
+.gp2_1{
     gap: 1rem;
     width: 80%;
 }
 
-.gp2-2{
+.gp2_2{
     gap: 1rem;
     width: 80%;
 }
@@ -92,15 +86,15 @@
     width: 100%;
 }
 
-.gp3-1{
+.gp3_1{
     width: 80%;
 }
 
-.gp3-2{
+.gp3_2{
     width: 80%;
 }
 
-.gp3-3{
+.gp3_3{
     width: 80%;
 }
 

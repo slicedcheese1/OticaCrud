@@ -44,7 +44,7 @@ input:focus, select:focus {
 label {
   font-weight: bold;
   margin-top: 1rem;
-  font-size: 0.9rem; /* Tamanho de fonte ajustado */
+  font-size: 1.5rem; /* Tamanho de fonte ajustado */
 }
 
 /* Media Queries para Design Responsivo */

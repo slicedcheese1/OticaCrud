@@ -1,5 +1,5 @@
 import React from 'react'
-import './DadosPessoaisClienteRegistro.css'
+import './DadosPessoaisClienteRegistro.module.css'
 
 const DadosObservacoesClienteRegistro = () => {
   return (
