@@ -3,7 +3,7 @@ import styles from './Message.module.css'; // Importando os estilos do módulo C
 
 const Message = ({ mensage, nameClass}) => {
   return (
-    <div className={nameClass} >
+    <div className={styles[nameClass]} >
       {mensage}
     </div>
   );
