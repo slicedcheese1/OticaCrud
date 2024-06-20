@@ -85,7 +85,7 @@ const Funcionario = () => {
               <td>{funcionario.cargos.nomeCargo}</td>
               <td>{funcionario.lojaCadastro}</td>
               <td>
-                <Link to={`/Sistema/editar-setor/${funcionario.nomeCargo}`}>
+                <Link to={`/Sistema/editar-funcionario/${funcionario.id}`}>
                   <button>Editar</button>
                 </Link>
                 <button onClick={() => deletarSetores(funcionario.id)}>Excluir</button>
