@@ -38,6 +38,7 @@ function CadastroFuncionario() {
     const [cep, setCep] = useState("")
     const [endereco, setEndereco] = useState("")
     const [bairro, setBairro] = useState("")
+    const [cidade, setCidade] = useState("")
     const [limiteDesconto, setLimiteDesconto] = useState("")
     const [email, setEmail] = useState("")
     const [loja, setLoja] = useState("")
@@ -50,33 +51,39 @@ function CadastroFuncionario() {
 
     function saveFuncionario(e){
         e.preventDefault()
+
+        const funcionario = JSON.stringify({
+          nome,
+          senha,
+          lojaCadastro,
+          cargos,
+          rg,
+          cpf,
+          telefonePrimario,
+          telefoneSecundario,
+          cep,
+          endereco,
+          bairro,
+          cidade,
+          limiteDesconto,
+          email,
+          loja,
+        })
+
+        console.log(funcionario)
+
         fetch('http://localhost:8080/usuarios', {
             //mode: 'no-cors',
             method: 'POST',
-            body: JSON.stringify({
-              nome,
-              senha,
-              lojaCadastro,
-              cargos,
-              rg,
-              cpf,
-              telefonePrimario,
-              telefoneSecundario,
-              cep,
-              endereco,
-              bairro,
-              limiteDesconto,
-              email,
-              loja,
-            }),
+            body: funcionario,
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
             }
           })
             .then(response => response.json())
-            .then((data) => {
-              console.log('Post criado com sucesso:', data);
+            .then((response) => {
+              console.log('Post criado com sucesso:', response);
             })
             .catch((error) => {
               console.error('Erro ao criar post:', error);
@@ -150,7 +157,7 @@ function CadastroFuncionario() {
                     value={lojaCadastro}
                     onChange={(e) => {setLojaCadastro(e.target.value)}}
                     >
-                        <option value="" disabled selected >Selecione uma loja</option>
+                        <option value="" disabled  >Selecione uma loja</option>
                         <option value="Loja 01">Loja 01</option>  
                         <option value="Loja 02">Loja 02</option>  
                         <option value="Loja 03">Loja 03</option>  
@@ -169,7 +176,7 @@ function CadastroFuncionario() {
                     value={cargo}
                     onChange={(e) => {addCargo(e)}}
                     >
-                        <option value="" disabled selected >Selecione um cargo</option>
+                        <option value="" disabled  >Selecione um cargo</option>
                         <option value="exemplo1">cargo 1</option>  
                         <option value="exemplo2">cargo 2</option>  
 
@@ -181,17 +188,17 @@ function CadastroFuncionario() {
                     value={limiteDesconto}
                     onChange={(e) => {setLimiteDesconto(e.target.value)}}
                     >
-                        <option value="" disabled selected >Selecione um limite de desconto</option>
-                        <option value="10%">10%</option>  
-                        <option value="20%">20%</option>  
-                        <option value="30%">30%</option>  
-                        <option value="40%">40%</option>  
-                        <option value="50%">50%</option>  
-                        <option value="60%">60%</option>  
-                        <option value="70%">70%</option>  
-                        <option value="80%">80%</option>  
-                        <option value="90%">90%</option>  
-                        <option value="100%">100%</option>  
+                        <option value="" disabled  >Selecione um limite de desconto</option>
+                        <option value={0.1}>10%</option>  
+                        <option value={0.2}>20%</option>  
+                        <option value={0.3}>30%</option>  
+                        <option value={0.4}>40%</option>  
+                        <option value={0.5}>50%</option>  
+                        <option value={0.6}>60%</option>  
+                        <option value={0.7}>70%</option>  
+                        <option value={0.8}>80%</option>  
+                        <option value={0.9}>90%</option>  
+                        <option value={1.0}>100%</option>  
                     </select>
 
                     <label>CEP</label>
@@ -247,6 +254,15 @@ function CadastroFuncionario() {
                     value={bairro}
                     onChange={(e)=>setBairro(e.target.value)}
                     /> 
+
+                    <label htmlFor="cidade">cidade</label>
+                    <input 
+                    name="cidade"
+                    type='text' 
+                    placeholder='cidade'
+                    value={cidade}
+                    onChange={(e)=>setCidade(e.target.value)}
+                    />
 
 
                 </div>
