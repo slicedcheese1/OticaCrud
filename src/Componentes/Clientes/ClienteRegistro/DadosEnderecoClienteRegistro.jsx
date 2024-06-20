@@ -3,8 +3,8 @@ import ReactInputMask from 'react-input-mask';
 import { useForm } from 'react-hook-form';
 import { CiSearch } from "react-icons/ci";
 import ClienteContext from '../../../Pages/Clientes/ClinteContext';
-import './DadosEnderecoClienteRegistro.css';
-
+import styles from './DadosEnderecoClienteRegistro.module.css';
+import Card from "react-bootstrap/Card"
 function DadosEndereçoClienteRegistro() {
 
   const {
@@ -32,15 +32,15 @@ function DadosEndereçoClienteRegistro() {
 
   return (
     <>
-      <div className="card">
+      <Card className="p-4">
         <h3> Dados de Endereço</h3>
         <hr />
 
-        <div id="form-endereco" className='formBoxEndereco' method="post">
-          <div className="gp3">
-            <div className="gp3-1">
+        <div id="form-endereco" className={styles.formBoxEndereco} method="post">
+          <div className={styles.gp3}>
+            <div className={styles.gp3_1}>
               <label id="label-cep" htmlFor="cep">CEP</label>
-              <div className="busca-cep">
+              <div className={styles.buscaCep}>
                 <ReactInputMask mask="99999-999"
                   type="text"
                   placeholder="Insira o CEP do cliente"
@@ -52,7 +52,7 @@ function DadosEndereçoClienteRegistro() {
               </div>
             </div>
 
-            <div className="gp3-1">
+            <div className={styles.gp3_1}>
               <label id="label-estado" htmlFor="estado">Estado</label>
               <select {...register("estado")} name="estado" id="estados" onChange={(e) => {setEstado(e.target.value)}} value={estado}>
                 <option value="" disabled selected>Selecione um estado</option>
@@ -86,7 +86,7 @@ function DadosEndereçoClienteRegistro() {
               </select>
             </div>
 
-            <div className="gp3-1">
+            <div className={styles.gp3_1}>
               <label id="label-cidade" htmlFor="cidade">Cidade</label>
               <input
                 type="text"
@@ -99,8 +99,8 @@ function DadosEndereçoClienteRegistro() {
             </div>
           </div>
 
-          <div className="gp3">
-            <div className='gp3-1'>
+          <div className={styles.gp3}>
+            <div className={styles.gp3_1}>
               <label id="label-bairro" htmlFor="bairro">Bairro</label>
               <input
                 type="text"
@@ -112,7 +112,7 @@ function DadosEndereçoClienteRegistro() {
               />
             </div>
    
-            <div className="gp3-1">
+            <div className={styles.gp3_1}>
               <label id="label-rua" htmlFor="rua">Rua</label>
               <input
                 type="text"
@@ -124,7 +124,7 @@ function DadosEndereçoClienteRegistro() {
               />
             </div> 
 
-            <div className='gp3-1'>
+            <div className={styles.gp3_1}>
               <label id="label-numero" htmlFor="numero">Número</label>
               <input
                 type="text"
@@ -136,7 +136,7 @@ function DadosEndereçoClienteRegistro() {
           
           </div>
         </div>
-      </div>
+      </Card>
     </>
   )
 }
