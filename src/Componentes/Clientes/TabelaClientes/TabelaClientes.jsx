@@ -36,7 +36,19 @@ const ClienteBusca = () => {
     <>
       <h1>Clientes</h1>
       <hr></hr>
-      <CardTabela/>
+      <div className ="container-busca">
+      <div className="buscas">
+        <h1>Busca de clientes</h1>
+        <hr />
+        <br />
+        <label>Buscar um cliente</label>
+        <input placeholder="Procure por Nome, CPF, CNPJ"type= "text" onChange={(ev)=>setSearch(ev.target.value)} value={search}/>
+        <br />
+        <br />
+      </div>
+      </div>
+      <br/>
+      <br/>
       <br />
 
       <div>
