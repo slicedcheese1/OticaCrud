@@ -101,25 +101,9 @@ function CadastroFuncionario() {
                 <h2>Dados pessoais </h2>
                 <hr/>
 
-                <Alert variant="success">
-                  <Alert.Heading>Hey, nice to see you</Alert.Heading>
-                  <p>
-                    Aww yeah, you successfully read this important alert message. This
-                    example text is going to run a bit longer so that you can see how
-                    spacing within an alert works with this kind of content.
-                  </p>
-                  <hr />
-                  <p className="mb-0">
-                    Whenever you need to, be sure to use margin utilities to keep things
-                    nice and tidy.
-                  </p>
-                </Alert>
-                <Card>
-                  <Card.Body>This is some text within a card body.</Card.Body>
-                </Card>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group>
                   <Form.Label>Nome</Form.Label>
-                  <Form.Control 
+                  <input
                     type="text" 
                     placeholder="Insita o nome do funcionário" 
                     value={nome}
@@ -129,7 +113,7 @@ function CadastroFuncionario() {
                 
                 <Form.Group>
                   <Form.Label>Loja</Form.Label>
-                  <Form.Control 
+                  <input
                     name="loja"
                     type='text' 
                     placeholder='Insira o nome da loja'
@@ -140,7 +124,7 @@ function CadastroFuncionario() {
 
                 <Form.Group>
                   <Form.Label>Email</Form.Label>
-                  <Form.Control
+                  <input
                     name="email"
                     type='text' 
                     placeholder='Email'
@@ -151,7 +135,7 @@ function CadastroFuncionario() {
 
                 <Form.Group>
                   <Form.Label>Telefone Principal</Form.Label>
-                  <Form.Control
+                  <input
                     name="telefoneprimario"
                     type='text' 
                     placeholder='Telefone Principal'
@@ -162,7 +146,7 @@ function CadastroFuncionario() {
 
                 <Form.Group>
                   <Form.Label>Telefone Secundário</Form.Label>
-                  <Form.Control
+                  <input
                     name="telefonesecundario"
                     type='text' 
                     placeholder='Telefone Secundário'
@@ -173,7 +157,7 @@ function CadastroFuncionario() {
 
                 <Form.Group>
                   <Form.Label>Senha</Form.Label>
-                  <Form.Control
+                  <input
                     name="senha"
                     type='password' 
                     placeholder='Senha '
@@ -239,13 +223,13 @@ function CadastroFuncionario() {
                 </Form.Group>
 
                 <Form.Group>
-                  <Form.Label>CEP</Form.Label>
-                  <Form.Control type='text' placeholder='CPF'/> 
+                  <Form.Label>CPF</Form.Label>
+                  <input type='text' placeholder='CPF'/> 
                 </Form.Group>
 
                 <Form.Group>
                   <Form.Label>RG</Form.Label>
-                  <Form.Control 
+                  <input
                   name="rg"
                   type='text' 
                   placeholder='RG'
@@ -256,7 +240,7 @@ function CadastroFuncionario() {
                 
                 <Form.Group>
                   <Form.Label>RG</Form.Label>
-                  <Form.Control 
+                  <input
                   name="cpf"
                   type='text' 
                   placeholder='CPF'
@@ -271,7 +255,7 @@ function CadastroFuncionario() {
                 <h2>Dados de endereço </h2>
                 <hr/>
                 <Form.Label>CEP</Form.Label>
-                <Form.Control 
+                <input
                 name="cep"
                 type='text' 
                 placeholder='CEP'
@@ -280,7 +264,7 @@ function CadastroFuncionario() {
                 /> 
 
                 <Form.Label>Endereço</Form.Label>
-                <Form.Control 
+                <input
                 name="endereco"
                 type='text' 
                 placeholder='Endereço'
@@ -289,7 +273,7 @@ function CadastroFuncionario() {
                 /> 
 
                 <Form.Label>Bairro</Form.Label>
-                <Form.Control 
+                <input
                 name="bairro"
                 type='text' 
                 placeholder='Bairro'
@@ -298,7 +282,7 @@ function CadastroFuncionario() {
                 /> 
 
                 <Form.Label>cidade</Form.Label>
-                <Form.Control 
+                <input
                 name="cidade"
                 type='text' 
                 placeholder='cidade'

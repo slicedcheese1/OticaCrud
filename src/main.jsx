@@ -14,7 +14,6 @@ import CadastroDashboard from './Pages/Cadastro/CadastroDashboard.jsx';
 import CadastroUsuario from './Pages/Cadastro/CadastroUsuario.jsx';
 import ClienteUpdate from './Pages/Clientes/ClienteUpdate.jsx';
 
-
 import Setor from './Pages/Setor/Setor.jsx';
 import CadastroDeSetor from './Pages/Setor/CadastroDeSetor.jsx';
 import EditarSetor from './Pages/Setor/EditarSetor.jsx';

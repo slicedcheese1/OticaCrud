@@ -7,3 +7,26 @@
 body, html{
   height: 100%;
 }
+
+/* Estilos para inputs e selects */
+input, select {
+  padding: 0.75rem; /* Aumentando o padding para uma área de clique maior */
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Bordas mais arredondadas */
+  width: 100%;
+  margin-top: 0.5rem;
+  transition: border-color 0.3s ease; /* Transição suave para a borda */
+}
+
+input:focus, select:focus {
+  border-color: #007bff; /* Cor da borda ao focar */
+  outline: none; /* Removendo outline padrão */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra suave ao focar */
+}
+
+/* Estilos para labels */
+label {
+  font-family: Arial, sans-serif;
+  font-size: 1.5rem; /* Tamanho de fonte ajustado */
+}
+
