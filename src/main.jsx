@@ -93,11 +93,6 @@ const router = createBrowserRouter([
             path: '/Sistema/Clientes',
             element: <ClienteDashboard />
           },
-
-          {
-            path: '/Sistema/Clientes',
-            element: <ClienteDashboard />
-          },
           {
             path: '/Sistema/ClienteCadastro',
             element: <ClienteCadastro />
@@ -133,7 +128,7 @@ const router = createBrowserRouter([
           },
           //========================================================== Funcionários ==========================================================================
           {
-            path: '/Sistema/funcionário',
+            path: '/Sistema/funcionario',
             element: <Funcionario/>
           },
           {

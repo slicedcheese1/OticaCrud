@@ -112,7 +112,7 @@ function ClienteCadastro() {
         showingCardResponsavel, setShowingCardResponsavel
       }}>
 
-      <div   className={styles.clientecadastrocontainer}>
+      <div className={styles.clientecadastrocontainer}>
           <form className={styles.container2} id='ClienteCadastroForm'  autocomplete="off">
               <DadosPessoaisClienteRegistro/>
               <DadosEnderecoClienteRegistro/>
