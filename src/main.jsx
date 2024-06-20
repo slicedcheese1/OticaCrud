@@ -13,6 +13,7 @@ import Login from './Pages/Login/Login.jsx';
 import Sistema from './Sistema.jsx';
 import './index.css';
 import CadastroDashboard from './Pages/Cadastro/CadastroDashboard.jsx';
+<<<<<<< Updated upstream
 import CadastroUsuario from './Pages/Cadastro/CadastroUsuario.jsx';
 import ClienteUpdate from './Pages/Clientes/ClienteUpdate.jsx';
 
@@ -36,6 +37,8 @@ import Tratamento from './Pages/Tratamentos/Tratamento.jsx';
 import CadastroTratamento from './Pages/Tratamentos/CadastroTratamento.jsx';
 import EditarTratamento from './Pages/Tratamentos/EditarTratamento.jsx';
 
+=======
+>>>>>>> Stashed changes
 
 const router = createBrowserRouter([
   {
@@ -105,6 +108,7 @@ const router = createBrowserRouter([
           },
           {
             path: '/Sistema/Cadastros',
+<<<<<<< Updated upstream
             element: <CadastroDashboard/>
           },
           {
@@ -149,6 +153,9 @@ const router = createBrowserRouter([
           {
             path: '/Sistema/editar-tratamento',
             element: <EditarTratamento/>
+=======
+            element: <CadastroDashboard />
+>>>>>>> Stashed changes
           },
         ]
       },
