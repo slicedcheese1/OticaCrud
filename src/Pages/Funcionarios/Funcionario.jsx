@@ -3,15 +3,13 @@ import { Link } from 'react-router-dom';
 
 const Funcionario = () => {
   const [funcionarios, setFuncionarios] = useState([]);
-  const [search, setSearch] = useState([]);
-
-
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
-    buscarSetores();
+    buscarFuncionarios();
   }, []);
 
-  const buscarSetores = () => {
+  const buscarFuncionarios = () => {
     fetch("http://localhost:8080/usuarios/all")
       .then(resposta => resposta.json())
       .then(dados => {
@@ -19,35 +17,22 @@ const Funcionario = () => {
       });
   };
 
-
-
-  const deletarSetores = (id) => {
+  const deletarFuncionario = (id) => {
     fetch(`http://localhost:8080/usuarios/${id}`, {
       method: 'DELETE'
     })
       .then(resposta => {
         if (resposta.ok) {
-          buscarSetores();
-          console.log(dados)
+          buscarFuncionarios();
         }
       });
   };
 
-  const atualizarSetores = (id) => {
-    fetch(`http://localhost:8080/cargo/${id}`, {
-      method: 'GET'
-    })
-      .then(resposta => resposta.json())
-      .then(dados => {
-        this.setState({
-          id: dados.idCargo,
-          nomeCargo: dados.nomeCargo
-        });
-      });
+  const handleSearchChange = (event) => {
+    setSearch(event.target.value);
   };
 
-
-
+  const lowerSearch = search.toLowerCase();
 
   return (
     <div className='container-setor'>
@@ -56,17 +41,13 @@ const Funcionario = () => {
       <Link to={`/Sistema/cadastro-funcionario/`}>
         <button>+ Novo funcionário</button>
       </Link>
+      <input
+        name='search'
+        placeholder='Nome'
+        value={search}
+        onChange={handleSearchChange}
+      />
 
-
-      {funcionarios.map((funcionario) => (
-              
-            <select id = {funcionario.id} name='Loja'>
-            <option value="" disabled selected >Filtro por Loja</option>
-            <option value="">{funcionario.nome}</option>
-    
-          </select>
-          ))}
-     
       <hr />
       <br />
       <table className="customers">
@@ -79,19 +60,25 @@ const Funcionario = () => {
           </tr>
         </thead>
         <tbody>
-          {funcionarios.map((funcionario) => (
-            <tr key={funcionario.id}>
-              <td>{funcionario.nome}</td>
-              <td>{funcionario.cargos.nomeCargo}</td>
-              <td>{funcionario.lojaCadastro}</td>
-              <td>
-                <Link to={`/Sistema/editar-setor/${funcionario.nomeCargo}`}>
-                  <button>Editar</button>
-                </Link>
-                <button onClick={() => deletarSetores(funcionario.id)}>Excluir</button>
-              </td>
-            </tr>
-          ))}
+          {funcionarios
+            .filter(funcionario =>
+              lowerSearch.trim() === '' ? true : funcionario.nome.toLowerCase().includes(lowerSearch)
+            )
+            .map((funcionario) => (
+              <tr key={funcionario.id}>
+                <td>{funcionario.nome}</td>
+                <td>{funcionario.nomeCargo}</td>
+                <td>
+                  {/* Aqui deve ter alguma lógica para mostrar a loja do funcionário */}
+                </td>
+                <td>
+                  <Link to={`/Sistema/ClienteBusca/${funcionario.id}`}>
+                    <button>Editar</button>
+                  </Link>
+                  <button onClick={() => deletarFuncionario(funcionario.id)}>Excluir</button>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
       <Link to={`/Sistema/Cadastros/`}>

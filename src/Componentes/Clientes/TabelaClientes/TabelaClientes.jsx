@@ -50,7 +50,7 @@ const ClienteBusca = () => {
           </thead>
           <tbody>
             {clientes.filter(cliente =>
-              search.trim() === '' ? cliente : cliente.nome.toLowerCase().includes(lowerSearch)
+              search.trim() === '' ? cliente : cliente.nome.toLowerCase().includes()
             ).map((cliente) => (
               <tr key={cliente.idCliente}>
                 <td>{cliente.nome}</td>
