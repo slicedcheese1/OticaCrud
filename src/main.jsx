@@ -30,6 +30,9 @@ import CadastroMaterial from './Pages/Tipos de material/CadastroMaterial.jsx';
 import EditarMaterial from './Pages/Tipos de material/EditarMaterial.jsx';
 import Funcionario from './Pages/Funcionarios/Funcionario.jsx';
 import CadastroFuncionario from './Pages/Funcionarios/CadastroFuncionario.jsx';
+import Tratamento from './Pages/Tratamentos/Tratamento.jsx';
+import CadastroTratamento from './Pages/Tratamentos/CadastroTratamento.jsx';
+import EditarTratamento from './Pages/Tratamentos/EditarTratamento.jsx';
 
 
 const router = createBrowserRouter([
@@ -137,7 +140,19 @@ const router = createBrowserRouter([
             path: '/Sistema/cadastro-funcionario',
             element: <CadastroFuncionario/>
           },
-          //========================================================== Relatórios ==========================================================================
+          //========================================================== Tratamento ==========================================================================
+          {
+            path: '/Sistema/tratamento',
+            element: <Tratamento/>
+          },
+          {
+            path: '/Sistema/cadastro-tratamento',
+            element: <CadastroTratamento/>
+          },
+          {
+            path: '/Sistema/editar-tratamento',
+            element: <EditarTratamento/>
+          },
         ]
       },
       {
