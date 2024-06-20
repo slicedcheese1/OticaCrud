@@ -280,3 +280,4 @@ function CadastroFuncionario() {
 }
 
 export default CadastroFuncionario
+

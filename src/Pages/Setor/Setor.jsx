@@ -26,24 +26,9 @@ const Setor = () => {
       .then(resposta => {
         if (resposta.ok) {
           buscarSetores();
-          console.log(dados)
         }
       });
   };
-
-  const atualizarSetores = (id) => {
-    fetch(`http://localhost:8080/cargo/${id}`, {
-      method: 'GET'
-    })
-    .then(resposta => resposta.json())
-    .then(dados => {
-      this.setState({ 
-        id: dados.idCargo,
-        nomeCargo: dados.nomeCargo
-      }); 
-    });
-  };
-  
 
  return (
     <div className='container-setor'>
@@ -65,7 +50,7 @@ const Setor = () => {
             <tr key={setor.idCargo}>
               <td>{setor.nomeCargo}</td>
               <td>
-                <Link to={`/Sistema/editar-setor/${setor.nomeCargo}`}>
+                <Link to={`/Sistema/editar-setor/${setor.idCargo}`}>
                   <button>Editar</button>
                 </Link>
                 <button onClick={() => deletarSetores(setor.idCargo)}>Excluir</button>
