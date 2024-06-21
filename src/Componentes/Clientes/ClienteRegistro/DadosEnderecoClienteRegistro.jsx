@@ -41,7 +41,8 @@ function DadosEndereçoClienteRegistro() {
           <div className={styles.gp3}>
             <Form.Group className="w-80 d-flex flex-column">
               <Form.Label id="label-cep" htmlFor="cep">CEP</Form.Label>
-              <div className={styles.busca}>
+              <div 
+              className={styles.busca}>
                 <ReactInputMask mask="99999-999"
                   className={styles.inputBusca} 
                   type="text"
@@ -93,7 +94,8 @@ function DadosEndereçoClienteRegistro() {
 
             <Form.Group className="w-80 d-flex flex-column">
               <Form.Label id="label-cidade" htmlFor="cidade">Cidade</Form.Label>
-              <input
+              <Form.Control
+                className='input'
                 type="text"
                 placeholder=""
                 {...register("cidade")}
@@ -107,7 +109,8 @@ function DadosEndereçoClienteRegistro() {
           <div className={styles.gp3}>
             <Form.Group className="w-80 d-flex flex-column">
               <Form.Label id="label-bairro" htmlFor="bairro">Bairro</Form.Label>
-              <input
+              <Form.Control
+                className='input'
                 type="text"
                 placeholder=""
                 {...register("bairro")}
@@ -119,7 +122,8 @@ function DadosEndereçoClienteRegistro() {
    
             <Form.Group className="w-80 d-flex flex-column">
               <Form.Label id="label-rua" htmlFor="rua">Rua</Form.Label>
-              <input
+              <Form.Control
+                className='input'
                 type="text"
                 placeholder=""
                 {...register("rua")}
@@ -131,7 +135,8 @@ function DadosEndereçoClienteRegistro() {
 
             <Form.Group className="w-80 d-flex flex-column">
               <Form.Label id="label-numero" htmlFor="numero">Número</Form.Label>
-              <input
+              <Form.Control
+                className='input'
                 type="text"
                 name="numero"
                 value={numeroCasa}

@@ -190,7 +190,7 @@ function DadosPessoaisClienteRegistro() {
             <div className={styles.gp2}> 
               <Form.Group className={`w-80 d-flex flex-column `}>
                 <Form.Label id="label-nome" htmlFor="nome">Nome</Form.Label>
-                <input type="text" maxLength={70} name='nome' 
+                <Form.Control className='input' type="text" maxLength={70} name='nome' 
                 placeholder='Nome'
                 id="nome"
                 value={nome} 
@@ -216,7 +216,7 @@ function DadosPessoaisClienteRegistro() {
 
               <Form.Group className={`w-80 d-flex flex-column `}>
                 <Form.Label id="label-data-de-nascimento" htmlFor="data-de-nascimento">Data de nascimento</Form.Label>
-                <ReactInputMask className={styles.input} mask={'99-99-9999'} type="text" name="data-de-nascimento"
+                <ReactInputMask className="input" mask={'99-99-9999'} type="text" name="data-de-nascimento"
                 value={dataNascimento} 
                 placeholder='Data de Nascimento'
                 id='data-de-nascimento'
@@ -233,8 +233,8 @@ function DadosPessoaisClienteRegistro() {
           {tipoCliente === 'pf' && (
             <div className={styles.gp2}> 
               <Form.Group className={`w-80 d-flex flex-column `}>
-                <Form.Label id="label-rg" htmlFor="rg">RG</Form.Label>
-                <input type="text" name="rg" 
+                <Form.Label  id="label-rg" htmlFor="rg">RG</Form.Label>
+                <Form.Control className='input' type="text" name="rg" 
                 id="rg"
                 placeholder='RG'
                 value={rg} 
@@ -243,7 +243,7 @@ function DadosPessoaisClienteRegistro() {
 
               <Form.Group className={`w-80 d-flex flex-column `}>
                 <Form.Label id="label-cpf" htmlFor="cpf" >CPF</Form.Label>
-                <ReactInputMask className={styles.input} mask={'999.999.999-99'} type="text" name='cpf' 
+                <ReactInputMask className="input" mask={'999.999.999-99'} type="text" name='cpf' 
                 id='cpf'
                 placeholder='CPF'
                 value={cpf} 
@@ -263,17 +263,17 @@ function DadosPessoaisClienteRegistro() {
               <div className={styles.gp2}> 
                 <Form.Group className={`w-80 d-flex flex-column`}>
                   <Form.Label htmlFor="razao-social">Razão Social</Form.Label>
-                  <input placeholder='Razão Social' id="razao-social" type="text" name='razao-social' />
+                  <Form.Control className='input' placeholder='Razão Social' id="razao-social" type="text" name='razao-social' />
                 </Form.Group>
 
                 <Form.Group className={`w-80 d-flex flex-column`}>
                   <Form.Label  htmlFor="nome-fantasia">Nome Fantasia</Form.Label>
-                  <input id="nome-fantasia" placeholder='Nome Fantasia' type="text" name="nome-fantasia" />
+                  <Form.Control className='input' id="nome-fantasia" placeholder='Nome Fantasia' type="text" name="nome-fantasia" />
                 </Form.Group>
 
                 <Form.Group className={`w-80 d-flex flex-column`}>
                   <Form.Label id="CNPJ" htmlFor='CNPJ'>CNPJ</Form.Label>
-                  <ReactInputMask id="CNPJ" className={styles.input} placeholder='CNPJ' mask ="99.999.999/9999-99" type="text" name='CNPJ' />
+                  <ReactInputMask id="CNPJ" className="input" placeholder='CNPJ' mask ="99.999.999/9999-99" type="text" name='CNPJ' />
                 </Form.Group>
               </div>
             </div>
@@ -291,17 +291,17 @@ function DadosPessoaisClienteRegistro() {
       <div className={styles.gp2}> 
           <Form.Group className={`w-80 d-flex flex-column`}>
             <Form.Label id="label-inscricao-estadual" htmlFor="inscricao-estadual" >Inscrição Estadual</Form.Label>
-            <input type="text" name="inscricao-estadual"/>
+            <Form.Control className='input' type="text" name="inscricao-estadual"/>
           </Form.Group>
 
           <Form.Group className={`w-80 d-flex flex-column`}>
             <Form.Label id="label-inscricao-municipal" htmlFor="inscricao-municipal" >Inscrição Municipal</Form.Label>
-            <input type="text" name='inscricao-municipal' />
+            <Form.Control className='input' type="text" name='inscricao-municipal' />
           </Form.Group>
 
           <Form.Group className={`w-80 d-flex flex-column`}>
             <Form.Label id="label-suframa" htmlFor="suframa">Suframa</Form.Label>
-            <input type="text" name="suframa" />
+            <Form.Control className='input' type="text" name="suframa" />
           </Form.Group>
       </div>
     </Card>

@@ -5,18 +5,6 @@
     flex-direction: column;
 }
 
-.input{
-  padding: 0.75rem; /* Aumentando o padding para uma área de clique maior */
-  border: 1px solid #ccc;
-  border-radius: 8px; 
-  width: 100%;
-  margin-top: 0;
-  transition: border-color 0.3s ease;
-}
-
-
-
-
 
 .gp3{
     display: grid;
@@ -33,16 +21,27 @@
     margin-top: 0;
     transition: border-color 0.3s ease;
     padding-right: 1rem;
+    padding-bottom: 0rem;
+
+}
+
+.busca:focus-within{
+  border-color: #007bff; /* Cor da borda ao focar */
+  outline: none; /* Removendo outline padrão */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra suave ao focar */
 }
 
 .inputBusca{
+  margin-top: 0;
   border: none; /* Bordas mais arredondadas */
   background: none;
+  padding: 0.75rem;
 }
 
-.inputBusca:hover{
+.inputBusca:focus{
   border: none; 
   background: none;
+  outline: none; /* Removendo outline padrão */
 }
 
 .inputButton{
