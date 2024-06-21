@@ -3,8 +3,9 @@ import ReactInputMask from 'react-input-mask';
 import { useForm } from 'react-hook-form';
 import { CiSearch } from "react-icons/ci";
 import ClienteContext from '../../../Pages/Clientes/ClinteContext';
-import './DadosEnderecoClienteRegistro.css';
-
+import styles from './DadosEnderecoClienteRegistro.module.css';
+import Card from "react-bootstrap/Card"
+import Form from "react-bootstrap/Form"
 function DadosEndereçoClienteRegistro() {
 
   const {
@@ -32,29 +33,34 @@ function DadosEndereçoClienteRegistro() {
 
   return (
     <>
-      <div className="card">
+      <Card className="p-4">
         <h3> Dados de Endereço</h3>
         <hr />
 
-        <div id="form-endereco" className='formBoxEndereco' method="post">
-          <div className="gp3">
-            <div className="gp3-1">
-              <label id="label-cep" htmlFor="cep">CEP</label>
-              <div className="busca-cep">
+        <div id="form-endereco" className={styles.formBoxEndereco} method="post">
+          <div className={styles.gp3}>
+            <Form.Group className="w-80 d-flex flex-column">
+              <Form.Label id="label-cep" htmlFor="cep">CEP</Form.Label>
+              <div 
+              className={styles.busca}>
                 <ReactInputMask mask="99999-999"
+                  className={styles.inputBusca} 
                   type="text"
                   placeholder="Insira o CEP do cliente"
                   name="cep"
                   value={cep}
                   onChange={(e) => {setCep(e.target.value)}}
                 />
-                <button type="button" onClick={checkCEP}><CiSearch /></button>
+                <button 
+                className={styles.inputButton} 
+                type="button" 
+                onClick={checkCEP}><CiSearch /></button>
               </div>
-            </div>
+            </Form.Group>
 
-            <div className="gp3-1">
-              <label id="label-estado" htmlFor="estado">Estado</label>
-              <select {...register("estado")} name="estado" id="estados" onChange={(e) => {setEstado(e.target.value)}} value={estado}>
+            <Form.Group className="w-80 d-flex flex-column">
+              <Form.Label id="label-estado" htmlFor="estado">Estado</Form.Label>
+              <Form.Select {...register("estado")} className="select" name="estado" id="estado" onChange={(e) => {setEstado(e.target.value)}} value={estado}>
                 <option value="" disabled selected>Selecione um estado</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
@@ -83,12 +89,13 @@ function DadosEndereçoClienteRegistro() {
                 <option value="SP">São Paulo</option>
                 <option value="SE">Sergipe</option>
                 <option value="TO">Tocantins</option>
-              </select>
-            </div>
+              </Form.Select>
+            </Form.Group>
 
-            <div className="gp3-1">
-              <label id="label-cidade" htmlFor="cidade">Cidade</label>
-              <input
+            <Form.Group className="w-80 d-flex flex-column">
+              <Form.Label id="label-cidade" htmlFor="cidade">Cidade</Form.Label>
+              <Form.Control
+                className='input'
                 type="text"
                 placeholder=""
                 {...register("cidade")}
@@ -96,13 +103,14 @@ function DadosEndereçoClienteRegistro() {
                 value={cidade}
                 onChange={(e) => {setCidade(e.target.value)}}
               />
-            </div>
+            </Form.Group>
           </div>
 
-          <div className="gp3">
-            <div className='gp3-1'>
-              <label id="label-bairro" htmlFor="bairro">Bairro</label>
-              <input
+          <div className={styles.gp3}>
+            <Form.Group className="w-80 d-flex flex-column">
+              <Form.Label id="label-bairro" htmlFor="bairro">Bairro</Form.Label>
+              <Form.Control
+                className='input'
                 type="text"
                 placeholder=""
                 {...register("bairro")}
@@ -110,11 +118,12 @@ function DadosEndereçoClienteRegistro() {
                 value={bairro}
                 onChange={(e) => {setBairro(e.target.value)}}
               />
-            </div>
+            </Form.Group>
    
-            <div className="gp3-1">
-              <label id="label-rua" htmlFor="rua">Rua</label>
-              <input
+            <Form.Group className="w-80 d-flex flex-column">
+              <Form.Label id="label-rua" htmlFor="rua">Rua</Form.Label>
+              <Form.Control
+                className='input'
                 type="text"
                 placeholder=""
                 {...register("rua")}
@@ -122,21 +131,22 @@ function DadosEndereçoClienteRegistro() {
                 value={rua}
                 onChange={(e) => {setRua(e.target.value)}}
               />
-            </div> 
+            </Form.Group> 
 
-            <div className='gp3-1'>
-              <label id="label-numero" htmlFor="numero">Número</label>
-              <input
+            <Form.Group className="w-80 d-flex flex-column">
+              <Form.Label id="label-numero" htmlFor="numero">Número</Form.Label>
+              <Form.Control
+                className='input'
                 type="text"
                 name="numero"
                 value={numeroCasa}
                 onChange={(e) => {setCasa(e.target.value)}}
               />
-            </div>
+            </Form.Group>
           
           </div>
         </div>
-      </div>
+      </Card>
     </>
   )
 }
