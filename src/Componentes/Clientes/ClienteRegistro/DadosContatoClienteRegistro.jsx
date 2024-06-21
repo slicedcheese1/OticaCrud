@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import './DadosContatoClienteRegistro.css';
+import styles from './DadosContatoClienteRegistro.module.css';
 import CardContatoTelefoneClienteRegistro from './CardContatoTelefoneClienteRegistro';
 import CardContatoEmailClienteRegistro from './CardContatoEmailClienteRegistro';
 import CardContatoResponsavel from './CardContatoResponsavel';
 import ClienteContext from '../../../Pages/Clientes/ClinteContext'
+
+import Card from "react-bootstrap/Card"
+import Button from "react-bootstrap/Button"
 
 const DadosContatoClienteRegistro = () => {
 
@@ -33,55 +36,51 @@ const DadosContatoClienteRegistro = () => {
   };
    
   return (
-    <div className="card">
-      <h3>Dados de Contato</h3>
-      <hr/>
-      <div className="card-all-infos">
-        <div className="card-name-button">
-          <h4 className='card-name'>Telefone</h4>
-          <div  className="gap1 row-flex-box">
-            <button onClick={(e) => invertCardResponsavel(e)} className="add-button-back">
-              <h5 className='add-button'>Responsável</h5>
-            </button>
-            <button onClick={addTel} className="add-button-back">
-              <h5 className='add-button'>Adicionar</h5>
-            </button>
+    <Card className='p-4'>
+    <h3>Dados de Contato</h3>
+    <hr/>
+      <div className='d-flex flex-column gap-4'>
+        <Card>
+          <div className={` ${styles.cardNameButton} d-flex align-middle ` }>
+            <h4 className={`${styles.cardName} mb-0  `}>Telefone</h4>
+            <div className={`gap-1 d-flex `}>
+              <Button onClick={(e) => invertCardResponsavel(e)} variant='secondary' >
+                Responsável
+              </Button>
+              <Button onClick={addTel} variant='success'>
+              Adicionar
+              </Button>
+            </div>
           </div>
-          
-        </div>
-        <hr />
-
-        
-
-        <div className="card-infos">
-        {showingCardResponsavel  && (
-          <CardContatoResponsavel/>
-        )}
-          <ul className='card-list'>
-            {cardTel.map(card => (
-              <li key={card.id} className='card-list-item'>{card.component}</li>
-            ))}
-          </ul>
-        </div>
+          <div className={` ${styles.cardInfos} m-4`}>
+            {showingCardResponsavel && ( 
+              <CardContatoResponsavel/>
+            )}
+            <ul className={styles.cardList}>
+              {cardTel.map(card => (
+                <li key={card.id} className={styles.cardListItem}>{card.component}</li>
+              ))}
+            </ul>
+          </div>
+        </Card>
+      
+        <Card>
+          <div className={` ${styles.cardNameButton} d-flex align-middle ` }>
+            <h4 className={` ${styles.cardName} mb-0 `}>Email</h4>
+            <Button onClick={addEmail} variant='success'>
+              Adicionar
+            </Button>
+          </div>
+          <div className={` ${styles.cardInfos} m-4`}>
+            <ul className={styles.cardList}>
+              {cardEmail.map(card => (
+                <li key={card.id} className={styles.cardListItem}>{card.component}</li>
+              ))}
+            </ul>
+          </div>
+        </Card>
       </div>
-
-      <div className="card-all-infos">
-        <div className="card-name-button">
-          <h4 className='card-name'>Email</h4>
-          <button onClick={addEmail} className="add-button-back">
-            <h5 className='add-button'>Adicionar</h5>
-          </button>
-        </div>
-        <hr />
-        <div className="card-infos">
-          <ul className='card-list'>
-            {cardEmail.map(card => (
-              <li key={card.id} className='card-list-item'>{card.component}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
+  </Card>
   );
 }
 
