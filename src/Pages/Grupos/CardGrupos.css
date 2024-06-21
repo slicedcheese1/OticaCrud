@@ -1,0 +1,28 @@
+
+.d-flex {
+    display: flex;
+    flex-wrap: wrap;   
+    flex-direction:initial;
+    gap: 10px;
+  }
+.c-flex {
+      
+    width: 90px;
+    flex-wrap: wrap;
+  }
+  
+
+  #dropdown-button-dark-example1{
+    margin-right: 3rem;
+    z-index: 3;
+    
+    width: 100px; 
+    
+  }
+  #Nome-Produto{
+   
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  

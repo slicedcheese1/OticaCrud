@@ -24,6 +24,7 @@ import Dashboardadmin from './Pages/PaineldeInformações/Dashboardadmin.jsx';
 import EditarGrife from './Pages/Grifes/EditarGrife.jsx';
 import CadastroGrifes from './Pages/Grifes/CadastroGrifes.jsx';
 import Grifes from './Pages/Grifes/Grifes.jsx';
+
 import CadastroMedicos from './Pages/Médicos/CadastroMedicos.jsx';
 import Medicos from './Pages/Médicos/Medicos.jsx';
 import EditarMedico from './Pages/Médicos/EditarMedico.jsx';
@@ -35,7 +36,7 @@ import CadastroFuncionario from './Pages/Funcionarios/CadastroFuncionario.jsx';
 import Tratamento from './Pages/Tratamentos/Tratamento.jsx';
 import CadastroTratamento from './Pages/Tratamentos/CadastroTratamento.jsx';
 import EditarTratamento from './Pages/Tratamentos/EditarTratamento.jsx';
-
+import CadastroGrupos from './Pages/Grupos/CadastroGrupos.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -150,6 +151,12 @@ const router = createBrowserRouter([
             element: <EditarTratamento/>
 
           },
+           //========================================================== Grupos ==========================================================================
+           {
+            path: '/Sistema/Grupos',
+            element: <CadastroGrupos/>
+          },
+         
         ]
       },
       {

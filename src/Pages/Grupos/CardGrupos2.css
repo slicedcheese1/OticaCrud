@@ -1,0 +1,15 @@
+.mb-3{
+    font-size: 30px;
+}
+.Lado{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+.Kanye-West{
+   
+    
+    flex-direction: row;
+    justify-content: flex-start;
+}
