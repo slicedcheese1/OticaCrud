@@ -1,8 +1,7 @@
 import { React, useState } from "react"
-import Button from 'react-bootstrap/Button';
+
 import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
-import Alert from 'react-bootstrap/Alert';
+
 
 function CadastroFuncionario() {
 
@@ -100,23 +99,7 @@ function CadastroFuncionario() {
             <div className='container-dados-pessoais-funcionario'>
                 <h2>Dados pessoais </h2>
                 <hr/>
-
-                <Alert variant="success">
-                  <Alert.Heading>Hey, nice to see you</Alert.Heading>
-                  <p>
-                    Aww yeah, you successfully read this important alert message. This
-                    example text is going to run a bit longer so that you can see how
-                    spacing within an alert works with this kind of content.
-                  </p>
-                  <hr />
-                  <p className="mb-0">
-                    Whenever you need to, be sure to use margin utilities to keep things
-                    nice and tidy.
-                  </p>
-                </Alert>
-                <Card>
-                  <Card.Body>This is some text within a card body.</Card.Body>
-                </Card>
+                
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Nome</Form.Label>
                   <Form.Control 
@@ -151,7 +134,7 @@ function CadastroFuncionario() {
 
                 <Form.Group>
                   <Form.Label>Telefone Principal</Form.Label>
-                  <Form.Control
+                  <Form.Control 
                     name="telefoneprimario"
                     type='text' 
                     placeholder='Telefone Principal'

@@ -3,10 +3,6 @@ import TabelaClientes from "../../Componentes/Clientes/TabelaClientes/TabelaClie
 
 import React from "react"
 
-
-
-
-
 const ClienteBusca = () => {
   return (
     <div>
