@@ -60,7 +60,7 @@ function DadosEndereçoClienteRegistro() {
 
             <Form.Group className="w-80 d-flex flex-column">
               <Form.Label id="label-estado" htmlFor="estado">Estado</Form.Label>
-              <Form.Select {...register("estado")} className="select" name="estado" id="estado" onChange={(e) => {setEstado(e.target.value)}} value={estado}>
+              <Form.Select {...register("estado")} className="input" name="estado" id="estado" onChange={(e) => {setEstado(e.target.value)}} value={estado}>
                 <option value="" disabled selected>Selecione um estado</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
