@@ -44,6 +44,15 @@
   transition: border-color 0.3s ease;
 }
 
+.select{
+  padding: 1rem; /* Aumentando o padding para uma área de clique maior */
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Bordas mais arredondadas */
+  width: 100%;
+  margin-top: 0;
+  transition: border-color 0.3s ease;
+}
+
 .gp1{
     
     width: 100%;
