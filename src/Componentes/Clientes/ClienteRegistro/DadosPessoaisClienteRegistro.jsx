@@ -125,7 +125,7 @@ function DadosPessoaisClienteRegistro() {
       <h3>Dados Pessoais</h3>
       <hr />
 
-      <div className="w-100 p-1 gap-4 d-flex" method="post">
+      <div className="w-100 p-1 gap-4 d-flex" >
         <Form.Group >
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src="https://placehold.co/600x400" />
