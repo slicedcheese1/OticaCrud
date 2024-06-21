@@ -126,7 +126,7 @@ function DadosPessoaisClienteRegistro() {
       <hr />
 
       <div className="w-100 p-1 gap-4 d-flex" method="post">
-        <Form.Group className="w-30">
+        <Form.Group >
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src="https://placehold.co/600x400" />
             <Card.Body>
@@ -140,7 +140,7 @@ function DadosPessoaisClienteRegistro() {
           </Card>
         </Form.Group>
 
-        <div className={"w-100 d-flex flex-column ml-6"}>
+        <div className={"w-100 d-flex flex-column ms-10"}>
           <div className={styles.gp1}> 
             <div className={`d-flex flex-column w-90`}>
               <label id="label-tipo_de_pessoa" htmlFor="tipo_de_pessoa">Tipo de Cliente</label>
@@ -286,25 +286,22 @@ function DadosPessoaisClienteRegistro() {
     <Card className='p-4'>
       <h3>Informações Fiscais</h3>
       <hr />
+      <div className={styles.gp2}> 
+          <Form.Group className={`w-80 d-flex flex-column`}>
+            <Form.Label id="label-inscricao-estadual" htmlFor="inscricao-estadual" >Inscrição Estadual</Form.Label>
+            <input className='p-2 rounded' type="text" name="inscricao-estadual"/>
+          </Form.Group>
 
-      <form className="w-100 p-1 gap-1 d-flex" method="post">
-          <div className={`d-flex justify-content-between w-100`}> 
-              <Form.Group className={`w-80 d-flex flex-column gap-1`}>
-                <Form.Label id="label-inscricao-estadual" htmlFor="inscricao-estadual" >Inscrição Estadual</Form.Label>
-                <input className='p-2 rounded' type="text" name="inscricao-estadual"/>
-              </Form.Group>
+          <Form.Group className={`w-80 d-flex flex-column`}>
+            <Form.Label id="label-inscricao-municipal" htmlFor="inscricao-municipal" >Inscrição Municipal</Form.Label>
+            <input className='p-2 rounded' type="text" name='inscricao-municipal' />
+          </Form.Group>
 
-              <Form.Group className={`w-80 d-flex flex-column gap-1`}>
-                <Form.Label id="label-inscricao-municipal" htmlFor="inscricao-municipal" >Inscrição Municipal</Form.Label>
-                <input className='p-2 rounded' type="text" name='inscricao-municipal' />
-              </Form.Group>
-
-              <Form.Group className={`w-80 d-flex flex-column gap-1`}>
-                <Form.Label id="label-suframa" htmlFor="suframa">Suframa</Form.Label>
-                <input className='p-2 rounded' type="text" name="suframa" />
-              </Form.Group>
-          </div>
-      </form>
+          <Form.Group className={`w-80 d-flex flex-column`}>
+            <Form.Label id="label-suframa" htmlFor="suframa">Suframa</Form.Label>
+            <input className='p-2 rounded' type="text" name="suframa" />
+          </Form.Group>
+      </div>
     </Card>
     )}
     </>
