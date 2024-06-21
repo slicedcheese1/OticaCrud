@@ -9,7 +9,6 @@ import styles from './DadosPessoaisClienteRegistro.module.css'
 import ClienteContext from '../../../Pages/Clientes/ClinteContext';
 
 import Card from "react-bootstrap/Card"
-import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
 
 
@@ -122,12 +121,12 @@ function DadosPessoaisClienteRegistro() {
     <>
     
     <h2>Novo Cliente</h2>
-    <Card className='p-3'>
+    <Card className='p-3 w-100'>
       <h3>Dados Pessoais</h3>
       <hr />
 
-      <div id="form-dados-pessoais" className={`${styles.formBox}` } method="post">
-        <Form.Group className={styles.photoBox}>
+      <div className="w-100 p-1 gap-4 d-flex" method="post">
+        <Form.Group className="w-30">
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src="https://placehold.co/600x400" />
             <Card.Body>
@@ -140,11 +139,12 @@ function DadosPessoaisClienteRegistro() {
             </Card.Body>
           </Card>
         </Form.Group>
-        <div className={`${styles.gp1Box}`}>
+
+        <div className={"w-100 d-flex flex-column ml-6"}>
           <div className={styles.gp1}> 
-            <div className={`d-flex flex-column gap-1 ${styles.gp1_1}`}>
+            <div className={`d-flex flex-column w-90`}>
               <label id="label-tipo_de_pessoa" htmlFor="tipo_de_pessoa">Tipo de Cliente</label>
-              <div className={`${styles.gp1_1} d-flex flex-row gap-2`}>
+              <div className="w-90 d-flex flex-row gap-5">
                 <Form.Group className={`gap-1 d-flex flex-row align-items-center`}>
                   <Form.Check id={styles.Redondo}
                   type="radio" 
@@ -161,14 +161,14 @@ function DadosPessoaisClienteRegistro() {
                   name="pj" 
                   id= {styles.Redondo} 
                   value="pj"
-                  checked={tipoCliente === 'pj'} // Set checked state
+                  checked={tipoCliente === 'pj'} 
                   onChange={handleTipoClienteChange}  />
                   <Form.Label id="label-pj" htmlFor="pj"><FaBuilding id="iconePf"/> Pessoa Jurídica</Form.Label>
                 </Form.Group>
               </div>
             </div>
 
-            <Form.Group className={`d-flex flex-column gap-1 ${styles.gp1_2}`}>
+            <Form.Group className={`w-90 d-flex flex-column gap-1 ml-2 mr-5`}>
               <Form.Label id="label-lojas" htmlFor="lojas">Cadastro Em</Form.Label> 
               <Form.Select className={styles.input} name="loja" value={lojaCadastro} onChange={(e) => {setLojaCadastro(e.target.value)}} required>
                 <option value="" disabled selected >Selecione uma opção</option>
@@ -188,7 +188,7 @@ function DadosPessoaisClienteRegistro() {
 
           {tipoCliente === 'pf' && (
             <div className={styles.gp2}> 
-              <Form.Group className={`${styles.gp2_1} ${styles.columnFlexBox}`}>
+              <Form.Group className={`w-80 d-flex flex-column `}>
                 <Form.Label id="label-nome" htmlFor="nome">Nome</Form.Label>
                 <input type="text" maxLength={70} name='nome' 
                 placeholder='Nome'
@@ -198,7 +198,7 @@ function DadosPessoaisClienteRegistro() {
                 {isSubmited && !nome && <span style={{ color: 'red' }}>Campo obrigatório</span>}
               </Form.Group>
 
-              <Form.Group className={`${styles.gp2_2} ${styles.columnFlexBox}`}>
+              <Form.Group className={`w-80 d-flex flex-column `}>
                 <Form.Label id="label-sexo" htmlFor="sexo">Sexo</Form.Label>
                 <Form.Select className={styles.input} name="sexo" value={sexo} onChange={(e) => {setSexo(e.target.value)}}>
                   <option value="" disabled selected >Selecione uma opção</option>
@@ -208,7 +208,7 @@ function DadosPessoaisClienteRegistro() {
                 </Form.Select>  
               </Form.Group>
 
-              <Form.Group className={`${styles.gp3_3} ${styles.columnFlexBox} ${styles.gap1} `}>
+              <Form.Group className={`w-80 d-flex flex-column `}>
                 <Form.Label id="label-data-de-nascimento" htmlFor="data-de-nascimento">Data de nascimento</Form.Label>
                 <ReactInputMask className={styles.input} mask={'99-99-9999'} type="text" name="data-de-nascimento"
                 value={dataNascimento} 
@@ -225,8 +225,8 @@ function DadosPessoaisClienteRegistro() {
           )}
 
           {tipoCliente === 'pf' && (
-            <div className={styles.gp3}> 
-              <Form.Group className={`${styles.gp3_1} ${styles.columnFlexBox} ${styles.gap1}`}>
+            <div className={styles.gp2}> 
+              <Form.Group className={`w-80 d-flex flex-column `}>
                 <Form.Label id="label-rg" htmlFor="rg">RG</Form.Label>
                 <input type="text" name="rg" 
                 placeholder='RG'
@@ -234,7 +234,7 @@ function DadosPessoaisClienteRegistro() {
                 onChange={(e) => {setRg(e.target.value)}} />
               </Form.Group>
 
-              <Form.Group className={`${styles.gp3_2} ${styles.columnFlexBox} ${styles.gap1}`}>
+              <Form.Group className={`w-80 d-flex flex-column `}>
                 <Form.Label id="label-cpf" htmlFor="cpf" >CPF</Form.Label>
                 <ReactInputMask className={styles.input} mask={'999.999.999-99'} type="text" name='cpf' 
                 id='cpf'
@@ -252,60 +252,55 @@ function DadosPessoaisClienteRegistro() {
           )}
 
           {tipoCliente === 'pj' && (
-            <div className={styles.gp4}> 
-              <Form.Group className={`${styles.gp3_1} ${styles.columnFlexBox} ${styles.gap1}`}>
-                <Form.Label id="label-razao-social" htmlFor="razao-social">Razão Social</Form.Label>
-                <input placeholder='Razão Social' type="text" name='razao-social' />
-              </Form.Group>
+            <div className={styles.gp3}>
+              <div className={styles.gp2}> 
+                <Form.Group className={`w-80 d-flex flex-column`}>
+                  <Form.Label id="label-razao-social" htmlFor="razao-social">Razão Social</Form.Label>
+                  <input placeholder='Razão Social' type="text" name='razao-social' />
+                </Form.Group>
 
-              <Form.Group className={`${styles.gp3_2} ${styles.columnFlexBox} ${styles.gap1}`}>
-                <Form.Label id="label-nome-fantasia" htmlFor="nome-fantasia">Nome Fantasia</Form.Label>
-                <input placeholder='Nome Fantasia' type="text" name="nome-fantasia" />
-              </Form.Group>
+                <Form.Group className={`w-80 d-flex flex-column`}>
+                  <Form.Label id="label-nome-fantasia" htmlFor="nome-fantasia">Nome Fantasia</Form.Label>
+                  <input placeholder='Nome Fantasia' type="text" name="nome-fantasia" />
+                </Form.Group>
+
+                <Form.Group className={`w-80 d-flex flex-column`}>
+                  <Form.Label id="label-CNPJ" htmlFor='CNPJ'>CNPJ</Form.Label>
+                  <ReactInputMask className={styles.input} placeholder='CNPJ' mask ="99.999.999/9999-99" type="text" name='CNPJ' />
+                </Form.Group>
+              </div>
             </div>
           )}
 
-          {tipoCliente === 'pj' && (
-            <div className={styles.gp4}> 
-              <Form.Group className={`${styles.gp3_1} ${styles.columnFlexBox} ${styles.gap1}`}>
-                <Form.Label id="label-CNPJ" htmlFor='CNPJ'>CNPJ</Form.Label>
-                <ReactInputMask className={styles.input} placeholder='CNPJ' mask ="99.999.999/9999-99" type="text" name='CNPJ' />
-              </Form.Group>
-            </div>
-          )}
         </div>
 
       </div>
     </Card>
     
     {tipoCliente === 'pj' && (
-    <div className={styles.card1}>
+    <Card className='p-4'>
       <h3>Informações Fiscais</h3>
       <hr />
 
-      <form id="form-dados-fiscais" className={styles.formBox} method="post">
-        <div className={styles.gp1Box}>
-          <div className={styles.gp3}> 
-              <Form.Group className={`${styles.gp3_1} ${styles.columnFlexBox} ${styles.gap1}`}>
+      <form className="w-100 p-1 gap-1 d-flex" method="post">
+          <div className={`d-flex justify-content-between w-100`}> 
+              <Form.Group className={`w-80 d-flex flex-column gap-1`}>
                 <Form.Label id="label-inscricao-estadual" htmlFor="inscricao-estadual" >Inscrição Estadual</Form.Label>
                 <input className='p-2 rounded' type="text" name="inscricao-estadual"/>
               </Form.Group>
 
-              <Form.Group className={`${styles.gp3_2} ${styles.columnFlexBox} ${styles.gap1}`}>
+              <Form.Group className={`w-80 d-flex flex-column gap-1`}>
                 <Form.Label id="label-inscricao-municipal" htmlFor="inscricao-municipal" >Inscrição Municipal</Form.Label>
                 <input className='p-2 rounded' type="text" name='inscricao-municipal' />
               </Form.Group>
 
-              <Form.Group className={`${styles.gp3_3} ${styles.columnFlexBox} ${styles.gap1}`}>
+              <Form.Group className={`w-80 d-flex flex-column gap-1`}>
                 <Form.Label id="label-suframa" htmlFor="suframa">Suframa</Form.Label>
                 <input className='p-2 rounded' type="text" name="suframa" />
               </Form.Group>
-            </div>
-        </div>
-
-
+          </div>
       </form>
-    </div>
+    </Card>
     )}
     </>
   )
