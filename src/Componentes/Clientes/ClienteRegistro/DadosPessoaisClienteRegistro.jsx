@@ -192,7 +192,7 @@ function DadosPessoaisClienteRegistro() {
                 <Form.Label id="label-nome" htmlFor="nome">Nome</Form.Label>
                 <input type="text" maxLength={70} name='nome' 
                 placeholder='Nome'
-                id='nome'
+                id="nome"
                 value={nome} 
                 onChange={(e) => {setNome(e.target.value)}} required />
                 {isSubmited && !nome && <span style={{ color: 'red' }}>Campo obrigatório</span>}
@@ -200,7 +200,11 @@ function DadosPessoaisClienteRegistro() {
 
               <Form.Group className={`w-80 d-flex flex-column `}>
                 <Form.Label id="label-sexo" htmlFor="sexo">Sexo</Form.Label>
-                <Form.Select className={styles.input} name="sexo" value={sexo} onChange={(e) => {setSexo(e.target.value)}}>
+                <Form.Select 
+                className={styles.input}
+                id="sexo"
+                name="sexo" value={sexo} 
+                onChange={(e) => {setSexo(e.target.value)}}>
                   <option value="" disabled selected >Selecione uma opção</option>
                   <option value="M">Masculino</option>  
                   <option value="F">Femino</option>  
@@ -213,7 +217,7 @@ function DadosPessoaisClienteRegistro() {
                 <ReactInputMask className={styles.input} mask={'99-99-9999'} type="text" name="data-de-nascimento"
                 value={dataNascimento} 
                 placeholder='Data de Nascimento'
-                id='nascimento'
+                id='data-de-nascimento'
                 onChange={(e) => {setNascimento(e.target.value)}}
                 onBlur={(e) => validarData(e.target.value)} 
                 required
@@ -229,6 +233,7 @@ function DadosPessoaisClienteRegistro() {
               <Form.Group className={`w-80 d-flex flex-column `}>
                 <Form.Label id="label-rg" htmlFor="rg">RG</Form.Label>
                 <input type="text" name="rg" 
+                id="rg"
                 placeholder='RG'
                 value={rg} 
                 onChange={(e) => {setRg(e.target.value)}} />
@@ -255,18 +260,18 @@ function DadosPessoaisClienteRegistro() {
             <div className={styles.gp3}>
               <div className={styles.gp2}> 
                 <Form.Group className={`w-80 d-flex flex-column`}>
-                  <Form.Label id="label-razao-social" htmlFor="razao-social">Razão Social</Form.Label>
-                  <input placeholder='Razão Social' type="text" name='razao-social' />
+                  <Form.Label htmlFor="razao-social">Razão Social</Form.Label>
+                  <input placeholder='Razão Social' id="razao-social" type="text" name='razao-social' />
                 </Form.Group>
 
                 <Form.Group className={`w-80 d-flex flex-column`}>
-                  <Form.Label id="label-nome-fantasia" htmlFor="nome-fantasia">Nome Fantasia</Form.Label>
-                  <input placeholder='Nome Fantasia' type="text" name="nome-fantasia" />
+                  <Form.Label  htmlFor="nome-fantasia">Nome Fantasia</Form.Label>
+                  <input id="nome-fantasia" placeholder='Nome Fantasia' type="text" name="nome-fantasia" />
                 </Form.Group>
 
                 <Form.Group className={`w-80 d-flex flex-column`}>
-                  <Form.Label id="label-CNPJ" htmlFor='CNPJ'>CNPJ</Form.Label>
-                  <ReactInputMask className={styles.input} placeholder='CNPJ' mask ="99.999.999/9999-99" type="text" name='CNPJ' />
+                  <Form.Label id="CNPJ" htmlFor='CNPJ'>CNPJ</Form.Label>
+                  <ReactInputMask id="CNPJ" className={styles.input} placeholder='CNPJ' mask ="99.999.999/9999-99" type="text" name='CNPJ' />
                 </Form.Group>
               </div>
             </div>
