@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './TabelaClientes.css';
 import { Link } from 'react-router-dom';
-import CardTabela from './CardTabela'; // Importando o componente CardTabela
 
 const ClienteBusca = () => {
   const [clientes, setClientes] = useState([]);
