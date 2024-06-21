@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
+import { ThemeProvider } from './DarkMode/DarkModeTheme';
+import './DarkMode/DarkModeTheme.css';
 
 //import Clientes from './Pages/ClienteCadastro.jsx';
 import ClienteBusca from './Pages/Clientes/ClienteBusca.jsx';
@@ -162,6 +164,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <ThemeProvider>
       <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );

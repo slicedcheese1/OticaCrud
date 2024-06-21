@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './TabelaClientes.css';
 import { Link } from 'react-router-dom';
-import CardTabela from './CardTabela'; // Importando o componente CardTabela
 
 const ClienteBusca = () => {
   const [clientes, setClientes] = useState([]);
@@ -42,7 +41,10 @@ const ClienteBusca = () => {
         <hr />
         <br />
         <label>Buscar um cliente</label>
-        <input placeholder="Procure por Nome, CPF, CNPJ"type= "text" onChange={(ev)=>setSearch(ev.target.value)} value={search}/>
+        <input placeholder="Procure por Nome, CPF, CNPJ" 
+        type= "text" 
+        onChange={(ev)=>setSearch(ev.target.value)} 
+        value={search}/>
         <br />
         <br />
       </div>
@@ -62,7 +64,7 @@ const ClienteBusca = () => {
           </thead>
           <tbody>
             {clientes.filter(cliente =>
-              search.trim() === '' ? cliente : cliente.nome.toLowerCase().includes()
+              search.trim() === '' ? cliente : cliente.nome.toLowerCase().includes(lowerSearch)
             ).map((cliente) => (
               <tr key={cliente.idCliente}>
                 <td>{cliente.nome}</td>
