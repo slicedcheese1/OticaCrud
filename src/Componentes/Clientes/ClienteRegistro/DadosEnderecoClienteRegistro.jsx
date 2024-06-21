@@ -41,7 +41,7 @@ function DadosEndereçoClienteRegistro() {
             <div className={styles.gp3_1}>
               <label id="label-cep" htmlFor="cep">CEP</label>
               <div className={styles.buscaCep}>
-                <ReactInputMask mask="99999-999"
+                <ReactInputMask className={styles.input} mask="99999-999"
                   type="text"
                   placeholder="Insira o CEP do cliente"
                   name="cep"

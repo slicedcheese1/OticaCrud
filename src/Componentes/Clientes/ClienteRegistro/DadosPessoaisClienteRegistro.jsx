@@ -289,17 +289,17 @@ function DadosPessoaisClienteRegistro() {
       <div className={styles.gp2}> 
           <Form.Group className={`w-80 d-flex flex-column`}>
             <Form.Label id="label-inscricao-estadual" htmlFor="inscricao-estadual" >Inscrição Estadual</Form.Label>
-            <input className='p-2 rounded' type="text" name="inscricao-estadual"/>
+            <input type="text" name="inscricao-estadual"/>
           </Form.Group>
 
           <Form.Group className={`w-80 d-flex flex-column`}>
             <Form.Label id="label-inscricao-municipal" htmlFor="inscricao-municipal" >Inscrição Municipal</Form.Label>
-            <input className='p-2 rounded' type="text" name='inscricao-municipal' />
+            <input type="text" name='inscricao-municipal' />
           </Form.Group>
 
           <Form.Group className={`w-80 d-flex flex-column`}>
             <Form.Label id="label-suframa" htmlFor="suframa">Suframa</Form.Label>
-            <input className='p-2 rounded' type="text" name="suframa" />
+            <input type="text" name="suframa" />
           </Form.Group>
       </div>
     </Card>
