@@ -1,25 +1,24 @@
 
-.d-flex {
+.dFlex {
     display: flex;
-      
     flex-direction:initial;
     gap: 10px;
   }
-.c-flex {
+.cFlex {
       
     width: 90px;
     flex-wrap: wrap;
   }
   
 
-  #dropdown-button-dark-example1{
+  #dropdownButtonDarkExample1{
     margin-right: 3rem;
     z-index: 3;
     
     width: 100px; 
     
   }
-  #Nome-Produto{
+  #NomeProduto{
    
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
