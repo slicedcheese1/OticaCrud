@@ -46,7 +46,7 @@ const CadastroBotoes2 = () => {
         titulo="Fornecedores"
         text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
         Icon={FaSearch}
-        link="/Sistema/médicos/"
+        link="/Sistema/fornecedores/"
         iconColor="" // Definindo a cor do ícone
       />
       <Botao
