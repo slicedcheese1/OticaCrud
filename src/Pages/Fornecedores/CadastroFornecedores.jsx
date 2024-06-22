@@ -90,13 +90,13 @@ function CadastroFornecedor() {
             });
     }
 
+
     return(
       <>
         <form>
             <div className='container-dados-pessoais-funcionario'>
                 <h2>Novo Fornecedor</h2>
                 <hr/>
-                
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Cpf</Form.Label>
                   <Form.Control 

@@ -34,7 +34,9 @@ const EditarSetor = () => {
       
       fetch(`http://localhost:8080/cargo/${id}`, {
         method: 'PUT',
-        body: JSON.stringify({nomeCargo}),
+        body: JSON.stringify({
+          nomeCargo
+        }),
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'

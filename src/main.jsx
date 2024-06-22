@@ -36,15 +36,15 @@ import CadastroFuncionario from './Pages/Funcionarios/CadastroFuncionario.jsx';
 import Tratamento from './Pages/Tratamentos/Tratamento.jsx';
 import CadastroTratamento from './Pages/Tratamentos/CadastroTratamento.jsx';
 import EditarTratamento from './Pages/Tratamentos/EditarTratamento.jsx';
-import Fornecedores from "./Pages/Fornecedores/Fornecedores.jsx"
-import CadastroFornecedores from "./Pages/Fornecedores/CadastroFornecedores.jsx"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import CadastroGrupos from './Pages/Grupos/CadastroGrupos.jsx';
+
 import Fornecedores from './Pages/Fornecedores/Fornecedores.jsx';
 import CadastroFornecedores from './Pages/Fornecedores/CadastroFornecedores.jsx';
 import EditarFornecedores from './Pages/Fornecedores/EditarFornecedores.jsx';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -177,7 +177,7 @@ const router = createBrowserRouter([
             path: '/Sistema/Grupos',
             element: <CadastroGrupos/>
           },
-          //========================================================== Grupos ==========================================================================
+          //========================================================== Fornecedores ==========================================================================
           {
             path: '/Sistema/fornecedores',
             element: <Fornecedores/>
@@ -185,6 +185,10 @@ const router = createBrowserRouter([
           {
             path: '/Sistema/cadastro-fornecedor',
             element: <CadastroFornecedores/>
+          },
+          {
+            path: '/Sistema/editar-fornecedor/:id',
+            element: <EditarFornecedores/>
           },
          
         ]

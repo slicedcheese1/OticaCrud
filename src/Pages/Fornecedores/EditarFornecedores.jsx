@@ -51,14 +51,9 @@ function EditarFornecedor() {
     const [observacoes, setObservacoes] = useState("")
     const [telefone, setTelefone] = useState("")
 
-
-    const buscarSetores = () => {
-        fetch("http://localhost:8080/cargo/all")
-          .then(resposta => resposta.json())
-          .then(dados => {
-            setSetores(dados);
-          });
-      };
+    useState(() =>{
+        loadData(id)
+    })
 
     // Carregar os dados pra preencher o form
     function loadData(id) {
@@ -74,12 +69,23 @@ function EditarFornecedor() {
             setEndereco(data.endereco)
             setNumero(data.numero)
             setComplemento(data.complemento)
+            setBairro(data.bairro)
+            setEmail(data.email)
+            setWebsite(data.website)
+            setInscricaoEstadual(data.inscricaoEstadual)
+            setInscricaoMunicipal(data.inscricaoMunicipal)
+            setSuframa(data.suframa)
+            setContribuinteICMS(data.contribuinteICMS)
+            setObservacoes(data.observacoes)
+            setTelefone(data.telefone)
         }
         )
-        .catch()
+        .catch((error) => {
+            console.log("Não foi possivelcarregar os dados de fornecedor", error)
+        })
     }
 
-    function saveFornecedor(e){
+    function editarFornecedor(e){
         e.preventDefault()
 
         const fornecedor = JSON.stringify({
@@ -105,9 +111,9 @@ function EditarFornecedor() {
 
         console.log(fornecedor)
 
-        fetch('http://localhost:8080/fornecedor', {
+        fetch(`http://localhost:8080/fornecedor/${id}`, {
             //mode: 'no-cors',
-            method: 'POST',
+            method: 'PUT',
             body: fornecedor,
             headers: {
               'Accept': 'application/json',
@@ -116,10 +122,10 @@ function EditarFornecedor() {
           })
             .then(response => response.json())
             .then((response) => {
-              console.log('Fornecedor criado com sucesso:', response);
+              console.log('Fornecedor editado com sucesso:', response);
             })
             .catch((error) => {
-              console.error('Erro ao criar post:', error);
+              console.error('Erro ao editar fornecedor:', error);
             });
     }
 
@@ -315,7 +321,7 @@ function EditarFornecedor() {
                     </Form.Group>
             </div>
             <button
-            onClick={(e) => saveFornecedor(e)}>Cadastrar</button>
+            onClick={(e) => editarFornecedor(e)}>Cadastrar</button>
 
             <div className='container-dados-usuario'>
             
