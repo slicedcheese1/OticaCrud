@@ -26,93 +26,37 @@
     }
 }
 
-.formBox{
-    
-    padding: 1rem;
-    display: flex;
-    gap: 1rem;
-}
-
-.photoBox{
-    width: 30%;
-}
-
 .gp1Box{
     
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0rem;
     margin-left: 6rem;
 
 }
 
-.input{
-  padding: 0.75rem; /* Aumentando o padding para uma área de clique maior */
-  border: 1px solid #ccc;
-  border-radius: 8px; /* Bordas mais arredondadas */
-  width: 100%;
-  margin-top: 0.5rem;
-  transition: border-color 0.3s ease;
-}
-
 .gp1{
     
-    width: 95%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-}
-
-.gp1_2{
-    width: 90%;
-    margin-left: 2rem;
-    margin-right: 5rem;
-}
-
-.gp1_1{
-    width: 90%;
 }
 
 .gp2{
     display: grid;
+    gap: 2rem;
     grid-template-columns: 1fr 1fr 1fr;
-}
-
-.gp2_1{
-    gap: 1rem;
-    width: 80%;
-}
-
-.gp2_2{
-    gap: 1rem;
-    width: 80%;
 }
 
 .gp3{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
 }
 
-.gp3_1{
-    width: 80%;
-}
-
-.gp3_2{
-    width: 80%;
-}
-
-.gp3_3{
-    width: 80%;
-}
-
-.gp4{
-    
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-}
 
 .textao{
     resize: none;
@@ -129,6 +73,7 @@
   height: 20px; /* Altura desejada */
   margin-right: 5px; /* Espaçamento à direita para separar os radio buttons */
 }
+
 #pj{
   width: 20px; /* Largura desejada */
   height: 20px; /* Altura desejada */

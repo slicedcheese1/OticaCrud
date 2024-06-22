@@ -10,7 +10,6 @@ import DadosObservacoesClienteRegistro from "../../Componentes/Clientes/ClienteR
 import DadosPessoaisClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosPessoaisClienteRegistro"
 
 import styles from './ClienteCadastro.module.css'
-import ButtonC from './ButtonC'; // Importando o componente ButtonC
 
 function ClienteCadastro() {
 
@@ -118,7 +117,7 @@ function ClienteCadastro() {
               <DadosEnderecoClienteRegistro/>
               <DadosContatoClienteRegistro/>
               <DadosObservacoesClienteRegistro/>
-              <ButtonC onClick={handleSalvar}>Salvar</ButtonC>
+              <button onClick={handleSalvar}>Salvar</button>
           </form>
         </div>
       </ClienteContext.Provider>
