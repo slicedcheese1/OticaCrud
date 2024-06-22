@@ -42,6 +42,9 @@ import CadastroFornecedores from "./Pages/Fornecedores/CadastroFornecedores.jsx"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import CadastroGrupos from './Pages/Grupos/CadastroGrupos.jsx';
+import Fornecedores from './Pages/Fornecedores/Fornecedores.jsx';
+import CadastroFornecedores from './Pages/Fornecedores/CadastroFornecedores.jsx';
+import EditarFornecedores from './Pages/Fornecedores/EditarFornecedores.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -68,6 +71,19 @@ const router = createBrowserRouter([
           {
             path: '/Sistema/editar-grifes',
             element: <EditarGrife />
+          },
+          //========================================================== Fornecedores ==================================================================
+          {
+            path: '/Sistema/fornecedores',
+            element: <Fornecedores />
+          },
+          {
+            path: '/Sistema/cadastro-fornecedores',
+            element: <CadastroFornecedores />
+          },
+          {
+            path: '/Sistema/editar-funcionarios',
+            element: <EditarFornecedores />
           },
           //========================================================== Material ======================================================================
           {

@@ -1,15 +1,11 @@
-import { React,  } from "react"
+import React from 'react'
 
-function Fornecedor() {
-
-
-
-    return(
-      <>
-
-      </>
-    )
+const Fornecedores = () => {
+  return (
+    <div>
+      <h1>Fornecedores</h1>
+    </div>
+  )
 }
 
-export default Fornecedor
-
+export default Fornecedores
