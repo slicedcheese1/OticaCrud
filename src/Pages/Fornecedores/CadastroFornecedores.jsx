@@ -35,7 +35,7 @@ function CadastroFornecedor() {
     const [cep, setCep] = useState("")
     const [endereco, setEndereco] = useState("")
     const [numero, setNumero] = useState("")
-    const [complemento, setComplemento] = useState([])
+    const [complemento, setComplemento] = useState("")
     const [bairro, setBairro] = useState("")
     const [email, setEmail] = useState("")
     const [website, setWebsite] = useState("")
@@ -46,7 +46,7 @@ function CadastroFornecedor() {
     const [observacoes, setObservacoes] = useState("")
     const [telefone, setTelefone] = useState("")
 
-    function saveFuncionario(e){
+    function saveFornecedor(e){
         e.preventDefault()
 
         const fornecedor = JSON.stringify({
@@ -124,7 +124,7 @@ function CadastroFornecedor() {
                     name="nomeFantasia"
                     type='text' 
                     placeholder='nomeFantasia'
-                    value={email}
+                    value={nomeFantasia}
                     onChange={(e) => {setNomeFantasia(e.target.value)}}
                   />
                 </Form.Group>
@@ -283,8 +283,7 @@ function CadastroFornecedor() {
                     </Form.Group>
             </div>
             <button
-            onClick={(e) => saveFuncionario(e)}
-            >Cadastrar</button>
+            onClick={(e) => saveFornecedor(e)}>Cadastrar</button>
 
             <div className='container-dados-usuario'>
             
