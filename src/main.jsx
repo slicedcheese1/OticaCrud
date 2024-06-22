@@ -34,6 +34,10 @@ import Tratamento from './Pages/Tratamentos/Tratamento.jsx';
 import CadastroTratamento from './Pages/Tratamentos/CadastroTratamento.jsx';
 import EditarTratamento from './Pages/Tratamentos/EditarTratamento.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Produtos from './Pages/Produtos/Produtos.jsx';
+import HistoricoProdutos from './Pages/Produtos/HistóricoProdutos.jsx';
+import CadastroProdutos from './Pages/Produtos/CadastroProdutos.jsx';
+import EditarProdutos from './Pages/Produtos/EditarProdutos.jsx';
 
 const router = createBrowserRouter([
   {
@@ -147,6 +151,23 @@ const router = createBrowserRouter([
           {
             path: '/Sistema/editar-tratamento',
             element: <EditarTratamento/>
+          },
+           //========================================================== PRODUTOS ==========================================================================
+           {
+            path: '/Sistema/produtos',
+            element: <Produtos/>
+          },
+          {
+            path: '/Sistema/editar-produto',
+            element: <EditarProdutos/>
+          },
+          {
+            path: '/Sistema/cadastrar-produto',
+            element: <CadastroProdutos/>
+          },
+          {
+            path: '/Sistema/historico-produto',
+            element: <HistoricoProdutos/>
           },
         ]
       },
