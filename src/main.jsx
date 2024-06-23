@@ -47,6 +47,7 @@ import Lojas from './Pages/Lojas/Lojas.jsx';
 import OrigemCliente from './Pages/Origem.jsx/OrigemCliente.jsx';
 import CadastroOrigemCliente from './Pages/Origem.jsx/CadastroOrigemCliente.jsx';
 import EditarOrigemCliente from './Pages/Origem.jsx/EditarOrigemCliente.jsx';
+import EditarLoja from './Pages/Lojas/EditarLojas.jsx';
 
 const router = createBrowserRouter([
   {
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
           {
             path: '/Sistema/cadastro-loja',
             element: <CadastroLojas />
+          },
+          {
+            path: '/Sistema/editar-loja/:id',
+            element: <EditarLoja />
           },
           {
             path: '/Sistema/lojas',
