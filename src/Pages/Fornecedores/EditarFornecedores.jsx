@@ -1,4 +1,4 @@
-import { React, useState } from "react"
+import { React, useEffect, useState } from "react"
 import { useParams } from 'react-router-dom';
 
 import Form from 'react-bootstrap/Form';
@@ -30,8 +30,10 @@ function EditarFornecedor() {
     //     "telefone": "string"
     //   }
 
-    const { id } = useParams();
+    const { id, tipo } = useParams();
 
+    const [fornecedorCpf, setFornecedorCpf] = useState(true)
+    const [fornecedorCnpj, setFornecedorCnpj] = useState(false)
     const [cpf, setCpf] = useState("")
     const [cnpj, setCnpj] = useState("")
     const [nomeFantasia, setNomeFantasia] = useState("")
@@ -51,13 +53,27 @@ function EditarFornecedor() {
     const [observacoes, setObservacoes] = useState("")
     const [telefone, setTelefone] = useState("")
 
-    useState(() =>{
-        loadData(id)
-    })
+    useEffect(() =>{
+        loadData(id, tipo)
+        if (tipo == "0") {
+            setFornecedorCpf(true)
+            setFornecedorCnpj(false)
+        } else if(tipo == "1") {
+            setFornecedorCpf(false)
+            setFornecedorCnpj(true)
+        }
+    }, [])
 
     // Carregar os dados pra preencher o form
-    function loadData(id) {
-        fetch(`http://localhost:8080/fornecedor/${id}`)
+    function loadData() {
+        var url = ""
+        if (tipo == "0") {
+            url = `http://localhost:8080/fornecedorCpf/${id}`
+        } else if(tipo == "1") {
+            url = `http://localhost:8080/fornecedorCnpj/${id}`
+        }
+        console.log(url)
+        fetch(url)
         .then(resposta => resposta.json())
         .then(data => {
             setCpf(data.cpf)
@@ -88,30 +104,58 @@ function EditarFornecedor() {
     function editarFornecedor(e){
         e.preventDefault()
 
-        const fornecedor = JSON.stringify({
-            cpf,
-            cnpj,
-            nomeFantasia,
-            razaoSocial,
-            laboratorio,
-            cep,
-            endereco,
-            numero,
-            complemento,
-            bairro,
-            email,
-            website,
-            inscricaoEstadual,
-            inscricaoMunicipal,
-            suframa,
-            contribuinteICMS,
-            observacoes,
-            telefone,
-        })
+        var fornecedor = {}
+
+        if (fornecedorCpf){
+            fornecedor = JSON.stringify({
+                nomeFantasia,
+                razaoSocial,
+                laboratorio,
+                cep,
+                endereco,
+                numero,
+                complemento,
+                bairro,
+                email,
+                website,
+                inscricaoEstadual,
+                inscricaoMunicipal,
+                suframa,
+                contribuinteICMS,
+                observacoes,
+                telefone,
+                cpf
+            })
+        } else {
+            fornecedor = JSON.stringify({
+                nomeFantasia,
+                razaoSocial,
+                laboratorio,
+                cep,
+                endereco,
+                numero,
+                complemento,
+                bairro,
+                email,
+                website,
+                inscricaoEstadual,
+                inscricaoMunicipal,
+                suframa,
+                contribuinteICMS,
+                observacoes,
+                telefone,
+                cnpj
+            })
+        }
 
         console.log(fornecedor)
-
-        fetch(`http://localhost:8080/fornecedor/${id}`, {
+        var url = ""
+        if (tipo === "0") {
+            url = `http://localhost:8080/fornecedorCpf/${id}`
+        } else if(tipo === "1") {
+            url = `http://localhost:8080/fornecedorCnpj/${id}`
+        }
+        fetch(url , {
             //mode: 'no-cors',
             method: 'PUT',
             body: fornecedor,
@@ -135,26 +179,58 @@ function EditarFornecedor() {
             <div className='container-dados-pessoais-funcionario'>
                 <h2>Novo Fornecedor</h2>
                 <hr/>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Cpf</Form.Label>
-                  <Form.Control 
-                    type="text" 
-                    placeholder="Insita o cpf do fornecedor" 
-                    value={cpf}
-                    onChange={(e) => {setCpf(e.target.value)}}
-                  />
+
+                <Form.Group>
+                        <Form.Label>Cpf</Form.Label>
+                        <Form.Check
+                            type="checkbox"
+                            label="Cpf"
+                            checked={fornecedorCpf}
+                            onChange={(e) => {
+                                setFornecedorCpf(true)
+                                setFornecedorCnpj(false)
+                            }}
+                        />
+                </Form.Group>
+
+                <Form.Group>
+                        <Form.Label>Cnpj</Form.Label>
+                        <Form.Check
+                            type="checkbox"
+                            label="Cnpj"
+                            checked={fornecedorCnpj}
+                            onChange={() => {
+                                setFornecedorCnpj(true)
+                                setFornecedorCpf(false)
+                            }}
+                        />
                 </Form.Group>
                 
-                <Form.Group>
-                  <Form.Label>cnpj</Form.Label>
-                  <Form.Control 
-                    name="cnpj"
-                    type='text' 
-                    placeholder='Insira o cnpj'
-                    value={cnpj}
-                    onChange={(e) => {setCnpj(e.target.value)}}
-                  />
-                </Form.Group>
+                {fornecedorCpf && (
+                    <Form.Group  controlId="formBasicEmail">
+                        <Form.Label>Cpf</Form.Label>
+                        <Form.Control 
+                            type="text" 
+                            placeholder="Insita o cpf do fornecedor" 
+                            value={cpf}
+                            onChange={(e) => {setCpf(e.target.value)}}
+                        />
+                    </Form.Group>
+                
+                )}
+
+                {fornecedorCnpj && (
+                   <Form.Group>
+                        <Form.Label>Cnpj</Form.Label>
+                        <Form.Control 
+                            name="cnpj"
+                            type='text' 
+                            placeholder='Insira o cnpj'
+                            value={cnpj}
+                            onChange={(e) => {setCnpj(e.target.value)}}
+                        />
+                    </Form.Group>
+                )}
 
                 <Form.Group>
                   <Form.Label>nomeFantasia</Form.Label>

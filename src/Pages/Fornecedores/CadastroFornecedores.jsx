@@ -27,6 +27,8 @@ function CadastroFornecedor() {
     //     "telefone": "string"
     //   }
 
+    const [fornecedorCpf, setFornecedorCpf] = useState(true)
+    const [fornecedorCnpj, setFornecedorCnpj] = useState(false)
     const [cpf, setCpf] = useState("")
     const [cnpj, setCnpj] = useState("")
     const [nomeFantasia, setNomeFantasia] = useState("")
@@ -48,10 +50,11 @@ function CadastroFornecedor() {
 
     function saveFornecedor(e){
         e.preventDefault()
+        
+        var fornecedor = {}
 
-        const fornecedor = JSON.stringify({
-            cpf,
-            cnpj,
+        if (fornecedorCpf){
+        fornecedor = JSON.stringify({
             nomeFantasia,
             razaoSocial,
             laboratorio,
@@ -68,11 +71,39 @@ function CadastroFornecedor() {
             contribuinteICMS,
             observacoes,
             telefone,
+            cpf
         })
+    } else {
+        fornecedor = JSON.stringify({
+            nomeFantasia,
+            razaoSocial,
+            laboratorio,
+            cep,
+            endereco,
+            numero,
+            complemento,
+            bairro,
+            email,
+            website,
+            inscricaoEstadual,
+            inscricaoMunicipal,
+            suframa,
+            contribuinteICMS,
+            observacoes,
+            telefone,
+            cnpj
+        })
+    }
+        var url = ""
 
-        console.log(fornecedor)
+        if (fornecedorCpf) {
+            url =  "http://localhost:8080/fornecedorCpf"
+        } else {
+            url =  "http://localhost:8080/fornecedorCnpj"
+        }
 
-        fetch('http://localhost:8080/fornecedor', {
+
+        fetch(url, {
             //mode: 'no-cors',
             method: 'POST',
             body: fornecedor,
@@ -97,6 +128,33 @@ function CadastroFornecedor() {
             <div className='container-dados-pessoais-funcionario'>
                 <h2>Novo Fornecedor</h2>
                 <hr/>
+
+                <Form.Group>
+                        <Form.Label>Cpf</Form.Label>
+                        <Form.Check
+                            type="checkbox"
+                            label="Cpf"
+                            checked={fornecedorCpf}
+                            onChange={(e) => {
+                                setFornecedorCpf(true)
+                                setFornecedorCnpj(false)
+                            }}
+                        />
+                </Form.Group>
+
+                <Form.Group>
+                        <Form.Label>Cnpj</Form.Label>
+                        <Form.Check
+                            type="checkbox"
+                            label="Cnpj"
+                            checked={fornecedorCnpj}
+                            onChange={() => {
+                                setFornecedorCnpj(true)
+                                setFornecedorCpf(false)
+                            }}
+                        />
+                </Form.Group>
+
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Cpf</Form.Label>
                   <Form.Control 

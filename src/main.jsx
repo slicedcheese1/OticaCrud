@@ -187,7 +187,7 @@ const router = createBrowserRouter([
             element: <CadastroFornecedores/>
           },
           {
-            path: '/Sistema/editar-fornecedor/:id',
+            path: '/Sistema/editar-fornecedor/:id/:tipo',
             element: <EditarFornecedores/>
           },
          
