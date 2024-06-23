@@ -3,31 +3,31 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Pagination from '../../Componentes/Pagination/Pagination';
 
-const OrigemCliente = () => {
-    const [origens, setOrigens] = useState([]);
+const Lojas = () => {
+    const [lojas, setLojas] = useState([]);
  
 
     useEffect(() => {
-      buscarOrigens();
+      buscarLojas();
     }, []);
   
-    const buscarOrigens = () => {
-      fetch("http://localhost:8080/origem_cliente/all")
+    const buscarLojas = () => {
+      fetch("http://localhost:8080/loja/all")
         .then(resposta => resposta.json())
         .then(dados => {
-          setOrigens(dados);
+          setLojas(dados);
         });
     };
   
     
   
-    const deletarOrigem = (id) => {
-      fetch(`http://localhost:8080/origem_cliente/${id}`, {
+    const deletarGrifes = (id) => {
+      fetch(`http://localhost:8080/loja/${id}`, {
         method: 'DELETE'
       })
         .then(resposta => {
           if (resposta.ok) {
-            buscarOrigens();
+            buscarLojas();
             console.log(dados)
           }
         });
@@ -49,29 +49,31 @@ const OrigemCliente = () => {
   return (
     <> 
     <div>
-    <div className='container-origem'>
-      <h1>Origem do cliente</h1>
-      <Link to={`/Sistema/cadastro-origem-cliente/`}>
-        <button>+ Nova Origem</button>
+    <div className='container-lojas'>
+      <h1>Lojas</h1>
+      <Link to={`/Sistema/cadastro-loja/`}>
+        <button>+ Nova loja</button>
       </Link>
       <hr />
       <br />
       <table className="customers">
         <thead>
           <tr>
-            <th>Origem</th>
+            <th>Nome</th>
+            <th>Nome fantasia</th>
             <th>Ações</th>
           </tr>
         </thead>
         <tbody>
-          {origens.map((origem) => (
-            <tr key={origem.idOrigem}>
-              <td>{origem.nomeOrigem}</td>
+          {lojas.map((loja) => (
+            <tr key={loja.idLoja}>
+              <td>{loja.identificacaoEmpresa}</td>
+              <td>{loja.nomeFantasia}</td>
               <td>
-                <Link to={`/Sistema/editar-origem-cliente/${origem.nomeOrigem}`}>
+                <Link to={`/Sistema/editar-grife/${loja.nome}`}>
                   <button>Editar</button>
                 </Link>
-                <button onClick={() => deletarOrigem(origem.idOrigem)}>Excluir</button>
+                <button onClick={() => deletarLojas(loja.idGrife)}>Excluir</button>
               </td>
             </tr>
           ))}
@@ -88,4 +90,4 @@ const OrigemCliente = () => {
   )
 }
 
-export default OrigemCliente
+export default Lojas

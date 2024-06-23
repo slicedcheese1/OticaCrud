@@ -42,6 +42,12 @@ import CadastroGrupos from './Pages/Grupos/CadastroGrupos.jsx';
 import Fornecedores from './Pages/Fornecedores/Fornecedores.jsx';
 import CadastroFornecedores from './Pages/Fornecedores/CadastroFornecedores.jsx';
 import EditarFornecedores from './Pages/Fornecedores/EditarFornecedores.jsx';
+import CadastroLojas from './Pages/Lojas/CadastroLojas.jsx';
+import Lojas from './Pages/Lojas/Lojas.jsx';
+import OrigemCliente from './Pages/Origem.jsx/OrigemCliente.jsx';
+import CadastroOrigemCliente from './Pages/Origem.jsx/CadastroOrigemCliente.jsx';
+import EditarOrigemCliente from './Pages/Origem.jsx/EditarOrigemCliente.jsx';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -68,6 +74,28 @@ const router = createBrowserRouter([
           {
             path: '/Sistema/editar-grifes',
             element: <EditarGrife />
+          },
+          //========================================================== Lojas =======================================================================
+          {
+            path: '/Sistema/cadastro-loja',
+            element: <CadastroLojas />
+          },
+          {
+            path: '/Sistema/lojas',
+            element: <Lojas/>
+          },
+          //========================================================== Origem do cliente =============================================================
+          {
+            path: '/Sistema/origem-cliente',
+            element: <OrigemCliente />
+          },
+          {
+            path: '/Sistema/cadastro-origem-cliente',
+            element: <CadastroOrigemCliente />
+          },
+          {
+            path: '/Sistema/editar-origem-cliente',
+            element: <EditarOrigemCliente/>
           },
           //========================================================== Fornecedores ==================================================================
           {
@@ -174,7 +202,7 @@ const router = createBrowserRouter([
             path: '/Sistema/Grupos',
             element: <CadastroGrupos/>
           },
-         
+      
         ]
       },
       {
