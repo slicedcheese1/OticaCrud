@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const CadastroOrigemCliente = () => {
 
     const [nomeOrigem, setNomeOrigem] = useState("")
-    const [atividade, setAtividade] = useState("true")
+    const [atividade, setAtividade] = useState(true)
     const [erroNome, setErroNome] = useState(false)
 
     const validarCampoNome = (nomeOrigem) => {
