@@ -94,7 +94,7 @@ const router = createBrowserRouter([
             element: <CadastroOrigemCliente />
           },
           {
-            path: '/Sistema/editar-origem-cliente',
+            path: '/Sistema/editar-origem-cliente/:id',
             element: <EditarOrigemCliente/>
           },
           //========================================================== Fornecedores ==================================================================
