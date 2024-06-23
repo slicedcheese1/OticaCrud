@@ -69,11 +69,11 @@ const router = createBrowserRouter([
           },
           {
             path: '/Sistema/cadastro-grifes',
-            element: <CadastroGrifes />
+            element: <CadastroGrifes/>
           },
           {
-            path: '/Sistema/editar-grifes',
-            element: <EditarGrife />
+            path: '/Sistema/editar-grife/:id',
+            element: <EditarGrife/>
           },
           //========================================================== Lojas =======================================================================
           {
