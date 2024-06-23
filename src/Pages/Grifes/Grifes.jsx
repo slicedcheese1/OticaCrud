@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Pagination from '../../Componentes/Pagination/Pagination';
 
 const Grifes = () => {
-    const [setores, setSetores] = useState([]);
+    const [grifes, setGrifes] = useState([]);
  
 
     useEffect(() => {
@@ -12,17 +12,17 @@ const Grifes = () => {
     }, []);
   
     const buscarGrifes = () => {
-      fetch("http://localhost:8080/cargo/all")
+      fetch("http://localhost:8080/grife/all")
         .then(resposta => resposta.json())
         .then(dados => {
-          setSetores(dados);
+          setGrifes(dados);
         });
     };
   
     
   
-    const deletarSetores = (id) => {
-      fetch(`http://localhost:8080/cargo/${id}`, {
+    const deletarGrifes = (id) => {
+      fetch(`http://localhost:8080/grife/${id}`, {
         method: 'DELETE'
       })
         .then(resposta => {
@@ -64,14 +64,14 @@ const Grifes = () => {
           </tr>
         </thead>
         <tbody>
-          {setores.map((setor) => (
-            <tr key={setor.idCargo}>
-              <td>{setor.nomeCargo}</td>
+          {grifes.map((grife) => (
+            <tr key={grife.idGrife}>
+              <td>{grife.nome}</td>
               <td>
-                <Link to={`/Sistema/editar-grife/${setor.nomeCargo}`}>
+                <Link to={`/Sistema/editar-grife/${grife.nome}`}>
                   <button>Editar</button>
                 </Link>
-                <button onClick={() => deletarSetores(setor.idCargo)}>Excluir</button>
+                <button onClick={() => deletarGrifes(grife.idGrife)}>Excluir</button>
               </td>
             </tr>
           ))}
