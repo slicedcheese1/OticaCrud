@@ -82,7 +82,7 @@ function CadastroLojas() {
     return(
       <>
         <form>
-            <div className='container-dados-pessoais-funcionario'>
+            <div>
                 <h2>Nova Loja</h2>
                 <hr/>
                 

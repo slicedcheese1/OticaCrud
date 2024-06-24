@@ -68,7 +68,7 @@ const Grifes = () => {
             <tr key={grife.idGrife}>
               <td>{grife.nome}</td>
               <td>
-                <Link to={`/Sistema/editar-grife/${grife.nome}`}>
+                <Link to={`/Sistema/editar-grife/${grife.idGrife}`}>
                   <button>Editar</button>
                 </Link>
                 <button onClick={() => deletarGrifes(grife.idGrife)}>Excluir</button>
