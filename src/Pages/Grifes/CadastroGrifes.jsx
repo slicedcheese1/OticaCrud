@@ -62,8 +62,8 @@ const CadastroGrifes = () => {
               onBlur={(e) => {validarCampoNome(e.target.value)}}
               />
             </Form.Group>
-            {erroNome && <span className='text-danger mt-0 ms-1'>Digite o nome do cargo.</span>}
-            {!erroNome && <span className = 'text-white'>a</span>}
+            {erroNome && <span className='text-danger mt-0 ms-1'>Digite o nome da Grife.</span>}
+            {!erroNome && <br/>}
             </div>
 
             <div className="d-flex gap-1 flex-row-reverse ml-auto w-100">

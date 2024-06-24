@@ -61,28 +61,31 @@ const EditarGrife = () => {
       };
 
     return (
-        <div>
+        <div className='formContainer'>
             <h1>Editar Grife</h1>
             <hr />
+            <div>
             <Form.Group>
               <Form.Label>Nome</Form.Label>
               <Form.Control
+                className='input'
                 placeholder='Vendedor, gerente, supervisor..'
                 value={nome}
                 onChange={(e) => setNomeGrife(e.target.value)}
                 onBlur={(e) => {validarCampoNome(e.target.value)}}
               />
             </Form.Group>
-            {erroNome && <span style={{ color: 'red' }}>Digite o nome da origem.</span>}
+            {erroNome &&  <span className='text-danger mt-0 ms-1'>Digite o nome da Grife.</span>}
+            {!erroNome && <br/>}
+            </div>
+            <div className="d-flex gap-1 flex-row-reverse ml-auto w-100">
+
+            <Button  onClick={editarOrigem}>Salvar</Button>
 
             <Link to={`/Sistema/grifes/`}>
-                <Button>Voltar</Button>
+                <Button variant='secondary'>Voltar</Button>
             </Link>
-
-            <Button
-            onClick={editarOrigem}
-            >Salvar</Button>
-
+            </div>
 
         </div>
     )
