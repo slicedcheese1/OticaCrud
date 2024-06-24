@@ -69,7 +69,7 @@ const EditarGrife = () => {
               <Form.Label>Nome</Form.Label>
               <Form.Control
                 className='input'
-                placeholder='Vendedor, gerente, supervisor..'
+                placeholder='Ray-Ban, Oakley, Tom Ford.'
                 value={nome}
                 onChange={(e) => setNomeGrife(e.target.value)}
                 onBlur={(e) => {validarCampoNome(e.target.value)}}

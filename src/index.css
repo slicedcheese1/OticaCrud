@@ -29,6 +29,7 @@ body, html{
   width: 100%;
   margin-top: 0;
   transition: border-color 0.3s ease;
+  margin-bottom: 0.5rem;
 }
 
 .input:focus {
