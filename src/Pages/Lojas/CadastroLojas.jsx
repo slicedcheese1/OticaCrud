@@ -1,3 +1,14 @@
+import { React, useState } from "react"
+
+import Form from 'react-bootstrap/Form';
+
+
+function CadastroLojas() {
+
+    // {
+    //     "id": 0,
+    //     "cpf": "23640486914",
+    //     "cnpj": "33751472605233",
     //     "nomeFantasia": "string",
     //     "razaoSocial": "string",
     //     "laboratorio": true,
