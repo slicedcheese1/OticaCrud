@@ -1,6 +1,5 @@
 import React from "react"
 import { useState } from "react"
-import axios from "axios"
 
 import ClienteContext from "./ClinteContext"
 
@@ -8,6 +7,8 @@ import DadosContatoClienteRegistro from "../../Componentes/Clientes/ClienteRegis
 import DadosEnderecoClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosEnderecoClienteRegistro"
 import DadosObservacoesClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosObservacoesClienteRegistro"
 import DadosPessoaisClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosPessoaisClienteRegistro"
+
+import Button from "react-bootstrap/Button"
 
 import styles from './ClienteCadastro.module.css'
 
@@ -111,15 +112,13 @@ function ClienteCadastro() {
         showingCardResponsavel, setShowingCardResponsavel
       }}>
 
-      <div className={styles.clientecadastrocontainer}>
-          <form className={styles.container2} id='ClienteCadastroForm'  autocomplete="off">
-              <DadosPessoaisClienteRegistro/>
-              <DadosEnderecoClienteRegistro/>
-              <DadosContatoClienteRegistro/>
-              <DadosObservacoesClienteRegistro/>
-              <button onClick={handleSalvar}>Salvar</button>
-          </form>
-        </div>
+      <form className="formContainer" autocomplete="off">
+          <DadosPessoaisClienteRegistro/>
+          <DadosEnderecoClienteRegistro/>
+          <DadosContatoClienteRegistro/>
+          <DadosObservacoesClienteRegistro/>
+          <Button onClick={handleSalvar}>Salvar</Button>
+      </form>
       </ClienteContext.Provider>
     </>
   )

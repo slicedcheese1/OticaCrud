@@ -8,6 +8,20 @@ body, html{
   height: 100%;
 }
 
+.formContainer{
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 5000px; /* Ajustando a largura máxima */
+  width: 100%;
+  background-color: white;
+  border-radius: 12px; /* Bordas mais arredondadas para um visual moderno */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais suave e pronunciada */
+  animation: fadeIn 0.5s ease-in-out; /* Animação de entrada suave */
+}
+
 .input{
   padding: 0.75rem; /* Aumentando o padding para uma área de clique maior */
   border: 1px solid #ccc;

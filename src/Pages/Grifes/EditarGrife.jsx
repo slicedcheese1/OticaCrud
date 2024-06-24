@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Button from "react-bootstrap/Button"
+import Form from "react-bootstrap/Form"
 
 const EditarGrife = () => {
 
@@ -61,15 +62,17 @@ const EditarGrife = () => {
 
     return (
         <div>
-            <h1>Editar Origem</h1>
+            <h1>Editar Grife</h1>
             <hr />
-            <label>Nome</label>
-            <input
-            placeholder='Vendedor, gerente, supervisor..'
-            value={nome}
-            onChange={(e) => setNomeGrife(e.target.value)}
-            onBlur={(e) => {validarCampoNome(e.target.value)}}
-            />
+            <Form.Group>
+              <Form.Label>Nome</Form.Label>
+              <Form.Control
+                placeholder='Vendedor, gerente, supervisor..'
+                value={nome}
+                onChange={(e) => setNomeGrife(e.target.value)}
+                onBlur={(e) => {validarCampoNome(e.target.value)}}
+              />
+            </Form.Group>
             {erroNome && <span style={{ color: 'red' }}>Digite o nome da origem.</span>}
 
             <Link to={`/Sistema/grifes/`}>

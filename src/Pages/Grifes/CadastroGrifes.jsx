@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button"
+
 const CadastroGrifes = () => {
 
     const [nome, setNomeGrife] = useState("")
@@ -44,25 +47,34 @@ const CadastroGrifes = () => {
       };
 
     return (
-        <div>
+        <div className='formContainer'>
             <h1>Nova grife</h1>
             <hr />
-            <label>Nome</label>
-            <input
-            placeholder='Vendedor, gerente, supervisor..'
-            value={nome}
-            onChange={(e) => setNomeGrife(e.target.value)}
-            onBlur={(e) => {validarCampoNome(e.target.value)}}
-            />
-            {erroNome && <span style={{ color: 'red' }}>Digite o nome do cargo.</span>}
 
-            <Link to={`/Sistema/grifes/`}>
-                <button>Voltar</button>
-            </Link>
+            <div>
+            <Form.Group>
+              <Form.Label>Nome</Form.Label>
+              <Form.Control
+              className='input'
+              placeholder='Vendedor, gerente, supervisor..'
+              value={nome}
+              onChange={(e) => setNomeGrife(e.target.value)}
+              onBlur={(e) => {validarCampoNome(e.target.value)}}
+              />
+            </Form.Group>
+            {erroNome && <span className='text-danger mt-0 ms-1'>Digite o nome do cargo.</span>}
+            {!erroNome && <span className = 'text-white'>a</span>}
+            </div>
 
-            <button
-            onClick={handleSalvar}
-            >Salvar</button>
+            <div className="d-flex gap-1 flex-row-reverse ml-auto w-100">
+              <Button variant='primary' onClick={handleSalvar}> Salvar </Button>
+
+              <Link to={`/Sistema/grifes/`}>
+                  <Button  variant='secondary'>Voltar</Button>
+              </Link>
+
+            </div>
+            
 
 
         </div>
