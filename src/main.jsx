@@ -79,11 +79,11 @@ const router = createBrowserRouter([
           //========================================================== Lojas =======================================================================
           {
             path: '/Sistema/cadastro-loja',
-            element: <CadastroLojas />
+            element: <CadastroLojas/>
           },
           {
             path: '/Sistema/editar-loja/:id',
-            element: <EditarLoja />
+            element: <EditarLoja/>
           },
           {
             path: '/Sistema/lojas',

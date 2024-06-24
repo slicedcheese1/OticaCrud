@@ -21,7 +21,7 @@ const Lojas = () => {
   
     
   
-    const deletarGrifes = (id) => {
+    const deletarLojas = (id) => {
       fetch(`http://localhost:8080/loja/${id}`, {
         method: 'DELETE'
       })
@@ -33,18 +33,6 @@ const Lojas = () => {
         });
     };
   
-    const atualizarSetores = (id) => {
-      fetch(`http://localhost:8080/cargo/${id}`, {
-        method: 'GET'
-      })
-      .then(resposta => resposta.json())
-      .then(dados => {
-        this.setState({ 
-          id: dados.idCargo,
-          nomeCargo: dados.nomeCargo
-        }); 
-      });
-    };
 
   return (
     <> 
@@ -70,10 +58,10 @@ const Lojas = () => {
               <td>{loja.identificacaoEmpresa}</td>
               <td>{loja.nomeFantasia}</td>
               <td>
-                <Link to={`/Sistema/editar-grife/${loja.nome}`}>
+                <Link to={`/Sistema/editar-loja/${loja.idLoja}`}>
                   <button>Editar</button>
                 </Link>
-                <button onClick={() => deletarLojas(loja.idGrife)}>Excluir</button>
+                <button onClick={() => deletarLojas(loja.idLoja)}>Excluir</button>
               </td>
             </tr>
           ))}
