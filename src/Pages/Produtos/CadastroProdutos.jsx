@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react"
 
 import Form from 'react-bootstrap/Form';
-
+import Button from "react-bootstrap/Button"
 
 function CadastroProdutos() {
 
@@ -114,7 +114,7 @@ function CadastroProdutos() {
 
     return (
         <>
-            <form>
+            <form className="formContainer">
                 <div className='container-dados-produtos'>
                     <h2>Dados do produto</h2>
                     <hr />
@@ -122,6 +122,7 @@ function CadastroProdutos() {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Código GTIN (EAN-13)</Form.Label>
                         <Form.Control
+                            className="input"
                             type="text"
                             value={nome}
                             onChange={(e) => { setNome(e.target.value) }}
@@ -131,19 +132,19 @@ function CadastroProdutos() {
                     <Form.Group>
                         <Form.Label>Referência</Form.Label>
                         <Form.Control
+                            className="input"
                             name="lojas"
                             value={lojaCadastro}
                             onChange={(e) => { setLoja(e.target.value) }}
                             type='text'
                         >
-
-
                         </Form.Control>
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Nome do produto</Form.Label>
                         <Form.Control
+                            className="input"
                             name="email"
                             type='text'
                             value={email}
@@ -154,6 +155,7 @@ function CadastroProdutos() {
                     <Form.Group>
                         <Form.Label>Unidade</Form.Label>
                         <Form.Select
+                            className="input"
                             name="lojas"
                             value={lojaCadastro}
                             onChange={(e) => { setLoja(e.target.value) }}
@@ -163,15 +165,13 @@ function CadastroProdutos() {
                                 <option>{unidade.nome}</option>
 
                             ))}
-
-
-
                         </Form.Select>
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Grife</Form.Label>
                         <Form.Select
+                            className="input"
                             name="lojas"
                             value={lojaCadastro}
                             onChange={(e) => { setLoja(e.target.value) }}
@@ -181,15 +181,13 @@ function CadastroProdutos() {
                                 <option>{unidade.nome}</option>
 
                             ))}
-
-
-
                         </Form.Select>
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Grupo</Form.Label>
                         <Form.Select
+                            className="input"
                             name="lojas"
                             value={lojaCadastro}
                             onChange={(e) => { setLoja(e.target.value) }}
@@ -199,35 +197,28 @@ function CadastroProdutos() {
                                 <option>{unidade.nome}</option>
 
                             ))}
-
-
-
                         </Form.Select>
                     </Form.Group>
 
                     <Form.Group>
-                  <Form.Label>Fornecedor</Form.Label>
-                  <Form.Select 
-                  name="lojas"
-                  value={lojaCadastro}
-                  onChange={(e) => {setLoja(e.target.value)}}
-                  >
-                      <option value="" disabled  >Selecione um fornecedor</option>
-                      {unidades.map((unidade) => (
-                  <option>{unidade.nome}</option>  
-          
-          ))}
-                      
-                      
-
-                  </Form.Select>
-                </Form.Group>
+                        <Form.Label>Fornecedor</Form.Label>
+                        <Form.Select 
+                        className="input"
+                        name="lojas"
+                        value={lojaCadastro}
+                        onChange={(e) => {setLoja(e.target.value)}}
+                        >
+                            <option value="" disabled  >Selecione um fornecedor</option>
+                            {unidades.map((unidade) => (
+                            <option>{unidade.nome}</option>  
+                            ))}
+                        </Form.Select>
+                    </Form.Group>
 
                     <Form.Check
                         inline
                         label="Venda somente com O.S"
                         name="group1"
-
                     />
 
                     <Form.Check
@@ -237,59 +228,54 @@ function CadastroProdutos() {
                     />
                      
                     <Form.Group>
-                        <br />
-                        <br />
                         <h2> Informações de preço e estoque </h2>
                         <hr />
-                        
+
                         <Form.Check
-                        inline
-                        label="Cadastrar o mesmo valor de custo para todas as lojas"
-                        name="group2"
-                    />
+                            inline
+                            label="Cadastrar o mesmo valor de custo para todas as lojas"
+                            name="group2"
+                        />
 
                         <Form.Check
                         inline
                         label="Cadastrar o mesmo preço de venda para todas as lojas"
                         name="group1"
-
-                    />
-                    <br/>
+                        />
 
                         <Form.Label>Custo</Form.Label>
                         <Form.Control
+                            className="input"
                             name="cargos"
                             value={cargo}
                             onChange={(e) => { addCargo(e) }}
-                        >
-                    
-
-                        </Form.Control>
+                        />
+                        
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Lucro</Form.Label>
                         <Form.Control
+                        className="input"
                             name="limitedesconto"
                             value={limiteDesconto}
                             onChange={(e) => { setLimiteDesconto(e.target.value) }}
                             type='text'
-                        >
-                         
-                        </Form.Control>
+                        />
+   
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>%Lucro</Form.Label>
-                        <Form.Control type='text' />
+                        <Form.Control className="input" type='text' />
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>Preço de venda</Form.Label>
                         <Form.Control
+                            className="input"
                             name="rg"
                             type='text'
-                    
                             value={rg}
                             onChange={(e) => setRg(e.target.value)}
                         />
@@ -298,9 +284,9 @@ function CadastroProdutos() {
                     <Form.Group>
                         <Form.Label>Qtd. Atual</Form.Label>
                         <Form.Control
+                            className="input"
                             name="cpf"
                             type='text'
-                       
                             value={cpf}
                             onChange={(e) => setCpf(e.target.value)}
                         />
@@ -312,25 +298,24 @@ function CadastroProdutos() {
 
                     <Form.Label>Qtd. Minima</Form.Label>
                     <Form.Control
+                        className="input"
                         name="cep"
                         type='text'
-                    
                         value={cep}
                         onChange={(e) => setCep(e.target.value)}
                     />
 
                     <Form.Label>Data de validade do produto</Form.Label>
                     <Form.Control
+                        className="input"
                         name="endereco"
                         type='text'
-                      
                         value={endereco}
                         onChange={(e) => setEndereco(e.target.value)}
                     />
                 </div>
-                <button
-                    onClick={(e) => saveFuncionario(e)}
-                >Cadastrar</button>
+
+                <Button onClick={(e) => saveFuncionario(e)}>Cadastrar</Button>
 
                 <div className='container-dados-usuario'>
 
