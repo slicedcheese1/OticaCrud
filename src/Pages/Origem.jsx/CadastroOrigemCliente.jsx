@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button"
+
 const CadastroOrigemCliente = () => {
 
     const [nomeOrigem, setNomeOrigem] = useState("")
@@ -46,25 +49,26 @@ const CadastroOrigemCliente = () => {
       };
 
     return (
-        <div>
+        <div className='formContainer'>
             <h1>Nova Origem</h1>
             <hr />
-            <label>Nome</label>
-            <input
+
+            <Form.Group>
+            <Form.Label>Nome</Form.Label>
+            <Form.Control
             placeholder='Instagram, facebook..'
             value={nomeOrigem}
             onChange={(e) => setNomeOrigem(e.target.value)}
             onBlur={(e) => {validarCampoNome(e.target.value)}}
             />
+            </Form.Group>
             {erroNome && <span style={{ color: 'red' }}>Digite o nome da origem.</span>}
 
             <Link to={`/Sistema/origem-cliente/`}>
-                <button>Voltar</button>
+                <Button variant='secondary'>Voltar</Button>
             </Link>
 
-            <button
-            onClick={handleSalvar}
-            >Salvar</button>
+            <Button variant='primary' onClick={handleSalvar}>Salvar</Button>
 
 
         </div>
