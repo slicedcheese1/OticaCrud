@@ -130,16 +130,16 @@ function CadastroFornecedor() {
                 <hr/>
 
                 <Form.Group>
-                        <Form.Label>Cpf</Form.Label>
-                        <Form.Check
-                            type="checkbox"
-                            label="Cpf"
-                            checked={fornecedorCpf}
-                            onChange={(e) => {
-                                setFornecedorCpf(true)
-                                setFornecedorCnpj(false)
-                            }}
-                        />
+                    <Form.Label>Cpf</Form.Label>
+                    <Form.Check
+                        type="checkbox"
+                        label="Cpf"
+                        checked={fornecedorCpf}
+                        onChange={(e) => {
+                            setFornecedorCpf(true)
+                            setFornecedorCnpj(false)
+                        }}
+                    />
                 </Form.Group>
 
                 <Form.Group>

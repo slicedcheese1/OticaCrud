@@ -65,11 +65,11 @@ const router = createBrowserRouter([
             element: <Grifes />
           },
           {
-            path: '/Sistema/cadastro-grifes',
+            path: '/Sistema/cadastro-grife',
             element: <CadastroGrifes />
           },
           {
-            path: '/Sistema/editar-grifes',
+            path: '/Sistema/editar-grife',
             element: <EditarGrife />
           },
           //========================================================== Fornecedores ==================================================================
@@ -78,11 +78,11 @@ const router = createBrowserRouter([
             element: <Fornecedores />
           },
           {
-            path: '/Sistema/cadastro-fornecedores',
+            path: '/Sistema/cadastro-fornecedor',
             element: <CadastroFornecedores />
           },
           {
-            path: '/Sistema/editar-funcionarios',
+            path: '/Sistema/editar-fornecedor',
             element: <EditarFornecedores />
           },
           //========================================================== Material ======================================================================
@@ -117,7 +117,7 @@ const router = createBrowserRouter([
             element: <ClienteDashboard />
           },
           {
-            path: '/Sistema/ClienteCadastro',
+            path: '/Sistema/cadastrar-clientes',
             element: <ClienteCadastro />
           },
           {
