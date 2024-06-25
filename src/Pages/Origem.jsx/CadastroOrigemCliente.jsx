@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 
 const CadastroOrigemCliente = () => {
 
+    const navigate = useNavigate();
     const [nomeOrigem, setNomeOrigem] = useState("")
     const [atividade, setAtividade] = useState(true)
     const [erroNome, setErroNome] = useState(false)
@@ -42,6 +43,8 @@ const CadastroOrigemCliente = () => {
           .then(response => response.json())
           .then((data) => {
             console.log('Post criado com sucesso:', data);
+            navigate("/Sistema/origem-cliente/")
+
           })
           .catch((error) => {
             console.error('Erro ao criar post:', error);
@@ -64,12 +67,13 @@ const CadastroOrigemCliente = () => {
             </Form.Group>
             {erroNome && <span style={{ color: 'red' }}>Digite o nome da origem.</span>}
 
+            <div className="d-flex gap-1 flex-row-reverse ml-auto w-100">
+            <Button variant='primary' onClick={handleSalvar}>Salvar</Button>
+
             <Link to={`/Sistema/origem-cliente/`}>
                 <Button variant='secondary'>Voltar</Button>
             </Link>
-
-            <Button variant='primary' onClick={handleSalvar}>Salvar</Button>
-
+            </div>
 
         </div>
     )

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
+
+import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 
 const EditarOrigemCliente = () => {
 
+    const navigate = useNavigate();
     const { id } = useParams();
     const [nomeOrigem, setNomeOrigem] = useState("")
     const [atividade, setAtividade] = useState(true)
@@ -57,6 +60,8 @@ const EditarOrigemCliente = () => {
           .then(response => response.json())
           .then((data) => {
             console.log('Origem editada com sucesso:', data);
+            navigate("/Sistema/origem-cliente/")
+
           })
           .catch((error) => {
             console.error('Erro ao editar origem post:', error);
@@ -64,27 +69,29 @@ const EditarOrigemCliente = () => {
       };
 
     return (
-        <div>
+        <div className='formContainer'>
             <h1>Editar Origem</h1>
             <hr />
-            <label>Nome</label>
-            <input
+
+            <Form.Group>
+            <Form.Label>Nome</Form.Label>
+            <Form.Control
             placeholder='Instagram, facebook..'
             value={nomeOrigem}
             onChange={(e) => setNomeOrigem(e.target.value)}
             onBlur={(e) => {validarCampoNome(e.target.value)}}
             />
+            </Form.Group>
             {erroNome && <span style={{ color: 'red' }}>Digite o nome da origem.</span>}
 
+            <div className="d-flex gap-1 flex-row-reverse ml-auto w-100">
+            <Button onClick={editarOrigem}>Salvar</Button>
+
             <Link to={`/Sistema/origem-cliente/`}>
-                <Button>Voltar</Button>
+                <Button variant='secondary'>Voltar</Button>
             </Link>
 
-            <Button
-            onClick={editarOrigem}
-            >Salvar</Button>
-
-
+            </div>
         </div>
     )
 }

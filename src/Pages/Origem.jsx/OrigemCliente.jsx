@@ -68,7 +68,7 @@ const OrigemCliente = () => {
             <tr key={origem.idOrigem}>
               <td>{origem.nomeOrigem}</td>
               <td>
-                <Link to={`/Sistema/editar-origem-cliente/${origem.nomeOrigem}`}>
+                <Link to={`/Sistema/editar-origem-cliente/${origem.idOrigem}`}>
                   <button>Editar</button>
                 </Link>
                 <button onClick={() => deletarOrigem(origem.idOrigem)}>Excluir</button>
