@@ -4,26 +4,31 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
 import { ThemeProvider } from './DarkMode/DarkModeTheme';
 import './DarkMode/DarkModeTheme.css';
+import './index.css';
 
-//import Clientes from './Pages/ClienteCadastro.jsx';
+import Login from './Pages/Login/Login.jsx';
+import Sistema from './Sistema.jsx';
+import Dashboardadmin from './Pages/PaineldeInformações/Dashboardadmin.jsx';
+
 import ClienteBusca from './Pages/Clientes/ClienteBusca.jsx';
 import ClienteCadastro from './Pages/Clientes/ClienteCadastro.jsx';
 import ClienteDashboard from './Pages/Clientes/ClienteDashboard.jsx';
-import Login from './Pages/Login/Login.jsx';
-import Sistema from './Sistema.jsx';
-import './index.css';
+
 import CadastroDashboard from './Pages/Cadastro/CadastroDashboard.jsx';
 import CadastroUsuario from './Pages/Cadastro/CadastroUsuario.jsx';
 import ClienteUpdate from './Pages/Clientes/ClienteUpdate.jsx';
 
+import OrigemCliente from './Pages/Origem.jsx/OrigemCliente.jsx';
+import CadastroOrigemCliente from './Pages/Origem.jsx/CadastroOrigemCliente.jsx';
+import EditarOrigemCliente from './Pages/Origem.jsx/EditarOrigemCliente.jsx';
 
 import Setor from './Pages/Setor/Setor.jsx';
 import CadastroDeSetor from './Pages/Setor/CadastroDeSetor.jsx';
 import EditarSetor from './Pages/Setor/EditarSetor.jsx';
-import Dashboardadmin from './Pages/PaineldeInformações/Dashboardadmin.jsx';
-import EditarGrife from './Pages/Grifes/EditarGrife.jsx';
-import CadastroGrifes from './Pages/Grifes/CadastroGrifes.jsx';
+
 import Grifes from './Pages/Grifes/Grifes.jsx';
+import CadastroGrifes from './Pages/Grifes/CadastroGrifes.jsx';
+import EditarGrife from './Pages/Grifes/EditarGrife.jsx';
 
 import Medicos from './Pages/Médicos/Medicos.jsx';
 import CadastroMedicos from './Pages/Médicos/CadastroMedicos.jsx';
@@ -43,6 +48,9 @@ import EditarTratamento from './Pages/Tratamentos/EditarTratamento.jsx';
 import Fornecedores from "./Pages/Fornecedores/Fornecedores.jsx"
 import CadastroFornecedores from "./Pages/Fornecedores/CadastroFornecedores.jsx"
 import EditarFornecedores from './Pages/Fornecedores/EditarFornecedores.jsx';
+
+import Lojas from './Pages/Lojas/Lojas.jsx'
+import CadastroLojas from './Pages/Lojas/CadastroLojas.jsx'
 
 import CadastroGrupos from './Pages/Grupos/CadastroGrupos.jsx';
 
