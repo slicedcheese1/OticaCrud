@@ -82,7 +82,7 @@ const Grifes = () => {
                 <td>{grife.nome}</td>
                 <td>
                   <div className="w-100 d-flex flex-row-reverse gap-2">
-                    <Link to={`/Sistema/editar-grife/${grife.idGrife}`}>
+                    <Link to={`/Sistema/editar-grifes/${grife.idGrife}`}>
                       <button>Editar</button>
                     </Link>
                     <button onClick={() => deletarGrifes(grife.idGrife)}>Excluir</button>

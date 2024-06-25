@@ -72,8 +72,8 @@ const router = createBrowserRouter([
             element: <CadastroGrifes/>
           },
           {
-            path: '/Sistema/editar-grife/:id',
-            element: <EditarGrife/>
+            path: '/Sistema/editar-grifes/:id',
+            element: <EditarGrife />
           },
           //========================================================== Lojas =======================================================================
           {
