@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams,  useNavigate } from 'react-router-dom'
 import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
 
 const EditarGrife = () => {
 
     const { id } = useParams();
+    const navigate = useNavigate();
     const [nome, setNomeGrife] = useState("")
     const [erroNome, setErroNome] = useState(false)
 
@@ -22,7 +23,7 @@ const EditarGrife = () => {
           setNomeGrife(data.nome);
         })
         .catch((error) => console.log("Não foi possivel carregar a grife", error));
-    }, [id]);
+    }, [id, navigate]);
 
     const validarCampoNome = (nomeOrigem) => {
         console.log("nome: ", nomeOrigem)
@@ -54,6 +55,7 @@ const EditarGrife = () => {
           .then(response => response.json())
           .then((data) => {
             console.log('Grife editada com sucesso:', data);
+            navigate("/Sistema/grifes/")
           })
           .catch((error) => {
             console.error('Erro ao editar Grife:', error);

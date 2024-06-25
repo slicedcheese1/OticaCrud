@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 
 const CadastroGrifes = () => {
 
+    const navigate = useNavigate();
     const [nome, setNomeGrife] = useState("")
     const [erroNome, setErroNome] = useState(false)
 
@@ -40,6 +41,7 @@ const CadastroGrifes = () => {
           .then(response => response.json())
           .then((data) => {
             console.log('Post criado com sucesso:', data);
+            navigate("/Sistema/grifes/")
           })
           .catch((error) => {
             console.error('Erro ao criar post:', error);
