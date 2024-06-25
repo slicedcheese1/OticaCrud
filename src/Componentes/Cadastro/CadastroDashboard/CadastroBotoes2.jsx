@@ -11,7 +11,7 @@ const CadastroBotoes2 = () => {
         titulo="Empresa/Loja"
         text="Clique aqui se deseja cadastrar um novo usuário do seu sistema"
         Icon={MdPeopleAlt}
-        link="/Sistema/CadastroUsuario/"
+        link="/Sistema/lojas/"
         iconColor="" // Definindo a cor do ícone
       />
       <Botao
@@ -21,13 +21,7 @@ const CadastroBotoes2 = () => {
         link="/Sistema/funcionario/"
         iconColor="" // Definindo a cor do ícone
       />
-      <Botao
-        titulo="Médicos/Optometristas"
-        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
-        Icon={FaSearch}
-        link="/Sistema/medicos/"
-        iconColor="" // Definindo a cor do ícone
-      />
+
       <Botao
         titulo="Grifes"
         text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
@@ -56,21 +50,7 @@ const CadastroBotoes2 = () => {
         link="/Sistema/médicos/"
         iconColor="" // Definindo a cor do ícone
       />
-      
-      <Botao
-        titulo="Tipos de material"
-        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
-        Icon={FaSearch}
-        link="/Sistema/material/"
-        iconColor="" // Definindo a cor do ícone
-      />
-      <Botao
-        titulo="Tratamento"
-        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
-        Icon={FaSearch}
-        link="/Sistema/tratamento/"
-        iconColor="" // Definindo a cor do ícone
-      />
+         
       <Botao
         titulo="Convênios"
         text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
@@ -86,24 +66,25 @@ const CadastroBotoes2 = () => {
         iconColor="" // Definindo a cor do ícone
       />
       <Botao
-        titulo="Origens do cliente"
+        titulo="Origem do cliente"
         text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
         Icon={FaSearch}
-        link="/Sistema/médicos/"
+        link="/Sistema/origem-cliente/"
         iconColor="" // Definindo a cor do ícone
       />
-      <Botao
-        titulo="Etapas de Ordens de Serviço"
-        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
-        Icon={FaSearch}
-        link="/Sistema/médicos/"
-        iconColor="" // Definindo a cor do ícone
-      />
+    
        <Botao
         titulo="Cargos (OK) "
         text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
         Icon={FaSearch}
         link="/Sistema/setor/"
+        iconColor="" // Definindo a cor do ícone
+      />
+        <Botao
+        titulo="Etapas de Ordens de Serviço (FAZER DEPOIS)"
+        text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
+        Icon={FaSearch}
+        link="/Sistema/médicos/"
         iconColor="" // Definindo a cor do ícone
       />
     </div>

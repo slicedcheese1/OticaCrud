@@ -1,29 +1,3 @@
-/* Estilo de fundo para a página específica */
-.clientecadastrocontainer {
-  min-height: 100vh; /* Garante que o fundo cubra toda a altura da página */
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f2f5; /* Cor de fundo desejada */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-
-/* Estilos para o formulário */
-.container2 {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 2rem;
-  max-width: 5000px; /* Ajustando a largura máxima */
-  width: 100%;
-  background-color: white;
-  border-radius: 12px; /* Bordas mais arredondadas para um visual moderno */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais suave e pronunciada */
-  animation: fadeIn 0.5s ease-in-out; /* Animação de entrada suave */
-}
-
 /* Estilos para inputs e selects */
 input, select {
   padding: 0.75rem; /* Aumentando o padding para uma área de clique maior */
@@ -34,12 +8,7 @@ input, select {
   transition: border-color 0.3s ease; /* Transição suave para a borda */
 }
 
-/* Estilos para labels */
-label {
-  font-weight: bold;
-  margin-top: 1rem;
-  font-size: 1.5rem; /* Tamanho de fonte ajustado */
-}
+
 
 /* Media Queries para Design Responsivo */
 @media (max-width: 768px) {
