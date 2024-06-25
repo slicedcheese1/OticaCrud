@@ -1,5 +1,5 @@
 import React from 'react'
-import CadastroBotoes2 from '../../Componentes/Cadastro/CadastroDashboard/CadastroBotoes2'
+import CadastroBotoes from '../../Componentes/Cadastro/CadastroDashboard/CadastroBotoes'
 
 const CadastroDashboard = () => {
   return (
@@ -8,7 +8,7 @@ const CadastroDashboard = () => {
           <div className="card-main">
             <h2>Cadastros</h2>
             <hr/>
-            <CadastroBotoes2/>
+            <CadastroBotoes/>
           </div>
         </div>
       </>

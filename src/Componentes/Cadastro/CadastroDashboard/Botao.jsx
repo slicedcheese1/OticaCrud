@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './CadastroBotoes.module.css';
 
 function Botao({ titulo, text, Icon, link, iconColor }) {
   return (
-    <a href={link} className="card-opt">
+    <a href={link} className={styles.cardOpt}>
       
-      <Icon className='icon-people' style={{ color: iconColor }} />
+      <Icon className={styles.iconPeople} style={{ color: iconColor }} />
       <p>{titulo}</p>
     </a>
   );

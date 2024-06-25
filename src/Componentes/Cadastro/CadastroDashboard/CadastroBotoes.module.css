@@ -28,7 +28,7 @@
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-.container-dashboard {
+.containerDashboard {
   
   flex-wrap:wrap;
   display: flex;
@@ -36,12 +36,10 @@
   align-items: center;
   height:100vh;
   border-radius: 20px;
-  
-  
 
 }
 
-.card-opt{
+.cardOpt{
   
   padding: 10px;
   display: flex;
@@ -70,7 +68,7 @@ p{
   
   margin-top: 20px;
 }
-.icon-people{
+.iconPeople{
   width: auto;
   height: 80px;
   margin-top: 4rem;
