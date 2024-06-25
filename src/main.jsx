@@ -25,26 +25,29 @@ import EditarGrife from './Pages/Grifes/EditarGrife.jsx';
 import CadastroGrifes from './Pages/Grifes/CadastroGrifes.jsx';
 import Grifes from './Pages/Grifes/Grifes.jsx';
 
-import CadastroMedicos from './Pages/Médicos/CadastroMedicos.jsx';
 import Medicos from './Pages/Médicos/Medicos.jsx';
+import CadastroMedicos from './Pages/Médicos/CadastroMedicos.jsx';
 import EditarMedico from './Pages/Médicos/EditarMedico.jsx';
+
 import Material from './Pages/Tipos de material/Material.jsx';
 import CadastroMaterial from './Pages/Tipos de material/CadastroMaterial.jsx';
 import EditarMaterial from './Pages/Tipos de material/EditarMaterial.jsx';
+
 import Funcionario from './Pages/Funcionarios/Funcionario.jsx';
 import CadastroFuncionario from './Pages/Funcionarios/CadastroFuncionario.jsx';
+
 import Tratamento from './Pages/Tratamentos/Tratamento.jsx';
 import CadastroTratamento from './Pages/Tratamentos/CadastroTratamento.jsx';
 import EditarTratamento from './Pages/Tratamentos/EditarTratamento.jsx';
+
 import Fornecedores from "./Pages/Fornecedores/Fornecedores.jsx"
 import CadastroFornecedores from "./Pages/Fornecedores/CadastroFornecedores.jsx"
+import EditarFornecedores from './Pages/Fornecedores/EditarFornecedores.jsx';
+
+import CadastroGrupos from './Pages/Grupos/CadastroGrupos.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import CadastroGrupos from './Pages/Grupos/CadastroGrupos.jsx';
-import Fornecedores from './Pages/Fornecedores/Fornecedores.jsx';
-import CadastroFornecedores from './Pages/Fornecedores/CadastroFornecedores.jsx';
-import EditarFornecedores from './Pages/Fornecedores/EditarFornecedores.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
