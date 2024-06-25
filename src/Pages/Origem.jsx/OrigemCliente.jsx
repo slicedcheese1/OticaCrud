@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Pagination from '../../Componentes/Pagination/Pagination';
+import Table from "react-bootstrap/Table"
+import Button from "react-bootstrap/Button"
 
 const OrigemCliente = () => {
     const [origens, setOrigens] = useState([]);
@@ -49,40 +51,50 @@ const OrigemCliente = () => {
   return (
     <> 
     <div>
-    <div className='container-origem'>
-      <h1>Origem do cliente</h1>
-      <Link to={`/Sistema/cadastro-origem-cliente/`}>
-        <button>+ Nova Origem</button>
-      </Link>
+      <div className="w-100 d-flex justify-content-between align-items-center">
+        <h1>Origem do cliente</h1>
+        <div className="d-flex gap-1 align-items-center">
+          <Link to={`/Sistema/Cadastros/`}>
+                <Button variant='secondary'> Voltar </Button>
+          </Link>
+          <Link to={`/Sistema/cadastro-origem-cliente/`}>
+            <Button>+ Nova Origem</Button>
+          </Link>
+        </div>
+      </div>
+
       <hr />
       <br />
-      <table className="customers">
-        <thead>
-          <tr>
-            <th>Origem</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          {origens.map((origem) => (
-            <tr key={origem.idOrigem}>
-              <td>{origem.nomeOrigem}</td>
-              <td>
-                <Link to={`/Sistema/editar-origem-cliente/${origem.idOrigem}`}>
-                  <button>Editar</button>
-                </Link>
-                <button onClick={() => deletarOrigem(origem.idOrigem)}>Excluir</button>
-              </td>
+
+      <div className="formContainer">
+        <Table striped bordered hover size="sm" >
+          <thead>
+            <tr>
+              <th>Origem</th>
+              <th>Ações</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {origens.map((origem) => (
+              <tr key={origem.idOrigem}>
+                <td>{origem.nomeOrigem}</td>
+                <td>
+                  <Link to={`/Sistema/editar-origem-cliente/${origem.idOrigem}`}>
+                    <button>Editar</button>
+                  </Link>
+                  <button onClick={() => deletarOrigem(origem.idOrigem)}>Excluir</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
+
       <Pagination />
       <Link to={`/Sistema/Cadastros/`}>
         <button>Voltar</button>
       </Link>
       
-    </div>
     </div>
     </>
   )
