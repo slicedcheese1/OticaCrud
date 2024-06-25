@@ -34,6 +34,11 @@ body, html{
   margin-bottom: 0.5rem;
 }
 
+.input::placeholder {
+  font-size: 1.2rem; /* Adjust the font size as needed */
+  color: gray; /* You can also change the color if needed */
+}
+
 .input:focus {
   border-color: #007bff; /* Cor da borda ao focar */
   outline: none; /* Removendo outline padrão */
@@ -41,6 +46,11 @@ body, html{
 }
 
 label{
-  font-size: 15px;
+  font-size: 1.5rem;
   font-family: Arial, sans-serif;
+}
+
+select{
+  font-size: 1.8rem; /* Adjust the font size as needed */
+  color: gray;
 }

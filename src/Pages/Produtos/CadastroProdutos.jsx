@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react"
 
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button"
+import Card from "react-bootstrap/Card"
 
 function CadastroProdutos() {
 
@@ -108,14 +109,10 @@ function CadastroProdutos() {
             });
     }
 
-
-
-
-
     return (
         <>
             <form className="formContainer">
-                <div className='container-dados-produtos'>
+                <Card className='p-4'>
                     <h2>Dados do produto</h2>
                     <hr />
 
@@ -226,11 +223,13 @@ function CadastroProdutos() {
                         label="Controlar estoque"
                         name="group2"
                     />
-                     
-                    <Form.Group>
-                        <h2> Informações de preço e estoque </h2>
-                        <hr />
 
+                </Card>
+
+                <Card className='p-4' >
+                     <h2> Informações de preço e estoque </h2>
+                     <hr />
+                    <Form.Group>
                         <Form.Check
                             inline
                             label="Cadastrar o mesmo valor de custo para todas as lojas"
@@ -238,9 +237,9 @@ function CadastroProdutos() {
                         />
 
                         <Form.Check
-                        inline
-                        label="Cadastrar o mesmo preço de venda para todas as lojas"
-                        name="group1"
+                            inline
+                            label="Cadastrar o mesmo preço de venda para todas as lojas"
+                            name="group1"
                         />
 
                         <Form.Label>Custo</Form.Label>
@@ -292,10 +291,6 @@ function CadastroProdutos() {
                         />
                     </Form.Group>
 
-                </div>
-
-                <div className='container-dados-endereço-funcionario'>
-
                     <Form.Label>Qtd. Minima</Form.Label>
                     <Form.Control
                         className="input"
@@ -313,7 +308,7 @@ function CadastroProdutos() {
                         value={endereco}
                         onChange={(e) => setEndereco(e.target.value)}
                     />
-                </div>
+                </Card>
 
                 <Button onClick={(e) => saveFuncionario(e)}>Cadastrar</Button>
 

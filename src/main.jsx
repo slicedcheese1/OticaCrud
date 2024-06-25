@@ -14,6 +14,11 @@ import ClienteBusca from './Pages/Clientes/ClienteBusca.jsx';
 import ClienteCadastro from './Pages/Clientes/ClienteCadastro.jsx';
 import ClienteDashboard from './Pages/Clientes/ClienteDashboard.jsx';
 
+import Produtos from './Pages/Produtos/Produtos.jsx';
+import CadastroProdutos from './Pages/Produtos/CadastroProdutos.jsx';
+import EditarProdutos from './Pages/Produtos/EditarProdutos.jsx';
+import HistoricoProdutos from './Pages/Produtos/HistoricoProdutos.jsx';
+
 import CadastroDashboard from './Pages/Cadastro/CadastroDashboard.jsx';
 import CadastroUsuario from './Pages/Cadastro/CadastroUsuario.jsx';
 import ClienteUpdate from './Pages/Clientes/ClienteUpdate.jsx';
@@ -85,26 +90,14 @@ const router = createBrowserRouter([
             path: '/Sistema/editar-grifes/:id',
             element: <EditarGrife />
           },
-          //========================================================== Unidades ====================================================================
-          {
-            path: '/Sistema/unidades',
-            element: <Unidades />
-          },
-          {
-            path: '/Sistema/cadastro-unidades',
-            element: <CadastroUnidades />
-          },
-          {
-            path: '/Sistema/editar-unidades',
-            element: <EditarUnidades />
-          },
+
           //========================================================== Produtos =======================================================================
           {
             path: '/Sistema/produtos',
             element: <Produtos />
           },
           {
-            path: '/Sistema/cadastro-produtos',
+            path: '/Sistema/cadastro-produto',
             element: <CadastroProdutos/>
           },
           {
@@ -115,23 +108,7 @@ const router = createBrowserRouter([
             path: '/Sistema/historico-produto',
             element: <HistoricoProdutos />
           },
-          //========================================================== Lojas =======================================================================
-          {
-            path: '/Sistema/lojas',
-            element: <Lojas/>
-          },
-          {
-            path: '/Sistema/cadastro-loja',
-            element: <CadastroLojas/>
-          },
-          {
-            path: '/Sistema/editar-loja/:id',
-            element: <EditarLoja/>
-          },
-          {
-            path: '/Sistema/editar-loja',
-            element: <EditarLojas />
-          },
+
           //========================================================== Origem do cliente =============================================================
           {
             path: '/Sistema/origem-cliente',

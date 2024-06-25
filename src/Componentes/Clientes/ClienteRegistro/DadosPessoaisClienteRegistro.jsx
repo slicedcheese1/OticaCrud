@@ -184,7 +184,7 @@ function DadosPessoaisClienteRegistro() {
               <Form.Group className={`w-90 d-flex flex-column gap-1 ml-2 mr-5`}>
                 <Form.Label id="label-lojas" htmlFor="lojas">Cadastro Em</Form.Label>
                 <Form.Select className="input" name="loja" value={lojaCadastro} onChange={(e) => { setLojaCadastro(e.target.value) }} required>
-                  <option value="" disabled selected >Selecione uma opção</option>
+                  <option value="Selecione uma opção" disabled selected ></option>
                       {lojas.map((loja) => (
                   <option>{loja.identificacaoEmpresa}</option>  
           

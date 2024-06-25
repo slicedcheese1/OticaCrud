@@ -5,7 +5,7 @@ const CadastroDashboard = () => {
   return (
       <>
         <div className="formContainer">
-          <div >
+          <div>
             <h2>Cadastros</h2>
             <hr/>
             <CadastroBotoes/>
