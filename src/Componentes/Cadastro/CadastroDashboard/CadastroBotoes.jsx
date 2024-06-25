@@ -11,9 +11,8 @@ import { BsCreditCard2Back } from "react-icons/bs";
 import { BsFileText } from "react-icons/bs";
 import { BsBoxes } from "react-icons/bs";
 import { BsShare } from "react-icons/bs";
-import { BsFillPersonLinesFill } from "react-icons/bs";
+import { BsPersonVcard } from "react-icons/bs";
 import { GoGear } from "react-icons/go";
-import {FaSearch } from "react-icons/fa";
 
 const CadastroBotoes = () => {
   return (
@@ -87,7 +86,7 @@ const CadastroBotoes = () => {
        <Botao
         titulo="Cargos  "
         text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
-        Icon={BsFillPersonLinesFill}
+        Icon={BsPersonVcard}
         link="/Sistema/setor/"
         iconColor="" // Definindo a cor do ícone
       />
