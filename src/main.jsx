@@ -40,6 +40,7 @@ import EditarMaterial from './Pages/Tipos de material/EditarMaterial.jsx';
 
 import Funcionario from './Pages/Funcionarios/Funcionario.jsx';
 import CadastroFuncionario from './Pages/Funcionarios/CadastroFuncionario.jsx';
+import EditarFuncionario from './Pages/Funcionarios/EditarFuncionario.jsx';
 
 import Tratamento from './Pages/Tratamentos/Tratamento.jsx';
 import CadastroTratamento from './Pages/Tratamentos/CadastroTratamento.jsx';
@@ -51,6 +52,7 @@ import EditarFornecedores from './Pages/Fornecedores/EditarFornecedores.jsx';
 
 import Lojas from './Pages/Lojas/Lojas.jsx'
 import CadastroLojas from './Pages/Lojas/CadastroLojas.jsx'
+import EditarLojas from './Pages/Lojas/EditarLojas.jsx'
 
 import CadastroGrupos from './Pages/Grupos/CadastroGrupos.jsx';
 
@@ -85,12 +87,16 @@ const router = createBrowserRouter([
           },
           //========================================================== Lojas =======================================================================
           {
+            path: '/Sistema/lojas',
+            element: <Lojas/>
+          },
+          {
             path: '/Sistema/cadastro-loja',
             element: <CadastroLojas />
           },
           {
-            path: '/Sistema/lojas',
-            element: <Lojas/>
+            path: '/Sistema/editar-loja',
+            element: <EditarLojas />
           },
           //========================================================== Origem do cliente =============================================================
           {
@@ -112,10 +118,10 @@ const router = createBrowserRouter([
           },
           {
             path: '/Sistema/cadastro-fornecedores',
-            element: <CadastroFornecedores />
+            element: <CadastroFornecedores/>
           },
           {
-            path: '/Sistema/editar-funcionarios',
+            path: '/Sistema/editar-fornecedores',
             element: <EditarFornecedores />
           },
           //========================================================== Material ======================================================================
@@ -169,18 +175,18 @@ const router = createBrowserRouter([
             path: '/Sistema/ClienteBusca/:id',
             element: <ClienteUpdate /> //(())
           },
-          //========================================================== Cargos ==========================================================================
+          //========================================================== Setor ==========================================================================
           {
-            path: '/Sistema/editar-setor/:id',
-            element: <EditarSetor/> //(())
+            path: '/Sistema/setor',
+            element: <Setor /> //(())
           },
           {
             path: '/Sistema/cadastro-setor',
             element: <CadastroDeSetor /> //(())
           },
           {
-            path: '/Sistema/setor',
-            element: <Setor /> //(())
+            path: '/Sistema/editar-setor/:id',
+            element: <EditarSetor/> //(())
           },
           //========================================================== Funcionários ==========================================================================
           {
@@ -190,6 +196,10 @@ const router = createBrowserRouter([
           {
             path: '/Sistema/cadastro-funcionario',
             element: <CadastroFuncionario/>
+          },
+          {
+            path: '/Sistema/editar-funcionario',
+            element: <EditarFuncionario/>
           },
           //========================================================== Tratamento ==========================================================================
           {
@@ -209,15 +219,6 @@ const router = createBrowserRouter([
            {
             path: '/Sistema/Grupos',
             element: <CadastroGrupos/>
-          },
-          //========================================================== Forncedores ==========================================================================
-          {
-            path: '/Sistema/fornecedores',
-            element: <Fornecedores/>
-          },
-          {
-            path: '/Sistema/cadastro-fornecedor',
-            element: <CadastroFornecedores/>
           },
         ]
       },
