@@ -12,7 +12,7 @@ const Grifes = () => {
     }, []);
   
     const buscarGrifes = () => {
-      fetch("http://localhost:8080/grife/all")
+      fetch("http://localhost:8080/unidade")
         .then(resposta => resposta.json())
         .then(dados => {
           setGrifes(dados);
@@ -22,7 +22,7 @@ const Grifes = () => {
     
   
     const deletarGrifes = (id) => {
-      fetch(`http://localhost:8080/grife/${id}`, {
+      fetch(`http://localhost:8080/unidade/${id}`, {
         method: 'DELETE'
       })
         .then(resposta => {
@@ -31,19 +31,6 @@ const Grifes = () => {
             console.log(dados)
           }
         });
-    };
-  
-    const atualizarSetores = (id) => {
-      fetch(`http://localhost:8080/cargo/${id}`, {
-        method: 'GET'
-      })
-      .then(resposta => resposta.json())
-      .then(dados => {
-        this.setState({ 
-          id: dados.idCargo,
-          nomeCargo: dados.nomeCargo
-        }); 
-      });
     };
 
   return (

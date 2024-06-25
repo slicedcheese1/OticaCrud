@@ -48,6 +48,13 @@ import OrigemCliente from './Pages/Origem.jsx/OrigemCliente.jsx';
 import CadastroOrigemCliente from './Pages/Origem.jsx/CadastroOrigemCliente.jsx';
 import EditarOrigemCliente from './Pages/Origem.jsx/EditarOrigemCliente.jsx';
 import EditarLoja from './Pages/Lojas/EditarLojas.jsx';
+import Unidades from './Pages/Unidades/Unidades.jsx';
+import CadastroUnidades from './Pages/Unidades/CadastroUnidades.jsx';
+import EditarUnidades from './Pages/Unidades/EditarUnidades.jsx';
+import Produtos from './Pages/Produtos/Produtos.jsx';
+import EditarProdutos from './Pages/Produtos/EditarProdutos.jsx';
+import CadastroProdutos from './Pages/Produtos/CadastroProdutos.jsx';
+import HistoricoProdutos from './Pages/Produtos/HistoricoProdutos.jsx';
 
 const router = createBrowserRouter([
   {
@@ -76,7 +83,38 @@ const router = createBrowserRouter([
             path: '/Sistema/editar-grifes',
             element: <EditarGrife />
           },
+          //========================================================== Unidades ====================================================================
+          {
+            path: '/Sistema/unidades',
+            element: <Unidades />
+          },
+          {
+            path: '/Sistema/cadastro-unidades',
+            element: <CadastroUnidades />
+          },
+          {
+            path: '/Sistema/editar-unidades',
+            element: <EditarUnidades />
+          },
+          //========================================================== Produtos =======================================================================
+          {
+            path: '/Sistema/produtos',
+            element: <Produtos />
+          },
+          {
+            path: '/Sistema/cadastro-produtos',
+            element: <CadastroProdutos/>
+          },
+          {
+            path: '/Sistema/editar-produto',
+            element: <EditarProdutos />
+          },
+          {
+            path: '/Sistema/historico-produto',
+            element: <HistoricoProdutos />
+          },
           //========================================================== Lojas =======================================================================
+          
           {
             path: '/Sistema/cadastro-loja',
             element: <CadastroLojas/>
