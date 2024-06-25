@@ -1,9 +1,24 @@
+<<<<<<< HEAD
    
    import React from "react"
    import { useState} from "react"
 
    function CadastroLojas() {
    //     "nomeFantasia": "string",
+=======
+import { React, useState } from "react"
+
+import Form from 'react-bootstrap/Form';
+
+
+function CadastroLojas() {
+
+    // {
+    //     "id": 0,
+    //     "cpf": "23640486914",
+    //     "cnpj": "33751472605233",
+    //     "nomeFantasia": "string",
+>>>>>>> main
     //     "razaoSocial": "string",
     //     "laboratorio": true,
     //     "cep": "string",
@@ -76,7 +91,7 @@
     return(
       <>
         <form>
-            <div className='container-dados-pessoais-funcionario'>
+            <div>
                 <h2>Nova Loja</h2>
                 <hr/>
                 

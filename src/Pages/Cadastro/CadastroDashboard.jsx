@@ -4,11 +4,10 @@ import CadastroBotoes2 from '../../Componentes/Cadastro/CadastroDashboard/Cadast
 const CadastroDashboard = () => {
   return (
       <>
-        <div className="page-container">
+        <div className="formContainer">
           <div className="card-main">
             <h2>Cadastros</h2>
             <hr/>
-        
             <CadastroBotoes2/>
           </div>
         </div>
