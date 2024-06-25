@@ -4,57 +4,59 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
 import { ThemeProvider } from './DarkMode/DarkModeTheme';
 import './DarkMode/DarkModeTheme.css';
+import './index.css';
 
-//import Clientes from './Pages/ClienteCadastro.jsx';
+import Login from './Pages/Login/Login.jsx';
+import Sistema from './Sistema.jsx';
+import Dashboardadmin from './Pages/PaineldeInformações/Dashboardadmin.jsx';
+
 import ClienteBusca from './Pages/Clientes/ClienteBusca.jsx';
 import ClienteCadastro from './Pages/Clientes/ClienteCadastro.jsx';
 import ClienteDashboard from './Pages/Clientes/ClienteDashboard.jsx';
-import Login from './Pages/Login/Login.jsx';
-import Sistema from './Sistema.jsx';
-import './index.css';
+
 import CadastroDashboard from './Pages/Cadastro/CadastroDashboard.jsx';
 import CadastroUsuario from './Pages/Cadastro/CadastroUsuario.jsx';
 import ClienteUpdate from './Pages/Clientes/ClienteUpdate.jsx';
 
+import OrigemCliente from './Pages/Origem.jsx/OrigemCliente.jsx';
+import CadastroOrigemCliente from './Pages/Origem.jsx/CadastroOrigemCliente.jsx';
+import EditarOrigemCliente from './Pages/Origem.jsx/EditarOrigemCliente.jsx';
 
 import Setor from './Pages/Setor/Setor.jsx';
 import CadastroDeSetor from './Pages/Setor/CadastroDeSetor.jsx';
 import EditarSetor from './Pages/Setor/EditarSetor.jsx';
-import Dashboardadmin from './Pages/PaineldeInformações/Dashboardadmin.jsx';
-import EditarGrife from './Pages/Grifes/EditarGrife.jsx';
-import CadastroGrifes from './Pages/Grifes/CadastroGrifes.jsx';
-import Grifes from './Pages/Grifes/Grifes.jsx';
 
-import CadastroMedicos from './Pages/Médicos/CadastroMedicos.jsx';
+import Grifes from './Pages/Grifes/Grifes.jsx';
+import CadastroGrifes from './Pages/Grifes/CadastroGrifes.jsx';
+import EditarGrife from './Pages/Grifes/EditarGrife.jsx';
+
 import Medicos from './Pages/Médicos/Medicos.jsx';
+import CadastroMedicos from './Pages/Médicos/CadastroMedicos.jsx';
 import EditarMedico from './Pages/Médicos/EditarMedico.jsx';
+
 import Material from './Pages/Tipos de material/Material.jsx';
 import CadastroMaterial from './Pages/Tipos de material/CadastroMaterial.jsx';
 import EditarMaterial from './Pages/Tipos de material/EditarMaterial.jsx';
+
 import Funcionario from './Pages/Funcionarios/Funcionario.jsx';
 import CadastroFuncionario from './Pages/Funcionarios/CadastroFuncionario.jsx';
+import EditarFuncionario from './Pages/Funcionarios/EditarFuncionario.jsx';
+
 import Tratamento from './Pages/Tratamentos/Tratamento.jsx';
 import CadastroTratamento from './Pages/Tratamentos/CadastroTratamento.jsx';
 import EditarTratamento from './Pages/Tratamentos/EditarTratamento.jsx';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Fornecedores from "./Pages/Fornecedores/Fornecedores.jsx"
+import CadastroFornecedores from "./Pages/Fornecedores/CadastroFornecedores.jsx"
+import EditarFornecedores from './Pages/Fornecedores/EditarFornecedores.jsx';
+
+import Lojas from './Pages/Lojas/Lojas.jsx'
+import CadastroLojas from './Pages/Lojas/CadastroLojas.jsx'
+import EditarLojas from './Pages/Lojas/EditarLojas.jsx'
 
 import CadastroGrupos from './Pages/Grupos/CadastroGrupos.jsx';
-import Fornecedores from './Pages/Fornecedores/Fornecedores.jsx';
-import CadastroFornecedores from './Pages/Fornecedores/CadastroFornecedores.jsx';
-import EditarFornecedores from './Pages/Fornecedores/EditarFornecedores.jsx';
-import CadastroLojas from './Pages/Lojas/CadastroLojas.jsx';
-import Lojas from './Pages/Lojas/Lojas.jsx';
-import OrigemCliente from './Pages/Origem.jsx/OrigemCliente.jsx';
-import CadastroOrigemCliente from './Pages/Origem.jsx/CadastroOrigemCliente.jsx';
-import EditarOrigemCliente from './Pages/Origem.jsx/EditarOrigemCliente.jsx';
-import EditarLoja from './Pages/Lojas/EditarLojas.jsx';
-import Unidades from './Pages/Unidades/Unidades.jsx';
-import CadastroUnidades from './Pages/Unidades/CadastroUnidades.jsx';
-import EditarUnidades from './Pages/Unidades/EditarUnidades.jsx';
-import Produtos from './Pages/Produtos/Produtos.jsx';
-import EditarProdutos from './Pages/Produtos/EditarProdutos.jsx';
-import CadastroProdutos from './Pages/Produtos/CadastroProdutos.jsx';
-import HistoricoProdutos from './Pages/Produtos/HistoricoProdutos.jsx';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
   {
@@ -77,10 +79,10 @@ const router = createBrowserRouter([
           },
           {
             path: '/Sistema/cadastro-grifes',
-            element: <CadastroGrifes />
+            element: <CadastroGrifes/>
           },
           {
-            path: '/Sistema/editar-grifes',
+            path: '/Sistema/editar-grifes/:id',
             element: <EditarGrife />
           },
           //========================================================== Unidades ====================================================================
@@ -114,7 +116,10 @@ const router = createBrowserRouter([
             element: <HistoricoProdutos />
           },
           //========================================================== Lojas =======================================================================
-          
+          {
+            path: '/Sistema/lojas',
+            element: <Lojas/>
+          },
           {
             path: '/Sistema/cadastro-loja',
             element: <CadastroLojas/>
@@ -124,8 +129,8 @@ const router = createBrowserRouter([
             element: <EditarLoja/>
           },
           {
-            path: '/Sistema/lojas',
-            element: <Lojas/>
+            path: '/Sistema/editar-loja',
+            element: <EditarLojas />
           },
           //========================================================== Origem do cliente =============================================================
           {
@@ -147,10 +152,10 @@ const router = createBrowserRouter([
           },
           {
             path: '/Sistema/cadastro-fornecedores',
-            element: <CadastroFornecedores />
+            element: <CadastroFornecedores/>
           },
           {
-            path: '/Sistema/editar-funcionarios',
+            path: '/Sistema/editar-fornecedores',
             element: <EditarFornecedores />
           },
           //========================================================== Material ======================================================================
@@ -204,18 +209,18 @@ const router = createBrowserRouter([
             path: '/Sistema/ClienteBusca/:id',
             element: <ClienteUpdate /> //(())
           },
-          //========================================================== Cargos ==========================================================================
+          //========================================================== Setor ==========================================================================
           {
-            path: '/Sistema/editar-setor/:id',
-            element: <EditarSetor/> //(())
+            path: '/Sistema/setor',
+            element: <Setor /> //(())
           },
           {
             path: '/Sistema/cadastro-setor',
             element: <CadastroDeSetor /> //(())
           },
           {
-            path: '/Sistema/setor',
-            element: <Setor /> //(())
+            path: '/Sistema/editar-setor/:id',
+            element: <EditarSetor/> //(())
           },
           //========================================================== Funcionários ==========================================================================
           {
@@ -225,6 +230,10 @@ const router = createBrowserRouter([
           {
             path: '/Sistema/cadastro-funcionario',
             element: <CadastroFuncionario/>
+          },
+          {
+            path: '/Sistema/editar-funcionario',
+            element: <EditarFuncionario/>
           },
           //========================================================== Tratamento ==========================================================================
           {
@@ -245,7 +254,6 @@ const router = createBrowserRouter([
             path: '/Sistema/Grupos',
             element: <CadastroGrupos/>
           },
-      
         ]
       },
       {
