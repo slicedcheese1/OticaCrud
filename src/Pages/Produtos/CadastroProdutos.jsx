@@ -39,16 +39,32 @@ function CadastroProdutos() {
             return newValues;
         });
     };
-    //   const handleCoustChange = (id, value) => {
-    //     setCoustValues(prevValues => {
-    //         const newValues = {
-    //           ...prevValues,
-    //           [id]: value,
-    //         };
-    //         console.log('Coust Values:', newValues); // Verifica o tamanho e o conteúdo do objeto
-    //         return newValues;
-    //       });
-    //   };
+
+    const handleCoustChange = (id, value) => {
+        setCoustValues(prevValues => {
+            let newValues;
+            if (sameCoust) {
+                // Se samePrice for true, atualiza todos os valores
+                newValues = Object.keys(prevValues).reduce((acc, key) => {
+                    acc[key] = value;
+                    return acc;
+                }, {});
+                // Certifique-se de que todos os valores de lojas também sejam atualizados
+                lojas.forEach((_, index) => {
+                    newValues[index] = value;
+                });
+            } else {
+                // Atualiza apenas o valor correspondente ao id fornecido
+                newValues = {
+                    ...prevValues,
+                    [id]: value,
+                };
+            }
+            console.log('Coust Values:', newValues); // Verifica o tamanho e o conteúdo do objeto
+            return newValues;
+        });
+    };
+
 
     useEffect(() => {
         buscarUnidades();
@@ -391,8 +407,8 @@ function CadastroProdutos() {
                             id={`input-${index}`}
                             className="input"
                             name="cargos"
-                            // value={coustValues[index] || ''}
-                            // onChange={(e) => handleCoustChange(index, e.target.value)}
+                            value={coustValues[index] || ''}
+                            onChange={(e) => handleCoustChange(index, e.target.value)}
                         />
                         
                     </Form.Group>
