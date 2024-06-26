@@ -5,12 +5,50 @@ import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 
 function CadastroProdutos() {
-
+    const [samePrice, setSamePrice] = useState(false)
+    const [sameCoust, setSameCoust] = useState(false);
     const [unidades, setUnidades] = useState([]);
     const [grifes, setGrifes] = useState([]);
     const [grupos, setGrupos] = useState([]);
     const [fornecedores, setFornecedores] = useState([]);
     const [lojas, setLojas] = useState([]);
+    const [priceValues, setPriceValues] = useState({});
+    const [coustValues, setCoustValues] = useState({});
+
+    const handlePriceChange = (id, value) => {
+        setPriceValues(prevValues => {
+            let newValues;
+            if (samePrice) {
+                // Se samePrice for true, atualiza todos os valores
+                newValues = Object.keys(prevValues).reduce((acc, key) => {
+                    acc[key] = value;
+                    return acc;
+                }, {});
+                // Certifique-se de que todos os valores de lojas também sejam atualizados
+                lojas.forEach((_, index) => {
+                    newValues[index] = value;
+                });
+            } else {
+                // Atualiza apenas o valor correspondente ao id fornecido
+                newValues = {
+                    ...prevValues,
+                    [id]: value,
+                };
+            }
+            console.log('Price Values:', newValues); // Verifica o tamanho e o conteúdo do objeto
+            return newValues;
+        });
+    };
+    //   const handleCoustChange = (id, value) => {
+    //     setCoustValues(prevValues => {
+    //         const newValues = {
+    //           ...prevValues,
+    //           [id]: value,
+    //         };
+    //         console.log('Coust Values:', newValues); // Verifica o tamanho e o conteúdo do objeto
+    //         return newValues;
+    //       });
+    //   };
 
     useEffect(() => {
         buscarUnidades();
@@ -129,12 +167,6 @@ function CadastroProdutos() {
     const [limiteDesconto, setLimiteDesconto] = useState("")
     const [email, setEmail] = useState("")
     const [loja, setLoja] = useState("")
-
-    function addCargo(event) {
-        event.preventDefault();
-        setCargo(event.target.value)
-        setCargos([...cargos, { idCargo: 0, nomeCargo: event.target.value }]);
-    }
 
     function saveFuncionario(e) {
         e.preventDefault()
@@ -310,29 +342,57 @@ function CadastroProdutos() {
                 <h2>Informações de preço e estoque </h2>
                 <hr style={{marginTop: "-1rem"}}/>
                 <div className="d-flex flex-column gap-4">
-                {lojas.map((loja)=> (
+                <Form.Group>
+                        <Form.Check
+                            inline
+                            label="Cadastrar o mesmo valor de custo para todas as lojas"
+                            name="group2"
+                            checked={sameCoust}
+                            onChange={(e) => {
+                                setSameCoust(e.target.checked)
+                            }}
+                        />
+
+                        <Form.Check
+                            inline
+                            label="Cadastrar o mesmo preço de venda para todas as lojas"
+                            name="group1"
+                            id={`inline-checkbox-1`}
+                            checked={samePrice}
+                            onChange={(e) => {
+                                setSamePrice(e.target.checked)
+                            }}
+                        />
+                    </Form.Group>
+
+                {lojas.map((loja, index)=> (
                 <Card className='p-4 d-flex flex-column gap-2' >
                     <h3 className="fw-bold">{loja.razaoSocial}</h3>
-                    
 
                     <div className="w-90 d-flex gap-4 ">
-                    <Form.Group>
-                        <Form.Label>Preço de venda</Form.Label>
+                    <Form.Group key={index}>
+                        <Form.Label 
+                        htmlFor={`input-${index}`}
+                        >Preço de venda</Form.Label>
                         <Form.Control
+                            id={`input-${index}`}
                             className="input"
                             name="rg"
                             type='text'
-                            value={rg}
-                            onChange={(e) => setRg(e.target.value)}
+                            value={priceValues[index] || ''}
+                            onChange={(e) => handlePriceChange(index, e.target.value)}
                         />
                     </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Custo</Form.Label>
+                    <Form.Group key={index}>
+                        <Form.Label
+                        htmlFor={`input-${index}`}
+                        >Custo</Form.Label>
                         <Form.Control
+                            id={`input-${index}`}
                             className="input"
                             name="cargos"
-                            value={cargo}
-                            onChange={(e) => { addCargo(e) }}
+                            // value={coustValues[index] || ''}
+                            // onChange={(e) => handleCoustChange(index, e.target.value)}
                         />
                         
                     </Form.Group>
@@ -387,20 +447,7 @@ function CadastroProdutos() {
                     </Form.Group>
                     </div>
 
-                    <Form.Group>
-                        <Form.Check
-                            inline
-                            label="Cadastrar o mesmo valor de custo para todas as lojas"
-                            name="group2"
-                        />
-
-                        <Form.Check
-                            inline
-                            label="Cadastrar o mesmo preço de venda para todas as lojas"
-                            name="group1"
-                            id={`inline-checkbox-1`}
-                        />
-                    </Form.Group>
+                    
                 </Card>
                 ))}
                 </div>
