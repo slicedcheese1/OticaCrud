@@ -15,6 +15,65 @@ function CadastroProdutos() {
     const [priceValues, setPriceValues] = useState({});
     const [coustValues, setCoustValues] = useState({});
 
+    const calculateProfit = (id) => {
+        // Obtém o preço de venda e o custo para o id específico
+        const sellingPrice = parseInt(priceValues[id]);
+        const cost = parseInt(coustValues[id]);
+
+        // Verifica se ambos valores existem
+        if (sellingPrice !== undefined && cost !== undefined) {
+            if  (!(isNaN(sellingPrice) || isNaN(cost))){
+
+                if (cost === 0 && sellingPrice === 0) {
+                    return '0'; // Se o preço de venda for zero, não há lucro
+                } else {
+                    // Calcula o lucro
+                    const profit = sellingPrice - cost;
+                    return profit;
+                }
+            } else {
+                return ''
+            }
+        } else {
+            console.error(`Valores não encontrados para o id: ${id}`);
+            return null;
+        }
+    };
+
+    const calculateProfitPercent = (id) => {
+        // Obtém o preço de venda e o custo para o id específico
+        const sellingPrice = parseInt(priceValues[id]);
+        const cost = parseInt(coustValues[id]);
+
+        console.log("selling: ", sellingPrice)
+
+        // Verifica se ambos valores existem
+        if (sellingPrice !== undefined && cost !== undefined) {
+            
+            if  (!(isNaN(sellingPrice) || isNaN(cost))){
+                // Calcula o lucro
+                if (cost === 0) {
+                    if (sellingPrice > 0) {
+                        return `${sellingPrice*100}%`; // Considera como 100% de margem de lucro se o custo for zero
+                    } else if (sellingPrice === 0) {
+                        return '0%'; // Se o preço de venda for zero, não há lucro
+                    }
+
+                }  else {
+                    const profit = ((sellingPrice - cost)/cost)*100;
+                    console.log("profit: ", profit)
+                    return profit + '%';
+                }
+            }else {
+                console.log("hi: ")
+                return '';
+            }
+        } else {
+            console.error(`Valores não encontrados para o id: ${id}`);
+            return 0;
+        }
+    };
+
     const handlePriceChange = (id, value) => {
         setPriceValues(prevValues => {
             let newValues;
@@ -64,7 +123,6 @@ function CadastroProdutos() {
             return newValues;
         });
     };
-
 
     useEffect(() => {
         buscarUnidades();
@@ -127,8 +185,6 @@ function CadastroProdutos() {
             });
     };
 
-    
-
     const buscarLojas = () => {
         fetch("http://localhost:8080/loja/all")
             .then(resposta => resposta.json())
@@ -142,30 +198,6 @@ function CadastroProdutos() {
             });
     };
 
-
-    // {
-    //     "id": 0,
-    //     "nome": "string",
-    //     "senha": "string",
-    //     "lojaCadastro": "string",
-    //     "cargos": [
-    //       {
-    //         "idCargo": 0,
-    //         "nomeCargo": "string"
-    //       }
-    //     ],
-    //     "rg": "string",
-    //     "cpf": "string",
-    //     "telefonePrimario": "string",
-    //     "telefoneSecundario": "string",
-    //     "cep": "string",
-    //     "endereco": "string",
-    //     "bairro": "string",
-    //     "cidade": "string",
-    //     "limiteDesconto": 0,
-    //     "email": "string",
-    //     "loja": "string"
-    //   }
 
     const [nome, setNome] = useState("")
     const [senha, setSenha] = useState("")
@@ -413,20 +445,24 @@ function CadastroProdutos() {
                         
                     </Form.Group>
 
-                    <Form.Group>
+                    <Form.Group  key={index}>
                         <Form.Label>Lucro</Form.Label>
                         <Form.Control
                         className="input"
-                            name="limitedesconto"
-                            value={limiteDesconto}
-                            onChange={(e) => { setLimiteDesconto(e.target.value) }}
+                            name="lucro"
+                            value={calculateProfit(index) || ''}
                             type='text'
                         />
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>%Lucro</Form.Label>
-                        <Form.Control className="input" type='text' />
+                        <Form.Control 
+                            className="input"
+                            name="lucro em porcentagem" 
+                            type='text' 
+                            value={calculateProfitPercent(index) || ''}
+                        />
                     </Form.Group>
 
                     <Form.Group>
