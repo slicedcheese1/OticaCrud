@@ -7,9 +7,16 @@ import Card from "react-bootstrap/Card"
 function CadastroProdutos() {
 
     const [unidades, setUnidades] = useState([]);
+    const [grifes, setGrifes] = useState([]);
+    const [grupos, setGrupos] = useState([]);
+    const [fornecedores, setFornecedores] = useState([]);
+    const [lojas, setLojas] = useState([]);
 
     useEffect(() => {
         buscarUnidades();
+        buscarGrifes();
+        buscarLojas();
+        buscarFornecedores();
     }, []);
 
     const buscarUnidades = () => {
@@ -17,6 +24,67 @@ function CadastroProdutos() {
             .then(resposta => resposta.json())
             .then(dados => {
                 setUnidades(dados);
+                console.log("unidades recebidas com sucesso: ", unidades)
+            })
+            .catch((error) => {
+                console.error('Erro ao receber as unidades :', error);
+                console.log(unidades)
+            });
+    };
+
+    const buscarGrifes = () => {
+        fetch("http://localhost:8080/grife/all")
+            .then(resposta => resposta.json())
+            .then(dados => {
+                setGrifes(dados);
+                console.log("Grifes recebidas com sucesso: ", grifes)
+            })
+            .catch((error) => {
+                console.error('Erro ao receber as grifes :', error);
+                console.log(grifes)
+            });
+    };
+
+    const buscarFornecedoresCnpj = () => {
+        fetch("http://localhost:8080/fornecedorCnpj")
+            .then(resposta => resposta.json())
+            .then(dados => {
+                setFornecedores(...fornecedores, dados);
+                console.log("fornecedorescnpj recebidos com sucesso: ", fornecedores)
+                console.log(fornecedores.length)
+            })
+            .catch((error) => {
+                console.error('Erro ao receber os fornecedores cnpj :', error);
+                console.log(fornecedores)
+            });
+    };
+
+    const buscarFornecedores = () => {
+        fetch("http://localhost:8080/fornecedorCpf")
+            .then(resposta => resposta.json())
+            .then(dados => {
+                setFornecedores(dados);
+                console.log("fornecedorescpf recebidos com sucesso: ", fornecedores)
+                buscarFornecedoresCnpj()
+            })
+            .catch((error) => {
+                console.error('Erro ao receber os fornecedorescpf:', error);
+                console.log(fornecedores)
+            });
+    };
+
+    
+
+    const buscarLojas = () => {
+        fetch("http://localhost:8080/loja/all")
+            .then(resposta => resposta.json())
+            .then(dados => {
+                console.log("lojas recebidas com sucesso: ", lojas)
+                setLojas(dados);
+            })
+            .catch((error) => {
+                console.error('Erro ao receber as lojas  :', error);
+                console.log(lojas)
             });
     };
 
@@ -112,33 +180,13 @@ function CadastroProdutos() {
     return (
         <>
             <form className="formContainer">
+                <h1>Novo produto</h1>
                 <Card className='p-4'>
                     <h2>Dados do produto</h2>
                     <hr />
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Código GTIN (EAN-13)</Form.Label>
-                        <Form.Control
-                            className="input"
-                            type="text"
-                            value={nome}
-                            onChange={(e) => { setNome(e.target.value) }}
-                        />
-                    </Form.Group>
-
-                    <Form.Group>
-                        <Form.Label>Referência</Form.Label>
-                        <Form.Control
-                            className="input"
-                            name="lojas"
-                            value={lojaCadastro}
-                            onChange={(e) => { setLoja(e.target.value) }}
-                            type='text'
-                        >
-                        </Form.Control>
-                    </Form.Group>
-
-                    <Form.Group>
+                    <div className="d-flex w-100 align-items-center gap-2">
+                    <Form.Group className="w-50">
                         <Form.Label>Nome do produto</Form.Label>
                         <Form.Control
                             className="input"
@@ -149,7 +197,34 @@ function CadastroProdutos() {
                         />
                     </Form.Group>
 
-                    <Form.Group>
+                    <Form.Group  className="w-50" controlId="formBasicEmail">
+                        <Form.Label>Código GTIN (EAN-13)</Form.Label>
+                        <Form.Control
+                            className="input"
+                            type="text"
+                            value={nome}
+                            onChange={(e) => { setNome(e.target.value) }}
+                        />
+                    </Form.Group>
+                    </div>
+
+                    <div className="d-flex w-100 align-items-center gap-2">
+                    <Form.Group className="w-50">
+                        <Form.Label>Referência</Form.Label>
+                        <Form.Control
+                            className="input"
+                            name="lojas"
+                            value={lojaCadastro}
+                            onChange={(e) => { setLoja(e.target.value) }}
+                            type='text'
+                        >
+                        </Form.Control>
+                    </Form.Group>
+                    </div>
+
+                    <div className="d-flex w-100 align-items-center gap-2">
+
+                    <Form.Group className="w-50">
                         <Form.Label>Unidade</Form.Label>
                         <Form.Select
                             className="input"
@@ -160,44 +235,45 @@ function CadastroProdutos() {
                             <option value="" disabled  >Selecione uma unidade</option>
                             {unidades.map((unidade) => (
                                 <option>{unidade.nome}</option>
-
                             ))}
                         </Form.Select>
                     </Form.Group>
 
-                    <Form.Group>
+                    <Form.Group className="w-50">
                         <Form.Label>Grife</Form.Label>
                         <Form.Select
                             className="input"
-                            name="lojas"
+                            name="grifes"
                             value={lojaCadastro}
                             onChange={(e) => { setLoja(e.target.value) }}
                         >
                             <option value="" disabled  >Selecione uma grife</option>
-                            {unidades.map((unidade) => (
-                                <option>{unidade.nome}</option>
+                            {grifes.map((grife) => (
+                                <option>{grife.nome}</option>
 
                             ))}
                         </Form.Select>
                     </Form.Group>
+                    </div>
 
-                    <Form.Group>
+                    <div className="d-flex w-100 align-items-center gap-2">
+                    <Form.Group className="w-50">
                         <Form.Label>Grupo</Form.Label>
                         <Form.Select
                             className="input"
-                            name="lojas"
+                            name="grupos"
                             value={lojaCadastro}
                             onChange={(e) => { setLoja(e.target.value) }}
                         >
                             <option value="" disabled  >Selecione um grupo de produtos</option>
-                            {unidades.map((unidade) => (
-                                <option>{unidade.nome}</option>
+                            {grupos.map((grupo) => (
+                                <option>{grupo.nome}</option>
 
                             ))}
                         </Form.Select>
                     </Form.Group>
 
-                    <Form.Group>
+                    <Form.Group className="w-50">
                         <Form.Label>Fornecedor</Form.Label>
                         <Form.Select 
                         className="input"
@@ -206,12 +282,15 @@ function CadastroProdutos() {
                         onChange={(e) => {setLoja(e.target.value)}}
                         >
                             <option value="" disabled  >Selecione um fornecedor</option>
-                            {unidades.map((unidade) => (
-                            <option>{unidade.nome}</option>  
+                            {lojas.map((loja) => (
+                            <option>{loja.nomeFantasia}</option>  
                             ))}
                         </Form.Select>
                     </Form.Group>
+                    </div>
 
+                    <div className="d-flex w-100 align-items-center gap-2 mt-2">
+                    
                     <Form.Check
                         inline
                         label="Venda somente com O.S"
@@ -223,25 +302,31 @@ function CadastroProdutos() {
                         label="Controlar estoque"
                         name="group2"
                     />
+                    </div>
 
                 </Card>
+                
+                
+                <h2>Informações de preço e estoque </h2>
+                <hr style={{marginTop: "-1rem"}}/>
+                <div className="d-flex flex-column gap-4">
+                {lojas.map((loja)=> (
+                <Card className='p-4 d-flex flex-column gap-2' >
+                    <h3 className="fw-bold">{loja.razaoSocial}</h3>
+                    
 
-                <Card className='p-4' >
-                     <h2> Informações de preço e estoque </h2>
-                     <hr />
+                    <div className="w-90 d-flex gap-4 ">
                     <Form.Group>
-                        <Form.Check
-                            inline
-                            label="Cadastrar o mesmo valor de custo para todas as lojas"
-                            name="group2"
+                        <Form.Label>Preço de venda</Form.Label>
+                        <Form.Control
+                            className="input"
+                            name="rg"
+                            type='text'
+                            value={rg}
+                            onChange={(e) => setRg(e.target.value)}
                         />
-
-                        <Form.Check
-                            inline
-                            label="Cadastrar o mesmo preço de venda para todas as lojas"
-                            name="group1"
-                        />
-
+                    </Form.Group>
+                    <Form.Group>
                         <Form.Label>Custo</Form.Label>
                         <Form.Control
                             className="input"
@@ -261,23 +346,11 @@ function CadastroProdutos() {
                             onChange={(e) => { setLimiteDesconto(e.target.value) }}
                             type='text'
                         />
-   
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label>%Lucro</Form.Label>
                         <Form.Control className="input" type='text' />
-                    </Form.Group>
-
-                    <Form.Group>
-                        <Form.Label>Preço de venda</Form.Label>
-                        <Form.Control
-                            className="input"
-                            name="rg"
-                            type='text'
-                            value={rg}
-                            onChange={(e) => setRg(e.target.value)}
-                        />
                     </Form.Group>
 
                     <Form.Group>
@@ -291,25 +364,46 @@ function CadastroProdutos() {
                         />
                     </Form.Group>
 
-                    <Form.Label>Qtd. Minima</Form.Label>
-                    <Form.Control
-                        className="input"
-                        name="cep"
-                        type='text'
-                        value={cep}
-                        onChange={(e) => setCep(e.target.value)}
-                    />
+                    <Form.Group>
+                        <Form.Label>Qtd. Minima</Form.Label>
+                        <Form.Control
+                            className="input"
+                            name="cep"
+                            type='text'
+                            value={cep}
+                            onChange={(e) => setCep(e.target.value)}
+                        />
+                    </Form.Group>
 
-                    <Form.Label>Data de validade do produto</Form.Label>
-                    <Form.Control
-                        className="input"
-                        name="endereco"
-                        type='text'
-                        value={endereco}
-                        onChange={(e) => setEndereco(e.target.value)}
-                    />
+                    <Form.Group>
+                        <Form.Label>Data de validade do produto</Form.Label>
+                        <Form.Control
+                            className="input"
+                            name="endereco"
+                            type='text'
+                            value={endereco}
+                            onChange={(e) => setEndereco(e.target.value)}
+                        />
+                    </Form.Group>
+                    </div>
+
+                    <Form.Group>
+                        <Form.Check
+                            inline
+                            label="Cadastrar o mesmo valor de custo para todas as lojas"
+                            name="group2"
+                        />
+
+                        <Form.Check
+                            inline
+                            label="Cadastrar o mesmo preço de venda para todas as lojas"
+                            name="group1"
+                            id={`inline-checkbox-1`}
+                        />
+                    </Form.Group>
                 </Card>
-
+                ))}
+                </div>
                 <Button onClick={(e) => saveFuncionario(e)}>Cadastrar</Button>
 
                 <div className='container-dados-usuario'>
