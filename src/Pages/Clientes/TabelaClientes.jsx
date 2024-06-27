@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './TabelaClientes.css';
 import { Link } from 'react-router-dom';
 
-const ClienteBusca = () => {
+const TabelaClientes = () => {
   const [clientes, setClientes] = useState([]);
   const [search, setSearch] = useState('');
 
@@ -54,7 +54,34 @@ const ClienteBusca = () => {
       <br />
 
       <div>
-        <table className="customers">
+
+      <table id="clientes" class="display" style={{width:"100%"}}>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cpf</th>
+                <th>Data de Nascimento</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {clientes.map((cliente) => (
+              <tr key={cliente.idCliente}>
+                <td>{cliente.nome}</td>
+                <td>{cliente.cpf}</td>
+                <td>{cliente.da}</td>
+                <td>
+                  <Link to={`/Sistema/ClienteBusca/${cliente.idCliente}`}>
+                    <button>Editar</button>
+                  </Link>
+                  <button onClick={() => deletarCliente(cliente.idCliente)}>Excluir</button>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+    </table>
+
+        {/* <table className="customers">
           <thead>
             <tr>
               <th>Nome</th>
@@ -78,10 +105,10 @@ const ClienteBusca = () => {
               </tr>
             ))}
           </tbody>
-        </table>
+        </table> */}
       </div>
     </>
   );
 };
 
-export default ClienteBusca;
+export default TabelaClientes;

@@ -41,6 +41,8 @@ import HistoricoProdutos from './Pages/Produtos/HistóricoProdutos.jsx';
 import CadastroProdutos from './Pages/Produtos/CadastroProdutos.jsx';
 import EditarProdutos from './Pages/Produtos/EditarProdutos.jsx';
 
+
+
 const router = createBrowserRouter([
   {
     path: '/',
