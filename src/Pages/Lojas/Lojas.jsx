@@ -1,10 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Pagination from '../../Componentes/Pagination/Pagination';
+import Pagination1 from '../../Componentes/Pagination/Pagination';
 
 const Lojas = () => {
     const [lojas, setLojas] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1)
+    const [itemsPerPage] = useState(3)
  
 
     useEffect(() => {
@@ -46,6 +48,11 @@ const Lojas = () => {
       });
     };
 
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = grifes.slice(indexOfFirstItem, indexOfLastItem);
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+
   return (
     <> 
     <div>
@@ -65,7 +72,7 @@ const Lojas = () => {
           </tr>
         </thead>
         <tbody>
-          {lojas.map((loja) => (
+          {currentItems.map((loja) => (
             <tr key={loja.idLoja}>
               <td>{loja.identificacaoEmpresa}</td>
               <td>{loja.nomeFantasia}</td>
@@ -79,8 +86,7 @@ const Lojas = () => {
           ))}
         </tbody>
       </table>
-      <Pagination />
-      <Link to={`/Sistema/Cadastros/`}>
+      <Pagination1  itemsPerPage={itemsPerPage} totalItems={grifes.length} paginate={paginate}/>      <Link to={`/Sistema/Cadastros/`}>
         <button>Voltar</button>
       </Link>
       

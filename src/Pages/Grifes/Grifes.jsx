@@ -1,12 +1,14 @@
-import React from 'react'
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Pagination from '../../Componentes/Pagination/Pagination';
+import Pagination1 from '../../Componentes/Pagination/Pagination';
 import Table from "react-bootstrap/Table"
 import Button from "react-bootstrap/Button"
 
 const Grifes = () => {
     const [grifes, setGrifes] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1)
+    const [itemsPerPage] = useState(3)
  
 
     useEffect(() => {
@@ -47,6 +49,11 @@ const Grifes = () => {
         }); 
       });
     };
+    
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = grifes.slice(indexOfFirstItem, indexOfLastItem);
+    const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
     <> 
@@ -77,7 +84,7 @@ const Grifes = () => {
             </tr>
           </thead>
           <tbody>
-            {grifes.map((grife) => (
+            {currentItems.map((grife) => (
               <tr key={grife.idGrife}>
                 <td>{grife.nome}</td>
                 <td>
@@ -93,7 +100,7 @@ const Grifes = () => {
           </tbody>
         </Table>
       </div>
-      <Pagination />
+      <Pagination1  itemsPerPage={itemsPerPage} totalItems={grifes.length} paginate={paginate}/>
       
       
     </div>

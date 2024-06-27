@@ -29,7 +29,7 @@ const NavIcon = styled(Link)`
   justify-content: ${({ sidebarOpen }) => (sidebarOpen ? 'flex-start' : 'center')};
   align-items: center;
   color: #f5f5f5;
-  transition: margin-left 0.3s ease;
+  transition: margin-left 300ms;
   margin-left: ${({ sidebarOpen }) => (sidebarOpen ? '250px' : '2rem')};
 `;
 
