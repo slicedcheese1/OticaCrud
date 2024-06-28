@@ -54,6 +54,7 @@ import Lojas from './Pages/Lojas/Lojas.jsx'
 import CadastroLojas from './Pages/Lojas/CadastroLojas.jsx'
 import EditarLojas from './Pages/Lojas/EditarLojas.jsx'
 
+import Promocao from './Pages/Promocao/Promocao.jsx';
 import CadastroGrupos from './Pages/Grupos/CadastroGrupos.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -219,6 +220,11 @@ const router = createBrowserRouter([
            {
             path: '/Sistema/Grupos',
             element: <CadastroGrupos/>
+          },
+          //========================================================== Promoções ==========================================================================
+          {
+            path: '/Sistema/Promocao',
+            element: <Promocao/>
           },
         ]
       },
