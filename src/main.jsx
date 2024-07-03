@@ -96,31 +96,30 @@ const router = createBrowserRouter([
             path: '/Sistema/editar-medico',
             element: <EditarMedico />
           },
-          //========================================================== Painel de Informação =======================================================================
+          //========================================================== Clientes =======================================================================
+
           {
-            path: '/Sistema/Clientes',
+            path: '/Sistema/ClientesDashboard',
             element: <ClienteDashboard />
           },
           {
-            path: '/Sistema/ClienteCadastro',
+            path: '/Sistema/clientes',
+            element: <ClienteBusca />
+          },
+          {
+            path: '/Sistema/cadastrar-cliente',
             element: <ClienteCadastro />
           },
           {
-            path: '/Sistema/ClienteBusca',
-            element: <ClienteBusca />
+            path: '/Sistema/editar-cliente/:id',
+            element: <ClienteUpdate /> //(())
           },
+          //========================================================== Painel de Informação =======================================================================
           {
             path: '/Sistema/Cadastros',
             element: <CadastroDashboard/>
           },
-          {
-            path: '/Sistema/CadastroUsuario',
-            element: <CadastroUsuario /> //(())
-          },
-          {
-            path: '/Sistema/ClienteBusca/:id',
-            element: <ClienteUpdate /> //(())
-          },
+
           //========================================================== Cargos ==========================================================================
           {
             path: '/Sistema/editar-setor/:id',

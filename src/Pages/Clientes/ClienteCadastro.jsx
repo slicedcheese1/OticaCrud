@@ -1,6 +1,5 @@
 import React from "react"
 import { useState } from "react"
-import axios from "axios"
 
 import ClienteContext from "./ClinteContext"
 
@@ -38,6 +37,7 @@ function ClienteCadastro() {
   const [showingCardResponsavel, setShowingCardResponsavel] = useState(false);
 
   const handleSalvar = (e) => {
+    e.preventDefault()
     setIsSubmited(true)
 
     if (erroForm || !dataNascimento || !nome || !cpf) {
@@ -75,10 +75,10 @@ function ClienteCadastro() {
     })
       .then(response => response.json())
       .then((data) => {
-        console.log('Post criado com sucesso:', data);
+        console.log('Cliente criado com sucesso:', data);
       })
       .catch((error) => {
-        console.error('Erro ao criar post:', error);
+        console.error('Erro ao criar Cliente:', error);
       });
   };
 
@@ -117,7 +117,7 @@ function ClienteCadastro() {
               <DadosEnderecoClienteRegistro/>
               <DadosContatoClienteRegistro/>
               <DadosObservacoesClienteRegistro/>
-              <button onClick={handleSalvar}>Salvar</button>
+              <button onClick={(e) => handleSalvar(e)}>Salvar</button>
           </form>
         </div>
       </ClienteContext.Provider>

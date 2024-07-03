@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import './TableSearch.css';
 import Form from "react-bootstrap/Form";
-
-import TableSearch from '../../Componentes/Busca/TableSearch';
+import Card from "react-bootstrap/Card";
 
 let dataTable;
 let dataTableIsInitialized = false;
@@ -280,110 +280,119 @@ let dataTableOptions = {
   } 
 };
 
-const ClienteBusca = () => {
-  const [clientes, setClientes] = useState([]);
+const TableSearch = ({routeSearch, routeDeleteNoId, idLabel}) => {
+    const [data, setData] = useState([]);
 
-  useEffect(() => {
-    buscarCliente();
-  }, []);
+    useEffect(() => {
+        loadData(routeSearch);
+    }, []);
 
-  useEffect(() => {
-    if (clientes.length > 0) {
-      if (dataTableIsInitialized) {
-        dataTable.clear().draw();
-        dataTable.rows.add(clientes).draw();
-      } else {
-        dataTable = $('#clientes').DataTable({
-          ...dataTableOptions,
-          data: clientes,
-          columns: [
-            { title: "Nome", data: "nome" },
-            { title: "Cpf", data: "cpf" },
-            { title: "Cidade", data: "cidade" },
-            { 
-              title: "Ações",
-              data: null,
-              render: function(data, type, row) {
-                return `
-                  <a href="/Sistema/editar-cliente/${data.idCliente}">
-                    <button class="btn btn-sm btn-primary"><i class="fa-solid fa-square-pen"></i></button>
-                  </a>
-                  <button class="btn btn-sm btn-danger btn-delete" data-id="${data.idCliente}"><i class="fa-solid fa-trash-can"></i></button>
-                `;
-              }
-            }
-          ]
+    useEffect(() => {
+        if (data.length > 0) {
+          if (dataTableIsInitialized) {
+            dataTable.clear().draw();
+            dataTable.rows.add(data).draw();
+          } else {
+            dataTable = $('#dataTable').DataTable({
+              ...dataTableOptions,
+              data: data,
+              columns: [
+                { title: "Nome", data: "nome" },
+                { title: "Cpf", data: "cpf" },
+                { title: "Cidade", data: "cidade" },
+                { 
+                  title: "Ações",
+                  data: null,
+                  render: function(data, type, row) {
+                    return `
+                      <a href="/Sistema/editar-cliente/${data.idLabel}">
+                        <button class="btn btn-sm btn-primary"><i class="fa-solid fa-square-pen"></i></button>
+                      </a>
+                      <button class="btn btn-sm btn-danger btn-delete" data-id="${data.id}"><i class="fa-solid fa-trash-can"></i></button>
+                    `;
+                  }
+                }
+              ]
+            });
+            dataTableIsInitialized = true;
+          }
+    
+          $('#dataTable tbody').on('click', 'button.btn-delete', function () {
+            const id = $(this).data('id');
+            deleteData(id);
+          });
+    
+          $('#searchInput').on('keyup', function () {
+            console.log(this.value)
+            dataTable.search(this.value).draw();
+          })
+        }
+      }, [data]);
+
+    const loadData = (routeSearch) => {
+    fetch(routeSearch)
+        .then(response => response.json())
+        .then(data => {
+            setData(data);
+        })
+        .catch(error => {
+        console.log("Não foi possível carregar os dados", error);
         });
-        dataTableIsInitialized = true;
-      }
+    };
 
-      $('#clientes tbody').on('click', 'button.btn-delete', function () {
-        const id = $(this).data('id');
-        deletarCliente(id);
-      });
+    const deleteData = (id) => {
+        fetch(`${routeDeleteNoId}${id}`, {
+          method: 'DELETE'
+        })
+        .then(resposta => {
+          if (resposta.ok) {
+            loadData();
+          }
+        });
+    };
 
-      $('#searchInput').on('keyup', function () {
-        console.log(this.value)
-        dataTable.search(this.value).draw();
-      })
-    }
-  }, [clientes]);
+    const SearchCard = () => {
+        return (
+          <Card className='p-4'>
+              <h1>Busca de clientes</h1>
+              <hr />
+              <Form.Group>
+                <Form.Label>Buscar um cliente</Form.Label>
+                <Form.Control 
+                  id = "searchInput"
+                  placeholder="Procure por Nome, CPF, CNPJ" 
+                  type="text" 
+                />
+              </Form.Group>
+          </Card>
+    
+    
+        );
+    };
 
-  const SearchCard = () => {
-  
     return (
-      <div className="container-busca">
-        <div className="buscas">
-          <h1>Busca de clientes</h1>
-          <hr />
-          <Form.Group>
-            <Form.Label>Buscar um cliente</Form.Label>
-            <Form.Control 
-              id = "searchInput"
-              placeholder="Procure por Nome, CPF, CNPJ" 
-              type="text" 
-            />
-          </Form.Group>
-        </div>
-      </div>
+        <>
+            <SearchCard/>
+            <div className="container my-5">
+                <div className="row">
+                <table id="dataTable" className="table table-stripped" style={{ width: "100%" }}>
+                    <caption>Exemplo de dataTable</caption>
+                    <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Cpf</th>
+                        <th>Cidade</th>
+                        <th>Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </>
+      );
+    
+}
 
-
-    );
-  };
-
-  const buscarCliente = () => {
-    fetch("http://localhost:8080/clientes/pf")
-      .then(resposta => resposta.json())
-      .then(dados => {
-        setClientes(dados);
-      })
-      .catch(error => {
-        console.log("Não foi possível carregar os usuários", error);
-      });
-  };
-
-  const deletarCliente = (id) => {
-    fetch(`http://localhost:8080/clientes/pf/${id}`, {
-      method: 'DELETE'
-    })
-    .then(resposta => {
-      if (resposta.ok) {
-        buscarCliente();
-      }
-    });
-  };
-
-  return (
-    <>
-      <h1>Clientes</h1>
-      <hr/>
-      <TableSearch 
-      routeSearch={"http://localhost:8080/clientes/pf"}
-      routeDeleteNoId={"http://localhost:8080/clientes/pf/"}
-      idLabel={"idCliente"}
-      />
-    </>
-  );
-};
-
-export default ClienteBusca;
+export default TableSearch
