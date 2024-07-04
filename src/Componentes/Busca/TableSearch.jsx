@@ -7,7 +7,9 @@ let dataTable;
 let dataTableIsInitialized = false;
 
 let dataTableOptions = {
-    dom: "Brtilp",
+    dom: "<'row mb-2'<'col-sm-12 col-md-6'l><'d-flex justify-content-end align-items-end col-sm-12 col-md-6'B>>" + 
+    "<'row'<'col-sm-12'tr>>" + 
+    "<'row'<'col-sm-12 col-md-5'i><'d-flex justify-content-end col-sm-12 col-md-7'p>>",
     buttons: [
         {
             extend: "excelHtml5",
@@ -31,7 +33,11 @@ let dataTableOptions = {
     ],
     lengthMenu: [3, 5, 10, 25, 50, 100],
     columnDefs: [
-        { orderable: false, targets: [1, 2, 3] }
+        { width: 'auto', targets: 0 }, // primeira coluna
+        { width: 'auto', targets: 1 }, // segunda coluna
+        { width: 'auto', targets: 2 }, // terceira coluna
+        { width: 'auto', targets: 3 },  // quarta coluna
+        { orderable: false, targets:  [0, 1, 2, 3] }
     ],
     language: {
       "emptyTable": "Nenhum registro encontrado",
@@ -280,7 +286,7 @@ let dataTableOptions = {
   } 
 };
 
-const TableSearch = ({routeSearch, routeDeleteNoId, idLabel}) => {
+const TableSearch = ({routeSearch, routeDeleteNoId, idLabel, namePage}) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -305,6 +311,7 @@ const TableSearch = ({routeSearch, routeDeleteNoId, idLabel}) => {
                   data: null,
                   render: function(data, type, row) {
                     return `
+                    <div class="">
                       <a href="/Sistema/editar-cliente/${data.idLabel}">
                         <button class="btn btn-sm btn-primary"><i class="fa-solid fa-square-pen"></i></button>
                       </a>
@@ -354,14 +361,14 @@ const TableSearch = ({routeSearch, routeDeleteNoId, idLabel}) => {
     const SearchCard = () => {
         return (
           <Card className='p-4'>
-              <h1>Busca de clientes</h1>
+              <h2>Busca de {namePage}</h2>
               <hr />
               <Form.Group>
-                <Form.Label>Buscar um cliente</Form.Label>
                 <Form.Control 
-                  id = "searchInput"
-                  placeholder="Procure por Nome, CPF, CNPJ" 
-                  type="text" 
+                    className='input'
+                    id = "searchInput"
+                    placeholder="Procure por Nome, CPF, CNPJ" 
+                    type="text" 
                 />
               </Form.Group>
           </Card>
@@ -376,7 +383,7 @@ const TableSearch = ({routeSearch, routeDeleteNoId, idLabel}) => {
             <div className="container my-5">
                 <div className="row">
                 <table id="dataTable" className="table table-stripped" style={{ width: "100%" }}>
-                    <caption>Exemplo de dataTable</caption>
+                    <caption>Tabela de {namePage}</caption>
                     <thead>
                     <tr>
                         <th>Nome</th>
