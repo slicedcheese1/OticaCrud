@@ -15,7 +15,6 @@ import ClienteCadastro from './Pages/Clientes/ClienteCadastro.jsx';
 import ClienteDashboard from './Pages/Clientes/ClienteDashboard.jsx';
 
 import CadastroDashboard from './Pages/Cadastro/CadastroDashboard.jsx';
-import CadastroUsuario from './Pages/Cadastro/CadastroUsuario.jsx';
 import ClienteUpdate from './Pages/Clientes/ClienteUpdate.jsx';
 
 import OrigemCliente from './Pages/Origem.jsx/OrigemCliente.jsx';
@@ -236,8 +235,9 @@ const router = createBrowserRouter([
           {
             path: '/Sistema/historico-produto',
             element: <HistoricoProdutos/>
+          },
            //========================================================== Grupos ==========================================================================
-           {
+          {
             path: '/Sistema/Grupos',
             element: <CadastroGrupos/>
           },
