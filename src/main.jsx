@@ -58,6 +58,12 @@ import Promocao from './Pages/Promocao/Promocao.jsx';
 import CadastroGrupos from './Pages/Grupos/CadastroGrupos.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Produtos from './Pages/Produtos/Produtos.jsx';
+import HistoricoProdutos from './Pages/Produtos/HistóricoProdutos.jsx';
+import CadastroProdutos from './Pages/Produtos/CadastroProdutos.jsx';
+import EditarProdutos from './Pages/Produtos/EditarProdutos.jsx';
+
+
 
 const router = createBrowserRouter([
   {
@@ -151,30 +157,28 @@ const router = createBrowserRouter([
             path: '/Sistema/editar-medico',
             element: <EditarMedico />
           },
-          //========================================================== Painel de Informação =======================================================================
+          //========================================================== Clientes =======================================================================
+
           {
-            path: '/Sistema/Clientes',
+            path: '/Sistema/ClientesDashboard',
             element: <ClienteDashboard />
           },
           {
-            path: '/Sistema/ClienteCadastro',
-            element: <ClienteCadastro />
-          },
-          {
-            path: '/Sistema/ClienteBusca',
+            path: '/Sistema/clientes',
             element: <ClienteBusca />
           },
           {
+            path: '/Sistema/cadastrar-cliente',
+            element: <ClienteCadastro />
+          },
+          {
+            path: '/Sistema/editar-cliente/:id',
+            element: <ClienteUpdate /> //(())
+          },
+          //========================================================== Painel de Informação =======================================================================
+          {
             path: '/Sistema/Cadastros',
             element: <CadastroDashboard/>
-          },
-          {
-            path: '/Sistema/CadastroUsuario',
-            element: <CadastroUsuario /> //(())
-          },
-          {
-            path: '/Sistema/ClienteBusca/:id',
-            element: <ClienteUpdate /> //(())
           },
           //========================================================== Setor ==========================================================================
           {
@@ -216,6 +220,22 @@ const router = createBrowserRouter([
             element: <EditarTratamento/>
 
           },
+           //========================================================== PRODUTOS ==========================================================================
+           {
+            path: '/Sistema/produtos',
+            element: <Produtos/>
+          },
+          {
+            path: '/Sistema/editar-produto',
+            element: <EditarProdutos/>
+          },
+          {
+            path: '/Sistema/cadastrar-produto',
+            element: <CadastroProdutos/>
+          },
+          {
+            path: '/Sistema/historico-produto',
+            element: <HistoricoProdutos/>
            //========================================================== Grupos ==========================================================================
            {
             path: '/Sistema/Grupos',
