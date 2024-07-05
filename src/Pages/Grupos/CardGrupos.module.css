@@ -1,0 +1,31 @@
+
+.dFlex {
+    display: flex;
+    flex-direction:row;
+    width:1300px;
+  }
+.cFlex {
+      
+ font-size: 30px;
+  }
+  
+
+  #dropdownButtonDarkExample1{
+    margin-right: 3rem;
+    z-index: 3;
+    
+    width: 100px; 
+    
+  }
+  #NomeProduto{
+   
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .Lado{
+    display: flex;
+    flex-direction: row;
+    
+
+  }

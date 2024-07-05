@@ -112,13 +112,24 @@ function CadastroFuncionario() {
                 
                 <Form.Group>
                   <Form.Label>Loja</Form.Label>
-                  <Form.Control 
-                    name="loja"
-                    type='text' 
-                    placeholder='Insira o nome da loja'
-                    value={loja}
-                    onChange={(e) => {setLoja(e.target.value)}}
-                  />
+                  <Form.Select 
+                  name="lojas"
+                  value={lojaCadastro}
+                  onChange={(e) => {setLoja(e.target.value)}}
+                  >
+                      <option value="" disabled  >Selecione uma loja</option>
+                      <option value="Loja 01">Loja 01</option>  
+                      <option value="Loja 02">Loja 02</option>  
+                      <option value="Loja 03">Loja 03</option>  
+                      <option value="Loja 04">Loja 04</option>  
+                      <option value="Loja 05">Loja 05</option>  
+                      <option value="Loja 06">Loja 06</option>  
+                      <option value="Loja 07">Loja 07</option>  
+                      <option value="Loja 08">Loja 08</option>  
+                      <option value="Loja 09">Loja 09</option>  
+                      <option value="Loja 10">Loja 10</option>  
+                      
+                  </Form.Select>
                 </Form.Group>
 
                 <Form.Group>

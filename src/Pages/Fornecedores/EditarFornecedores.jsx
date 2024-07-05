@@ -1,9 +1,12 @@
 import { React, useState } from "react"
+import { useParams } from 'react-router-dom';
 
 import Form from 'react-bootstrap/Form';
 
 
-function CadastroFornecedor() {
+function EditarFornecedor() {
+
+
 
     // {
     //     "id": 0,
@@ -27,6 +30,8 @@ function CadastroFornecedor() {
     //     "telefone": "string"
     //   }
 
+    const { id } = useParams();
+
     const [cpf, setCpf] = useState("")
     const [cnpj, setCnpj] = useState("")
     const [nomeFantasia, setNomeFantasia] = useState("")
@@ -45,6 +50,34 @@ function CadastroFornecedor() {
     const [contribuinteICMS, setContribuinteICMS] = useState(false)
     const [observacoes, setObservacoes] = useState("")
     const [telefone, setTelefone] = useState("")
+
+
+    const buscarSetores = () => {
+        fetch("http://localhost:8080/cargo/all")
+          .then(resposta => resposta.json())
+          .then(dados => {
+            setSetores(dados);
+          });
+      };
+
+    // Carregar os dados pra preencher o form
+    function loadData(id) {
+        fetch(`http://localhost:8080/fornecedor/${id}`)
+        .then(resposta => resposta.json())
+        .then(data => {
+            setCpf(data.cpf)
+            setCnpj(data.cnpj)
+            setNomeFantasia(data.nomeFantasia)
+            setRazaoSocial(data.razaoSocial)
+            setLaboratorio(data.laboratorio)
+            setCep(data.cep)
+            setEndereco(data.endereco)
+            setNumero(data.numero)
+            setComplemento(data.complemento)
+        }
+        )
+        .catch()
+    }
 
     function saveFornecedor(e){
         e.preventDefault()
@@ -96,7 +129,6 @@ function CadastroFornecedor() {
             <div className='container-dados-pessoais-funcionario'>
                 <h2>Novo Fornecedor</h2>
                 <hr/>
-                
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Cpf</Form.Label>
                   <Form.Control 
@@ -293,5 +325,5 @@ function CadastroFornecedor() {
     )
 }
 
-export default CadastroFornecedor
+export default EditarFornecedor
 

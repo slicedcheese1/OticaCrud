@@ -125,7 +125,7 @@ function DadosPessoaisClienteRegistro() {
       <h3>Dados Pessoais</h3>
       <hr />
 
-      <div className="w-100 p-1 gap-4 d-flex" method="post">
+      <div className="w-100 p-1 gap-4 d-flex" >
         <Form.Group >
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src="https://placehold.co/600x400" />
@@ -170,7 +170,7 @@ function DadosPessoaisClienteRegistro() {
 
             <Form.Group className={`w-90 d-flex flex-column gap-1 ml-2 mr-5`}>
               <Form.Label id="label-lojas" htmlFor="lojas">Cadastro Em</Form.Label> 
-              <Form.Select className="select" name="loja" value={lojaCadastro} onChange={(e) => {setLojaCadastro(e.target.value)}} required>
+              <Form.Select className="input" name="loja" value={lojaCadastro} onChange={(e) => {setLojaCadastro(e.target.value)}} required>
                 <option value="" disabled selected >Selecione uma opção</option>
                 <option value="Loja 01">Loja 01</option>  
                 <option value="Loja 02">Loja 02</option>  
@@ -201,7 +201,7 @@ function DadosPessoaisClienteRegistro() {
               <Form.Group className={`w-80 d-flex flex-column`}>
                 <Form.Label id="label-sexo" htmlFor="sexo">Sexo</Form.Label>
                 <Form.Select 
-                className="select"
+                className="input"
                 placeholder = "Selecione uma oadawdpção"
                 id="sexo"
                 name="sexo" 

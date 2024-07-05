@@ -2,9 +2,11 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Pagination from '../../Componentes/Pagination/Pagination';
+import Table from "react-bootstrap/Table"
+import Button from "react-bootstrap/Button"
 
 const Grifes = () => {
-    const [setores, setSetores] = useState([]);
+    const [grifes, setGrifes] = useState([]);
  
 
     useEffect(() => {
@@ -12,17 +14,17 @@ const Grifes = () => {
     }, []);
   
     const buscarGrifes = () => {
-      fetch("http://localhost:8080/cargo/all")
+      fetch("http://localhost:8080/grife/all")
         .then(resposta => resposta.json())
         .then(dados => {
-          setSetores(dados);
+          setGrifes(dados);
         });
     };
   
     
   
-    const deletarSetores = (id) => {
-      fetch(`http://localhost:8080/cargo/${id}`, {
+    const deletarGrifes = (id) => {
+      fetch(`http://localhost:8080/grife/${id}`, {
         method: 'DELETE'
       })
         .then(resposta => {
@@ -50,37 +52,49 @@ const Grifes = () => {
     <> 
     <div>
     <div className='container-grifes'>
-      <h1>Grifes</h1>
-      <Link to={`/Sistema/cadastro-grifes/`}>
-        <button>+ Nova grife</button>
-      </Link>
+        
+      <div className="w-100 d-flex justify-content-between align-items-center">
+        <h1>Grifes</h1>
+        <div className="d-flex gap-1 align-items-center">
+          <Link to={`/Sistema/Cadastros/`}>
+            <Button variant='secondary'> Voltar </Button>
+          </Link>
+          <Link to={`/Sistema/cadastro-grifes/`}>
+            <Button>+ Nova grife</Button>
+          </Link>
+        </div>
+      </div>
       <hr />
+      
       <br />
-      <table className="customers">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          {setores.map((setor) => (
-            <tr key={setor.idCargo}>
-              <td>{setor.nomeCargo}</td>
-              <td>
-                <Link to={`/Sistema/editar-grife/${setor.nomeCargo}`}>
-                  <button>Editar</button>
-                </Link>
-                <button onClick={() => deletarSetores(setor.idCargo)}>Excluir</button>
-              </td>
+
+      <div className="formContainer">
+        <Table striped bordered hover size="sm" >
+          <thead>
+            <tr>
+              <th class="w-75">Nome</th>
+              <th class="w-25">Ações</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {grifes.map((grife) => (
+              <tr key={grife.idGrife}>
+                <td>{grife.nome}</td>
+                <td>
+                  <div className="w-100 d-flex flex-row-reverse gap-2">
+                    <Link to={`/Sistema/editar-grifes/${grife.idGrife}`}>
+                      <button>Editar</button>
+                    </Link>
+                    <button onClick={() => deletarGrifes(grife.idGrife)}>Excluir</button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
       <Pagination />
-      <Link to={`/Sistema/Cadastros/`}>
-        <button>Voltar</button>
-      </Link>
+      
       
     </div>
     </div>

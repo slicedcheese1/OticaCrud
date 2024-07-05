@@ -8,6 +8,8 @@ import DadosEnderecoClienteRegistro from "../../Componentes/Clientes/ClienteRegi
 import DadosObservacoesClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosObservacoesClienteRegistro"
 import DadosPessoaisClienteRegistro from "../../Componentes/Clientes/ClienteRegistro/DadosPessoaisClienteRegistro"
 
+import Button from "react-bootstrap/Button"
+
 import styles from './ClienteCadastro.module.css'
 
 function ClienteCadastro() {
@@ -111,15 +113,13 @@ function ClienteCadastro() {
         showingCardResponsavel, setShowingCardResponsavel
       }}>
 
-      <div className={styles.clientecadastrocontainer}>
-          <form className={styles.container2} id='ClienteCadastroForm'  autocomplete="off">
-              <DadosPessoaisClienteRegistro/>
-              <DadosEnderecoClienteRegistro/>
-              <DadosContatoClienteRegistro/>
-              <DadosObservacoesClienteRegistro/>
-              <button onClick={(e) => handleSalvar(e)}>Salvar</button>
-          </form>
-        </div>
+      <form className="formContainer" autocomplete="off">
+          <DadosPessoaisClienteRegistro/>
+          <DadosEnderecoClienteRegistro/>
+          <DadosContatoClienteRegistro/>
+          <DadosObservacoesClienteRegistro/>
+          <Button onClick={handleSalvar}>Salvar</Button>
+      </form>
       </ClienteContext.Provider>
     </>
   )

@@ -1,15 +1,14 @@
 import React from 'react'
-import CadastroBotoes2 from '../../Componentes/Cadastro/CadastroDashboard/CadastroBotoes2'
+import CadastroBotoes from '../../Componentes/Cadastro/CadastroDashboard/CadastroBotoes'
 
 const CadastroDashboard = () => {
   return (
       <>
-        <div className="page-container">
-          <div className="card-main">
+        <div className="formContainer">
+          <div >
             <h2>Cadastros</h2>
             <hr/>
-        
-            <CadastroBotoes2/>
+            <CadastroBotoes/>
           </div>
         </div>
       </>
