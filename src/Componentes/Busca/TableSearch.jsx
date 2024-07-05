@@ -312,7 +312,7 @@ const TableSearch = ({routeSearch, routeDeleteNoId, idLabel, namePage}) => {
                   render: function(data, type, row) {
                     return `
                     <div class="">
-                      <a href="/Sistema/editar-cliente/${data.idLabel}">
+                      <a href="/Sistema/editar-cliente/${data[idLabel]}">
                         <button class="btn btn-sm btn-primary"><i class="fa-solid fa-square-pen"></i></button>
                       </a>
                       <button class="btn btn-sm btn-danger btn-delete" data-id="${data.id}"><i class="fa-solid fa-trash-can"></i></button>
