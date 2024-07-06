@@ -10,7 +10,7 @@ import Login from './Pages/Login/Login.jsx';
 import Sistema from './Sistema.jsx';
 import Dashboardadmin from './Pages/PaineldeInformações/Dashboardadmin.jsx';
 
-import ClienteBusca from './Pages/Clientes/ClienteBusca.jsx';
+import Clientes from './Pages/Clientes/Clientes.jsx';
 import ClienteCadastro from './Pages/Clientes/ClienteCadastro.jsx';
 import ClienteDashboard from './Pages/Clientes/ClienteDashboard.jsx';
 
@@ -56,6 +56,7 @@ import EditarLojas from './Pages/Lojas/EditarLojas.jsx'
 import Promocao from './Pages/Promocao/Promocao.jsx';
 import CadastroGrupos from './Pages/Grupos/CadastroGrupos.jsx';
 
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Produtos from './Pages/Produtos/Produtos.jsx';
 import HistoricoProdutos from './Pages/Produtos/HistóricoProdutos.jsx';
@@ -84,12 +85,12 @@ const router = createBrowserRouter([
             element: <Grifes />
           },
           {
-            path: '/Sistema/cadastro-grifes',
+            path: '/Sistema/cadastrar-grife',
             element: <CadastroGrifes/>
           },
           {
-            path: '/Sistema/editar-grifes/:id',
-            element: <EditarGrife />
+            path: '/Sistema/editar-grife/:id',
+            element: <EditarGrife/>
           },
           //========================================================== Lojas =======================================================================
           {
@@ -164,7 +165,7 @@ const router = createBrowserRouter([
           },
           {
             path: '/Sistema/clientes',
-            element: <ClienteBusca />
+            element: <Clientes />
           },
           {
             path: '/Sistema/cadastrar-cliente',
