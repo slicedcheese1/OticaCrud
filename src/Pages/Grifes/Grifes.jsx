@@ -64,6 +64,7 @@ const Grifes = () => {
       nameEntity={"grife"}
       columnNames={["nome"]}
       searchPlaceholder={"Digite o nome da grife"}
+      
       />
     </>
     // <> 
