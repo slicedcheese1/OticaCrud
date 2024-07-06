@@ -4,50 +4,66 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
 import { ThemeProvider } from './DarkMode/DarkModeTheme';
 import './DarkMode/DarkModeTheme.css';
+import './index.css';
 
-//import Clientes from './Pages/ClienteCadastro.jsx';
-import ClienteBusca from './Pages/Clientes/ClienteBusca.jsx';
-import ClienteCadastro from './Pages/Clientes/ClienteCadastro.jsx';
-import ClienteDashboard from './Pages/Clientes/ClienteDashboard.jsx';
 import Login from './Pages/Login/Login.jsx';
 import Sistema from './Sistema.jsx';
-import './index.css';
+import Dashboardadmin from './Pages/PaineldeInformações/Dashboardadmin.jsx';
+
+import Clientes from './Pages/Clientes/Clientes.jsx';
+import ClienteCadastro from './Pages/Clientes/ClienteCadastro.jsx';
+import ClienteDashboard from './Pages/Clientes/ClienteDashboard.jsx';
+
 import CadastroDashboard from './Pages/Cadastro/CadastroDashboard.jsx';
-import CadastroUsuario from './Pages/Cadastro/CadastroUsuario.jsx';
 import ClienteUpdate from './Pages/Clientes/ClienteUpdate.jsx';
 
+import OrigemCliente from './Pages/Origem.jsx/OrigemCliente.jsx';
+import CadastroOrigemCliente from './Pages/Origem.jsx/CadastroOrigemCliente.jsx';
+import EditarOrigemCliente from './Pages/Origem.jsx/EditarOrigemCliente.jsx';
 
 import Setor from './Pages/Setor/Setor.jsx';
 import CadastroDeSetor from './Pages/Setor/CadastroDeSetor.jsx';
 import EditarSetor from './Pages/Setor/EditarSetor.jsx';
-import Dashboardadmin from './Pages/PaineldeInformações/Dashboardadmin.jsx';
-import EditarGrife from './Pages/Grifes/EditarGrife.jsx';
-import CadastroGrifes from './Pages/Grifes/CadastroGrifes.jsx';
-import Grifes from './Pages/Grifes/Grifes.jsx';
 
-import CadastroMedicos from './Pages/Médicos/CadastroMedicos.jsx';
+import Grifes from './Pages/Grifes/Grifes.jsx';
+import CadastroGrifes from './Pages/Grifes/CadastroGrifes.jsx';
+import EditarGrife from './Pages/Grifes/EditarGrife.jsx';
+
 import Medicos from './Pages/Médicos/Medicos.jsx';
+import CadastroMedicos from './Pages/Médicos/CadastroMedicos.jsx';
 import EditarMedico from './Pages/Médicos/EditarMedico.jsx';
+
 import Material from './Pages/Tipos de material/Material.jsx';
 import CadastroMaterial from './Pages/Tipos de material/CadastroMaterial.jsx';
 import EditarMaterial from './Pages/Tipos de material/EditarMaterial.jsx';
+
 import Funcionario from './Pages/Funcionarios/Funcionario.jsx';
 import CadastroFuncionario from './Pages/Funcionarios/CadastroFuncionario.jsx';
+import EditarFuncionario from './Pages/Funcionarios/EditarFuncionario.jsx';
+
 import Tratamento from './Pages/Tratamentos/Tratamento.jsx';
 import CadastroTratamento from './Pages/Tratamentos/CadastroTratamento.jsx';
 import EditarTratamento from './Pages/Tratamentos/EditarTratamento.jsx';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-import CadastroGrupos from './Pages/Grupos/CadastroGrupos.jsx';
-import Fornecedores from './Pages/Fornecedores/Fornecedores.jsx';
-import CadastroFornecedores from './Pages/Fornecedores/CadastroFornecedores.jsx';
+import Fornecedores from "./Pages/Fornecedores/Fornecedores.jsx"
+import CadastroFornecedores from "./Pages/Fornecedores/CadastroFornecedores.jsx"
 import EditarFornecedores from './Pages/Fornecedores/EditarFornecedores.jsx';
-import CadastroLojas from './Pages/Lojas/CadastroLojas.jsx';
-import Lojas from './Pages/Lojas/Lojas.jsx';
-import OrigemCliente from './Pages/Origem.jsx/OrigemCliente.jsx';
-import CadastroOrigemCliente from './Pages/Origem.jsx/CadastroOrigemCliente.jsx';
-import EditarOrigemCliente from './Pages/Origem.jsx/EditarOrigemCliente.jsx';
-import EditarLoja from './Pages/Lojas/EditarLojas.jsx';
+
+import Lojas from './Pages/Lojas/Lojas.jsx'
+import CadastroLojas from './Pages/Lojas/CadastroLojas.jsx'
+import EditarLojas from './Pages/Lojas/EditarLojas.jsx'
+
+import Promocao from './Pages/Promocao/Promocao.jsx';
+import CadastroGrupos from './Pages/Grupos/CadastroGrupos.jsx';
+
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Produtos from './Pages/Produtos/Produtos.jsx';
+import HistoricoProdutos from './Pages/Produtos/HistóricoProdutos.jsx';
+import CadastroProdutos from './Pages/Produtos/CadastroProdutos.jsx';
+import EditarProdutos from './Pages/Produtos/EditarProdutos.jsx';
+
+
 
 const router = createBrowserRouter([
   {
@@ -69,14 +85,18 @@ const router = createBrowserRouter([
             element: <Grifes />
           },
           {
-            path: '/Sistema/cadastro-grifes',
-            element: <CadastroGrifes />
+            path: '/Sistema/cadastrar-grife',
+            element: <CadastroGrifes/>
           },
           {
-            path: '/Sistema/editar-grifes',
-            element: <EditarGrife />
+            path: '/Sistema/editar-grife/:id',
+            element: <EditarGrife/>
           },
           //========================================================== Lojas =======================================================================
+          {
+            path: '/Sistema/lojas',
+            element: <Lojas/>
+          },
           {
             path: '/Sistema/cadastro-loja',
             element: <CadastroLojas/>
@@ -86,8 +106,8 @@ const router = createBrowserRouter([
             element: <EditarLoja/>
           },
           {
-            path: '/Sistema/lojas',
-            element: <Lojas/>
+            path: '/Sistema/editar-loja',
+            element: <EditarLojas />
           },
           //========================================================== Origem do cliente =============================================================
           {
@@ -109,10 +129,10 @@ const router = createBrowserRouter([
           },
           {
             path: '/Sistema/cadastro-fornecedores',
-            element: <CadastroFornecedores />
+            element: <CadastroFornecedores/>
           },
           {
-            path: '/Sistema/editar-funcionarios',
+            path: '/Sistema/editar-fornecedores',
             element: <EditarFornecedores />
           },
           //========================================================== Material ======================================================================
@@ -141,43 +161,41 @@ const router = createBrowserRouter([
             path: '/Sistema/editar-medico',
             element: <EditarMedico />
           },
-          //========================================================== Painel de Informação =======================================================================
+          //========================================================== Clientes =======================================================================
+
           {
-            path: '/Sistema/Clientes',
+            path: '/Sistema/ClientesDashboard',
             element: <ClienteDashboard />
           },
           {
-            path: '/Sistema/ClienteCadastro',
+            path: '/Sistema/clientes',
+            element: <Clientes />
+          },
+          {
+            path: '/Sistema/cadastrar-cliente',
             element: <ClienteCadastro />
           },
           {
-            path: '/Sistema/ClienteBusca',
-            element: <ClienteBusca />
+            path: '/Sistema/editar-cliente/:id',
+            element: <ClienteUpdate /> //(())
           },
+          //========================================================== Painel de Informação =======================================================================
           {
             path: '/Sistema/Cadastros',
             element: <CadastroDashboard/>
           },
+          //========================================================== Setor ==========================================================================
           {
-            path: '/Sistema/CadastroUsuario',
-            element: <CadastroUsuario /> //(())
-          },
-          {
-            path: '/Sistema/ClienteBusca/:id',
-            element: <ClienteUpdate /> //(())
-          },
-          //========================================================== Cargos ==========================================================================
-          {
-            path: '/Sistema/editar-setor/:id',
-            element: <EditarSetor/> //(())
+            path: '/Sistema/setor',
+            element: <Setor /> //(())
           },
           {
             path: '/Sistema/cadastro-setor',
             element: <CadastroDeSetor /> //(())
           },
           {
-            path: '/Sistema/setor',
-            element: <Setor /> //(())
+            path: '/Sistema/editar-setor/:id',
+            element: <EditarSetor/> //(())
           },
           //========================================================== Funcionários ==========================================================================
           {
@@ -187,6 +205,10 @@ const router = createBrowserRouter([
           {
             path: '/Sistema/cadastro-funcionario',
             element: <CadastroFuncionario/>
+          },
+          {
+            path: '/Sistema/editar-funcionario',
+            element: <EditarFuncionario/>
           },
           //========================================================== Tratamento ==========================================================================
           {
@@ -202,12 +224,33 @@ const router = createBrowserRouter([
             element: <EditarTratamento/>
 
           },
-           //========================================================== Grupos ==========================================================================
+           //========================================================== PRODUTOS ==========================================================================
            {
+            path: '/Sistema/produtos',
+            element: <Produtos/>
+          },
+          {
+            path: '/Sistema/editar-produto',
+            element: <EditarProdutos/>
+          },
+          {
+            path: '/Sistema/cadastrar-produto',
+            element: <CadastroProdutos/>
+          },
+          {
+            path: '/Sistema/historico-produto',
+            element: <HistoricoProdutos/>
+          },
+           //========================================================== Grupos ==========================================================================
+          {
             path: '/Sistema/Grupos',
             element: <CadastroGrupos/>
           },
-      
+          //========================================================== Promoções ==========================================================================
+          {
+            path: '/Sistema/Promocao',
+            element: <Promocao/>
+          },
         ]
       },
       {

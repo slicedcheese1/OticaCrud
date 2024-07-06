@@ -1,38 +1,35 @@
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown';
-
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import styles from './CardGrupos.module.css';
 function CardGrupos() {
   return (
     <Card>
       <Card.Header id="Titulo-Card">Novo Grupo de Produtos</Card.Header>
-      <hr/>
       <Card.Body>
-        <blockquote className="blockquotemb-0">
-        <Form>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Label id="NomeProduto">Novo Produto</Form.Label>
-          
+        <blockquote className={styles.cFlex}>
+          <Row>
           <div className={styles.dFlex}>
-            <Form.Control  type="Produto" placeholder="Descrição do Grupo" />
-            
-            <div className={styles.cFlex}>
-            
-            <h4 id="Text-cat">Categoria</h4>
+          <Col>
+          <Form.Label id="NomeProduto">Novo Produto</Form.Label>
+          <Form.Control id={styles.NomeProduto} type="Produto" placeholder="Descrição do Grupo" />
+          </Col>
+          </div>
+          <Col>
+          <Form.Label id="NomeProduto">Categoria</Form.Label>
             <Form.Select aria-label="Default select example">
               <option>Produto</option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
             </Form.Select>
-            </div>
-        
-          </div>
-          </Form.Group>
-        </Form>
+          </Col>         
+          </Row>
         </blockquote>
       </Card.Body>
+      
     </Card>
   );
 }

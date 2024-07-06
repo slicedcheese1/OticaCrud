@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom'
 import Sidebar from './Menu/Sidebar'
 import { useState } from 'react'
 import { useTheme } from './DarkMode/DarkModeTheme';
+import "./App.css"
 
 function Sistema() {
   // define estado da sidebar
@@ -15,7 +16,7 @@ function Sistema() {
   return (
     <>
       <Sidebar sidebar={sidebar} showSidebar={showSidebar} />
-      <div className={`container ${sidebar ? 'sidebar-open' : ''}`}>
+      <div className={`container-pad ${sidebar ? 'sidebar-open' : ''}`}>
         <Outlet />
       </div>
     </>
