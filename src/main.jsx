@@ -50,8 +50,8 @@ import CadastroFornecedores from "./Pages/Fornecedores/CadastroFornecedores.jsx"
 import EditarFornecedores from './Pages/Fornecedores/EditarFornecedores.jsx';
 
 import Lojas from './Pages/Lojas/Lojas.jsx'
-import CadastroLojas from './Pages/Lojas/CadastroLojas.jsx'
-import EditarLojas from './Pages/Lojas/EditarLojas.jsx'
+import CadastroLoja from './Pages/Lojas/CadastroLoja.jsx'
+import EditarLoja from './Pages/Lojas/EditarLoja.jsx'
 
 import Promocao from './Pages/Promocao/Promocao.jsx';
 import CadastroGrupos from './Pages/Grupos/CadastroGrupos.jsx';
@@ -99,11 +99,11 @@ const router = createBrowserRouter([
           },
           {
             path: '/Sistema/cadastro-loja',
-            element: <CadastroLojas />
+            element: <CadastroLoja/>
           },
           {
-            path: '/Sistema/editar-loja',
-            element: <EditarLojas />
+            path: '/Sistema/editar-loja/:id',
+            element: <EditarLoja/>
           },
           //========================================================== Origem do cliente =============================================================
           {

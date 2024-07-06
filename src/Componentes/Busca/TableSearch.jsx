@@ -337,6 +337,7 @@ const TableSearch = ({ routeSearch, routeDeleteNoId, idLabel, namePage, nameEnti
             .then(response => response.json())
             .then(data => {
                 setData(data);
+                console.table(data)
             })
             .catch(error => {
                 console.log("Não foi possível carregar os dados", error);
