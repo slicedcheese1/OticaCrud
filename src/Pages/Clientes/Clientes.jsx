@@ -14,10 +14,13 @@ const ClienteBusca = () => {
     </div>
       <hr/>
       <TableSearch 
-      routeSearch={"http://localhost:8080/clientes/pf"}
+      routeSearch={"http://localhost:8080/clientes/all"}
       routeDeleteNoId={"http://localhost:8080/clientes/pf/"}
       idLabel={"idCliente"}
       namePage={"Clientes"}
+      nameEntity={"cliente"}
+      columnNames={["cidade", "estado", "bairro"]}
+      searchPlaceholder={"Digite o nome, cpf, rg..."}
       />
     </>
   );

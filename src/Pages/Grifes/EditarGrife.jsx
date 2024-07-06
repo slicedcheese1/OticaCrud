@@ -34,19 +34,20 @@ const EditarGrife = () => {
         }
       };
 
-    const editarOrigem = (e) => {
+    const editarGrife = (e) => {
         e.preventDefault();
     
         if (erroNome) {
           return
         }   
-        
+
+        const grife = JSON.stringify({nome})
+        console.table(grife)
+
         fetch(`http://localhost:8080/grife/${id}`, {
           //mode: 'no-cors',
           method: 'PUT',
-          body: JSON.stringify({
-            nome,
-          }),
+          body: grife,
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -82,7 +83,7 @@ const EditarGrife = () => {
             </div>
             <div className="d-flex gap-1 flex-row-reverse ml-auto w-100">
 
-            <Button  onClick={editarOrigem}>Salvar</Button>
+            <Button  onClick={editarGrife}>Salvar</Button>
 
             <Link to={`/Sistema/grifes/`}>
                 <Button variant='secondary'>Voltar</Button>
