@@ -4,19 +4,15 @@ import { Link, useNavigate } from 'react-router-dom'
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 
-const CadastroUnidade = () => {
+const CadastroCargo = () => {
 
   const navigate = useNavigate();
   const [nome, setNome] = useState("")
   const [erroNome, setErroNome] = useState(false)
 
   const validarCampoNome = (nome) => {
-      if (!nome) {
-        setErroNome(true)
-      } else {
-        setErroNome(false)
-      }
-    };
+      nome == "" ? setErroNome(true) : setErroNome(false)
+  };
 
   const handleSalvar = (e) => {
       e.preventDefault();
@@ -25,13 +21,13 @@ const CadastroUnidade = () => {
         return
       }   
       
-      const unidade = JSON.stringify({nome})
-      console.table(unidade)
+      const cargo = JSON.stringify({nome})
+      console.table(cargo)
 
-      fetch('http://localhost:8080/unidade', {
+      fetch('http://localhost:8080/cargo', {
         //mode: 'no-cors',
         method: 'POST',
-        body: unidade,
+        body: cargo,
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -39,17 +35,17 @@ const CadastroUnidade = () => {
       })
         .then(response => response.json())
         .then((data) => {
-          console.log('Unidade criada com sucesso:', data);
-          navigate("/Sistema/unidades/")
+          console.log('Cargo criado com sucesso:', data);
+          navigate("/Sistema/cargos/")
         })
         .catch((error) => {
-          console.error('Erro ao criar unidade:', error);
+          console.error('Erro ao criar cargo:', error);
         });
     };
 
   return (
       <div className='formContainer'>
-          <h1>Nova Unidade</h1>
+          <h1>Novo Cargo</h1>
           <hr />
 
           <div>
@@ -57,13 +53,13 @@ const CadastroUnidade = () => {
             <Form.Label>Nome</Form.Label>
             <Form.Control
             className='input'
-            placeholder='Unidade1, Unidade2, Unidade3...'
+            placeholder='Vendedor, Gerente, Supervisor...'
             value={nome}
             onChange={(e) => setNome(e.target.value)}
             onBlur={(e) => {validarCampoNome(e.target.value)}}
             />
           </Form.Group>
-          {erroNome && <span className='text-danger mt-0 ms-1'>Digite o nome da Unidade.</span>}
+          {erroNome && <span className='text-danger mt-0 ms-1'>Digite o nome do Cargo.</span>}
           {!erroNome && <br/>}
           </div>
 
@@ -73,14 +69,10 @@ const CadastroUnidade = () => {
             <Link to={`/Sistema/unidades/`}>
                 <Button  variant='secondary'>Voltar</Button>
             </Link>
-
           </div>
-          
-
-
       </div>
   )
 }
 
 
-export default CadastroUnidade
+export default CadastroCargo

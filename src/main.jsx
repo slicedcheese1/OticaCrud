@@ -17,17 +17,17 @@ import ClienteDashboard from './Pages/Clientes/ClienteDashboard.jsx';
 import CadastroDashboard from './Pages/Cadastro/CadastroDashboard.jsx';
 import ClienteUpdate from './Pages/Clientes/ClienteUpdate.jsx';
 
-import Unidades from './Pages/Unidades.jsx';
-import CadastroUnidade from './Pages/CadastroUnidade.jsx';
-import EditarUnidade from './Pages/EditarUnidade.jsx'
+import Unidades from './Pages/Unidades/Unidades.jsx';
+import CadastroUnidade from './Pages/Unidades/CadastroUnidade.jsx';
+import EditarUnidade from './Pages/Unidades/EditarUnidade.jsx'
 
 import OrigemCliente from './Pages/Origem.jsx/OrigemCliente.jsx';
 import CadastroOrigemCliente from './Pages/Origem.jsx/CadastroOrigemCliente.jsx';
 import EditarOrigemCliente from './Pages/Origem.jsx/EditarOrigemCliente.jsx';
 
-import Setor from './Pages/Setor/Setor.jsx';
-import CadastroDeSetor from './Pages/Setor/CadastroDeSetor.jsx';
-import EditarSetor from './Pages/Setor/EditarSetor.jsx';
+import Cargos from './Pages/Cargo/Cargos.jsx';
+import CadastroCargo from './Pages/Cargo/CadastroCargo.jsx';
+import EditarCargo from './Pages/Cargo/EditarCargo.jsx';
 
 import Grifes from './Pages/Grifes/Grifes.jsx';
 import CadastroGrifes from './Pages/Grifes/CadastroGrifes.jsx';
@@ -217,18 +217,18 @@ const router = createBrowserRouter([
             path: '/Sistema/Cadastros',
             element: <CadastroDashboard/>
           },
-          //========================================================== Setor ==========================================================================
+          //========================================================== Cargo ==========================================================================
           {
-            path: '/Sistema/setor',
-            element: <Setor /> //(())
+            path: '/Sistema/Cargos',
+            element: <Cargos/> //(())
           },
           {
-            path: '/Sistema/cadastro-setor',
-            element: <CadastroDeSetor /> //(())
+            path: '/Sistema/cadastrar-cargo',
+            element: <CadastroCargo /> //(())
           },
           {
-            path: '/Sistema/editar-setor/:id',
-            element: <EditarSetor/> //(())
+            path: '/Sistema/editar-cargo/:id',
+            element: <EditarCargo/> //(())
           },
           
           //========================================================== Tratamento ==========================================================================

@@ -87,10 +87,10 @@ const CadastroDashboard = () => {
         />
       
         <Botao
-          titulo="Cargos  "
+          titulo="Cargos"
           text="Clique aqui se deseja cadastrar um novo funcionário para sua empresa"
           Icon={BsPersonVcard}
-          link="/Sistema/setor/"
+          link="/Sistema/Cargos/"
           iconColor="" // Definindo a cor do ícone
         />
           <Botao

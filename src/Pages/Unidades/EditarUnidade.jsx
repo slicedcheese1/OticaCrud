@@ -10,12 +10,8 @@ const EditarUnidade = () => {
   const [erroNome, setErroNome] = useState(false)
   
   const validarCampoNome = (nome) => {
-      if (!nome) {
-        setErroNome(true)
-      } else {
-        setErroNome(false)
-      }
-    };
+    nome == "" ? setErroNome(true) : setErroNome(false)
+  };
     
   // carregando dados
   useEffect(() => {
