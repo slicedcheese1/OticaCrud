@@ -39,6 +39,7 @@ function ClienteCadastro() {
   const [showingCardResponsavel, setShowingCardResponsavel] = useState(false);
 
   const handleSalvar = (e) => {
+    e.preventDefault()
     setIsSubmited(true)
 
     if (erroForm || !dataNascimento || !nome || !cpf) {
@@ -76,10 +77,10 @@ function ClienteCadastro() {
     })
       .then(response => response.json())
       .then((data) => {
-        console.log('Post criado com sucesso:', data);
+        console.log('Cliente criado com sucesso:', data);
       })
       .catch((error) => {
-        console.error('Erro ao criar post:', error);
+        console.error('Erro ao criar Cliente:', error);
       });
   };
 

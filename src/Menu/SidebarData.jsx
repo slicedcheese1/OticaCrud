@@ -30,7 +30,7 @@ import * as RiIcons from 'react-icons/ri';
   },
   {
     title: 'Promoções',
-    path: '/Sistema/products',
+    path: '/Sistema/Promocao',
     icon: <IoIcons.IoMdHelpCircle  />
   },
   {

@@ -14,8 +14,10 @@ body, html{
   flex-direction: column;
   gap: 1.5rem;
   padding: 2rem;
-  max-width: 5000px; /* Ajustando a largura máxima */
+  margin: 0 auto;
+  max-width: 150rem; /* Ajustando a largura máxima */
   width: 100%;
+  max-height: fit-content;
   background-color: white;
   border-radius: 12px; /* Bordas mais arredondadas para um visual moderno */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais suave e pronunciada */

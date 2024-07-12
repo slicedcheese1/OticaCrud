@@ -67,10 +67,8 @@ const Funcionario = () => {
             .map((funcionario) => (
               <tr key={funcionario.id}>
                 <td>{funcionario.nome}</td>
-                <td>{funcionario.nomeCargo}</td>
-                <td>
-                  {/* Aqui deve ter alguma lógica para mostrar a loja do funcionário */}
-                </td>
+                <td>{funcionario.cargos[0].nomeCargo}</td>
+                <td>{funcionario.loja}</td>
                 <td>
                   <Link to={`/Sistema/ClienteBusca/${funcionario.id}`}>
                     <button>Editar</button>
