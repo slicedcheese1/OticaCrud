@@ -66,8 +66,9 @@ const CadastroOrigemCliente = () => {
             onBlur={(e) => {validarCampoNome(e.target.value)}}
             />
             </Form.Group>
-            {erroNome && <span style={{ color: 'red' }}>Digite o nome da origem.</span>}
-
+            {erroNome &&  <span className='text-danger mt-0 ms-1'>Digite o nome da Origem.</span>}
+            {!erroNome && <br/>}
+            
             <div className="d-flex gap-1 flex-row-reverse ml-auto w-100">
             <Button variant='primary' onClick={handleSalvar}>Salvar</Button>
 

@@ -53,7 +53,8 @@ const CadastroUnidades = () => {
             onChange={(e) => setNomeUnidade(e.target.value)}
             onBlur={(e) => {validarCampoNome(e.target.value)}}
             />
-            {erroNome && <span style={{ color: 'red' }}>Digite o nome da unidade.</span>}
+            {erroNome &&  <span className='text-danger mt-0 ms-1'>Digite o nome da Cargo.</span>}
+            {!erroNome && <br/>}
 
             <Link to={`/Sistema/unidades/`}>
                 <button>Voltar</button>
