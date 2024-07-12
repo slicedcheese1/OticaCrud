@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import Form from "react-bootstrap/Form"
@@ -7,14 +7,14 @@ import Button from "react-bootstrap/Button"
 const CadastroOrigemCliente = () => {
 
     const navigate = useNavigate();
-    const [nomeOrigem, setNomeOrigem] = useState("")
+    const [nome, setNome] = useState("")
     const [atividade, setAtividade] = useState(true)
     const [erroNome, setErroNome] = useState(false)
 
-    const validarCampoNome = (nomeOrigem) => {
-        const nomeValue = nomeOrigem;
+    const validarCampoNome = (nome) => {
+        const nomeValue = nome;
         console.log("nome: ", nomeValue)
-        if (!nomeOrigem) {
+        if (!nome) {
           setErroNome(true)
         } else {
           setErroNome(false)
@@ -27,14 +27,14 @@ const CadastroOrigemCliente = () => {
         if (erroNome) {
           return
         }   
+
+        const origem = JSON.stringify({nome, atividade})
+        console.table(origem)
         
         fetch('http://localhost:8080/origem_cliente', {
           //mode: 'no-cors',
           method: 'POST',
-          body: JSON.stringify({
-            nomeOrigem,
-            atividade
-          }),
+          body: origem,
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -59,9 +59,10 @@ const CadastroOrigemCliente = () => {
             <Form.Group>
             <Form.Label>Nome</Form.Label>
             <Form.Control
-            placeholder='Instagram, facebook..'
-            value={nomeOrigem}
-            onChange={(e) => setNomeOrigem(e.target.value)}
+            className='input'
+            placeholder='Instagram, facebook, WhatsApp..'
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
             onBlur={(e) => {validarCampoNome(e.target.value)}}
             />
             </Form.Group>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import  { useState, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 
 import Form from "react-bootstrap/Form"
@@ -8,9 +8,17 @@ const EditarOrigemCliente = () => {
 
     const navigate = useNavigate();
     const { id } = useParams();
-    const [nomeOrigem, setNomeOrigem] = useState("")
+    const [nome, setNome] = useState("")
     const [atividade, setAtividade] = useState(true)
     const [erroNome, setErroNome] = useState(false)
+
+    const validarCampoNome = (nome) => {
+      if (!nome) {
+        setErroNome(true)
+      } else {
+        setErroNome(false)
+      }
+    };
 
     // carregando dados
     useEffect(() => {
@@ -22,21 +30,11 @@ const EditarOrigemCliente = () => {
       })
         .then(resp => resp.json())
         .then((data) => {
-          setNomeOrigem(data.nomeOrigem);
+          setNome(data.nome);
           setAtividade(data.atividade);
         })
         .catch((err) => console.log(err));
     }, [id]);
-
-    const validarCampoNome = (nomeOrigem) => {
-        const nomeValue = nomeOrigem;
-        console.log("nome: ", nomeValue)
-        if (!nomeOrigem) {
-          setErroNome(true)
-        } else {
-          setErroNome(false)
-        }
-      };
 
     const editarOrigem = (e) => {
         e.preventDefault();
@@ -49,7 +47,7 @@ const EditarOrigemCliente = () => {
           //mode: 'no-cors',
           method: 'PUT',
           body: JSON.stringify({
-            nomeOrigem,
+            nome,
             atividade
           }),
           headers: {
@@ -76,9 +74,10 @@ const EditarOrigemCliente = () => {
             <Form.Group>
             <Form.Label>Nome</Form.Label>
             <Form.Control
-            placeholder='Instagram, facebook..'
-            value={nomeOrigem}
-            onChange={(e) => setNomeOrigem(e.target.value)}
+            className='input'
+            placeholder='Instagram, Facebook, WhatsApp'
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
             onBlur={(e) => {validarCampoNome(e.target.value)}}
             />
             </Form.Group>

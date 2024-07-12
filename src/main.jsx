@@ -111,7 +111,7 @@ const router = createBrowserRouter([
             element: <OrigemCliente />
           },
           {
-            path: '/Sistema/cadastro-origem-cliente',
+            path: '/Sistema/cadastrar-origem-cliente',
             element: <CadastroOrigemCliente />
           },
           {
