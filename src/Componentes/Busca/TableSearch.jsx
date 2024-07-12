@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './TableSearch.css';
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
@@ -286,10 +286,10 @@ const TableSearch = ({ routeSearch, routeDeleteNoId, idLabel, namePage, nameEnti
 
     useEffect(() => {
         loadData(routeSearch);
-    }, [routeSearch]);
+    }, []);
+
 
     useEffect(() => {
-        console.log(columnNames);
         if (data.length > 0) {
           if (dataTableIsInitialized) {
             dataTable.clear().draw();
@@ -306,7 +306,7 @@ const TableSearch = ({ routeSearch, routeDeleteNoId, idLabel, namePage, nameEnti
                 { 
                   title: "Ações",
                   data: null,
-                  render: function(data, type, row) {
+                  render: function(data) {
                     return `
                     <div class="">
                       <a href="/Sistema/editar-${nameEntity}/${data[idLabel]}">
@@ -330,7 +330,7 @@ const TableSearch = ({ routeSearch, routeDeleteNoId, idLabel, namePage, nameEnti
             dataTable.search(this.value).draw();
           })
         }
-      }, [data, columnNames, idLabel, nameEntity]);
+      }, [data]);
 
     const loadData = (routeSearch) => {
         fetch(routeSearch)

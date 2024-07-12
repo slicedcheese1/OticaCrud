@@ -1,49 +1,35 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from "react-bootstrap/Button"
 import TableSearch from '../../Componentes/Busca/TableSearch';
 
 const Grifes = () => {
-    const [grifes, setGrifes] = useState([]);
+    // const [grifes, setGrifes] = useState([]);
  
 
-    useEffect(() => {
-      buscarGrifes();
-    }, []);
+    // useEffect(() => {
+    //   buscarGrifes();
+    // }, []);
   
-    const buscarGrifes = () => {
-      fetch("http://localhost:8080/grife/all")
-        .then(resposta => resposta.json())
-        .then(dados => {
-          setGrifes(dados);
-        });
-    };
+    // const buscarGrifes = () => {
+    //   fetch("http://localhost:8080/grife/all")
+    //     .then(resposta => resposta.json())
+    //     .then(dados => {
+    //       setGrifes(dados);
+    //     });
+    // };
   
     
   
-    const deletarGrifes = (id) => {
-      fetch(`http://localhost:8080/grife/${id}`, {
-        method: 'DELETE'
-      })
-        .then(response => {
-          if (response.ok) {
-            buscarGrifes();
-            console.log(response)
-          }
-        });
-    };
-  
-    // const atualizarSetores = (id) => {
-    //   fetch(`http://localhost:8080/cargo/${id}`, {
-    //     method: 'GET'
+    // const deletarGrifes = (id) => {
+    //   fetch(`http://localhost:8080/grife/${id}`, {
+    //     method: 'DELETE'
     //   })
-    //   .then(resposta => resposta.json())
-    //   .then(dados => {
-    //     this.setState({ 
-    //       id: dados.idCargo,
-    //       nomeCargo: dados.nomeCargo
-    //     }); 
-    //   });
+    //     .then(response => {
+    //       if (response.ok) {
+    //         buscarGrifes();
+    //         console.log(response)
+    //       }
+    //     });
     // };
 
   return (

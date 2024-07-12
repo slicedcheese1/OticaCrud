@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import Form from "react-bootstrap/Form"
@@ -11,8 +11,6 @@ const CadastroGrifes = () => {
     const [erroNome, setErroNome] = useState(false)
 
     const validarCampoNome = (nome) => {
-        const nomeValue = nome;
-        console.log("nome: ", nomeValue)
         if (!nome) {
           setErroNome(true)
         } else {
@@ -27,12 +25,13 @@ const CadastroGrifes = () => {
           return
         }   
         
+        const grife = JSON.stringify({nome})
+        console.table(grife)
+
         fetch('http://localhost:8080/grife', {
           //mode: 'no-cors',
           method: 'POST',
-          body: JSON.stringify({
-            nome
-          }),
+          body: grife,
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -40,11 +39,11 @@ const CadastroGrifes = () => {
         })
           .then(response => response.json())
           .then((data) => {
-            console.log('Post criado com sucesso:', data);
+            console.log('Grife criada com sucesso:', data);
             navigate("/Sistema/grifes/")
           })
           .catch((error) => {
-            console.error('Erro ao criar post:', error);
+            console.error('Erro ao criar grife:', error);
           });
       };
 
