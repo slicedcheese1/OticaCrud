@@ -94,7 +94,7 @@ const EditarLoja = () => {
     <>
       <form>
           <div>
-              <h2>Nova Loja</h2>
+              <h2>Editar Loja</h2>
               <hr/>
               <Form>
 

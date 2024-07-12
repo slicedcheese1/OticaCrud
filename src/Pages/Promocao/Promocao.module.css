@@ -1,0 +1,74 @@
+#TituloCard{
+            color:rgb(14, 92, 170);
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            
+}
+.cFlex{
+    font-size: 10px;
+}
+#NomeProduto{
+    font-size: 13px;
+    font-weight: bold; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+#inputfield{
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#mb93{
+    display: flex;
+   
+    margin-top: 15px;
+    
+}
+#mb95{
+    flex-direction: row;
+    margin-top: 3px;
+    margin-left: 6px;
+    font-size:12px;
+}
+.mb3{
+    display:flex;
+    margin-top: 17px;
+    font-size: 1px;
+    gap:10px;
+    width:auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.mb4{
+    margin-top: 19px;
+    width: 1460px;
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.mb5{
+    display:flex;
+    margin-top: 5px;
+    font-size: 1px;
+    height:35px;
+    width:1000px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.mb6{
+    margin-top: 7px;
+    
+    margin-left: 50px;
+    font-size: 16px;
+    overflow:auto;
+    
+ 
+    
+}
+ 
+#Busca{
+    
+    margin-top: 15px;
+    font-size: 13px;
+    font-weight: bold; /* Define o texto em negrito */
+    font-family: Arial, Helvetica, sans-serif;
+}

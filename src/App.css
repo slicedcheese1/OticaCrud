@@ -6,10 +6,11 @@ body {
     font-size: 1.6rem;
 }
 
-.container{
+.container-pad{
     padding: 1rem;
     padding-top: 1rem;
     transition: margin-left 270ms;
+
 }
 
 .sidebar-open {

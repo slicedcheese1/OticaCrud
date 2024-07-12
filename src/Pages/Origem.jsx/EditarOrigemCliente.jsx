@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const EditarOrigemCliente = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+
+
+    return (
+      <></>
+    )
 }
 
 export default EditarOrigemCliente
