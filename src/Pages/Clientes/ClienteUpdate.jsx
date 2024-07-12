@@ -29,14 +29,10 @@ const ClienteUpdate = () => {
   return (
     <>
 
-    <button onClick={toggleProjectForm}>
-      {!showProjectForm ? 'Fechar ': 'Editar Cliente'}
-    </button> 
-    {!showProjectForm ? (
       <div>
         <p>Formulario ja preenchido</p>
       </div>
-    ) : (
+   
       <div>
         <h3>Detalhes do Cliente</h3>
         <hr/>
@@ -74,8 +70,6 @@ const ClienteUpdate = () => {
 
         
       </div>
-    )}
-    
     </>
   );
 }

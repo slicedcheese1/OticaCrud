@@ -8,41 +8,24 @@
   justify-content: center;
   align-items: center;
   transition: 300ms ease-in-out;
-  
 
 }
-.card-main {
-  border: 1px solid #15171c;
-  border-radius: 20px;
-  width: 100%;
-  padding: 1rem;
-  
-  animation: opacity 800ms;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  overflow: auto; /* Adiciona rolagem se o conteúdo for maior que o card principal */
-}
+
 .page-container:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-.container-dashboard {
-  
-  flex-wrap:wrap;
+.containerDashboard {
+  flex-wrap: wrap;
   display: flex;
   justify-content: center; 
   align-items: center;
-  height:100vh;
+  min-height: 60rem;
+  height:fit-content;
   border-radius: 20px;
-  
-  
-
 }
 
-.card-opt{
-  
+.cardOpt{
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -70,7 +53,7 @@ p{
   
   margin-top: 20px;
 }
-.icon-people{
+.iconPeople{
   width: auto;
   height: 80px;
   margin-top: 4rem;

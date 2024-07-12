@@ -7,3 +7,40 @@
 body, html{
   height: 100%;
 }
+
+.formContainer{
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 150rem; /* Ajustando a largura máxima */
+  width: 100%;
+  max-height: fit-content;
+  background-color: white;
+  border-radius: 12px; /* Bordas mais arredondadas para um visual moderno */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais suave e pronunciada */
+  animation: fadeIn 0.5s ease-in-out; /* Animação de entrada suave */
+}
+
+.input{
+  padding: 0.75rem; /* Aumentando o padding para uma área de clique maior */
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Bordas mais arredondadas */
+  width: 100%;
+  margin-top: 0;
+  transition: border-color 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.input:focus {
+  border-color: #007bff; /* Cor da borda ao focar */
+  outline: none; /* Removendo outline padrão */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra suave ao focar */
+}
+
+label{
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}

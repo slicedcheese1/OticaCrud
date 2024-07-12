@@ -1,16 +1,20 @@
 import React from 'react';
-
+import { useState } from 'react';
 import { MdPeopleAlt } from "react-icons/md";
 import { FaBuilding } from "react-icons/fa";
 import ReactInputMask from 'react-input-mask';
 
-import './DadosPessoaisClienteRegistro.css'
+import styles from './DadosPessoaisClienteRegistro.module.css'
 
 import ClienteContext from '../../../Pages/Clientes/ClinteContext';
 
-import { useState } from 'react';
+import Card from "react-bootstrap/Card"
+import Form from "react-bootstrap/Form"
+
 
 function DadosPessoaisClienteRegistro() {
+
+  
 
   const [erroData, setErroData] = useState('');
   const [erroCpf, setErroCpf] = useState('');
@@ -117,179 +121,190 @@ function DadosPessoaisClienteRegistro() {
     <>
     
     <h2>Novo Cliente</h2>
-    <div className="card">
+    <Card className='p-3 w-100'>
       <h3>Dados Pessoais</h3>
       <hr />
 
-      <div id="form-dados-pessoais" className='formBox' method="post">
-        <div className="photoBox">
-          <label id="label-photo" htmlFor="photo">Clique sobre a imagem para alterar</label>
-          <input type="file" name="photo"/>
-        </div>
+      <div className="w-100 p-1 gap-4 d-flex" >
+        <Form.Group >
+          <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src="https://placehold.co/600x400" />
+            <Card.Body>
+              <Card.Title>Foto do Cliente</Card.Title>
+              <Card.Text>
+                Adicione uma foto para identificar um cliente no sistema.
+              </Card.Text>
+              
+              <Form.Control className='p-2 rounded' type="file" name="photo"></Form.Control>
+            </Card.Body>
+          </Card>
+        </Form.Group>
 
-        <div className="gp1-box" >
-            <div className="gp1" > 
-              <div className="column-flex-box gap1 gp1-1">
-                <label id="label-tipo_de_pessoa" htmlFor="tipo_de_pessoa">Tipo de Cliente</label>
-                <div className="gp1-1 row-flex-box gap2">
-                  <div className='gap1 row-flex-box'>
-                    <input id="Redondo"
-                    type="radio" 
-                    name="pf" 
-                    value="pf"
-                    checked={tipoCliente === 'pf'} // Set checked state
-                    onChange={handleTipoClienteChange} />
-                    <label id="label-pf" htmlFor="pf"><MdPeopleAlt id="iconePf"/> Pessoa Fisica</label>
-                  </div>
+        <div className={"w-100 d-flex flex-column ms-10"}>
+          <div className={styles.gp1}> 
+            <div className={`d-flex flex-column w-90`}>
+              <label id="label-tipo_de_pessoa" htmlFor="tipo_de_pessoa">Tipo de Cliente</label>
+              <div className="w-90 d-flex flex-row gap-5">
+                <Form.Group className={`gap-1 d-flex flex-row align-items-center`}>
+                  <Form.Check id={styles.Redondo}
+                  type="radio" 
+                  name="pf" 
+                  value="pf"
+                  checked={tipoCliente === 'pf'} // Set checked state
+                  onChange={handleTipoClienteChange} />
+                  <Form.Label id="label-pf" htmlFor="pf"><MdPeopleAlt id="iconePf"/> Pessoa Fisica</Form.Label>
+                </Form.Group>
 
-                  <div className='gap1 row-flex-box'>
-                    <input   
-                    type="radio" 
-                    name="pj" 
-                    id= "pj"
-                    value="pj"
-                    checked={tipoCliente === 'pj'} // Set checked state
-                    onChange={handleTipoClienteChange}  />
-                    <label id="label-pj" htmlFor="pj"><FaBuilding id="iconePf"/> Pessoa Jurídica</label>
-                  </div>
-                </div>
-              </div>
-
-              <div className="column-flex-box gap1 gp1-2">
-                <label id="label-lojas" htmlFor="lojas">Cadastro Em</label> 
-                <select name="loja" value={lojaCadastro} onChange={(e) => {setLojaCadastro(e.target.value)}} required>
-                  <option value="" disabled selected >Selecione uma opção</option>
-                  <option value="Loja 01">Loja 01</option>  
-                  <option value="Loja 02">Loja 02</option>  
-                  <option value="Loja 03">Loja 03</option>  
-                  <option value="Loja 04">Loja 04</option>  
-                  <option value="Loja 05">Loja 05</option>  
-                  <option value="Loja 06">Loja 06</option>  
-                  <option value="Loja 07">Loja 07</option>  
-                  <option value="Loja 08">Loja 08</option>  
-                  <option value="Loja 09">Loja 09</option>  
-                  <option value="Loja 10">Loja 10</option>  
-                </select>    
+                <Form.Group className={`gap-1 d-flex flex-row align-items-center`}>
+                  <Form.Check  
+                  type="radio" 
+                  name="pj" 
+                  id= {styles.Redondo} 
+                  value="pj"
+                  checked={tipoCliente === 'pj'} 
+                  onChange={handleTipoClienteChange}  />
+                  <Form.Label id="label-pj" htmlFor="pj"><FaBuilding id="iconePf"/> Pessoa Jurídica</Form.Label>
+                </Form.Group>
               </div>
             </div>
 
-            {tipoCliente === 'pf' && (
-              <div className="gp2"> 
-                <div className='gp2-1 column-flex-box'>
-                  <label id="label-nome" htmlFor="nome">Nome</label>
-                  <input type="text" maxLength={70} name='nome' 
-                  id='nome'
-                  value={nome} 
-                  onChange={(e) => {setNome(e.target.value)}} required />
-                  {isSubmited && !nome && <span style={{ color: 'red' }}>Campo obrigatório</span>}
-                </div>
+            <Form.Group className={`w-90 d-flex flex-column gap-1 ml-2 mr-5`}>
+              <Form.Label id="label-lojas" htmlFor="lojas">Cadastro Em</Form.Label> 
+              <Form.Select className="input" name="loja" value={lojaCadastro} onChange={(e) => {setLojaCadastro(e.target.value)}} required>
+                <option value="" disabled selected >Selecione uma opção</option>
+                <option value="Loja 01">Loja 01</option>  
+                <option value="Loja 02">Loja 02</option>  
+                <option value="Loja 03">Loja 03</option>  
+                <option value="Loja 04">Loja 04</option>  
+                <option value="Loja 05">Loja 05</option>  
+                <option value="Loja 06">Loja 06</option>  
+                <option value="Loja 07">Loja 07</option>  
+                <option value="Loja 08">Loja 08</option>  
+                <option value="Loja 09">Loja 09</option>  
+                <option value="Loja 10">Loja 10</option>  
+              </Form.Select>    
+            </Form.Group>
+          </div>
 
-                <div className='gp2-2 column-flex-box'>
-                  <label id="label-sexo" htmlFor="sexo">Sexo</label>
-                  <select name="sexo" value={sexo} onChange={(e) => {setSexo(e.target.value)}}>
-                    <option value="" disabled selected >Selecione uma opção</option>
-                    <option value="M">Masculino</option>  
-                    <option value="F">Femino</option>  
-                    <option value="O">Outros</option>  
-                  </select>  
-                </div>
+          {tipoCliente === 'pf' && (
+            <div className={styles.gp2}> 
+              <Form.Group className={`w-80 d-flex flex-column `}>
+                <Form.Label id="label-nome" htmlFor="nome">Nome</Form.Label>
+                <Form.Control className='input' type="text" maxLength={70} name='nome' 
+                placeholder='Nome'
+                id="nome"
+                value={nome} 
+                onChange={(e) => {setNome(e.target.value)}} required />
+                {isSubmited && !nome && <span style={{ color: 'red' }}>Campo obrigatório</span>}
+              </Form.Group>
 
-                <div className='gp3-3 column-flex-box gap1'>
-                  <label id="label-data-de-nascimento" htmlFor="data-de-nascimento">Data de nascimento</label>
-                  <ReactInputMask mask={'99-99-9999'} type="text" name="data-de-nascimento"
-                  value={dataNascimento} 
-                  id='nascimento'
-                  onChange={(e) => {setNascimento(e.target.value)}}
-                  onBlur={(e) => validarData(e.target.value)} 
-                  required
-                  />
-                  {erroData && <span style={{ color: 'red' }}>{erroData}</span>}
-                  {isSubmited && !dataNascimento && <span style={{ color: 'red' }}>Campo obrigatório</span>}
-                </div>
+              <Form.Group className={`w-80 d-flex flex-column`}>
+                <Form.Label id="label-sexo" htmlFor="sexo">Sexo</Form.Label>
+                <Form.Select 
+                className="input"
+                placeholder = "Selecione uma oadawdpção"
+                id="sexo"
+                name="sexo" 
+                value={sexo} 
+                onChange={(e) => {setSexo(e.target.value)}}>
+                  <option value="" disabled >Selecione uma opção</option>
+                  <option value="M">Masculino</option>  
+                  <option value="F">Femino</option>  
+                  <option value="O">Outros</option>  
+                </Form.Select>  
+              </Form.Group>
+
+              <Form.Group className={`w-80 d-flex flex-column `}>
+                <Form.Label id="label-data-de-nascimento" htmlFor="data-de-nascimento">Data de nascimento</Form.Label>
+                <ReactInputMask className="input" mask={'99-99-9999'} type="text" name="data-de-nascimento"
+                value={dataNascimento} 
+                placeholder='Data de Nascimento'
+                id='data-de-nascimento'
+                onChange={(e) => {setNascimento(e.target.value)}}
+                onBlur={(e) => validarData(e.target.value)} 
+                required
+                />
+                {erroData && <span style={{ color: 'red' }}>{erroData}</span>}<br/>
+                {isSubmited && !dataNascimento && <span style={{ color: 'red' }}>Campo obrigatório</span>}
+              </Form.Group>
+            </div>
+          )}
+
+          {tipoCliente === 'pf' && (
+            <div className={styles.gp2}> 
+              <Form.Group className={`w-80 d-flex flex-column `}>
+                <Form.Label  id="label-rg" htmlFor="rg">RG</Form.Label>
+                <Form.Control className='input' type="text" name="rg" 
+                id="rg"
+                placeholder='RG'
+                value={rg} 
+                onChange={(e) => {setRg(e.target.value)}} />
+              </Form.Group>
+
+              <Form.Group className={`w-80 d-flex flex-column `}>
+                <Form.Label id="label-cpf" htmlFor="cpf" >CPF</Form.Label>
+                <ReactInputMask className="input" mask={'999.999.999-99'} type="text" name='cpf' 
+                id='cpf'
+                placeholder='CPF'
+                value={cpf} 
+                onChange={(e) => {setCpf(e.target.value)}} 
+                onBlur={(e) => {validarCampoCPF(e.target.value)}}
+                />
+                {erroCpf && <span style={{ color: 'red' }}>{erroCpf}</span>}
+                {isSubmited && !cpf && <span style={{ color: 'red' }}>Campo obrigatório</span>}
+              </Form.Group>
+
+              
+            </div>
+          )}
+
+          {tipoCliente === 'pj' && (
+            <div className={styles.gp3}>
+              <div className={styles.gp2}> 
+                <Form.Group className={`w-80 d-flex flex-column`}>
+                  <Form.Label htmlFor="razao-social">Razão Social</Form.Label>
+                  <Form.Control className='input' placeholder='Razão Social' id="razao-social" type="text" name='razao-social' />
+                </Form.Group>
+
+                <Form.Group className={`w-80 d-flex flex-column`}>
+                  <Form.Label  htmlFor="nome-fantasia">Nome Fantasia</Form.Label>
+                  <Form.Control className='input' id="nome-fantasia" placeholder='Nome Fantasia' type="text" name="nome-fantasia" />
+                </Form.Group>
+
+                <Form.Group className={`w-80 d-flex flex-column`}>
+                  <Form.Label id="CNPJ" htmlFor='CNPJ'>CNPJ</Form.Label>
+                  <ReactInputMask id="CNPJ" className="input" placeholder='CNPJ' mask ="99.999.999/9999-99" type="text" name='CNPJ' />
+                </Form.Group>
               </div>
-            )}
+            </div>
+          )}
 
-            {tipoCliente === 'pf' && (
-              <div className="gp3"> 
-                <div className='gp3-1 column-flex-box gap1'>
-                  <label id="label-rg" htmlFor="rg">RG</label>
-                  <input type="text" name="rg" 
-                  value={rg} 
-                  onChange={(e) => {setRg(e.target.value)}} />
-                </div>
-
-                <div className='gp3-2 column-flex-box gap1'>
-                  <label id="label-cpf" htmlFor="cpf" >CPF</label>
-                  <ReactInputMask mask={'999.999.999-99'} type="text" name='cpf' 
-                  id='cpf'
-                  value={cpf} 
-                  onChange={(e) => {setCpf(e.target.value)}} 
-                  onBlur={(e) => {validarCampoCPF(e.target.value)}}
-                  />
-                  {erroCpf && <span style={{ color: 'red' }}>{erroCpf}</span>}
-                  {isSubmited && !cpf && <span style={{ color: 'red' }}>Campo obrigatório</span>}
-
-                </div>
-
-                
-              </div>
-            )}
-
-            {tipoCliente === 'pj' && (
-              <div className="gp4"> 
-                <div className='gp3-1 column-flex-box gap1'>
-                  <label id="label-razao-social" htmlFor="razao-social">Razão Social</label>
-                  <input type="text" name='razao-social' />
-                </div>
-
-                <div className='gp3-2 column-flex-box gap1'>
-                  <label id="label-nome-fantasia" htmlFor="nome-fantasia">Nome Fantasia</label>
-                  <input type="text" name="nome-fantasia" />
-                </div>
-              </div>
-            )}
-
-            {tipoCliente === 'pj' && (
-              <div className="gp3"> 
-                <div className='gp3-1 column-flex-box gap1'>
-                  <label id="label-CNPJ" htmlFor='CNPJ'>CNPJ</label>
-                  <ReactInputMask mask ="99.999.999/9999-99" type="text" name='CNPJ' />
-                </div>
-              </div>
-            )}
         </div>
 
       </div>
-    </div>
+    </Card>
     
     {tipoCliente === 'pj' && (
-    <div className="card">
+    <Card className='p-4'>
       <h3>Informações Fiscais</h3>
       <hr />
+      <div className={styles.gp2}> 
+          <Form.Group className={`w-80 d-flex flex-column`}>
+            <Form.Label id="label-inscricao-estadual" htmlFor="inscricao-estadual" >Inscrição Estadual</Form.Label>
+            <Form.Control className='input' type="text" name="inscricao-estadual"/>
+          </Form.Group>
 
-      <form id="form-dados-fiscais" className='formBox' method="post">
-        <div className="gp1-box" >
-          <div className="gp3"> 
-              <div className='gp3-1 column-flex-box gap1'>
-                <label id="label-inscricao-estadual" htmlFor="inscricao-estadual" >Inscrição Estadual</label>
-                <input type="text" name="inscricao-estadual"/>
-              </div>
+          <Form.Group className={`w-80 d-flex flex-column`}>
+            <Form.Label id="label-inscricao-municipal" htmlFor="inscricao-municipal" >Inscrição Municipal</Form.Label>
+            <Form.Control className='input' type="text" name='inscricao-municipal' />
+          </Form.Group>
 
-              <div className='gp3-2 column-flex-box gap1'>
-                <label id="label-inscricao-municipal" htmlFor="inscricao-municipal" >Inscrição Municipal</label>
-                <input type="text" name='inscricao-municipal' />
-              </div>
-
-              <div className='gp3-3 column-flex-box gap1'>
-                <label id="label-suframa" htmlFor="suframa">Suframa</label>
-                <input type="text" name="suframa" />
-              </div>
-            </div>
-        </div>
-
-
-      </form>
-    </div>
+          <Form.Group className={`w-80 d-flex flex-column`}>
+            <Form.Label id="label-suframa" htmlFor="suframa">Suframa</Form.Label>
+            <Form.Control className='input' type="text" name="suframa" />
+          </Form.Group>
+      </div>
+    </Card>
     )}
     </>
   )

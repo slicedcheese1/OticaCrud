@@ -1,18 +1,18 @@
 import React from 'react'
-import './DadosPessoaisClienteRegistro.css'
-
+import styles from './DadosPessoaisClienteRegistro.module.css'
+import Card from "react-bootstrap/Card"
 const DadosObservacoesClienteRegistro = () => {
   return (
        <>
       
-      <div className="card">
-      <h3>Observações</h3>
+      <Card className="p-4">
+        <h3>Observações</h3>
         <hr />
-        <div  id="form-observacao" className='formBox' method="post">
-            <textarea className = "textao"></textarea>
+        <div id="form-observacao" className={styles.formBox} method="post">
+            <textarea className ={styles.textao}></textarea>
         </div>
       
-      </div>
+      </Card>
       </>
     
   )

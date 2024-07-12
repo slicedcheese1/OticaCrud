@@ -1,0 +1,11 @@
+:root{
+    --background-color: #ffffff;
+    --text-color: #2e3848;
+    --card-color: #E0E0E0;
+}
+
+.dark-mode{
+    --background-color: #ffffff;
+    --text-color: #2e3848;
+    --card-color: #E0E0E0;
+}
