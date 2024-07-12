@@ -10,8 +10,8 @@
       const [nome, setNomeGrife] = useState("")
       const [erroNome, setErroNome] = useState(false)
       
-      const validarCampoNome = (nomeOrigem) => {
-          if (!nomeOrigem) {
+      const validarCampoNome = (nome) => {
+          if (!nome) {
             setErroNome(true)
           } else {
             setErroNome(false)
