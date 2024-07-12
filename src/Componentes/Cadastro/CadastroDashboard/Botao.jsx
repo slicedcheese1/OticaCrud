@@ -1,8 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './CadastroBotoes.module.css';
+import styles from './Botao.module.css';
 
-function Botao({ titulo, text, Icon, link, iconColor }) {
+function Botao({ titulo, Icon, link, iconColor }) {
   return (
     <a href={link} className={styles.cardOpt}>
       
