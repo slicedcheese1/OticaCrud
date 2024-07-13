@@ -424,7 +424,7 @@ function CadastroProdutos() {
                         >Preço de venda</Form.Label>
                         <Form.Control
                             id={`input-${index}`}
-                            className="input"
+                            
                             name="rg"
                             type='text'
                             value={priceValues[index] || ''}
@@ -437,7 +437,7 @@ function CadastroProdutos() {
                         >Custo</Form.Label>
                         <Form.Control
                             id={`input-${index}`}
-                            className="input"
+                            
                             name="cargos"
                             value={coustValues[index] || ''}
                             onChange={(e) => handleCoustChange(index, e.target.value)}
@@ -448,7 +448,7 @@ function CadastroProdutos() {
                     <Form.Group  key={index}>
                         <Form.Label>Lucro</Form.Label>
                         <Form.Control
-                        className="input"
+                        
                             name="lucro"
                             value={calculateProfit(index) || ''}
                             type='text'
@@ -458,7 +458,7 @@ function CadastroProdutos() {
                     <Form.Group>
                         <Form.Label>%Lucro</Form.Label>
                         <Form.Control 
-                            className="input"
+                            
                             name="lucro em porcentagem" 
                             type='text' 
                             value={calculateProfitPercent(index) || ''}
@@ -468,7 +468,7 @@ function CadastroProdutos() {
                     <Form.Group>
                         <Form.Label>Qtd. Atual</Form.Label>
                         <Form.Control
-                            className="input"
+                            
                             name="cpf"
                             type='text'
                             value={cpf}
@@ -479,7 +479,7 @@ function CadastroProdutos() {
                     <Form.Group>
                         <Form.Label>Qtd. Minima</Form.Label>
                         <Form.Control
-                            className="input"
+                            
                             name="cep"
                             type='text'
                             value={cep}
@@ -490,7 +490,6 @@ function CadastroProdutos() {
                     <Form.Group>
                         <Form.Label>Data de validade do produto</Form.Label>
                         <Form.Control
-                            className="input"
                             name="endereco"
                             type='text'
                             value={endereco}
