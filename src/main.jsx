@@ -97,7 +97,7 @@ const router = createBrowserRouter([
             element: <Produtos />
           },
           {
-            path: '/Sistema/cadastro-produto',
+            path: '/Sistema/cadastrar-produto',
             element: <CadastroProdutos/>
           },
           {
