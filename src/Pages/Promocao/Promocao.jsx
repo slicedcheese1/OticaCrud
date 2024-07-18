@@ -3,117 +3,114 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { MdPeopleAlt } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
-import { FaFilter,FaPercentage } from 'react-icons/fa';
-import Button from 'react-bootstrap/Button';
+import {FaPercentage } from 'react-icons/fa';
 import styles from './Promocao.module.css';
-import { FormGroup, FormLabel } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
+import { useState } from 'react';
+
 function Promocao() {
+  const [tipoPromocao, setTipoPromocao] = useState()
+
   return (
     
-    <Card>
-        
-      <Card.Header id={styles.TituloCard}>Produtos em Promoção</Card.Header>
+    
+    <div className='formContainer'>
+      <h1>Produtos em Promoção</h1>
+      <hr />   
+      {/* <Card.Header id={styles.TituloCard}>Produtos em Promoção</Card.Header> */}
       <Card.Body>
         <blockquote className={styles.cFlex}>
         <Row>
           <div className={styles.dFlex}>
-          <Col>
-          <Form.Label id={styles.NomeProduto}>Tipo de Promoção*</Form.Label>
-          <Form.Control id={styles.inputfield} type="Produto" placeholder="Porcentagem de Desconto" />
-          </Col>
+          <Form.Group className={`w-90 d-flex flex-column gap-1 ml-2 mr-5`}>
+              <Form.Label id="label-lojas" htmlFor="lojas">Cadastro Em</Form.Label> 
+              <Form.Select className="input" name="loja" value={tipoPromocao} onChange={(e) => {setTipoPromocao(e.target.value)}} required>
+                <option value="" disabled selected >Selecione uma opção</option>
+                <option value="Valor Final">Valor Final</option>  
+                <option value="Desconto em preço fixo">Desconto em preço fixo</option>  
+                <option value="Desconto em porcentagem">Desconto em porcentagem</option>  
+              </Form.Select>    
+            </Form.Group>
           </div>     
-          </Row>
-          <Row>
+        </Row>
+        <Row>
           <Col>   
-          <Form.Group id={styles.mb93}>
-          
-        <Form.Check type="checkbox" />
-        <FormLabel id={styles.mb95}>Aplicar o mesmo desconto para todos os produtos</FormLabel>
-      </Form.Group>
-      </Col> 
+            <Form.Group className='d-flex justify-content-cente align-items-center gap-2' >
+            
+              <Form.Check type="checkbox" />
+              <Form.Label className='mb-0' >Aplicar o mesmo desconto para todos os produtos</Form.Label>
+            </Form.Group>
+          </Col> 
         </Row>
         
-          <Row>
+        <Row>
           
           <Form.Label id={styles.Busca}>Busca</Form.Label>
           
-          <Col>
-          <InputGroup className={styles.mb5}>
+          <Col className="w-90  d-flex flex-column gap-1 ml-2 mr-5">
+            <InputGroup >
+              <InputGroup.Text ><FaSearch></FaSearch></InputGroup.Text>
+              <Form.Control
+                className='input mb-0'
+                placeholder="Busque Produto por nome, referência ou código de barras..."
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </InputGroup>
+            <Form.Group className='d-flex justify-content-cente align-items-center gap-2'>
           
-        <InputGroup.Text id={styles.inputfieldB}><FaSearch></FaSearch></InputGroup.Text>
-        <Form.Control
-          placeholder="Busque Produto por nome, referência ou código de barras..."
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
-      </InputGroup>
-        </Col>
-        <Col>
-        <Button className={styles.mb6} variant="outline-primary"><FaFilter></FaFilter>  Filtrar Produtos</Button>{' '}
-
-        </Col>
+              <Form.Check type="checkbox" />
+              <Form.Label className='mb-0'>Estou usando um leitor de códigos de barras</Form.Label>
+            </Form.Group>
+          </Col>
         
-          </Row>
-          <Row>
-          <Col>   
-          
-          <Form.Group id={styles.mb93}>
-          
-        <Form.Check type="checkbox" />
-        <FormLabel id={styles.mb95}>Estou usando um leitor de códigos de barras</FormLabel>
-      </Form.Group>
-      </Col> 
-
-
         </Row>
+
         <br></br>
         <br></br>
         <br></br>
       <Row> 
-      <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>Produtos</th>
-          <th>Val. Custo</th>
-          <th>Val. Unitário</th>
-          <th>Desconto(%)</th>
-          <th>Val. Final</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Produto A</td>
-          <td>1</td>
-          <td>1</td>
-          <td><InputGroup.Text><FaPercentage></FaPercentage>12<Form.Label/></InputGroup.Text></td>
-          <td>0.88</td>
-        </tr>
-        <tr>
-          <td>Produto B</td>
-          <td>1</td>
-          <td>1</td>
-          <td><InputGroup.Text><FaPercentage></FaPercentage>12<Form.Label/></InputGroup.Text></td>
-          <td>0.88</td>
-        </tr>
-        <tr>
-          <td>Produto V</td>
-          <td>1</td>
-          <td>1</td>
-          <td><InputGroup.Text><FaPercentage></FaPercentage>12<Form.Label/></InputGroup.Text></td>
-          <td>0.88</td>
-        </tr>
-      </tbody>
-    </Table>
-        
+        <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Produtos</th>
+            <th>Val. Custo</th>
+            <th>Val. Unitário</th>
+            <th>Desconto(%)</th>
+            <th>Val. Final</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Produto A</td>
+            <td>1</td>
+            <td>1</td>
+            <td><InputGroup.Text><FaPercentage></FaPercentage>12<Form.Label/></InputGroup.Text></td>
+            <td>0.88</td>
+          </tr>
+          <tr>
+            <td>Produto B</td>
+            <td>1</td>
+            <td>1</td>
+            <td><InputGroup.Text><FaPercentage></FaPercentage>12<Form.Label/></InputGroup.Text></td>
+            <td>0.88</td>
+          </tr>
+          <tr>
+            <td>Produto V</td>
+            <td>1</td>
+            <td>1</td>
+            <td><InputGroup.Text><FaPercentage></FaPercentage>12<Form.Label/></InputGroup.Text></td>
+            <td>0.88</td>
+          </tr>
+        </tbody>
+        </Table>
       </Row>
         
         </blockquote>
       </Card.Body>
       
-    </Card>
+    </div>
   );
 }
 

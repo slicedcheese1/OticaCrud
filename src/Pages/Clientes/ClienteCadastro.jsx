@@ -1,4 +1,3 @@
-import React from "react"
 import { useState } from "react"
 
 import ClienteContext from "./ClinteContext"
@@ -10,7 +9,6 @@ import DadosPessoaisClienteRegistro from "../../Componentes/Clientes/ClienteRegi
 
 import Button from "react-bootstrap/Button"
 
-import styles from './ClienteCadastro.module.css'
 
 function ClienteCadastro() {
 
@@ -113,7 +111,7 @@ function ClienteCadastro() {
         showingCardResponsavel, setShowingCardResponsavel
       }}>
 
-      <form className="formContainer" autocomplete="off">
+      <form className="formContainer" autoComplete="off">
           <DadosPessoaisClienteRegistro/>
           <DadosEnderecoClienteRegistro/>
           <DadosContatoClienteRegistro/>

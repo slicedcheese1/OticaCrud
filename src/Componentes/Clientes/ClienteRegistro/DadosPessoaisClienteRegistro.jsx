@@ -106,15 +106,6 @@ function DadosPessoaisClienteRegistro() {
 
   const handleTipoClienteChange = (event) => {
     setTipoCliente(event.target.value);
-
-    if (tipoCliente === 'pj') {
-      setCardVisible(true)
-
-    } else {
-      setCardVisible(false)
-    }
-    console.log(cardVisible)
-
   };
 
   return (
