@@ -34,8 +34,8 @@ import * as RiIcons from 'react-icons/ri';
     icon: <IoIcons.IoMdHelpCircle  />
   },
   {
-    title: 'Ordens de Serviço',
-    path: '/Sistema/team',
+    title: 'Consultas',
+    path: '/Sistema/consultas',
     icon: <IoIcons.IoMdPeople />
   },
   {

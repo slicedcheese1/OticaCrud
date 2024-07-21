@@ -111,6 +111,20 @@ const router = createBrowserRouter([
           },
           //========================================================== Grifes =======================================================================
           {
+            path: '/Sistema/consulta',
+            element: <Funcionario/>
+          },
+          {
+            path: '/Sistema/cadastro-consulta',
+            element: <CadastroFuncionario/>
+          },
+          {
+            path: '/Sistema/editar-consulta',
+            element: <EditarFuncionario/>
+          },
+          //========================================================== Consulta =====================================================================
+
+          {
             path: '/Sistema/grifes',
             element: <Grifes />
           },
