@@ -8,7 +8,6 @@ import {FaPercentage } from 'react-icons/fa';
 import styles from './Promocao.module.css';
 import Table from 'react-bootstrap/Table';
 import { useState } from 'react';
-
 function Promocao() {
   const [tipoPromocao, setTipoPromocao] = useState()
 
@@ -23,13 +22,13 @@ function Promocao() {
         <blockquote className={styles.cFlex}>
         <Row>
           <div className={styles.dFlex}>
-          <Form.Group className={`w-90 d-flex flex-column gap-1 ml-2 mr-5`}>
+            <Form.Group className={`w-90 d-flex flex-column gap-1 ml-2 mr-5`}>
               <Form.Label id="label-lojas" htmlFor="lojas">Cadastro Em</Form.Label> 
               <Form.Select className="input" name="loja" value={tipoPromocao} onChange={(e) => {setTipoPromocao(e.target.value)}} required>
                 <option value="" disabled selected >Selecione uma opção</option>
-                <option value="Valor Final">Valor Final</option>  
-                <option value="Desconto em preço fixo">Desconto em preço fixo</option>  
-                <option value="Desconto em porcentagem">Desconto em porcentagem</option>  
+                <option value="ValorFinal">Valor Final</option>  
+                <option value="DescontoPrecoFixo">Desconto em preço fixo</option>  
+                <option value="DescontoPorcentagem">Desconto em porcentagem</option>  
               </Form.Select>    
             </Form.Group>
           </div>     
@@ -77,7 +76,15 @@ function Promocao() {
             <th>Produtos</th>
             <th>Val. Custo</th>
             <th>Val. Unitário</th>
-            <th>Desconto(%)</th>
+            {tipoPromocao === 'ValorFinal' && (
+            <th>Desconto - Valor Final</th>
+            )}
+            {tipoPromocao === 'DescontoPrecoFixo' && (
+            <th>Desconto - Preço Fixo</th>
+            )}
+            {tipoPromocao === 'DescontoPorcentagem' && (
+            <th>Desconto - %</th>
+            )}
             <th>Val. Final</th>
           </tr>
         </thead>
@@ -86,23 +93,15 @@ function Promocao() {
             <td>Produto A</td>
             <td>1</td>
             <td>1</td>
-            <td><InputGroup.Text><FaPercentage></FaPercentage>12<Form.Label/></InputGroup.Text></td>
+            <td>
+              <Form.Control
+              value={{}} 
+              onChange={(e) => {}}
+              ></Form.Control>
+            </td>
             <td>0.88</td>
           </tr>
-          <tr>
-            <td>Produto B</td>
-            <td>1</td>
-            <td>1</td>
-            <td><InputGroup.Text><FaPercentage></FaPercentage>12<Form.Label/></InputGroup.Text></td>
-            <td>0.88</td>
-          </tr>
-          <tr>
-            <td>Produto V</td>
-            <td>1</td>
-            <td>1</td>
-            <td><InputGroup.Text><FaPercentage></FaPercentage>12<Form.Label/></InputGroup.Text></td>
-            <td>0.88</td>
-          </tr>
+
         </tbody>
         </Table>
       </Row>
