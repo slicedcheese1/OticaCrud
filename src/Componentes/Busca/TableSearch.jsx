@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './TableSearch.css';
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
-
+import {  useNavigate } from 'react-router-dom'
 let dataTable;
 let dataTableIsInitialized = false;
 

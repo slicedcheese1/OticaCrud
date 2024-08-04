@@ -45,29 +45,33 @@ function ClienteCadastro() {
       console.log(erroForm)
       return
     }
+
+    const cliente = JSON.stringify({
+      tipoCliente,
+      lojaCadastro,
+      cep,
+      cidade,
+      estado,
+      rua,
+      numeroCasa,
+      bairro,
+      numerosTelefone,
+      emails,
+      habilitarSms,
+      habilitarWhatsapp,
+      cpf,
+      nome,
+      rg,
+      dataNascimento,
+      sexo
+    })
+
+    console.log(cliente)
     
     fetch('http://localhost:8080/clientes/pf', {
       //mode: 'no-cors',
       method: 'POST',
-      body: JSON.stringify({
-        tipoCliente,
-        lojaCadastro,
-        cep,
-        cidade,
-        estado,
-        rua,
-        numeroCasa,
-        bairro,
-        numerosTelefone,
-        emails,
-        habilitarSms,
-        habilitarWhatsapp,
-        cpf,
-        nome,
-        rg,
-        dataNascimento,
-        sexo
-      }),
+      body: cliente,
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
