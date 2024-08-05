@@ -67,7 +67,7 @@ import HistoricoProdutos from './Pages/Produtos/HistóricoProdutos.jsx';
 import CadastroProdutos from './Pages/Produtos/CadastroProdutos.jsx';
 import EditarProdutos from './Pages/Produtos/EditarProdutos.jsx';
 
-
+import MessageContext from './Context/MessageContext.jsx';
 
 const router = createBrowserRouter([
   {
@@ -283,7 +283,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider>
-      <RouterProvider router={router} />
+      <MessageContext>
+        <RouterProvider router={router} />
+      </MessageContext>
     </ThemeProvider>
   </React.StrictMode>
 );

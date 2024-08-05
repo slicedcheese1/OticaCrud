@@ -1,15 +1,18 @@
-import { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Message from "../../Componentes/Messages/Message";
+
+import MessageContext from '../../Context/MessageContext';
 
 const CadastroUnidade = () => {
   const navigate = useNavigate();
   const [nome, setNome] = useState("");
   const [erroNome, setErroNome] = useState(false);
   const [erros, setErros] = useState([]);
+
+  const { messagesMain, setMessagesMain } = useContext(MessageContext);
 
   const validarCampoNome = (nome) => {
     setErroNome(nome === "");
@@ -20,7 +23,8 @@ const CadastroUnidade = () => {
 
     let newErros = [];
     if (nome === "") {
-      newErros.push({ title: "O campo de nome precisa ser preenchido.", variant: "danger", text: "O campo de nome precisa ser preenchido." });
+      setErroNome(true);
+      newErros.push({ title: "O campo de nome precisa ser preenchido.", variant: "danger", text: "O campo de nome precisa ser preenchido.", show: true });
     }
 
     if (newErros.length > 0) {
@@ -29,7 +33,6 @@ const CadastroUnidade = () => {
     }
 
     const unidade = JSON.stringify({ nome });
-    console.table(unidade);
 
     fetch('http://localhost:8080/unidade', {
       method: 'POST',
@@ -49,22 +52,32 @@ const CadastroUnidade = () => {
       })
       .then((data) => {
         console.log('Unidade criada com sucesso:', data);
-        setErros([{ title: "Unidade criada com sucesso.", variant: "success", text: "Unidade criada com sucesso." }]);
+        setMessagesMain([...messagesMain, { title: "Unidade criada com sucesso.", variant: "success", text: "Unidade criada com sucesso.", show: true }]);
         setNome("");
-        // Optionally, you can navigate to another page after a successful save
-        // navigate("/Sistema/unidades/");
+        navigate("/Sistema/unidades/");
       })
       .catch((error) => {
         console.error('Erro ao criar unidade:', error);
-        setErros([{ title: error.message || 'Erro ao criar unidade.', variant: "danger", text: error.message || 'Erro ao criar unidade.' }]);
+        setMessagesMain([...messagesMain, { title: error.message || 'Erro ao criar unidade.', variant: "danger", text: error.message || 'Erro ao criar unidade.', show: true }]);
       });
+  };
+
+  const handleCloseMessage = (index) => {
+    setErros(erros.map((erro, i) => (i === index ? { ...erro, show: false } : erro)));
   };
 
   return (
     <>
       <div className='d-flex flex-column gap-2'>
         {erros.map((erro, index) => (
-          <Message key={index} variant={erro.variant} title={erro.title} text={erro.text} />
+          <Message
+            key={index}
+            variant={erro.variant}
+            title={erro.title}
+            text={erro.text}
+            showCard={erro.show}
+            onClose={() => handleCloseMessage(index)}
+          />
         ))}
       </div>
       <div className='formContainer'>
