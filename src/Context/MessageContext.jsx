@@ -1,28 +1,28 @@
 import React, { createContext, useState, useEffect } from "react";
+import { toast } from 'react-toastify';
+
 
 const MessageContext = createContext({
   messagesMain: [],
-  setMessagesMain: () => {}
+  setMessagesMain: () => {},
+  successMessage: () => {},
+  errorMessage: () => {}
 });
 
 export const MessageProvider = ({ children }) => {
-  const [messagesMain, setMessagesMain] = useState(() => {
-    const storedMessages = localStorage.getItem("messagesMain");
-    return storedMessages ? JSON.parse(storedMessages) : [];
-  });
 
-  useEffect(() => {
-    localStorage.setItem("messagesMain", JSON.stringify(messagesMain));
-  }, [messagesMain]);
-
-
-  const clearMessagesMain = () => {
-    setMessagesMain([]);
-    localStorage.removeItem("messagesMain");
-  };
+    // toastfy
+    const successMessage = (message) => {
+      toast.success(message)
+    }
+  
+    const errorMessage = (message) => {
+      toast.error(message)
+    }
+  
 
   return (
-    <MessageContext.Provider value={{ messagesMain, setMessagesMain, clearMessagesMain }}>
+    <MessageContext.Provider value={{ successMessage, errorMessage }}>
       {children}
     </MessageContext.Provider>
   );
