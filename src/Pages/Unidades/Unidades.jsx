@@ -6,16 +6,23 @@ import Button from "react-bootstrap/Button";
 import MessageContext from '../../Context/MessageContext';
 
 const Unidades = () => {
-  const { messagesMain, setMessagesMain } = useContext(MessageContext);
-  
+  const { messagesMain, setMessagesMain, clearMessagesMain } = useContext(MessageContext);
+
+  useEffect(() => {
+    if (messagesMain.length > 0) {
+      // Clear messages after they have been displayed
+      clearMessagesMain();
+    }
+  }, [messagesMain, clearMessagesMain]);
 
   const handleCloseMessage = (index) => {
     setMessagesMain(messagesMain.map((message, i) => (i === index ? { ...message, show: false } : message)));
   };
 
+
   return (
     <>
-      <div className='d-flex flex-column gap-2'>
+      <div className='d-flex flex-column gap-2 container'>
         {messagesMain.map((message, index) => (
           <Message
             key={index}
@@ -27,7 +34,7 @@ const Unidades = () => {
           />
         ))}
       </div>
-      <div className="d-flex w-100 justify-content-between">
+      <div className="d-flex w-100 justify-content-between container">
         <h1>Unidades</h1>
         <Link to={`/Sistema/cadastrar-unidade`}>
           <Button>Nova Unidade</Button>

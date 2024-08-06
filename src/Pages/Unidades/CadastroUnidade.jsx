@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Message from "../../Componentes/Messages/Message";
 
 import MessageContext from '../../Context/MessageContext';
+import { ToastContainer, toast } from 'react-toastify';
 
 const CadastroUnidade = () => {
   const navigate = useNavigate();
@@ -14,6 +15,14 @@ const CadastroUnidade = () => {
 
   const { messagesMain, setMessagesMain } = useContext(MessageContext);
 
+  const success = () => {
+    toast.success("Unidade criada com sucesso!")
+  }
+
+  const error = (message) => {
+    toast.error(message)
+  }
+
   const validarCampoNome = (nome) => {
     setErroNome(nome === "");
   };
@@ -22,14 +31,18 @@ const CadastroUnidade = () => {
     e.preventDefault();
 
     let newErros = [];
+
+    // validação de nome da unidade
     if (nome === "") {
       setErroNome(true);
       newErros.push({ title: "O campo de nome precisa ser preenchido.", variant: "danger", text: "O campo de nome precisa ser preenchido.", show: true });
     }
 
+    // exibição dos erros
     if (newErros.length > 0) {
-      setErros(newErros);
-      return;
+        newErros.forEach(newError => {
+          error(newError.title)
+      });
     }
 
     const unidade = JSON.stringify({ nome });
@@ -54,6 +67,7 @@ const CadastroUnidade = () => {
         console.log('Unidade criada com sucesso:', data);
         setMessagesMain([...messagesMain, { title: "Unidade criada com sucesso.", variant: "success", text: "Unidade criada com sucesso.", show: true }]);
         setNome("");
+        success()
         navigate("/Sistema/unidades/");
       })
       .catch((error) => {

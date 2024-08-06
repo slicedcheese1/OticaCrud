@@ -15,8 +15,14 @@ export const MessageProvider = ({ children }) => {
     localStorage.setItem("messagesMain", JSON.stringify(messagesMain));
   }, [messagesMain]);
 
+
+  const clearMessagesMain = () => {
+    setMessagesMain([]);
+    localStorage.removeItem("messagesMain");
+  };
+
   return (
-    <MessageContext.Provider value={{ messagesMain, setMessagesMain }}>
+    <MessageContext.Provider value={{ messagesMain, setMessagesMain, clearMessagesMain }}>
       {children}
     </MessageContext.Provider>
   );
