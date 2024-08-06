@@ -6,7 +6,7 @@ const OrigemCliente = () => {
 
   return (
     <>
-    <div className="d-flex w-100 justify-content-between">
+    <div className="d-flex w-100 justify-content-between container">
       <h1>Origem dos Clientes</h1>
       <Link to={`/Sistema/cadastrar-origem-cliente/`}>
         <Button>Nova Origem</Button>

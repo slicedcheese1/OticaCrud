@@ -12,7 +12,9 @@ const CadastroUnidade = () => {
   const { successMessage, errorMessage } = useContext(MessageContext);
 
   const validarCampoNome = (nome) => {
-    setErroNome(nome === "");
+    const erro = nome === "";
+    setErroNome(erro);
+    return erro;
   };
 
   const salvarUnidade = (e) => {
@@ -21,15 +23,16 @@ const CadastroUnidade = () => {
     let newErros = [];
 
     // validação de nome da unidade
-    if (erroNome) {
+    if (validarCampoNome(nome)) {
       newErros.push({ title: "O campo de nome precisa ser preenchido." });
     }
 
     // exibição dos erros de validação de formulario
     if (newErros.length > 0) {
-        newErros.forEach(newError => {
-          errorMessage(newError.title)
+      newErros.forEach(newError => {
+        errorMessage(newError.title)
       });
+      return
     }
 
     const unidade = JSON.stringify({ nome });
@@ -42,6 +45,14 @@ const CadastroUnidade = () => {
         'Content-Type': 'application/json'
       }
     })
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(errorData => {
+            throw new Error(errorData.message || 'Erro ao criar unidade.');
+          });
+        }
+        return response.json();
+      })
       .then((data) => {
         console.log('Unidade criada com sucesso:', data);
         setNome("");

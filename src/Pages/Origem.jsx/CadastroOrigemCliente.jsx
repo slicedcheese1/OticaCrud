@@ -1,8 +1,10 @@
-import  { useState } from 'react'
+import  { useState, useContext  } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
+
+import MessageContext from '../../Context/MessageContext';
 
 const CadastroOrigemCliente = () => {
 
@@ -11,19 +13,33 @@ const CadastroOrigemCliente = () => {
     const atividade = true
     const [erroNome, setErroNome] = useState(false)
 
+    const { successMessage, errorMessage } = useContext(MessageContext);
+
     const validarCampoNome = (nome) => {
-      nome == "" ? setErroNome(true) : setErroNome(false)
+      const erro = nome === "";
+      setErroNome(erro);
+      return erro;
     };
 
-    const handleSalvar = (e) => {
+    const SalvarOrigemDoCliente = (e) => {
         e.preventDefault();
+
+        let newErros = [];
+
+        // validação de nome da unidade
+        if (validarCampoNome(nome)) {
+          newErros.push({ title: "O campo de nome precisa ser preenchido." });
+        }
     
-        if (erroNome) {
+        // exibição dos erros de validação de formulario
+        if (newErros.length > 0) {
+          newErros.forEach(newError => {
+            errorMessage(newError.title)
+          });
           return
-        }   
+        }
 
         const origem = JSON.stringify({nome, atividade})
-        console.table(origem)
         
         fetch('http://localhost:8080/origem_cliente', {
           //mode: 'no-cors',
@@ -37,11 +53,14 @@ const CadastroOrigemCliente = () => {
           .then(response => response.json())
           .then((data) => {
             console.log('Post criado com sucesso:', data);
+            setNome("");
+            successMessage("Origem criada com sucesso!")
             navigate("/Sistema/origem-cliente/")
 
           })
           .catch((error) => {
             console.error('Erro ao criar post:', error);
+            errorMessage('Não foi possível cria a origem.')
           });
       };
 
@@ -49,7 +68,7 @@ const CadastroOrigemCliente = () => {
         <div className='formContainer'>
             <h1>Nova Origem</h1>
             <hr />
-
+            <div>
             <Form.Group>
             <Form.Label>Nome</Form.Label>
             <Form.Control
@@ -62,9 +81,9 @@ const CadastroOrigemCliente = () => {
             </Form.Group>
             {erroNome &&  <span className='text-danger mt-0 ms-1'>Digite o nome da Origem.</span>}
             {!erroNome && <br/>}
-
+            </div>
             <div className="d-flex gap-1 flex-row-reverse ml-auto w-100">
-            <Button variant='primary' onClick={handleSalvar}>Salvar</Button>
+            <Button variant='primary' onClick={SalvarOrigemDoCliente}>Salvar</Button>
 
             <Link to={`/Sistema/origem-cliente/`}>
                 <Button variant='secondary'>Voltar</Button>

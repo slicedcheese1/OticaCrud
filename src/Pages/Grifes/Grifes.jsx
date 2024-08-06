@@ -3,39 +3,11 @@ import Button from "react-bootstrap/Button"
 import TableSearch from '../../Componentes/Busca/TableSearch';
 
 const Grifes = () => {
-    // const [grifes, setGrifes] = useState([]);
- 
-
-    // useEffect(() => {
-    //   buscarGrifes();
-    // }, []);
-  
-    // const buscarGrifes = () => {
-    //   fetch("http://localhost:8080/grife/all")
-    //     .then(resposta => resposta.json())
-    //     .then(dados => {
-    //       setGrifes(dados);
-    //     });
-    // };
-  
-    
-  
-    // const deletarGrifes = (id) => {
-    //   fetch(`http://localhost:8080/grife/${id}`, {
-    //     method: 'DELETE'
-    //   })
-    //     .then(response => {
-    //       if (response.ok) {
-    //         buscarGrifes();
-    //         console.log(response)
-    //       }
-    //     });
-    // };
 
   return (
 
     <>
-    <div className="d-flex w-100 justify-content-between">
+    <div className="d-flex w-100 justify-content-between container">
       <h1>Grifes</h1>
       <Link to={`/Sistema/cadastrar-grife/`}>
         <Button>Nova Grife</Button>

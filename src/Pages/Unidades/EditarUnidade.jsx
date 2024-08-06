@@ -13,8 +13,11 @@ const EditarUnidade = () => {
   const { successMessage, errorMessage } = useContext(MessageContext);
   
   const validarCampoNome = (nome) => {
-    setErroNome(nome === "");
+    const erro = nome === "";
+    setErroNome(erro);
+    return erro;
   };
+
     
   // carregando dados
   useEffect(() => {
@@ -40,6 +43,7 @@ const EditarUnidade = () => {
 
       let newErros = [];
 
+      // validação de nome da unidade
       if (erroNome) {
         newErros.push({ title: "O campo de nome precisa ser preenchido." });
       }   
@@ -49,6 +53,7 @@ const EditarUnidade = () => {
         newErros.forEach(newError => {
           errorMessage(newError.title)
         });
+        return
       }
 
       const unidade = JSON.stringify({nome})
@@ -71,7 +76,7 @@ const EditarUnidade = () => {
         })
         .catch((error) => {
           console.error('Erro ao editar Unidade:', error);
-          errorMessage('Não foi possível cria a unidade.')
+          errorMessage('Não foi possível criar a unidade.')
         });
     };
 

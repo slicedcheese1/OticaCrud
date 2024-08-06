@@ -1,28 +1,42 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
+import MessageContext from '../../Context/MessageContext';
 
 const CadastroGrifes = () => {
-
     const navigate = useNavigate();
     const [nome, setNomeGrife] = useState("")
     const [erroNome, setErroNome] = useState(false)
 
-    const validarCampoNome = (nome) => {
-      nome == "" ? setErroNome(true) : setErroNome(false)
-    };
+    const { successMessage, errorMessage } = useContext(MessageContext);
 
-    const handleSalvar = (e) => {
+    const validarCampoNome = (nome) => {
+      const erro = nome === "";
+      setErroNome(erro);
+      return erro;
+    };
+  
+    const salvarGrife = (e) => {
         e.preventDefault();
     
-        if (erroNome) {
+        let newErros = [];
+
+        // validação de nome da unidade
+        if (validarCampoNome(nome)) {
+          newErros.push({ title: "O campo de nome precisa ser preenchido." });
+        }
+
+        // exibição dos erros de validação de formulario
+        if (newErros.length > 0) {
+          newErros.forEach(newError => {
+            errorMessage(newError.title)
+          });
           return
-        }   
-        
+        }
+
         const grife = JSON.stringify({nome})
-        console.table(grife)
 
         fetch('http://localhost:8080/grife', {
           //mode: 'no-cors',
@@ -36,10 +50,12 @@ const CadastroGrifes = () => {
           .then(response => response.json())
           .then((data) => {
             console.log('Grife criada com sucesso:', data);
+            successMessage("Grife criada com sucesso!")
             navigate("/Sistema/grifes/")
           })
           .catch((error) => {
             console.error('Erro ao criar grife:', error);
+            errorMessage('Não foi possível criar a grife.')
           });
       };
 
@@ -64,7 +80,7 @@ const CadastroGrifes = () => {
             </div>
 
             <div className="d-flex gap-1 flex-row-reverse ml-auto w-100">
-              <Button variant='primary' onClick={handleSalvar}> Salvar </Button>
+              <Button variant='primary' onClick={salvarGrife}> Salvar </Button>
 
               <Link to={`/Sistema/grifes/`}>
                   <Button  variant='secondary'>Voltar</Button>
